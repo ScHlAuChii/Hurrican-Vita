@@ -6,20 +6,997 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		C123F57B1D6D81100000ABE3 /* Boss_BigFish.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4C71D6D810F0000ABE3 /* Boss_BigFish.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F57C1D6D81100000ABE3 /* Boss_Bratklops.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4C81D6D810F0000ABE3 /* Boss_Bratklops.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F57D1D6D81100000ABE3 /* Boss_Drache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4C91D6D810F0000ABE3 /* Boss_Drache.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F57E1D6D81100000ABE3 /* Boss_EisFaust.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4CA1D6D810F0000ABE3 /* Boss_EisFaust.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F57F1D6D81100000ABE3 /* Boss_EvilHurri.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4CB1D6D810F0000ABE3 /* Boss_EvilHurri.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5801D6D81100000ABE3 /* Boss_FahrstuhlBoss.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4CC1D6D810F0000ABE3 /* Boss_FahrstuhlBoss.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5811D6D81100000ABE3 /* Boss_FlugBoss.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4CD1D6D810F0000ABE3 /* Boss_FlugBoss.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5821D6D81100000ABE3 /* Boss_Golem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4CE1D6D810F0000ABE3 /* Boss_Golem.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5831D6D81100000ABE3 /* Boss_MetalHead.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4CF1D6D810F0000ABE3 /* Boss_MetalHead.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5841D6D81100000ABE3 /* Boss_PharaoKopf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4D01D6D810F0000ABE3 /* Boss_PharaoKopf.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5851D6D81100000ABE3 /* Boss_RiesenPiranha.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4D11D6D810F0000ABE3 /* Boss_RiesenPiranha.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5861D6D81100000ABE3 /* Boss_RiesenQualle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4D21D6D810F0000ABE3 /* Boss_RiesenQualle.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5871D6D81100000ABE3 /* Boss_RiesenRaupe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4D31D6D810F0000ABE3 /* Boss_RiesenRaupe.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5881D6D81100000ABE3 /* Boss_RiesenSpinne.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4D41D6D810F0000ABE3 /* Boss_RiesenSpinne.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5891D6D81100000ABE3 /* Boss_RiesenWespe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4D51D6D810F0000ABE3 /* Boss_RiesenWespe.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F58A1D6D81100000ABE3 /* Boss_Rollmops.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4D61D6D810F0000ABE3 /* Boss_Rollmops.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F58B1D6D81100000ABE3 /* Boss_SchmidtOrgie.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4D71D6D810F0000ABE3 /* Boss_SchmidtOrgie.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F58C1D6D81100000ABE3 /* Boss_Schneekoenig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4D81D6D810F0000ABE3 /* Boss_Schneekoenig.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F58D1D6D81100000ABE3 /* Boss_Skeletor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4D91D6D810F0000ABE3 /* Boss_Skeletor.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F58E1D6D81100000ABE3 /* Boss_Skull.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4DA1D6D810F0000ABE3 /* Boss_Skull.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F58F1D6D81100000ABE3 /* Boss_Spinnenmaschine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4DB1D6D810F0000ABE3 /* Boss_Spinnenmaschine.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5901D6D81100000ABE3 /* Boss_Stahlfaust.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4DC1D6D810F0000ABE3 /* Boss_Stahlfaust.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5911D6D81100000ABE3 /* Boss_TheWall.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4DD1D6D810F0000ABE3 /* Boss_TheWall.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5921D6D81100000ABE3 /* Boss_Ufo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4DE1D6D810F0000ABE3 /* Boss_Ufo.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5931D6D81100000ABE3 /* Boss_WuxeSpinnen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4DF1D6D810F0000ABE3 /* Boss_WuxeSpinnen.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5941D6D81100000ABE3 /* CCracktro.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4E01D6D810F0000ABE3 /* CCracktro.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5951D6D81100000ABE3 /* CCutScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4E11D6D810F0000ABE3 /* CCutScene.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5961D6D81100000ABE3 /* CDragonHack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4E21D6D810F0000ABE3 /* CDragonHack.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5971D6D81100000ABE3 /* Console.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4E31D6D810F0000ABE3 /* Console.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5981D6D81100000ABE3 /* DX8Enum.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4E41D6D810F0000ABE3 /* DX8Enum.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5991D6D81100000ABE3 /* DX8Font.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4E51D6D810F0000ABE3 /* DX8Font.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F59A1D6D81100000ABE3 /* DX8Graphics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4E61D6D810F0000ABE3 /* DX8Graphics.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F59B1D6D81100000ABE3 /* DX8Input.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4E71D6D810F0000ABE3 /* DX8Input.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F59C1D6D81100000ABE3 /* DX8Joystick.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4E81D6D810F0000ABE3 /* DX8Joystick.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F59D1D6D81100000ABE3 /* DX8Sound.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4E91D6D810F0000ABE3 /* DX8Sound.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F59E1D6D81100000ABE3 /* DX8Sprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4EA1D6D810F0000ABE3 /* DX8Sprite.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F59F1D6D81100000ABE3 /* Gameplay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4EB1D6D810F0000ABE3 /* Gameplay.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5A01D6D81100000ABE3 /* Gegner_Auge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4EC1D6D810F0000ABE3 /* Gegner_Auge.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5A11D6D81100000ABE3 /* Gegner_BallerDrone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4ED1D6D810F0000ABE3 /* Gegner_BallerDrone.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5A21D6D81100000ABE3 /* Gegner_BigRocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4EE1D6D810F0000ABE3 /* Gegner_BigRocket.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5A31D6D81100000ABE3 /* Gegner_BlueBoulder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4EF1D6D810F0000ABE3 /* Gegner_BlueBoulder.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5A41D6D81100000ABE3 /* Gegner_BrockelRock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4F01D6D810F0000ABE3 /* Gegner_BrockelRock.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5A51D6D81100000ABE3 /* Gegner_Climber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4F11D6D810F0000ABE3 /* Gegner_Climber.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5A61D6D81100000ABE3 /* Gegner_DeckenKrabbe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4F21D6D810F0000ABE3 /* Gegner_DeckenKrabbe.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5A71D6D81100000ABE3 /* Gegner_Deckenturm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4F31D6D810F0000ABE3 /* Gegner_Deckenturm.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5A81D6D81100000ABE3 /* Gegner_Diamant.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4F41D6D810F0000ABE3 /* Gegner_Diamant.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5A91D6D81100000ABE3 /* Gegner_Drone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4F51D6D810F0000ABE3 /* Gegner_Drone.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5AA1D6D81100000ABE3 /* Gegner_EierMann.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4F61D6D810F0000ABE3 /* Gegner_EierMann.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5AB1D6D81100000ABE3 /* Gegner_EisStachel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4F71D6D810F0000ABE3 /* Gegner_EisStachel.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5AC1D6D81100000ABE3 /* Gegner_Eiszapfen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4F81D6D810F0000ABE3 /* Gegner_Eiszapfen.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5AD1D6D81100000ABE3 /* Gegner_Extras.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4F91D6D810F0000ABE3 /* Gegner_Extras.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5AE1D6D81100000ABE3 /* Gegner_FallBombe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4FA1D6D810F0000ABE3 /* Gegner_FallBombe.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5AF1D6D81100000ABE3 /* Gegner_FallingRock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4FB1D6D810F0000ABE3 /* Gegner_FallingRock.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5B01D6D81100000ABE3 /* Gegner_FetteRakete.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4FC1D6D810F0000ABE3 /* Gegner_FetteRakete.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5B11D6D81100000ABE3 /* Gegner_FetteSpinne.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4FD1D6D810F0000ABE3 /* Gegner_FetteSpinne.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5B21D6D81100000ABE3 /* Gegner_FieseDrone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4FE1D6D810F0000ABE3 /* Gegner_FieseDrone.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5B31D6D81100000ABE3 /* Gegner_FieserFireWalker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4FF1D6D810F0000ABE3 /* Gegner_FieserFireWalker.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5B41D6D81100000ABE3 /* Gegner_FieserWalker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5001D6D810F0000ABE3 /* Gegner_FieserWalker.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5B51D6D81100000ABE3 /* Gegner_FireSpider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5011D6D810F0000ABE3 /* Gegner_FireSpider.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5B61D6D81100000ABE3 /* Gegner_Fledermaus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5021D6D810F0000ABE3 /* Gegner_Fledermaus.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5B71D6D81100000ABE3 /* Gegner_FlugKanone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5031D6D810F0000ABE3 /* Gegner_FlugKanone.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5B81D6D81100000ABE3 /* Gegner_Flugsack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5041D6D810F0000ABE3 /* Gegner_Flugsack.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5B91D6D81100000ABE3 /* Gegner_Geschuetz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5051D6D810F0000ABE3 /* Gegner_Geschuetz.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5BA1D6D81100000ABE3 /* Gegner_GunTower.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5061D6D810F0000ABE3 /* Gegner_GunTower.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5BB1D6D81100000ABE3 /* Gegner_Helper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5071D6D810F0000ABE3 /* Gegner_Helper.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5BC1D6D81100000ABE3 /* Gegner_Jaeger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5081D6D810F0000ABE3 /* Gegner_Jaeger.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5BD1D6D81100000ABE3 /* Gegner_Kettenglied.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5091D6D810F0000ABE3 /* Gegner_Kettenglied.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5BE1D6D81100000ABE3 /* Gegner_KrabblerLinks.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F50A1D6D810F0000ABE3 /* Gegner_KrabblerLinks.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5BF1D6D81100000ABE3 /* Gegner_KrabblerOben.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F50B1D6D810F0000ABE3 /* Gegner_KrabblerOben.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5C01D6D81100000ABE3 /* Gegner_KrabblerRechts.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F50C1D6D810F0000ABE3 /* Gegner_KrabblerRechts.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5C11D6D81100000ABE3 /* Gegner_KugelGross.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F50D1D6D810F0000ABE3 /* Gegner_KugelGross.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5C21D6D81100000ABE3 /* Gegner_KugelKlein.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F50E1D6D810F0000ABE3 /* Gegner_KugelKlein.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5C31D6D81100000ABE3 /* Gegner_KugelMedium.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F50F1D6D810F0000ABE3 /* Gegner_KugelMedium.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5C41D6D81100000ABE3 /* Gegner_KugelRiesig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5101D6D810F0000ABE3 /* Gegner_KugelRiesig.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5C51D6D81100000ABE3 /* Gegner_LaFass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5111D6D810F0000ABE3 /* Gegner_LaFass.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5C61D6D81100000ABE3 /* Gegner_LavaBall.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5121D6D810F0000ABE3 /* Gegner_LavaBall.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5C71D6D81100000ABE3 /* Gegner_LavaBallSpawner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5131D6D810F0000ABE3 /* Gegner_LavaBallSpawner.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5C81D6D81100000ABE3 /* Gegner_LavaKrabbe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5141D6D810F0000ABE3 /* Gegner_LavaKrabbe.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5C91D6D81100000ABE3 /* Gegner_Lavamann.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5151D6D810F0000ABE3 /* Gegner_Lavamann.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5CA1D6D81100000ABE3 /* Gegner_Made.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5161D6D810F0000ABE3 /* Gegner_Made.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5CB1D6D81100000ABE3 /* Gegner_Minidragon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5171D6D810F0000ABE3 /* Gegner_Minidragon.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5CC1D6D81100000ABE3 /* Gegner_MiniRocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5181D6D810F0000ABE3 /* Gegner_MiniRocket.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5CD1D6D81100000ABE3 /* Gegner_MittelSpinne.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5191D6D810F0000ABE3 /* Gegner_MittelSpinne.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5CE1D6D81100000ABE3 /* Gegner_Mutant.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F51A1D6D810F0000ABE3 /* Gegner_Mutant.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5CF1D6D81100000ABE3 /* Gegner_Nest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F51B1D6D810F0000ABE3 /* Gegner_Nest.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5D01D6D81100000ABE3 /* Gegner_NeuFisch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F51C1D6D810F0000ABE3 /* Gegner_NeuFisch.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5D11D6D81100000ABE3 /* Gegner_OneUp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F51D1D6D810F0000ABE3 /* Gegner_OneUp.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5D21D6D81100000ABE3 /* Gegner_PFlanze.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F51E1D6D810F0000ABE3 /* Gegner_PFlanze.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5D31D6D81100000ABE3 /* Gegner_Piranha.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F51F1D6D810F0000ABE3 /* Gegner_Piranha.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5D41D6D81100000ABE3 /* Gegner_PokeNuke.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5201D6D810F0000ABE3 /* Gegner_PokeNuke.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5D51D6D81100000ABE3 /* Gegner_PowerBlock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5211D6D810F0000ABE3 /* Gegner_PowerBlock.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5D61D6D81100000ABE3 /* Gegner_Punisher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5221D6D810F0000ABE3 /* Gegner_Punisher.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5D71D6D81100000ABE3 /* Gegner_Qualle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5231D6D810F0000ABE3 /* Gegner_Qualle.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5D81D6D81100000ABE3 /* Gegner_Raketenwerfer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5241D6D810F0000ABE3 /* Gegner_Raketenwerfer.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5D91D6D81100000ABE3 /* Gegner_ReitFlugsack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5251D6D810F0000ABE3 /* Gegner_ReitFlugsack.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5DA1D6D81100000ABE3 /* Gegner_RoboMan1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5261D6D810F0000ABE3 /* Gegner_RoboMan1.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5DB1D6D81100000ABE3 /* Gegner_RoboRaupe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5271D6D810F0000ABE3 /* Gegner_RoboRaupe.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5DC1D6D81100000ABE3 /* Gegner_Rotzpott.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5281D6D810F0000ABE3 /* Gegner_Rotzpott.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5DD1D6D81100000ABE3 /* Gegner_Schabe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5291D6D810F0000ABE3 /* Gegner_Schabe.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5DE1D6D81100000ABE3 /* Gegner_SchienenViech.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F52A1D6D810F0000ABE3 /* Gegner_SchienenViech.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5DF1D6D81100000ABE3 /* Gegner_SchleimAlien.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F52B1D6D810F0000ABE3 /* Gegner_SchleimAlien.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5E01D6D81100000ABE3 /* Gegner_SchleimBoller.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F52C1D6D810F0000ABE3 /* Gegner_SchleimBoller.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5E11D6D81100000ABE3 /* Gegner_SchleimMaul.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F52D1D6D810F0000ABE3 /* Gegner_SchleimMaul.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5E21D6D81100000ABE3 /* Gegner_Schneekoppe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F52E1D6D810F0000ABE3 /* Gegner_Schneekoppe.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5E31D6D81100000ABE3 /* Gegner_Schwabbel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F52F1D6D810F0000ABE3 /* Gegner_Schwabbel.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5E41D6D81100000ABE3 /* Gegner_SideRocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5301D6D810F0000ABE3 /* Gegner_SideRocket.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5E51D6D81100000ABE3 /* Gegner_SkiWalker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5311D6D810F0000ABE3 /* Gegner_SkiWalker.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5E61D6D81100000ABE3 /* Gegner_SmallWespe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5321D6D810F0000ABE3 /* Gegner_SmallWespe.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5E71D6D81100000ABE3 /* Gegner_SnowBomb.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5331D6D810F0000ABE3 /* Gegner_SnowBomb.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5E81D6D81100000ABE3 /* Gegner_SpiderBomb.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5341D6D810F0000ABE3 /* Gegner_SpiderBomb.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5E91D6D81100000ABE3 /* Gegner_Spitter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5351D6D810F0000ABE3 /* Gegner_Spitter.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5EA1D6D81100000ABE3 /* Gegner_Spitterbombe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5361D6D810F0000ABE3 /* Gegner_Spitterbombe.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5EB1D6D81100000ABE3 /* Gegner_Stachelbeere.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5371D6D810F0000ABE3 /* Gegner_Stachelbeere.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5EC1D6D81100000ABE3 /* Gegner_Stahlmuecke.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5381D6D810F0000ABE3 /* Gegner_Stahlmuecke.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5ED1D6D81100000ABE3 /* Gegner_Stalagtit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5391D6D810F0000ABE3 /* Gegner_Stalagtit.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5EE1D6D81100000ABE3 /* Gegner_StarBig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F53A1D6D810F0000ABE3 /* Gegner_StarBig.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5EF1D6D81100000ABE3 /* Gegner_StarSmall.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F53B1D6D810F0000ABE3 /* Gegner_StarSmall.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5F01D6D81100000ABE3 /* Gegner_StelzSack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F53C1D6D810F0000ABE3 /* Gegner_StelzSack.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5F11D6D81100000ABE3 /* Gegner_SwimWalker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F53D1D6D810F0000ABE3 /* Gegner_SwimWalker.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5F21D6D81100000ABE3 /* Gegner_Walker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F53E1D6D810F0000ABE3 /* Gegner_Walker.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5F31D6D81100000ABE3 /* Gegner_WandKannone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F53F1D6D810F0000ABE3 /* Gegner_WandKannone.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5F41D6D81100000ABE3 /* Gegner_WandKrabbe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5401D6D810F0000ABE3 /* Gegner_WandKrabbe.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5F51D6D81100000ABE3 /* Gegner_WasserMine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5411D6D810F0000ABE3 /* Gegner_WasserMine.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5F61D6D81100000ABE3 /* Gegner_Zitrone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5421D6D810F0000ABE3 /* Gegner_Zitrone.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5F71D6D81100000ABE3 /* GegnerClass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5431D6D81100000ABE3 /* GegnerClass.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5F81D6D81100000ABE3 /* GetKeyName.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5441D6D81100000ABE3 /* GetKeyName.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5F91D6D81100000ABE3 /* GUISystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5451D6D81100000ABE3 /* GUISystem.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5FA1D6D81100000ABE3 /* HUD.CPP in Sources */ = {isa = PBXBuildFile; fileRef = C123F5461D6D81100000ABE3 /* HUD.CPP */; settings = {ASSET_TAGS = (); }; };
+		C123F5FB1D6D81100000ABE3 /* Intro.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5471D6D81100000ABE3 /* Intro.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5FC1D6D81100000ABE3 /* lightmap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5481D6D81100000ABE3 /* lightmap.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5FD1D6D81100000ABE3 /* Logdatei.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5491D6D81100000ABE3 /* Logdatei.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5FE1D6D81100000ABE3 /* Main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F54A1D6D81100000ABE3 /* Main.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F5FF1D6D81100000ABE3 /* Menu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F54B1D6D81100000ABE3 /* Menu.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F6001D6D81100000ABE3 /* Outtro.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F54C1D6D81100000ABE3 /* Outtro.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F6011D6D81100000ABE3 /* Partikelsystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F54D1D6D81100000ABE3 /* Partikelsystem.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F6021D6D81100000ABE3 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F54E1D6D81100000ABE3 /* Player.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F6031D6D81100000ABE3 /* Projectiles.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F54F1D6D81100000ABE3 /* Projectiles.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F6041D6D81100000ABE3 /* stdafx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5501D6D81100000ABE3 /* stdafx.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F6051D6D81100000ABE3 /* Texts.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5511D6D81100000ABE3 /* Texts.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F6061D6D81100000ABE3 /* Tileengine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5521D6D81100000ABE3 /* Tileengine.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F6071D6D81100000ABE3 /* Timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5531D6D81100000ABE3 /* Timer.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F6081D6D81100000ABE3 /* tracealloc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5541D6D81100000ABE3 /* tracealloc.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F6091D6D81100000ABE3 /* Trigger_Bruecke.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5551D6D81100000ABE3 /* Trigger_Bruecke.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F60A1D6D81100000ABE3 /* Trigger_Column.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5561D6D81100000ABE3 /* Trigger_Column.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F60B1D6D81100000ABE3 /* Trigger_Column2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5571D6D81100000ABE3 /* Trigger_Column2.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F60C1D6D81100000ABE3 /* Trigger_EndLevel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5581D6D81100000ABE3 /* Trigger_EndLevel.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F60D1D6D81100000ABE3 /* Trigger_FadeMusic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5591D6D81100000ABE3 /* Trigger_FadeMusic.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F60E1D6D81100000ABE3 /* Trigger_FahrStuhl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F55A1D6D81100000ABE3 /* Trigger_FahrStuhl.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F60F1D6D81100000ABE3 /* Trigger_Fass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F55B1D6D81100000ABE3 /* Trigger_Fass.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F6101D6D81100000ABE3 /* Trigger_Feuerspucker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F55C1D6D81100000ABE3 /* Trigger_Feuerspucker.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F6111D6D81100000ABE3 /* Trigger_Floating.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F55D1D6D81100000ABE3 /* Trigger_Floating.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F6121D6D81100000ABE3 /* Trigger_Floating2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F55E1D6D81100000ABE3 /* Trigger_Floating2.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F6131D6D81100000ABE3 /* Trigger_Floating3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F55F1D6D81100000ABE3 /* Trigger_Floating3.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F6141D6D81100000ABE3 /* Trigger_Glubschi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5601D6D81100000ABE3 /* Trigger_Glubschi.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F6151D6D81100000ABE3 /* Trigger_Glubschi2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5611D6D81100000ABE3 /* Trigger_Glubschi2.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F6161D6D81100000ABE3 /* Trigger_LaFassSpawner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5621D6D81100000ABE3 /* Trigger_LaFassSpawner.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F6171D6D81100000ABE3 /* Trigger_Lift.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5631D6D81100000ABE3 /* Trigger_Lift.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F6181D6D81100000ABE3 /* Trigger_LightFlare.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5641D6D81100000ABE3 /* Trigger_LightFlare.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F6191D6D81100000ABE3 /* Trigger_LuefterGross.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5651D6D81100000ABE3 /* Trigger_LuefterGross.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F61A1D6D81100000ABE3 /* Trigger_LuefterKlein.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5661D6D81100000ABE3 /* Trigger_LuefterKlein.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F61B1D6D81100000ABE3 /* Trigger_LuefterKlein2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5671D6D81100000ABE3 /* Trigger_LuefterKlein2.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F61C1D6D81100000ABE3 /* Trigger_Mushroom.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5681D6D81100000ABE3 /* Trigger_Mushroom.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F61D1D6D81100000ABE3 /* Trigger_PartikelSpawner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5691D6D81100000ABE3 /* Trigger_PartikelSpawner.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F61E1D6D81100000ABE3 /* Trigger_Plattform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F56A1D6D81100000ABE3 /* Trigger_Plattform.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F61F1D6D81100000ABE3 /* Trigger_Presse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F56B1D6D81100000ABE3 /* Trigger_Presse.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F6201D6D81100000ABE3 /* Trigger_Presswurst.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F56C1D6D81100000ABE3 /* Trigger_Presswurst.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F6211D6D81100000ABE3 /* Trigger_SchleuseH.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F56D1D6D81100000ABE3 /* Trigger_SchleuseH.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F6221D6D81100000ABE3 /* Trigger_SchleuseV.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F56E1D6D81100000ABE3 /* Trigger_SchleuseV.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F6231D6D81100000ABE3 /* Trigger_Secret.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F56F1D6D81100000ABE3 /* Trigger_Secret.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F6241D6D81100000ABE3 /* Trigger_ShootButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5701D6D81100000ABE3 /* Trigger_ShootButton.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F6251D6D81100000ABE3 /* Trigger_ShootPlattform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5711D6D81100000ABE3 /* Trigger_ShootPlattform.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F6261D6D81100000ABE3 /* Trigger_Shrine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5721D6D81100000ABE3 /* Trigger_Shrine.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F6271D6D81100000ABE3 /* Trigger_SoundTrigger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5731D6D81100000ABE3 /* Trigger_SoundTrigger.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F6281D6D81100000ABE3 /* Trigger_Spikelift.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5741D6D81100000ABE3 /* Trigger_Spikelift.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F6291D6D81100000ABE3 /* Trigger_Stampfstein.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5751D6D81100000ABE3 /* Trigger_Stampfstein.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F62A1D6D81100000ABE3 /* Trigger_SurfBrett.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5761D6D81100000ABE3 /* Trigger_SurfBrett.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F62B1D6D81100000ABE3 /* Trigger_Switch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5771D6D81100000ABE3 /* Trigger_Switch.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F62C1D6D81100000ABE3 /* Trigger_Tube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5781D6D81100000ABE3 /* Trigger_Tube.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F62D1D6D81100000ABE3 /* Trigger_TutorialText.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5791D6D81100000ABE3 /* Trigger_TutorialText.cpp */; settings = {ASSET_TAGS = (); }; };
+		C123F62E1D6D81100000ABE3 /* Trigger_Warning.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F57A1D6D81100000ABE3 /* Trigger_Warning.cpp */; settings = {ASSET_TAGS = (); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C123F4BD1D6D80BA0000ABE3 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		C123F4BF1D6D80BA0000ABE3 /* HurricanStub */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = HurricanStub; path = /Users/pete/Documents/hurrican/Hurrican/build/Debug/HurricanStub; sourceTree = "<absolute>"; };
+		C123F4C71D6D810F0000ABE3 /* Boss_BigFish.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Boss_BigFish.cpp; sourceTree = "<group>"; };
+		C123F4C81D6D810F0000ABE3 /* Boss_Bratklops.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Boss_Bratklops.cpp; sourceTree = "<group>"; };
+		C123F4C91D6D810F0000ABE3 /* Boss_Drache.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Boss_Drache.cpp; sourceTree = "<group>"; };
+		C123F4CA1D6D810F0000ABE3 /* Boss_EisFaust.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Boss_EisFaust.cpp; sourceTree = "<group>"; };
+		C123F4CB1D6D810F0000ABE3 /* Boss_EvilHurri.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Boss_EvilHurri.cpp; sourceTree = "<group>"; };
+		C123F4CC1D6D810F0000ABE3 /* Boss_FahrstuhlBoss.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Boss_FahrstuhlBoss.cpp; sourceTree = "<group>"; };
+		C123F4CD1D6D810F0000ABE3 /* Boss_FlugBoss.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Boss_FlugBoss.cpp; sourceTree = "<group>"; };
+		C123F4CE1D6D810F0000ABE3 /* Boss_Golem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Boss_Golem.cpp; sourceTree = "<group>"; };
+		C123F4CF1D6D810F0000ABE3 /* Boss_MetalHead.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Boss_MetalHead.cpp; sourceTree = "<group>"; };
+		C123F4D01D6D810F0000ABE3 /* Boss_PharaoKopf.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Boss_PharaoKopf.cpp; sourceTree = "<group>"; };
+		C123F4D11D6D810F0000ABE3 /* Boss_RiesenPiranha.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Boss_RiesenPiranha.cpp; sourceTree = "<group>"; };
+		C123F4D21D6D810F0000ABE3 /* Boss_RiesenQualle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Boss_RiesenQualle.cpp; sourceTree = "<group>"; };
+		C123F4D31D6D810F0000ABE3 /* Boss_RiesenRaupe.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Boss_RiesenRaupe.cpp; sourceTree = "<group>"; };
+		C123F4D41D6D810F0000ABE3 /* Boss_RiesenSpinne.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Boss_RiesenSpinne.cpp; sourceTree = "<group>"; };
+		C123F4D51D6D810F0000ABE3 /* Boss_RiesenWespe.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Boss_RiesenWespe.cpp; sourceTree = "<group>"; };
+		C123F4D61D6D810F0000ABE3 /* Boss_Rollmops.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Boss_Rollmops.cpp; sourceTree = "<group>"; };
+		C123F4D71D6D810F0000ABE3 /* Boss_SchmidtOrgie.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Boss_SchmidtOrgie.cpp; sourceTree = "<group>"; };
+		C123F4D81D6D810F0000ABE3 /* Boss_Schneekoenig.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Boss_Schneekoenig.cpp; sourceTree = "<group>"; };
+		C123F4D91D6D810F0000ABE3 /* Boss_Skeletor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Boss_Skeletor.cpp; sourceTree = "<group>"; };
+		C123F4DA1D6D810F0000ABE3 /* Boss_Skull.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Boss_Skull.cpp; sourceTree = "<group>"; };
+		C123F4DB1D6D810F0000ABE3 /* Boss_Spinnenmaschine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Boss_Spinnenmaschine.cpp; sourceTree = "<group>"; };
+		C123F4DC1D6D810F0000ABE3 /* Boss_Stahlfaust.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Boss_Stahlfaust.cpp; sourceTree = "<group>"; };
+		C123F4DD1D6D810F0000ABE3 /* Boss_TheWall.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Boss_TheWall.cpp; sourceTree = "<group>"; };
+		C123F4DE1D6D810F0000ABE3 /* Boss_Ufo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Boss_Ufo.cpp; sourceTree = "<group>"; };
+		C123F4DF1D6D810F0000ABE3 /* Boss_WuxeSpinnen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Boss_WuxeSpinnen.cpp; sourceTree = "<group>"; };
+		C123F4E01D6D810F0000ABE3 /* CCracktro.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCracktro.cpp; sourceTree = "<group>"; };
+		C123F4E11D6D810F0000ABE3 /* CCutScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCutScene.cpp; sourceTree = "<group>"; };
+		C123F4E21D6D810F0000ABE3 /* CDragonHack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CDragonHack.cpp; sourceTree = "<group>"; };
+		C123F4E31D6D810F0000ABE3 /* Console.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Console.cpp; sourceTree = "<group>"; };
+		C123F4E41D6D810F0000ABE3 /* DX8Enum.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DX8Enum.cpp; sourceTree = "<group>"; };
+		C123F4E51D6D810F0000ABE3 /* DX8Font.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DX8Font.cpp; sourceTree = "<group>"; };
+		C123F4E61D6D810F0000ABE3 /* DX8Graphics.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DX8Graphics.cpp; sourceTree = "<group>"; };
+		C123F4E71D6D810F0000ABE3 /* DX8Input.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DX8Input.cpp; sourceTree = "<group>"; };
+		C123F4E81D6D810F0000ABE3 /* DX8Joystick.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DX8Joystick.cpp; sourceTree = "<group>"; };
+		C123F4E91D6D810F0000ABE3 /* DX8Sound.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DX8Sound.cpp; sourceTree = "<group>"; };
+		C123F4EA1D6D810F0000ABE3 /* DX8Sprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DX8Sprite.cpp; sourceTree = "<group>"; };
+		C123F4EB1D6D810F0000ABE3 /* Gameplay.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gameplay.cpp; sourceTree = "<group>"; };
+		C123F4EC1D6D810F0000ABE3 /* Gegner_Auge.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_Auge.cpp; sourceTree = "<group>"; };
+		C123F4ED1D6D810F0000ABE3 /* Gegner_BallerDrone.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_BallerDrone.cpp; sourceTree = "<group>"; };
+		C123F4EE1D6D810F0000ABE3 /* Gegner_BigRocket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_BigRocket.cpp; sourceTree = "<group>"; };
+		C123F4EF1D6D810F0000ABE3 /* Gegner_BlueBoulder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_BlueBoulder.cpp; sourceTree = "<group>"; };
+		C123F4F01D6D810F0000ABE3 /* Gegner_BrockelRock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_BrockelRock.cpp; sourceTree = "<group>"; };
+		C123F4F11D6D810F0000ABE3 /* Gegner_Climber.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_Climber.cpp; sourceTree = "<group>"; };
+		C123F4F21D6D810F0000ABE3 /* Gegner_DeckenKrabbe.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_DeckenKrabbe.cpp; sourceTree = "<group>"; };
+		C123F4F31D6D810F0000ABE3 /* Gegner_Deckenturm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_Deckenturm.cpp; sourceTree = "<group>"; };
+		C123F4F41D6D810F0000ABE3 /* Gegner_Diamant.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_Diamant.cpp; sourceTree = "<group>"; };
+		C123F4F51D6D810F0000ABE3 /* Gegner_Drone.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_Drone.cpp; sourceTree = "<group>"; };
+		C123F4F61D6D810F0000ABE3 /* Gegner_EierMann.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_EierMann.cpp; sourceTree = "<group>"; };
+		C123F4F71D6D810F0000ABE3 /* Gegner_EisStachel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_EisStachel.cpp; sourceTree = "<group>"; };
+		C123F4F81D6D810F0000ABE3 /* Gegner_Eiszapfen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_Eiszapfen.cpp; sourceTree = "<group>"; };
+		C123F4F91D6D810F0000ABE3 /* Gegner_Extras.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_Extras.cpp; sourceTree = "<group>"; };
+		C123F4FA1D6D810F0000ABE3 /* Gegner_FallBombe.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_FallBombe.cpp; sourceTree = "<group>"; };
+		C123F4FB1D6D810F0000ABE3 /* Gegner_FallingRock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_FallingRock.cpp; sourceTree = "<group>"; };
+		C123F4FC1D6D810F0000ABE3 /* Gegner_FetteRakete.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_FetteRakete.cpp; sourceTree = "<group>"; };
+		C123F4FD1D6D810F0000ABE3 /* Gegner_FetteSpinne.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_FetteSpinne.cpp; sourceTree = "<group>"; };
+		C123F4FE1D6D810F0000ABE3 /* Gegner_FieseDrone.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_FieseDrone.cpp; sourceTree = "<group>"; };
+		C123F4FF1D6D810F0000ABE3 /* Gegner_FieserFireWalker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_FieserFireWalker.cpp; sourceTree = "<group>"; };
+		C123F5001D6D810F0000ABE3 /* Gegner_FieserWalker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_FieserWalker.cpp; sourceTree = "<group>"; };
+		C123F5011D6D810F0000ABE3 /* Gegner_FireSpider.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_FireSpider.cpp; sourceTree = "<group>"; };
+		C123F5021D6D810F0000ABE3 /* Gegner_Fledermaus.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_Fledermaus.cpp; sourceTree = "<group>"; };
+		C123F5031D6D810F0000ABE3 /* Gegner_FlugKanone.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_FlugKanone.cpp; sourceTree = "<group>"; };
+		C123F5041D6D810F0000ABE3 /* Gegner_Flugsack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_Flugsack.cpp; sourceTree = "<group>"; };
+		C123F5051D6D810F0000ABE3 /* Gegner_Geschuetz.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_Geschuetz.cpp; sourceTree = "<group>"; };
+		C123F5061D6D810F0000ABE3 /* Gegner_GunTower.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_GunTower.cpp; sourceTree = "<group>"; };
+		C123F5071D6D810F0000ABE3 /* Gegner_Helper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_Helper.cpp; sourceTree = "<group>"; };
+		C123F5081D6D810F0000ABE3 /* Gegner_Jaeger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_Jaeger.cpp; sourceTree = "<group>"; };
+		C123F5091D6D810F0000ABE3 /* Gegner_Kettenglied.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_Kettenglied.cpp; sourceTree = "<group>"; };
+		C123F50A1D6D810F0000ABE3 /* Gegner_KrabblerLinks.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_KrabblerLinks.cpp; sourceTree = "<group>"; };
+		C123F50B1D6D810F0000ABE3 /* Gegner_KrabblerOben.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_KrabblerOben.cpp; sourceTree = "<group>"; };
+		C123F50C1D6D810F0000ABE3 /* Gegner_KrabblerRechts.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_KrabblerRechts.cpp; sourceTree = "<group>"; };
+		C123F50D1D6D810F0000ABE3 /* Gegner_KugelGross.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_KugelGross.cpp; sourceTree = "<group>"; };
+		C123F50E1D6D810F0000ABE3 /* Gegner_KugelKlein.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_KugelKlein.cpp; sourceTree = "<group>"; };
+		C123F50F1D6D810F0000ABE3 /* Gegner_KugelMedium.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_KugelMedium.cpp; sourceTree = "<group>"; };
+		C123F5101D6D810F0000ABE3 /* Gegner_KugelRiesig.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_KugelRiesig.cpp; sourceTree = "<group>"; };
+		C123F5111D6D810F0000ABE3 /* Gegner_LaFass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_LaFass.cpp; sourceTree = "<group>"; };
+		C123F5121D6D810F0000ABE3 /* Gegner_LavaBall.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_LavaBall.cpp; sourceTree = "<group>"; };
+		C123F5131D6D810F0000ABE3 /* Gegner_LavaBallSpawner.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_LavaBallSpawner.cpp; sourceTree = "<group>"; };
+		C123F5141D6D810F0000ABE3 /* Gegner_LavaKrabbe.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_LavaKrabbe.cpp; sourceTree = "<group>"; };
+		C123F5151D6D810F0000ABE3 /* Gegner_Lavamann.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_Lavamann.cpp; sourceTree = "<group>"; };
+		C123F5161D6D810F0000ABE3 /* Gegner_Made.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_Made.cpp; sourceTree = "<group>"; };
+		C123F5171D6D810F0000ABE3 /* Gegner_Minidragon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_Minidragon.cpp; sourceTree = "<group>"; };
+		C123F5181D6D810F0000ABE3 /* Gegner_MiniRocket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_MiniRocket.cpp; sourceTree = "<group>"; };
+		C123F5191D6D810F0000ABE3 /* Gegner_MittelSpinne.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_MittelSpinne.cpp; sourceTree = "<group>"; };
+		C123F51A1D6D810F0000ABE3 /* Gegner_Mutant.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_Mutant.cpp; sourceTree = "<group>"; };
+		C123F51B1D6D810F0000ABE3 /* Gegner_Nest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_Nest.cpp; sourceTree = "<group>"; };
+		C123F51C1D6D810F0000ABE3 /* Gegner_NeuFisch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_NeuFisch.cpp; sourceTree = "<group>"; };
+		C123F51D1D6D810F0000ABE3 /* Gegner_OneUp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_OneUp.cpp; sourceTree = "<group>"; };
+		C123F51E1D6D810F0000ABE3 /* Gegner_PFlanze.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_PFlanze.cpp; sourceTree = "<group>"; };
+		C123F51F1D6D810F0000ABE3 /* Gegner_Piranha.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_Piranha.cpp; sourceTree = "<group>"; };
+		C123F5201D6D810F0000ABE3 /* Gegner_PokeNuke.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_PokeNuke.cpp; sourceTree = "<group>"; };
+		C123F5211D6D810F0000ABE3 /* Gegner_PowerBlock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_PowerBlock.cpp; sourceTree = "<group>"; };
+		C123F5221D6D810F0000ABE3 /* Gegner_Punisher.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_Punisher.cpp; sourceTree = "<group>"; };
+		C123F5231D6D810F0000ABE3 /* Gegner_Qualle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_Qualle.cpp; sourceTree = "<group>"; };
+		C123F5241D6D810F0000ABE3 /* Gegner_Raketenwerfer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_Raketenwerfer.cpp; sourceTree = "<group>"; };
+		C123F5251D6D810F0000ABE3 /* Gegner_ReitFlugsack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_ReitFlugsack.cpp; sourceTree = "<group>"; };
+		C123F5261D6D810F0000ABE3 /* Gegner_RoboMan1.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_RoboMan1.cpp; sourceTree = "<group>"; };
+		C123F5271D6D810F0000ABE3 /* Gegner_RoboRaupe.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_RoboRaupe.cpp; sourceTree = "<group>"; };
+		C123F5281D6D810F0000ABE3 /* Gegner_Rotzpott.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_Rotzpott.cpp; sourceTree = "<group>"; };
+		C123F5291D6D810F0000ABE3 /* Gegner_Schabe.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_Schabe.cpp; sourceTree = "<group>"; };
+		C123F52A1D6D810F0000ABE3 /* Gegner_SchienenViech.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_SchienenViech.cpp; sourceTree = "<group>"; };
+		C123F52B1D6D810F0000ABE3 /* Gegner_SchleimAlien.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_SchleimAlien.cpp; sourceTree = "<group>"; };
+		C123F52C1D6D810F0000ABE3 /* Gegner_SchleimBoller.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_SchleimBoller.cpp; sourceTree = "<group>"; };
+		C123F52D1D6D810F0000ABE3 /* Gegner_SchleimMaul.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_SchleimMaul.cpp; sourceTree = "<group>"; };
+		C123F52E1D6D810F0000ABE3 /* Gegner_Schneekoppe.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_Schneekoppe.cpp; sourceTree = "<group>"; };
+		C123F52F1D6D810F0000ABE3 /* Gegner_Schwabbel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_Schwabbel.cpp; sourceTree = "<group>"; };
+		C123F5301D6D810F0000ABE3 /* Gegner_SideRocket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_SideRocket.cpp; sourceTree = "<group>"; };
+		C123F5311D6D810F0000ABE3 /* Gegner_SkiWalker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_SkiWalker.cpp; sourceTree = "<group>"; };
+		C123F5321D6D810F0000ABE3 /* Gegner_SmallWespe.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_SmallWespe.cpp; sourceTree = "<group>"; };
+		C123F5331D6D810F0000ABE3 /* Gegner_SnowBomb.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_SnowBomb.cpp; sourceTree = "<group>"; };
+		C123F5341D6D810F0000ABE3 /* Gegner_SpiderBomb.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_SpiderBomb.cpp; sourceTree = "<group>"; };
+		C123F5351D6D810F0000ABE3 /* Gegner_Spitter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_Spitter.cpp; sourceTree = "<group>"; };
+		C123F5361D6D810F0000ABE3 /* Gegner_Spitterbombe.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_Spitterbombe.cpp; sourceTree = "<group>"; };
+		C123F5371D6D810F0000ABE3 /* Gegner_Stachelbeere.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_Stachelbeere.cpp; sourceTree = "<group>"; };
+		C123F5381D6D810F0000ABE3 /* Gegner_Stahlmuecke.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_Stahlmuecke.cpp; sourceTree = "<group>"; };
+		C123F5391D6D810F0000ABE3 /* Gegner_Stalagtit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_Stalagtit.cpp; sourceTree = "<group>"; };
+		C123F53A1D6D810F0000ABE3 /* Gegner_StarBig.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_StarBig.cpp; sourceTree = "<group>"; };
+		C123F53B1D6D810F0000ABE3 /* Gegner_StarSmall.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_StarSmall.cpp; sourceTree = "<group>"; };
+		C123F53C1D6D810F0000ABE3 /* Gegner_StelzSack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_StelzSack.cpp; sourceTree = "<group>"; };
+		C123F53D1D6D810F0000ABE3 /* Gegner_SwimWalker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_SwimWalker.cpp; sourceTree = "<group>"; };
+		C123F53E1D6D810F0000ABE3 /* Gegner_Walker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_Walker.cpp; sourceTree = "<group>"; };
+		C123F53F1D6D810F0000ABE3 /* Gegner_WandKannone.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_WandKannone.cpp; sourceTree = "<group>"; };
+		C123F5401D6D810F0000ABE3 /* Gegner_WandKrabbe.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_WandKrabbe.cpp; sourceTree = "<group>"; };
+		C123F5411D6D810F0000ABE3 /* Gegner_WasserMine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_WasserMine.cpp; sourceTree = "<group>"; };
+		C123F5421D6D810F0000ABE3 /* Gegner_Zitrone.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gegner_Zitrone.cpp; sourceTree = "<group>"; };
+		C123F5431D6D81100000ABE3 /* GegnerClass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GegnerClass.cpp; sourceTree = "<group>"; };
+		C123F5441D6D81100000ABE3 /* GetKeyName.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GetKeyName.cpp; sourceTree = "<group>"; };
+		C123F5451D6D81100000ABE3 /* GUISystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GUISystem.cpp; sourceTree = "<group>"; };
+		C123F5461D6D81100000ABE3 /* HUD.CPP */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HUD.CPP; sourceTree = "<group>"; };
+		C123F5471D6D81100000ABE3 /* Intro.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Intro.cpp; sourceTree = "<group>"; };
+		C123F5481D6D81100000ABE3 /* lightmap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lightmap.cpp; sourceTree = "<group>"; };
+		C123F5491D6D81100000ABE3 /* Logdatei.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Logdatei.cpp; sourceTree = "<group>"; };
+		C123F54A1D6D81100000ABE3 /* Main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Main.cpp; sourceTree = "<group>"; };
+		C123F54B1D6D81100000ABE3 /* Menu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Menu.cpp; sourceTree = "<group>"; };
+		C123F54C1D6D81100000ABE3 /* Outtro.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Outtro.cpp; sourceTree = "<group>"; };
+		C123F54D1D6D81100000ABE3 /* Partikelsystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Partikelsystem.cpp; sourceTree = "<group>"; };
+		C123F54E1D6D81100000ABE3 /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
+		C123F54F1D6D81100000ABE3 /* Projectiles.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Projectiles.cpp; sourceTree = "<group>"; };
+		C123F5501D6D81100000ABE3 /* stdafx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stdafx.cpp; sourceTree = "<group>"; };
+		C123F5511D6D81100000ABE3 /* Texts.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Texts.cpp; sourceTree = "<group>"; };
+		C123F5521D6D81100000ABE3 /* Tileengine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Tileengine.cpp; sourceTree = "<group>"; };
+		C123F5531D6D81100000ABE3 /* Timer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Timer.cpp; sourceTree = "<group>"; };
+		C123F5541D6D81100000ABE3 /* tracealloc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tracealloc.cpp; sourceTree = "<group>"; };
+		C123F5551D6D81100000ABE3 /* Trigger_Bruecke.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Trigger_Bruecke.cpp; sourceTree = "<group>"; };
+		C123F5561D6D81100000ABE3 /* Trigger_Column.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Trigger_Column.cpp; sourceTree = "<group>"; };
+		C123F5571D6D81100000ABE3 /* Trigger_Column2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Trigger_Column2.cpp; sourceTree = "<group>"; };
+		C123F5581D6D81100000ABE3 /* Trigger_EndLevel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Trigger_EndLevel.cpp; sourceTree = "<group>"; };
+		C123F5591D6D81100000ABE3 /* Trigger_FadeMusic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Trigger_FadeMusic.cpp; sourceTree = "<group>"; };
+		C123F55A1D6D81100000ABE3 /* Trigger_FahrStuhl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Trigger_FahrStuhl.cpp; sourceTree = "<group>"; };
+		C123F55B1D6D81100000ABE3 /* Trigger_Fass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Trigger_Fass.cpp; sourceTree = "<group>"; };
+		C123F55C1D6D81100000ABE3 /* Trigger_Feuerspucker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Trigger_Feuerspucker.cpp; sourceTree = "<group>"; };
+		C123F55D1D6D81100000ABE3 /* Trigger_Floating.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Trigger_Floating.cpp; sourceTree = "<group>"; };
+		C123F55E1D6D81100000ABE3 /* Trigger_Floating2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Trigger_Floating2.cpp; sourceTree = "<group>"; };
+		C123F55F1D6D81100000ABE3 /* Trigger_Floating3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Trigger_Floating3.cpp; sourceTree = "<group>"; };
+		C123F5601D6D81100000ABE3 /* Trigger_Glubschi.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Trigger_Glubschi.cpp; sourceTree = "<group>"; };
+		C123F5611D6D81100000ABE3 /* Trigger_Glubschi2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Trigger_Glubschi2.cpp; sourceTree = "<group>"; };
+		C123F5621D6D81100000ABE3 /* Trigger_LaFassSpawner.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Trigger_LaFassSpawner.cpp; sourceTree = "<group>"; };
+		C123F5631D6D81100000ABE3 /* Trigger_Lift.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Trigger_Lift.cpp; sourceTree = "<group>"; };
+		C123F5641D6D81100000ABE3 /* Trigger_LightFlare.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Trigger_LightFlare.cpp; sourceTree = "<group>"; };
+		C123F5651D6D81100000ABE3 /* Trigger_LuefterGross.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Trigger_LuefterGross.cpp; sourceTree = "<group>"; };
+		C123F5661D6D81100000ABE3 /* Trigger_LuefterKlein.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Trigger_LuefterKlein.cpp; sourceTree = "<group>"; };
+		C123F5671D6D81100000ABE3 /* Trigger_LuefterKlein2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Trigger_LuefterKlein2.cpp; sourceTree = "<group>"; };
+		C123F5681D6D81100000ABE3 /* Trigger_Mushroom.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Trigger_Mushroom.cpp; sourceTree = "<group>"; };
+		C123F5691D6D81100000ABE3 /* Trigger_PartikelSpawner.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Trigger_PartikelSpawner.cpp; sourceTree = "<group>"; };
+		C123F56A1D6D81100000ABE3 /* Trigger_Plattform.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Trigger_Plattform.cpp; sourceTree = "<group>"; };
+		C123F56B1D6D81100000ABE3 /* Trigger_Presse.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Trigger_Presse.cpp; sourceTree = "<group>"; };
+		C123F56C1D6D81100000ABE3 /* Trigger_Presswurst.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Trigger_Presswurst.cpp; sourceTree = "<group>"; };
+		C123F56D1D6D81100000ABE3 /* Trigger_SchleuseH.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Trigger_SchleuseH.cpp; sourceTree = "<group>"; };
+		C123F56E1D6D81100000ABE3 /* Trigger_SchleuseV.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Trigger_SchleuseV.cpp; sourceTree = "<group>"; };
+		C123F56F1D6D81100000ABE3 /* Trigger_Secret.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Trigger_Secret.cpp; sourceTree = "<group>"; };
+		C123F5701D6D81100000ABE3 /* Trigger_ShootButton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Trigger_ShootButton.cpp; sourceTree = "<group>"; };
+		C123F5711D6D81100000ABE3 /* Trigger_ShootPlattform.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Trigger_ShootPlattform.cpp; sourceTree = "<group>"; };
+		C123F5721D6D81100000ABE3 /* Trigger_Shrine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Trigger_Shrine.cpp; sourceTree = "<group>"; };
+		C123F5731D6D81100000ABE3 /* Trigger_SoundTrigger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Trigger_SoundTrigger.cpp; sourceTree = "<group>"; };
+		C123F5741D6D81100000ABE3 /* Trigger_Spikelift.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Trigger_Spikelift.cpp; sourceTree = "<group>"; };
+		C123F5751D6D81100000ABE3 /* Trigger_Stampfstein.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Trigger_Stampfstein.cpp; sourceTree = "<group>"; };
+		C123F5761D6D81100000ABE3 /* Trigger_SurfBrett.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Trigger_SurfBrett.cpp; sourceTree = "<group>"; };
+		C123F5771D6D81100000ABE3 /* Trigger_Switch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Trigger_Switch.cpp; sourceTree = "<group>"; };
+		C123F5781D6D81100000ABE3 /* Trigger_Tube.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Trigger_Tube.cpp; sourceTree = "<group>"; };
+		C123F5791D6D81100000ABE3 /* Trigger_TutorialText.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Trigger_TutorialText.cpp; sourceTree = "<group>"; };
+		C123F57A1D6D81100000ABE3 /* Trigger_Warning.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Trigger_Warning.cpp; sourceTree = "<group>"; };
+		C123F62F1D6D811F0000ABE3 /* Boss_BigFish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Boss_BigFish.h; sourceTree = "<group>"; };
+		C123F6301D6D811F0000ABE3 /* Boss_Bratklops.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Boss_Bratklops.h; sourceTree = "<group>"; };
+		C123F6311D6D811F0000ABE3 /* Boss_Drache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Boss_Drache.h; sourceTree = "<group>"; };
+		C123F6321D6D811F0000ABE3 /* Boss_EisFaust.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Boss_EisFaust.h; sourceTree = "<group>"; };
+		C123F6331D6D811F0000ABE3 /* Boss_EvilHurri.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Boss_EvilHurri.h; sourceTree = "<group>"; };
+		C123F6341D6D811F0000ABE3 /* Boss_FahrstuhlBoss.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Boss_FahrstuhlBoss.h; sourceTree = "<group>"; };
+		C123F6351D6D811F0000ABE3 /* Boss_FlugBoss.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Boss_FlugBoss.h; sourceTree = "<group>"; };
+		C123F6361D6D811F0000ABE3 /* Boss_Golem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Boss_Golem.h; sourceTree = "<group>"; };
+		C123F6371D6D811F0000ABE3 /* Boss_MetalHead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Boss_MetalHead.h; sourceTree = "<group>"; };
+		C123F6381D6D811F0000ABE3 /* Boss_PharaoKopf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Boss_PharaoKopf.h; sourceTree = "<group>"; };
+		C123F6391D6D811F0000ABE3 /* Boss_RiesenPiranha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Boss_RiesenPiranha.h; sourceTree = "<group>"; };
+		C123F63A1D6D811F0000ABE3 /* Boss_RiesenQualle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Boss_RiesenQualle.h; sourceTree = "<group>"; };
+		C123F63B1D6D811F0000ABE3 /* Boss_RiesenRaupe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Boss_RiesenRaupe.h; sourceTree = "<group>"; };
+		C123F63C1D6D811F0000ABE3 /* Boss_RiesenSpinne.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Boss_RiesenSpinne.h; sourceTree = "<group>"; };
+		C123F63D1D6D811F0000ABE3 /* Boss_RiesenWespe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Boss_RiesenWespe.h; sourceTree = "<group>"; };
+		C123F63E1D6D811F0000ABE3 /* Boss_Rollmops.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Boss_Rollmops.h; sourceTree = "<group>"; };
+		C123F63F1D6D811F0000ABE3 /* Boss_SchmidtOrgie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Boss_SchmidtOrgie.h; sourceTree = "<group>"; };
+		C123F6401D6D811F0000ABE3 /* Boss_Schneekoenig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Boss_Schneekoenig.h; sourceTree = "<group>"; };
+		C123F6411D6D811F0000ABE3 /* Boss_Skeletor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Boss_Skeletor.h; sourceTree = "<group>"; };
+		C123F6421D6D811F0000ABE3 /* Boss_Skull.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Boss_Skull.h; sourceTree = "<group>"; };
+		C123F6431D6D811F0000ABE3 /* Boss_Spinnenmaschine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Boss_Spinnenmaschine.h; sourceTree = "<group>"; };
+		C123F6441D6D811F0000ABE3 /* Boss_Stahlfaust.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Boss_Stahlfaust.h; sourceTree = "<group>"; };
+		C123F6451D6D811F0000ABE3 /* Boss_TheWall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Boss_TheWall.h; sourceTree = "<group>"; };
+		C123F6461D6D811F0000ABE3 /* Boss_Ufo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Boss_Ufo.h; sourceTree = "<group>"; };
+		C123F6471D6D811F0000ABE3 /* Boss_WuxeSpinnen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Boss_WuxeSpinnen.h; sourceTree = "<group>"; };
+		C123F6481D6D811F0000ABE3 /* CCracktro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCracktro.h; sourceTree = "<group>"; };
+		C123F6491D6D811F0000ABE3 /* CCutScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCutScene.h; sourceTree = "<group>"; };
+		C123F64A1D6D811F0000ABE3 /* CDragonHack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDragonHack.h; sourceTree = "<group>"; };
+		C123F64B1D6D811F0000ABE3 /* CGegner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGegner.h; sourceTree = "<group>"; };
+		C123F64C1D6D811F0000ABE3 /* Console.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Console.h; sourceTree = "<group>"; };
+		C123F64D1D6D811F0000ABE3 /* DX8Enum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DX8Enum.h; sourceTree = "<group>"; };
+		C123F64E1D6D811F0000ABE3 /* DX8Font.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DX8Font.h; sourceTree = "<group>"; };
+		C123F64F1D6D811F0000ABE3 /* DX8Graphics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DX8Graphics.h; sourceTree = "<group>"; };
+		C123F6501D6D811F0000ABE3 /* DX8Input.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DX8Input.h; sourceTree = "<group>"; };
+		C123F6511D6D811F0000ABE3 /* DX8Joystick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DX8Joystick.h; sourceTree = "<group>"; };
+		C123F6521D6D811F0000ABE3 /* DX8Sound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DX8Sound.h; sourceTree = "<group>"; };
+		C123F6531D6D811F0000ABE3 /* DX8Sprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DX8Sprite.h; sourceTree = "<group>"; };
+		C123F6541D6D811F0000ABE3 /* fmod_errors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fmod_errors.h; path = inc/fmod_errors.h; sourceTree = "<group>"; };
+		C123F6551D6D811F0000ABE3 /* fmod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fmod.h; path = inc/fmod.h; sourceTree = "<group>"; };
+		C123F6561D6D811F0000ABE3 /* fmoddyn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fmoddyn.h; path = inc/fmoddyn.h; sourceTree = "<group>"; };
+		C123F6571D6D811F0000ABE3 /* Gameplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gameplay.h; sourceTree = "<group>"; };
+		C123F6581D6D811F0000ABE3 /* Gegner_Auge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_Auge.h; sourceTree = "<group>"; };
+		C123F6591D6D811F0000ABE3 /* Gegner_BallerDrone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_BallerDrone.h; sourceTree = "<group>"; };
+		C123F65A1D6D811F0000ABE3 /* Gegner_BigRocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_BigRocket.h; sourceTree = "<group>"; };
+		C123F65B1D6D811F0000ABE3 /* Gegner_BlueBoulder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_BlueBoulder.h; sourceTree = "<group>"; };
+		C123F65C1D6D811F0000ABE3 /* Gegner_BrockelRock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_BrockelRock.h; sourceTree = "<group>"; };
+		C123F65D1D6D811F0000ABE3 /* Gegner_Climber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_Climber.h; sourceTree = "<group>"; };
+		C123F65E1D6D811F0000ABE3 /* Gegner_DeckenKrabbe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_DeckenKrabbe.h; sourceTree = "<group>"; };
+		C123F65F1D6D811F0000ABE3 /* Gegner_Deckenturm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_Deckenturm.h; sourceTree = "<group>"; };
+		C123F6601D6D811F0000ABE3 /* Gegner_Diamant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_Diamant.h; sourceTree = "<group>"; };
+		C123F6611D6D811F0000ABE3 /* Gegner_Drone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_Drone.h; sourceTree = "<group>"; };
+		C123F6621D6D811F0000ABE3 /* Gegner_EierMann.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_EierMann.h; sourceTree = "<group>"; };
+		C123F6631D6D811F0000ABE3 /* Gegner_EisStachel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_EisStachel.h; sourceTree = "<group>"; };
+		C123F6641D6D811F0000ABE3 /* Gegner_Eiszapfen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_Eiszapfen.h; sourceTree = "<group>"; };
+		C123F6651D6D811F0000ABE3 /* Gegner_Extras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_Extras.h; sourceTree = "<group>"; };
+		C123F6661D6D811F0000ABE3 /* Gegner_FallBombe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_FallBombe.h; sourceTree = "<group>"; };
+		C123F6671D6D811F0000ABE3 /* Gegner_FallingRock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_FallingRock.h; sourceTree = "<group>"; };
+		C123F6681D6D811F0000ABE3 /* Gegner_FetteRakete.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_FetteRakete.h; sourceTree = "<group>"; };
+		C123F6691D6D811F0000ABE3 /* Gegner_FetteSpinne.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_FetteSpinne.h; sourceTree = "<group>"; };
+		C123F66A1D6D811F0000ABE3 /* Gegner_FieseDrone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_FieseDrone.h; sourceTree = "<group>"; };
+		C123F66B1D6D811F0000ABE3 /* Gegner_FieserFireWalker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_FieserFireWalker.h; sourceTree = "<group>"; };
+		C123F66C1D6D811F0000ABE3 /* Gegner_FieserWalker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_FieserWalker.h; sourceTree = "<group>"; };
+		C123F66D1D6D811F0000ABE3 /* Gegner_FireSpider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_FireSpider.h; sourceTree = "<group>"; };
+		C123F66E1D6D811F0000ABE3 /* Gegner_Fledermaus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_Fledermaus.h; sourceTree = "<group>"; };
+		C123F66F1D6D811F0000ABE3 /* Gegner_FlugKanone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_FlugKanone.h; sourceTree = "<group>"; };
+		C123F6701D6D811F0000ABE3 /* Gegner_Flugsack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_Flugsack.h; sourceTree = "<group>"; };
+		C123F6711D6D811F0000ABE3 /* Gegner_Geschuetz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_Geschuetz.h; sourceTree = "<group>"; };
+		C123F6721D6D811F0000ABE3 /* Gegner_GunTower.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_GunTower.h; sourceTree = "<group>"; };
+		C123F6731D6D811F0000ABE3 /* Gegner_Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_Helper.h; sourceTree = "<group>"; };
+		C123F6741D6D811F0000ABE3 /* Gegner_Jaeger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_Jaeger.h; sourceTree = "<group>"; };
+		C123F6751D6D811F0000ABE3 /* Gegner_Kettenglied.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_Kettenglied.h; sourceTree = "<group>"; };
+		C123F6761D6D811F0000ABE3 /* Gegner_KrabblerLinks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_KrabblerLinks.h; sourceTree = "<group>"; };
+		C123F6771D6D811F0000ABE3 /* Gegner_KrabblerOben.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_KrabblerOben.h; sourceTree = "<group>"; };
+		C123F6781D6D811F0000ABE3 /* Gegner_KrabblerRechts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_KrabblerRechts.h; sourceTree = "<group>"; };
+		C123F6791D6D811F0000ABE3 /* Gegner_KugelGross.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_KugelGross.h; sourceTree = "<group>"; };
+		C123F67A1D6D811F0000ABE3 /* Gegner_KugelKlein.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_KugelKlein.h; sourceTree = "<group>"; };
+		C123F67B1D6D811F0000ABE3 /* Gegner_KugelMedium.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_KugelMedium.h; sourceTree = "<group>"; };
+		C123F67C1D6D811F0000ABE3 /* Gegner_KugelRiesig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_KugelRiesig.h; sourceTree = "<group>"; };
+		C123F67D1D6D811F0000ABE3 /* Gegner_LaFass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_LaFass.h; sourceTree = "<group>"; };
+		C123F67E1D6D811F0000ABE3 /* Gegner_LavaBall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_LavaBall.h; sourceTree = "<group>"; };
+		C123F67F1D6D811F0000ABE3 /* Gegner_LavaBallSpawner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_LavaBallSpawner.h; sourceTree = "<group>"; };
+		C123F6801D6D811F0000ABE3 /* Gegner_LavaKrabbe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_LavaKrabbe.h; sourceTree = "<group>"; };
+		C123F6811D6D811F0000ABE3 /* Gegner_Lavamann.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_Lavamann.h; sourceTree = "<group>"; };
+		C123F6821D6D811F0000ABE3 /* Gegner_Made.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_Made.h; sourceTree = "<group>"; };
+		C123F6831D6D811F0000ABE3 /* Gegner_Minidragon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_Minidragon.h; sourceTree = "<group>"; };
+		C123F6841D6D811F0000ABE3 /* Gegner_MiniRocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_MiniRocket.h; sourceTree = "<group>"; };
+		C123F6851D6D811F0000ABE3 /* Gegner_MittelSpinne.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_MittelSpinne.h; sourceTree = "<group>"; };
+		C123F6861D6D811F0000ABE3 /* Gegner_Mutant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_Mutant.h; sourceTree = "<group>"; };
+		C123F6871D6D811F0000ABE3 /* Gegner_Nest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_Nest.h; sourceTree = "<group>"; };
+		C123F6881D6D811F0000ABE3 /* Gegner_NeuFisch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_NeuFisch.h; sourceTree = "<group>"; };
+		C123F6891D6D811F0000ABE3 /* Gegner_OneUp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_OneUp.h; sourceTree = "<group>"; };
+		C123F68A1D6D811F0000ABE3 /* Gegner_Pflanze.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_Pflanze.h; sourceTree = "<group>"; };
+		C123F68B1D6D811F0000ABE3 /* Gegner_Piranha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_Piranha.h; sourceTree = "<group>"; };
+		C123F68C1D6D811F0000ABE3 /* Gegner_PokeNuke.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_PokeNuke.h; sourceTree = "<group>"; };
+		C123F68D1D6D811F0000ABE3 /* Gegner_PowerBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_PowerBlock.h; sourceTree = "<group>"; };
+		C123F68E1D6D811F0000ABE3 /* Gegner_Punisher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_Punisher.h; sourceTree = "<group>"; };
+		C123F68F1D6D811F0000ABE3 /* Gegner_Qualle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_Qualle.h; sourceTree = "<group>"; };
+		C123F6901D6D811F0000ABE3 /* Gegner_Raketenwerfer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_Raketenwerfer.h; sourceTree = "<group>"; };
+		C123F6911D6D811F0000ABE3 /* Gegner_ReitFlugsack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_ReitFlugsack.h; sourceTree = "<group>"; };
+		C123F6921D6D811F0000ABE3 /* Gegner_RoboMan1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_RoboMan1.h; sourceTree = "<group>"; };
+		C123F6931D6D811F0000ABE3 /* Gegner_RoboRaupe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_RoboRaupe.h; sourceTree = "<group>"; };
+		C123F6941D6D811F0000ABE3 /* Gegner_Rotzpott.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_Rotzpott.h; sourceTree = "<group>"; };
+		C123F6951D6D811F0000ABE3 /* Gegner_Schabe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_Schabe.h; sourceTree = "<group>"; };
+		C123F6961D6D811F0000ABE3 /* Gegner_SchienenViech.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_SchienenViech.h; sourceTree = "<group>"; };
+		C123F6971D6D811F0000ABE3 /* Gegner_SchleimAlien.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_SchleimAlien.h; sourceTree = "<group>"; };
+		C123F6981D6D811F0000ABE3 /* Gegner_SchleimBoller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_SchleimBoller.h; sourceTree = "<group>"; };
+		C123F6991D6D811F0000ABE3 /* Gegner_SchleimMaul.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_SchleimMaul.h; sourceTree = "<group>"; };
+		C123F69A1D6D811F0000ABE3 /* Gegner_Schneekoppe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_Schneekoppe.h; sourceTree = "<group>"; };
+		C123F69B1D6D811F0000ABE3 /* Gegner_Schwabbel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_Schwabbel.h; sourceTree = "<group>"; };
+		C123F69C1D6D811F0000ABE3 /* Gegner_SideRocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_SideRocket.h; sourceTree = "<group>"; };
+		C123F69D1D6D811F0000ABE3 /* Gegner_SkiWalker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_SkiWalker.h; sourceTree = "<group>"; };
+		C123F69E1D6D811F0000ABE3 /* Gegner_SmallWespe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_SmallWespe.h; sourceTree = "<group>"; };
+		C123F69F1D6D811F0000ABE3 /* Gegner_SnowBomb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_SnowBomb.h; sourceTree = "<group>"; };
+		C123F6A01D6D811F0000ABE3 /* Gegner_SpiderBomb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_SpiderBomb.h; sourceTree = "<group>"; };
+		C123F6A11D6D811F0000ABE3 /* Gegner_Spitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_Spitter.h; sourceTree = "<group>"; };
+		C123F6A21D6D811F0000ABE3 /* Gegner_Spitterbombe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_Spitterbombe.h; sourceTree = "<group>"; };
+		C123F6A31D6D811F0000ABE3 /* Gegner_Stachelbeere.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_Stachelbeere.h; sourceTree = "<group>"; };
+		C123F6A41D6D811F0000ABE3 /* Gegner_Stahlmuecke.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_Stahlmuecke.h; sourceTree = "<group>"; };
+		C123F6A51D6D811F0000ABE3 /* Gegner_Stalagtit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_Stalagtit.h; sourceTree = "<group>"; };
+		C123F6A61D6D811F0000ABE3 /* Gegner_StarBig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_StarBig.h; sourceTree = "<group>"; };
+		C123F6A71D6D811F0000ABE3 /* Gegner_StarSmall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_StarSmall.h; sourceTree = "<group>"; };
+		C123F6A81D6D811F0000ABE3 /* Gegner_StelzSack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_StelzSack.h; sourceTree = "<group>"; };
+		C123F6A91D6D811F0000ABE3 /* Gegner_Stuff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_Stuff.h; sourceTree = "<group>"; };
+		C123F6AA1D6D811F0000ABE3 /* Gegner_SwimWalker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_SwimWalker.h; sourceTree = "<group>"; };
+		C123F6AB1D6D811F0000ABE3 /* Gegner_Walker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_Walker.h; sourceTree = "<group>"; };
+		C123F6AC1D6D811F0000ABE3 /* Gegner_WandKannone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_WandKannone.h; sourceTree = "<group>"; };
+		C123F6AD1D6D811F0000ABE3 /* Gegner_WandKrabbe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_WandKrabbe.h; sourceTree = "<group>"; };
+		C123F6AE1D6D811F0000ABE3 /* Gegner_WasserMine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_WasserMine.h; sourceTree = "<group>"; };
+		C123F6AF1D6D811F0000ABE3 /* Gegner_Zitrone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gegner_Zitrone.h; sourceTree = "<group>"; };
+		C123F6B01D6D811F0000ABE3 /* GegnerClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GegnerClass.h; sourceTree = "<group>"; };
+		C123F6B11D6D811F0000ABE3 /* GegnerPowerBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GegnerPowerBlock.h; sourceTree = "<group>"; };
+		C123F6B21D6D811F0000ABE3 /* GetKeyName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetKeyName.h; sourceTree = "<group>"; };
+		C123F6B31D6D811F0000ABE3 /* Globals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Globals.h; sourceTree = "<group>"; };
+		C123F6B41D6D811F0000ABE3 /* GUISystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUISystem.h; sourceTree = "<group>"; };
+		C123F6B51D6D811F0000ABE3 /* HUD.H */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = HUD.H; sourceTree = "<group>"; };
+		C123F6B61D6D811F0000ABE3 /* Intro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Intro.h; sourceTree = "<group>"; };
+		C123F6B71D6D811F0000ABE3 /* lightmap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lightmap.h; sourceTree = "<group>"; };
+		C123F6B81D6D811F0000ABE3 /* Logdatei.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Logdatei.h; sourceTree = "<group>"; };
+		C123F6B91D6D811F0000ABE3 /* Main.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Main.h; sourceTree = "<group>"; };
+		C123F6BA1D6D811F0000ABE3 /* MemLeaks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemLeaks.h; sourceTree = "<group>"; };
+		C123F6BB1D6D811F0000ABE3 /* Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Menu.h; sourceTree = "<group>"; };
+		C123F6BC1D6D811F0000ABE3 /* mymath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mymath.h; sourceTree = "<group>"; };
+		C123F6BD1D6D811F0000ABE3 /* Outtro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Outtro.h; sourceTree = "<group>"; };
+		C123F6BE1D6D811F0000ABE3 /* Partikelsystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Partikelsystem.h; sourceTree = "<group>"; };
+		C123F6BF1D6D811F0000ABE3 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		C123F6C01D6D811F0000ABE3 /* Projectiles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Projectiles.h; sourceTree = "<group>"; };
+		C123F6C11D6D811F0000ABE3 /* resource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = resource.h; sourceTree = "<group>"; };
+		C123F6C21D6D811F0000ABE3 /* stdafx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stdafx.h; sourceTree = "<group>"; };
+		C123F6C31D6D811F0000ABE3 /* Texts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Texts.h; sourceTree = "<group>"; };
+		C123F6C41D6D811F0000ABE3 /* Tileengine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tileengine.h; sourceTree = "<group>"; };
+		C123F6C51D6D811F0000ABE3 /* Timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timer.h; sourceTree = "<group>"; };
+		C123F6C61D6D811F0000ABE3 /* Trigger_Bruecke.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trigger_Bruecke.h; sourceTree = "<group>"; };
+		C123F6C71D6D811F0000ABE3 /* Trigger_Column.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trigger_Column.h; sourceTree = "<group>"; };
+		C123F6C81D6D811F0000ABE3 /* Trigger_Column2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trigger_Column2.h; sourceTree = "<group>"; };
+		C123F6C91D6D811F0000ABE3 /* Trigger_EndLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trigger_EndLevel.h; sourceTree = "<group>"; };
+		C123F6CA1D6D811F0000ABE3 /* Trigger_FadeMusic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trigger_FadeMusic.h; sourceTree = "<group>"; };
+		C123F6CB1D6D811F0000ABE3 /* Trigger_Fahrstuhl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trigger_Fahrstuhl.h; sourceTree = "<group>"; };
+		C123F6CC1D6D811F0000ABE3 /* Trigger_Fass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trigger_Fass.h; sourceTree = "<group>"; };
+		C123F6CD1D6D811F0000ABE3 /* Trigger_Feuerspucker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trigger_Feuerspucker.h; sourceTree = "<group>"; };
+		C123F6CE1D6D811F0000ABE3 /* Trigger_Floating.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trigger_Floating.h; sourceTree = "<group>"; };
+		C123F6CF1D6D811F0000ABE3 /* Trigger_Floating2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trigger_Floating2.h; sourceTree = "<group>"; };
+		C123F6D01D6D811F0000ABE3 /* Trigger_Floating3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trigger_Floating3.h; sourceTree = "<group>"; };
+		C123F6D11D6D811F0000ABE3 /* Trigger_Glubschi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trigger_Glubschi.h; sourceTree = "<group>"; };
+		C123F6D21D6D811F0000ABE3 /* Trigger_Glubschi2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trigger_Glubschi2.h; sourceTree = "<group>"; };
+		C123F6D31D6D811F0000ABE3 /* Trigger_LaFassSpawner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trigger_LaFassSpawner.h; sourceTree = "<group>"; };
+		C123F6D41D6D811F0000ABE3 /* Trigger_Lift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trigger_Lift.h; sourceTree = "<group>"; };
+		C123F6D51D6D811F0000ABE3 /* Trigger_LightFlare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trigger_LightFlare.h; sourceTree = "<group>"; };
+		C123F6D61D6D811F0000ABE3 /* Trigger_LuefterGross.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trigger_LuefterGross.h; sourceTree = "<group>"; };
+		C123F6D71D6D811F0000ABE3 /* Trigger_LuefterKlein.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trigger_LuefterKlein.h; sourceTree = "<group>"; };
+		C123F6D81D6D811F0000ABE3 /* Trigger_LuefterKlein2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trigger_LuefterKlein2.h; sourceTree = "<group>"; };
+		C123F6D91D6D811F0000ABE3 /* Trigger_Mushroom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trigger_Mushroom.h; sourceTree = "<group>"; };
+		C123F6DA1D6D811F0000ABE3 /* Trigger_PartikelSpawner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trigger_PartikelSpawner.h; sourceTree = "<group>"; };
+		C123F6DB1D6D811F0000ABE3 /* Trigger_Plattform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trigger_Plattform.h; sourceTree = "<group>"; };
+		C123F6DC1D6D811F0000ABE3 /* Trigger_Presse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trigger_Presse.h; sourceTree = "<group>"; };
+		C123F6DD1D6D811F0000ABE3 /* Trigger_Presswurst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trigger_Presswurst.h; sourceTree = "<group>"; };
+		C123F6DE1D6D811F0000ABE3 /* Trigger_SchleuseH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trigger_SchleuseH.h; sourceTree = "<group>"; };
+		C123F6DF1D6D811F0000ABE3 /* Trigger_SchleuseV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trigger_SchleuseV.h; sourceTree = "<group>"; };
+		C123F6E01D6D811F0000ABE3 /* Trigger_Secret.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trigger_Secret.h; sourceTree = "<group>"; };
+		C123F6E11D6D811F0000ABE3 /* Trigger_ShootButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trigger_ShootButton.h; sourceTree = "<group>"; };
+		C123F6E21D6D811F0000ABE3 /* Trigger_ShootPlattform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trigger_ShootPlattform.h; sourceTree = "<group>"; };
+		C123F6E31D6D811F0000ABE3 /* Trigger_Shrine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trigger_Shrine.h; sourceTree = "<group>"; };
+		C123F6E41D6D811F0000ABE3 /* Trigger_SoundTrigger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trigger_SoundTrigger.h; sourceTree = "<group>"; };
+		C123F6E51D6D811F0000ABE3 /* Trigger_Spikelift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trigger_Spikelift.h; sourceTree = "<group>"; };
+		C123F6E61D6D811F0000ABE3 /* Trigger_Stampfstein.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trigger_Stampfstein.h; sourceTree = "<group>"; };
+		C123F6E71D6D811F0000ABE3 /* Trigger_SurfBrett.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trigger_SurfBrett.h; sourceTree = "<group>"; };
+		C123F6E81D6D81200000ABE3 /* Trigger_Switch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trigger_Switch.h; sourceTree = "<group>"; };
+		C123F6E91D6D81200000ABE3 /* Trigger_Tube.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trigger_Tube.h; sourceTree = "<group>"; };
+		C123F6EA1D6D81200000ABE3 /* Trigger_TutorialText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trigger_TutorialText.h; sourceTree = "<group>"; };
+		C123F6EB1D6D81200000ABE3 /* Trigger_Warning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trigger_Warning.h; sourceTree = "<group>"; };
+		C123F6EC1D6D81200000ABE3 /* unrarlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = unrarlib.h; path = inc/unrarlib.h; sourceTree = "<group>"; };
+		C123F6ED1D6D81200000ABE3 /* wincompat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = wincompat.h; path = inc/wincompat.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C123F4BC1D6D80BA0000ABE3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
 /* Begin PBXGroup section */
 		C123F4B41D6D7F8E0000ABE3 = {
 			isa = PBXGroup;
 			children = (
+				C123F4C71D6D810F0000ABE3 /* Boss_BigFish.cpp */,
+				C123F62F1D6D811F0000ABE3 /* Boss_BigFish.h */,
+				C123F4C81D6D810F0000ABE3 /* Boss_Bratklops.cpp */,
+				C123F6301D6D811F0000ABE3 /* Boss_Bratklops.h */,
+				C123F4C91D6D810F0000ABE3 /* Boss_Drache.cpp */,
+				C123F6311D6D811F0000ABE3 /* Boss_Drache.h */,
+				C123F4CA1D6D810F0000ABE3 /* Boss_EisFaust.cpp */,
+				C123F6321D6D811F0000ABE3 /* Boss_EisFaust.h */,
+				C123F4CB1D6D810F0000ABE3 /* Boss_EvilHurri.cpp */,
+				C123F6331D6D811F0000ABE3 /* Boss_EvilHurri.h */,
+				C123F4CC1D6D810F0000ABE3 /* Boss_FahrstuhlBoss.cpp */,
+				C123F6341D6D811F0000ABE3 /* Boss_FahrstuhlBoss.h */,
+				C123F4CD1D6D810F0000ABE3 /* Boss_FlugBoss.cpp */,
+				C123F6351D6D811F0000ABE3 /* Boss_FlugBoss.h */,
+				C123F4CE1D6D810F0000ABE3 /* Boss_Golem.cpp */,
+				C123F6361D6D811F0000ABE3 /* Boss_Golem.h */,
+				C123F4CF1D6D810F0000ABE3 /* Boss_MetalHead.cpp */,
+				C123F6371D6D811F0000ABE3 /* Boss_MetalHead.h */,
+				C123F4D01D6D810F0000ABE3 /* Boss_PharaoKopf.cpp */,
+				C123F6381D6D811F0000ABE3 /* Boss_PharaoKopf.h */,
+				C123F4D11D6D810F0000ABE3 /* Boss_RiesenPiranha.cpp */,
+				C123F6391D6D811F0000ABE3 /* Boss_RiesenPiranha.h */,
+				C123F4D21D6D810F0000ABE3 /* Boss_RiesenQualle.cpp */,
+				C123F63A1D6D811F0000ABE3 /* Boss_RiesenQualle.h */,
+				C123F4D31D6D810F0000ABE3 /* Boss_RiesenRaupe.cpp */,
+				C123F63B1D6D811F0000ABE3 /* Boss_RiesenRaupe.h */,
+				C123F4D41D6D810F0000ABE3 /* Boss_RiesenSpinne.cpp */,
+				C123F63C1D6D811F0000ABE3 /* Boss_RiesenSpinne.h */,
+				C123F4D51D6D810F0000ABE3 /* Boss_RiesenWespe.cpp */,
+				C123F63D1D6D811F0000ABE3 /* Boss_RiesenWespe.h */,
+				C123F4D61D6D810F0000ABE3 /* Boss_Rollmops.cpp */,
+				C123F63E1D6D811F0000ABE3 /* Boss_Rollmops.h */,
+				C123F4D71D6D810F0000ABE3 /* Boss_SchmidtOrgie.cpp */,
+				C123F63F1D6D811F0000ABE3 /* Boss_SchmidtOrgie.h */,
+				C123F4D81D6D810F0000ABE3 /* Boss_Schneekoenig.cpp */,
+				C123F6401D6D811F0000ABE3 /* Boss_Schneekoenig.h */,
+				C123F4D91D6D810F0000ABE3 /* Boss_Skeletor.cpp */,
+				C123F6411D6D811F0000ABE3 /* Boss_Skeletor.h */,
+				C123F4DA1D6D810F0000ABE3 /* Boss_Skull.cpp */,
+				C123F6421D6D811F0000ABE3 /* Boss_Skull.h */,
+				C123F4DB1D6D810F0000ABE3 /* Boss_Spinnenmaschine.cpp */,
+				C123F6431D6D811F0000ABE3 /* Boss_Spinnenmaschine.h */,
+				C123F4DC1D6D810F0000ABE3 /* Boss_Stahlfaust.cpp */,
+				C123F6441D6D811F0000ABE3 /* Boss_Stahlfaust.h */,
+				C123F4DD1D6D810F0000ABE3 /* Boss_TheWall.cpp */,
+				C123F6451D6D811F0000ABE3 /* Boss_TheWall.h */,
+				C123F4DE1D6D810F0000ABE3 /* Boss_Ufo.cpp */,
+				C123F6461D6D811F0000ABE3 /* Boss_Ufo.h */,
+				C123F4DF1D6D810F0000ABE3 /* Boss_WuxeSpinnen.cpp */,
+				C123F6471D6D811F0000ABE3 /* Boss_WuxeSpinnen.h */,
+				C123F4E01D6D810F0000ABE3 /* CCracktro.cpp */,
+				C123F6481D6D811F0000ABE3 /* CCracktro.h */,
+				C123F4E11D6D810F0000ABE3 /* CCutScene.cpp */,
+				C123F6491D6D811F0000ABE3 /* CCutScene.h */,
+				C123F4E21D6D810F0000ABE3 /* CDragonHack.cpp */,
+				C123F64A1D6D811F0000ABE3 /* CDragonHack.h */,
+				C123F64B1D6D811F0000ABE3 /* CGegner.h */,
+				C123F4E31D6D810F0000ABE3 /* Console.cpp */,
+				C123F64C1D6D811F0000ABE3 /* Console.h */,
+				C123F4E41D6D810F0000ABE3 /* DX8Enum.cpp */,
+				C123F64D1D6D811F0000ABE3 /* DX8Enum.h */,
+				C123F4E51D6D810F0000ABE3 /* DX8Font.cpp */,
+				C123F64E1D6D811F0000ABE3 /* DX8Font.h */,
+				C123F4E61D6D810F0000ABE3 /* DX8Graphics.cpp */,
+				C123F64F1D6D811F0000ABE3 /* DX8Graphics.h */,
+				C123F4E71D6D810F0000ABE3 /* DX8Input.cpp */,
+				C123F6501D6D811F0000ABE3 /* DX8Input.h */,
+				C123F4E81D6D810F0000ABE3 /* DX8Joystick.cpp */,
+				C123F6511D6D811F0000ABE3 /* DX8Joystick.h */,
+				C123F4E91D6D810F0000ABE3 /* DX8Sound.cpp */,
+				C123F6521D6D811F0000ABE3 /* DX8Sound.h */,
+				C123F4EA1D6D810F0000ABE3 /* DX8Sprite.cpp */,
+				C123F6531D6D811F0000ABE3 /* DX8Sprite.h */,
+				C123F6541D6D811F0000ABE3 /* fmod_errors.h */,
+				C123F6551D6D811F0000ABE3 /* fmod.h */,
+				C123F6561D6D811F0000ABE3 /* fmoddyn.h */,
+				C123F4EB1D6D810F0000ABE3 /* Gameplay.cpp */,
+				C123F6571D6D811F0000ABE3 /* Gameplay.h */,
+				C123F4EC1D6D810F0000ABE3 /* Gegner_Auge.cpp */,
+				C123F6581D6D811F0000ABE3 /* Gegner_Auge.h */,
+				C123F4ED1D6D810F0000ABE3 /* Gegner_BallerDrone.cpp */,
+				C123F6591D6D811F0000ABE3 /* Gegner_BallerDrone.h */,
+				C123F4EE1D6D810F0000ABE3 /* Gegner_BigRocket.cpp */,
+				C123F65A1D6D811F0000ABE3 /* Gegner_BigRocket.h */,
+				C123F4EF1D6D810F0000ABE3 /* Gegner_BlueBoulder.cpp */,
+				C123F65B1D6D811F0000ABE3 /* Gegner_BlueBoulder.h */,
+				C123F4F01D6D810F0000ABE3 /* Gegner_BrockelRock.cpp */,
+				C123F65C1D6D811F0000ABE3 /* Gegner_BrockelRock.h */,
+				C123F4F11D6D810F0000ABE3 /* Gegner_Climber.cpp */,
+				C123F65D1D6D811F0000ABE3 /* Gegner_Climber.h */,
+				C123F4F21D6D810F0000ABE3 /* Gegner_DeckenKrabbe.cpp */,
+				C123F65E1D6D811F0000ABE3 /* Gegner_DeckenKrabbe.h */,
+				C123F4F31D6D810F0000ABE3 /* Gegner_Deckenturm.cpp */,
+				C123F65F1D6D811F0000ABE3 /* Gegner_Deckenturm.h */,
+				C123F4F41D6D810F0000ABE3 /* Gegner_Diamant.cpp */,
+				C123F6601D6D811F0000ABE3 /* Gegner_Diamant.h */,
+				C123F4F51D6D810F0000ABE3 /* Gegner_Drone.cpp */,
+				C123F6611D6D811F0000ABE3 /* Gegner_Drone.h */,
+				C123F4F61D6D810F0000ABE3 /* Gegner_EierMann.cpp */,
+				C123F6621D6D811F0000ABE3 /* Gegner_EierMann.h */,
+				C123F4F71D6D810F0000ABE3 /* Gegner_EisStachel.cpp */,
+				C123F6631D6D811F0000ABE3 /* Gegner_EisStachel.h */,
+				C123F4F81D6D810F0000ABE3 /* Gegner_Eiszapfen.cpp */,
+				C123F6641D6D811F0000ABE3 /* Gegner_Eiszapfen.h */,
+				C123F4F91D6D810F0000ABE3 /* Gegner_Extras.cpp */,
+				C123F6651D6D811F0000ABE3 /* Gegner_Extras.h */,
+				C123F4FA1D6D810F0000ABE3 /* Gegner_FallBombe.cpp */,
+				C123F6661D6D811F0000ABE3 /* Gegner_FallBombe.h */,
+				C123F4FB1D6D810F0000ABE3 /* Gegner_FallingRock.cpp */,
+				C123F6671D6D811F0000ABE3 /* Gegner_FallingRock.h */,
+				C123F4FC1D6D810F0000ABE3 /* Gegner_FetteRakete.cpp */,
+				C123F6681D6D811F0000ABE3 /* Gegner_FetteRakete.h */,
+				C123F4FD1D6D810F0000ABE3 /* Gegner_FetteSpinne.cpp */,
+				C123F6691D6D811F0000ABE3 /* Gegner_FetteSpinne.h */,
+				C123F4FE1D6D810F0000ABE3 /* Gegner_FieseDrone.cpp */,
+				C123F66A1D6D811F0000ABE3 /* Gegner_FieseDrone.h */,
+				C123F4FF1D6D810F0000ABE3 /* Gegner_FieserFireWalker.cpp */,
+				C123F66B1D6D811F0000ABE3 /* Gegner_FieserFireWalker.h */,
+				C123F5001D6D810F0000ABE3 /* Gegner_FieserWalker.cpp */,
+				C123F66C1D6D811F0000ABE3 /* Gegner_FieserWalker.h */,
+				C123F5011D6D810F0000ABE3 /* Gegner_FireSpider.cpp */,
+				C123F66D1D6D811F0000ABE3 /* Gegner_FireSpider.h */,
+				C123F5021D6D810F0000ABE3 /* Gegner_Fledermaus.cpp */,
+				C123F66E1D6D811F0000ABE3 /* Gegner_Fledermaus.h */,
+				C123F5031D6D810F0000ABE3 /* Gegner_FlugKanone.cpp */,
+				C123F66F1D6D811F0000ABE3 /* Gegner_FlugKanone.h */,
+				C123F5041D6D810F0000ABE3 /* Gegner_Flugsack.cpp */,
+				C123F6701D6D811F0000ABE3 /* Gegner_Flugsack.h */,
+				C123F5051D6D810F0000ABE3 /* Gegner_Geschuetz.cpp */,
+				C123F6711D6D811F0000ABE3 /* Gegner_Geschuetz.h */,
+				C123F5061D6D810F0000ABE3 /* Gegner_GunTower.cpp */,
+				C123F6721D6D811F0000ABE3 /* Gegner_GunTower.h */,
+				C123F5071D6D810F0000ABE3 /* Gegner_Helper.cpp */,
+				C123F6731D6D811F0000ABE3 /* Gegner_Helper.h */,
+				C123F5081D6D810F0000ABE3 /* Gegner_Jaeger.cpp */,
+				C123F6741D6D811F0000ABE3 /* Gegner_Jaeger.h */,
+				C123F5091D6D810F0000ABE3 /* Gegner_Kettenglied.cpp */,
+				C123F6751D6D811F0000ABE3 /* Gegner_Kettenglied.h */,
+				C123F50A1D6D810F0000ABE3 /* Gegner_KrabblerLinks.cpp */,
+				C123F6761D6D811F0000ABE3 /* Gegner_KrabblerLinks.h */,
+				C123F50B1D6D810F0000ABE3 /* Gegner_KrabblerOben.cpp */,
+				C123F6771D6D811F0000ABE3 /* Gegner_KrabblerOben.h */,
+				C123F50C1D6D810F0000ABE3 /* Gegner_KrabblerRechts.cpp */,
+				C123F6781D6D811F0000ABE3 /* Gegner_KrabblerRechts.h */,
+				C123F50D1D6D810F0000ABE3 /* Gegner_KugelGross.cpp */,
+				C123F6791D6D811F0000ABE3 /* Gegner_KugelGross.h */,
+				C123F50E1D6D810F0000ABE3 /* Gegner_KugelKlein.cpp */,
+				C123F67A1D6D811F0000ABE3 /* Gegner_KugelKlein.h */,
+				C123F50F1D6D810F0000ABE3 /* Gegner_KugelMedium.cpp */,
+				C123F67B1D6D811F0000ABE3 /* Gegner_KugelMedium.h */,
+				C123F5101D6D810F0000ABE3 /* Gegner_KugelRiesig.cpp */,
+				C123F67C1D6D811F0000ABE3 /* Gegner_KugelRiesig.h */,
+				C123F5111D6D810F0000ABE3 /* Gegner_LaFass.cpp */,
+				C123F67D1D6D811F0000ABE3 /* Gegner_LaFass.h */,
+				C123F5121D6D810F0000ABE3 /* Gegner_LavaBall.cpp */,
+				C123F67E1D6D811F0000ABE3 /* Gegner_LavaBall.h */,
+				C123F5131D6D810F0000ABE3 /* Gegner_LavaBallSpawner.cpp */,
+				C123F67F1D6D811F0000ABE3 /* Gegner_LavaBallSpawner.h */,
+				C123F5141D6D810F0000ABE3 /* Gegner_LavaKrabbe.cpp */,
+				C123F6801D6D811F0000ABE3 /* Gegner_LavaKrabbe.h */,
+				C123F5151D6D810F0000ABE3 /* Gegner_Lavamann.cpp */,
+				C123F6811D6D811F0000ABE3 /* Gegner_Lavamann.h */,
+				C123F5161D6D810F0000ABE3 /* Gegner_Made.cpp */,
+				C123F6821D6D811F0000ABE3 /* Gegner_Made.h */,
+				C123F5171D6D810F0000ABE3 /* Gegner_Minidragon.cpp */,
+				C123F6831D6D811F0000ABE3 /* Gegner_Minidragon.h */,
+				C123F5181D6D810F0000ABE3 /* Gegner_MiniRocket.cpp */,
+				C123F6841D6D811F0000ABE3 /* Gegner_MiniRocket.h */,
+				C123F5191D6D810F0000ABE3 /* Gegner_MittelSpinne.cpp */,
+				C123F6851D6D811F0000ABE3 /* Gegner_MittelSpinne.h */,
+				C123F51A1D6D810F0000ABE3 /* Gegner_Mutant.cpp */,
+				C123F6861D6D811F0000ABE3 /* Gegner_Mutant.h */,
+				C123F51B1D6D810F0000ABE3 /* Gegner_Nest.cpp */,
+				C123F6871D6D811F0000ABE3 /* Gegner_Nest.h */,
+				C123F51C1D6D810F0000ABE3 /* Gegner_NeuFisch.cpp */,
+				C123F6881D6D811F0000ABE3 /* Gegner_NeuFisch.h */,
+				C123F51D1D6D810F0000ABE3 /* Gegner_OneUp.cpp */,
+				C123F6891D6D811F0000ABE3 /* Gegner_OneUp.h */,
+				C123F51E1D6D810F0000ABE3 /* Gegner_PFlanze.cpp */,
+				C123F68A1D6D811F0000ABE3 /* Gegner_Pflanze.h */,
+				C123F51F1D6D810F0000ABE3 /* Gegner_Piranha.cpp */,
+				C123F68B1D6D811F0000ABE3 /* Gegner_Piranha.h */,
+				C123F5201D6D810F0000ABE3 /* Gegner_PokeNuke.cpp */,
+				C123F68C1D6D811F0000ABE3 /* Gegner_PokeNuke.h */,
+				C123F5211D6D810F0000ABE3 /* Gegner_PowerBlock.cpp */,
+				C123F68D1D6D811F0000ABE3 /* Gegner_PowerBlock.h */,
+				C123F5221D6D810F0000ABE3 /* Gegner_Punisher.cpp */,
+				C123F68E1D6D811F0000ABE3 /* Gegner_Punisher.h */,
+				C123F5231D6D810F0000ABE3 /* Gegner_Qualle.cpp */,
+				C123F68F1D6D811F0000ABE3 /* Gegner_Qualle.h */,
+				C123F5241D6D810F0000ABE3 /* Gegner_Raketenwerfer.cpp */,
+				C123F6901D6D811F0000ABE3 /* Gegner_Raketenwerfer.h */,
+				C123F5251D6D810F0000ABE3 /* Gegner_ReitFlugsack.cpp */,
+				C123F6911D6D811F0000ABE3 /* Gegner_ReitFlugsack.h */,
+				C123F5261D6D810F0000ABE3 /* Gegner_RoboMan1.cpp */,
+				C123F6921D6D811F0000ABE3 /* Gegner_RoboMan1.h */,
+				C123F5271D6D810F0000ABE3 /* Gegner_RoboRaupe.cpp */,
+				C123F6931D6D811F0000ABE3 /* Gegner_RoboRaupe.h */,
+				C123F5281D6D810F0000ABE3 /* Gegner_Rotzpott.cpp */,
+				C123F6941D6D811F0000ABE3 /* Gegner_Rotzpott.h */,
+				C123F5291D6D810F0000ABE3 /* Gegner_Schabe.cpp */,
+				C123F6951D6D811F0000ABE3 /* Gegner_Schabe.h */,
+				C123F52A1D6D810F0000ABE3 /* Gegner_SchienenViech.cpp */,
+				C123F6961D6D811F0000ABE3 /* Gegner_SchienenViech.h */,
+				C123F52B1D6D810F0000ABE3 /* Gegner_SchleimAlien.cpp */,
+				C123F6971D6D811F0000ABE3 /* Gegner_SchleimAlien.h */,
+				C123F52C1D6D810F0000ABE3 /* Gegner_SchleimBoller.cpp */,
+				C123F6981D6D811F0000ABE3 /* Gegner_SchleimBoller.h */,
+				C123F52D1D6D810F0000ABE3 /* Gegner_SchleimMaul.cpp */,
+				C123F6991D6D811F0000ABE3 /* Gegner_SchleimMaul.h */,
+				C123F52E1D6D810F0000ABE3 /* Gegner_Schneekoppe.cpp */,
+				C123F69A1D6D811F0000ABE3 /* Gegner_Schneekoppe.h */,
+				C123F52F1D6D810F0000ABE3 /* Gegner_Schwabbel.cpp */,
+				C123F69B1D6D811F0000ABE3 /* Gegner_Schwabbel.h */,
+				C123F5301D6D810F0000ABE3 /* Gegner_SideRocket.cpp */,
+				C123F69C1D6D811F0000ABE3 /* Gegner_SideRocket.h */,
+				C123F5311D6D810F0000ABE3 /* Gegner_SkiWalker.cpp */,
+				C123F69D1D6D811F0000ABE3 /* Gegner_SkiWalker.h */,
+				C123F5321D6D810F0000ABE3 /* Gegner_SmallWespe.cpp */,
+				C123F69E1D6D811F0000ABE3 /* Gegner_SmallWespe.h */,
+				C123F5331D6D810F0000ABE3 /* Gegner_SnowBomb.cpp */,
+				C123F69F1D6D811F0000ABE3 /* Gegner_SnowBomb.h */,
+				C123F5341D6D810F0000ABE3 /* Gegner_SpiderBomb.cpp */,
+				C123F6A01D6D811F0000ABE3 /* Gegner_SpiderBomb.h */,
+				C123F5351D6D810F0000ABE3 /* Gegner_Spitter.cpp */,
+				C123F6A11D6D811F0000ABE3 /* Gegner_Spitter.h */,
+				C123F5361D6D810F0000ABE3 /* Gegner_Spitterbombe.cpp */,
+				C123F6A21D6D811F0000ABE3 /* Gegner_Spitterbombe.h */,
+				C123F5371D6D810F0000ABE3 /* Gegner_Stachelbeere.cpp */,
+				C123F6A31D6D811F0000ABE3 /* Gegner_Stachelbeere.h */,
+				C123F5381D6D810F0000ABE3 /* Gegner_Stahlmuecke.cpp */,
+				C123F6A41D6D811F0000ABE3 /* Gegner_Stahlmuecke.h */,
+				C123F5391D6D810F0000ABE3 /* Gegner_Stalagtit.cpp */,
+				C123F6A51D6D811F0000ABE3 /* Gegner_Stalagtit.h */,
+				C123F53A1D6D810F0000ABE3 /* Gegner_StarBig.cpp */,
+				C123F6A61D6D811F0000ABE3 /* Gegner_StarBig.h */,
+				C123F53B1D6D810F0000ABE3 /* Gegner_StarSmall.cpp */,
+				C123F6A71D6D811F0000ABE3 /* Gegner_StarSmall.h */,
+				C123F53C1D6D810F0000ABE3 /* Gegner_StelzSack.cpp */,
+				C123F6A81D6D811F0000ABE3 /* Gegner_StelzSack.h */,
+				C123F6A91D6D811F0000ABE3 /* Gegner_Stuff.h */,
+				C123F53D1D6D810F0000ABE3 /* Gegner_SwimWalker.cpp */,
+				C123F6AA1D6D811F0000ABE3 /* Gegner_SwimWalker.h */,
+				C123F53E1D6D810F0000ABE3 /* Gegner_Walker.cpp */,
+				C123F6AB1D6D811F0000ABE3 /* Gegner_Walker.h */,
+				C123F53F1D6D810F0000ABE3 /* Gegner_WandKannone.cpp */,
+				C123F6AC1D6D811F0000ABE3 /* Gegner_WandKannone.h */,
+				C123F5401D6D810F0000ABE3 /* Gegner_WandKrabbe.cpp */,
+				C123F6AD1D6D811F0000ABE3 /* Gegner_WandKrabbe.h */,
+				C123F5411D6D810F0000ABE3 /* Gegner_WasserMine.cpp */,
+				C123F6AE1D6D811F0000ABE3 /* Gegner_WasserMine.h */,
+				C123F5421D6D810F0000ABE3 /* Gegner_Zitrone.cpp */,
+				C123F6AF1D6D811F0000ABE3 /* Gegner_Zitrone.h */,
+				C123F5431D6D81100000ABE3 /* GegnerClass.cpp */,
+				C123F6B01D6D811F0000ABE3 /* GegnerClass.h */,
+				C123F6B11D6D811F0000ABE3 /* GegnerPowerBlock.h */,
+				C123F5441D6D81100000ABE3 /* GetKeyName.cpp */,
+				C123F6B21D6D811F0000ABE3 /* GetKeyName.h */,
+				C123F6B31D6D811F0000ABE3 /* Globals.h */,
+				C123F5451D6D81100000ABE3 /* GUISystem.cpp */,
+				C123F6B41D6D811F0000ABE3 /* GUISystem.h */,
+				C123F5461D6D81100000ABE3 /* HUD.CPP */,
+				C123F6B51D6D811F0000ABE3 /* HUD.H */,
+				C123F5471D6D81100000ABE3 /* Intro.cpp */,
+				C123F6B61D6D811F0000ABE3 /* Intro.h */,
+				C123F5481D6D81100000ABE3 /* lightmap.cpp */,
+				C123F6B71D6D811F0000ABE3 /* lightmap.h */,
+				C123F5491D6D81100000ABE3 /* Logdatei.cpp */,
+				C123F6B81D6D811F0000ABE3 /* Logdatei.h */,
+				C123F54A1D6D81100000ABE3 /* Main.cpp */,
+				C123F6B91D6D811F0000ABE3 /* Main.h */,
+				C123F6BA1D6D811F0000ABE3 /* MemLeaks.h */,
+				C123F54B1D6D81100000ABE3 /* Menu.cpp */,
+				C123F6BB1D6D811F0000ABE3 /* Menu.h */,
+				C123F6BC1D6D811F0000ABE3 /* mymath.h */,
+				C123F54C1D6D81100000ABE3 /* Outtro.cpp */,
+				C123F6BD1D6D811F0000ABE3 /* Outtro.h */,
+				C123F54D1D6D81100000ABE3 /* Partikelsystem.cpp */,
+				C123F6BE1D6D811F0000ABE3 /* Partikelsystem.h */,
+				C123F54E1D6D81100000ABE3 /* Player.cpp */,
+				C123F6BF1D6D811F0000ABE3 /* Player.h */,
+				C123F54F1D6D81100000ABE3 /* Projectiles.cpp */,
+				C123F6C01D6D811F0000ABE3 /* Projectiles.h */,
+				C123F6C11D6D811F0000ABE3 /* resource.h */,
+				C123F5501D6D81100000ABE3 /* stdafx.cpp */,
+				C123F6C21D6D811F0000ABE3 /* stdafx.h */,
+				C123F5511D6D81100000ABE3 /* Texts.cpp */,
+				C123F6C31D6D811F0000ABE3 /* Texts.h */,
+				C123F5521D6D81100000ABE3 /* Tileengine.cpp */,
+				C123F6C41D6D811F0000ABE3 /* Tileengine.h */,
+				C123F5531D6D81100000ABE3 /* Timer.cpp */,
+				C123F6C51D6D811F0000ABE3 /* Timer.h */,
+				C123F5541D6D81100000ABE3 /* tracealloc.cpp */,
+				C123F5551D6D81100000ABE3 /* Trigger_Bruecke.cpp */,
+				C123F6C61D6D811F0000ABE3 /* Trigger_Bruecke.h */,
+				C123F5561D6D81100000ABE3 /* Trigger_Column.cpp */,
+				C123F6C71D6D811F0000ABE3 /* Trigger_Column.h */,
+				C123F5571D6D81100000ABE3 /* Trigger_Column2.cpp */,
+				C123F6C81D6D811F0000ABE3 /* Trigger_Column2.h */,
+				C123F5581D6D81100000ABE3 /* Trigger_EndLevel.cpp */,
+				C123F6C91D6D811F0000ABE3 /* Trigger_EndLevel.h */,
+				C123F5591D6D81100000ABE3 /* Trigger_FadeMusic.cpp */,
+				C123F6CA1D6D811F0000ABE3 /* Trigger_FadeMusic.h */,
+				C123F55A1D6D81100000ABE3 /* Trigger_FahrStuhl.cpp */,
+				C123F6CB1D6D811F0000ABE3 /* Trigger_Fahrstuhl.h */,
+				C123F55B1D6D81100000ABE3 /* Trigger_Fass.cpp */,
+				C123F6CC1D6D811F0000ABE3 /* Trigger_Fass.h */,
+				C123F55C1D6D81100000ABE3 /* Trigger_Feuerspucker.cpp */,
+				C123F6CD1D6D811F0000ABE3 /* Trigger_Feuerspucker.h */,
+				C123F55D1D6D81100000ABE3 /* Trigger_Floating.cpp */,
+				C123F6CE1D6D811F0000ABE3 /* Trigger_Floating.h */,
+				C123F55E1D6D81100000ABE3 /* Trigger_Floating2.cpp */,
+				C123F6CF1D6D811F0000ABE3 /* Trigger_Floating2.h */,
+				C123F55F1D6D81100000ABE3 /* Trigger_Floating3.cpp */,
+				C123F6D01D6D811F0000ABE3 /* Trigger_Floating3.h */,
+				C123F5601D6D81100000ABE3 /* Trigger_Glubschi.cpp */,
+				C123F6D11D6D811F0000ABE3 /* Trigger_Glubschi.h */,
+				C123F5611D6D81100000ABE3 /* Trigger_Glubschi2.cpp */,
+				C123F6D21D6D811F0000ABE3 /* Trigger_Glubschi2.h */,
+				C123F5621D6D81100000ABE3 /* Trigger_LaFassSpawner.cpp */,
+				C123F6D31D6D811F0000ABE3 /* Trigger_LaFassSpawner.h */,
+				C123F5631D6D81100000ABE3 /* Trigger_Lift.cpp */,
+				C123F6D41D6D811F0000ABE3 /* Trigger_Lift.h */,
+				C123F5641D6D81100000ABE3 /* Trigger_LightFlare.cpp */,
+				C123F6D51D6D811F0000ABE3 /* Trigger_LightFlare.h */,
+				C123F5651D6D81100000ABE3 /* Trigger_LuefterGross.cpp */,
+				C123F6D61D6D811F0000ABE3 /* Trigger_LuefterGross.h */,
+				C123F5661D6D81100000ABE3 /* Trigger_LuefterKlein.cpp */,
+				C123F6D71D6D811F0000ABE3 /* Trigger_LuefterKlein.h */,
+				C123F5671D6D81100000ABE3 /* Trigger_LuefterKlein2.cpp */,
+				C123F6D81D6D811F0000ABE3 /* Trigger_LuefterKlein2.h */,
+				C123F5681D6D81100000ABE3 /* Trigger_Mushroom.cpp */,
+				C123F6D91D6D811F0000ABE3 /* Trigger_Mushroom.h */,
+				C123F5691D6D81100000ABE3 /* Trigger_PartikelSpawner.cpp */,
+				C123F6DA1D6D811F0000ABE3 /* Trigger_PartikelSpawner.h */,
+				C123F56A1D6D81100000ABE3 /* Trigger_Plattform.cpp */,
+				C123F6DB1D6D811F0000ABE3 /* Trigger_Plattform.h */,
+				C123F56B1D6D81100000ABE3 /* Trigger_Presse.cpp */,
+				C123F6DC1D6D811F0000ABE3 /* Trigger_Presse.h */,
+				C123F56C1D6D81100000ABE3 /* Trigger_Presswurst.cpp */,
+				C123F6DD1D6D811F0000ABE3 /* Trigger_Presswurst.h */,
+				C123F56D1D6D81100000ABE3 /* Trigger_SchleuseH.cpp */,
+				C123F6DE1D6D811F0000ABE3 /* Trigger_SchleuseH.h */,
+				C123F56E1D6D81100000ABE3 /* Trigger_SchleuseV.cpp */,
+				C123F6DF1D6D811F0000ABE3 /* Trigger_SchleuseV.h */,
+				C123F56F1D6D81100000ABE3 /* Trigger_Secret.cpp */,
+				C123F6E01D6D811F0000ABE3 /* Trigger_Secret.h */,
+				C123F5701D6D81100000ABE3 /* Trigger_ShootButton.cpp */,
+				C123F6E11D6D811F0000ABE3 /* Trigger_ShootButton.h */,
+				C123F5711D6D81100000ABE3 /* Trigger_ShootPlattform.cpp */,
+				C123F6E21D6D811F0000ABE3 /* Trigger_ShootPlattform.h */,
+				C123F5721D6D81100000ABE3 /* Trigger_Shrine.cpp */,
+				C123F6E31D6D811F0000ABE3 /* Trigger_Shrine.h */,
+				C123F5731D6D81100000ABE3 /* Trigger_SoundTrigger.cpp */,
+				C123F6E41D6D811F0000ABE3 /* Trigger_SoundTrigger.h */,
+				C123F5741D6D81100000ABE3 /* Trigger_Spikelift.cpp */,
+				C123F6E51D6D811F0000ABE3 /* Trigger_Spikelift.h */,
+				C123F5751D6D81100000ABE3 /* Trigger_Stampfstein.cpp */,
+				C123F6E61D6D811F0000ABE3 /* Trigger_Stampfstein.h */,
+				C123F5761D6D81100000ABE3 /* Trigger_SurfBrett.cpp */,
+				C123F6E71D6D811F0000ABE3 /* Trigger_SurfBrett.h */,
+				C123F5771D6D81100000ABE3 /* Trigger_Switch.cpp */,
+				C123F6E81D6D81200000ABE3 /* Trigger_Switch.h */,
+				C123F5781D6D81100000ABE3 /* Trigger_Tube.cpp */,
+				C123F6E91D6D81200000ABE3 /* Trigger_Tube.h */,
+				C123F5791D6D81100000ABE3 /* Trigger_TutorialText.cpp */,
+				C123F6EA1D6D81200000ABE3 /* Trigger_TutorialText.h */,
+				C123F57A1D6D81100000ABE3 /* Trigger_Warning.cpp */,
+				C123F6EB1D6D81200000ABE3 /* Trigger_Warning.h */,
+				C123F6EC1D6D81200000ABE3 /* unrarlib.h */,
+				C123F6ED1D6D81200000ABE3 /* wincompat.h */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 1;
 		};
 /* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C123F4BE1D6D80BA0000ABE3 /* HurricanStub */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C123F4C41D6D80BA0000ABE3 /* Build configuration list for PBXNativeTarget "HurricanStub" */;
+			buildPhases = (
+				C123F4BB1D6D80BA0000ABE3 /* Sources */,
+				C123F4BC1D6D80BA0000ABE3 /* Frameworks */,
+				C123F4BD1D6D80BA0000ABE3 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HurricanStub;
+			productName = HurricanStub;
+			productReference = C123F4BF1D6D80BA0000ABE3 /* HurricanStub */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		C123F4B51D6D7F8E0000ABE3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0700;
+				TargetAttributes = {
+					C123F4BE1D6D80BA0000ABE3 = {
+						CreatedOnToolsVersion = 7.0;
+					};
+				};
 			};
 			buildConfigurationList = C123F4B81D6D7F8E0000ABE3 /* Build configuration list for PBXProject "Hurrican" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -29,12 +1006,204 @@
 				en,
 			);
 			mainGroup = C123F4B41D6D7F8E0000ABE3;
+			productRefGroup = C123F4B41D6D7F8E0000ABE3;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				C123F4BE1D6D80BA0000ABE3 /* HurricanStub */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C123F4BB1D6D80BA0000ABE3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C123F5AE1D6D81100000ABE3 /* Gegner_FallBombe.cpp in Sources */,
+				C123F58D1D6D81100000ABE3 /* Boss_Skeletor.cpp in Sources */,
+				C123F5B11D6D81100000ABE3 /* Gegner_FetteSpinne.cpp in Sources */,
+				C123F61D1D6D81100000ABE3 /* Trigger_PartikelSpawner.cpp in Sources */,
+				C123F6131D6D81100000ABE3 /* Trigger_Floating3.cpp in Sources */,
+				C123F58A1D6D81100000ABE3 /* Boss_Rollmops.cpp in Sources */,
+				C123F5941D6D81100000ABE3 /* CCracktro.cpp in Sources */,
+				C123F5D41D6D81100000ABE3 /* Gegner_PokeNuke.cpp in Sources */,
+				C123F5FE1D6D81100000ABE3 /* Main.cpp in Sources */,
+				C123F57F1D6D81100000ABE3 /* Boss_EvilHurri.cpp in Sources */,
+				C123F5FD1D6D81100000ABE3 /* Logdatei.cpp in Sources */,
+				C123F6081D6D81100000ABE3 /* tracealloc.cpp in Sources */,
+				C123F59B1D6D81100000ABE3 /* DX8Input.cpp in Sources */,
+				C123F5E41D6D81100000ABE3 /* Gegner_SideRocket.cpp in Sources */,
+				C123F5FF1D6D81100000ABE3 /* Menu.cpp in Sources */,
+				C123F58F1D6D81100000ABE3 /* Boss_Spinnenmaschine.cpp in Sources */,
+				C123F5E61D6D81100000ABE3 /* Gegner_SmallWespe.cpp in Sources */,
+				C123F5C21D6D81100000ABE3 /* Gegner_KugelKlein.cpp in Sources */,
+				C123F6051D6D81100000ABE3 /* Texts.cpp in Sources */,
+				C123F5F01D6D81100000ABE3 /* Gegner_StelzSack.cpp in Sources */,
+				C123F5F61D6D81100000ABE3 /* Gegner_Zitrone.cpp in Sources */,
+				C123F5A81D6D81100000ABE3 /* Gegner_Diamant.cpp in Sources */,
+				C123F5C31D6D81100000ABE3 /* Gegner_KugelMedium.cpp in Sources */,
+				C123F59C1D6D81100000ABE3 /* DX8Joystick.cpp in Sources */,
+				C123F59A1D6D81100000ABE3 /* DX8Graphics.cpp in Sources */,
+				C123F5A61D6D81100000ABE3 /* Gegner_DeckenKrabbe.cpp in Sources */,
+				C123F5E01D6D81100000ABE3 /* Gegner_SchleimBoller.cpp in Sources */,
+				C123F61B1D6D81100000ABE3 /* Trigger_LuefterKlein2.cpp in Sources */,
+				C123F5BB1D6D81100000ABE3 /* Gegner_Helper.cpp in Sources */,
+				C123F59F1D6D81100000ABE3 /* Gameplay.cpp in Sources */,
+				C123F5AC1D6D81100000ABE3 /* Gegner_Eiszapfen.cpp in Sources */,
+				C123F5CB1D6D81100000ABE3 /* Gegner_Minidragon.cpp in Sources */,
+				C123F5EC1D6D81100000ABE3 /* Gegner_Stahlmuecke.cpp in Sources */,
+				C123F60D1D6D81100000ABE3 /* Trigger_FadeMusic.cpp in Sources */,
+				C123F5D71D6D81100000ABE3 /* Gegner_Qualle.cpp in Sources */,
+				C123F62B1D6D81100000ABE3 /* Trigger_Switch.cpp in Sources */,
+				C123F5AD1D6D81100000ABE3 /* Gegner_Extras.cpp in Sources */,
+				C123F5C81D6D81100000ABE3 /* Gegner_LavaKrabbe.cpp in Sources */,
+				C123F5B81D6D81100000ABE3 /* Gegner_Flugsack.cpp in Sources */,
+				C123F6251D6D81100000ABE3 /* Trigger_ShootPlattform.cpp in Sources */,
+				C123F5A71D6D81100000ABE3 /* Gegner_Deckenturm.cpp in Sources */,
+				C123F6091D6D81100000ABE3 /* Trigger_Bruecke.cpp in Sources */,
+				C123F61A1D6D81100000ABE3 /* Trigger_LuefterKlein.cpp in Sources */,
+				C123F5E91D6D81100000ABE3 /* Gegner_Spitter.cpp in Sources */,
+				C123F5821D6D81100000ABE3 /* Boss_Golem.cpp in Sources */,
+				C123F5801D6D81100000ABE3 /* Boss_FahrstuhlBoss.cpp in Sources */,
+				C123F6101D6D81100000ABE3 /* Trigger_Feuerspucker.cpp in Sources */,
+				C123F5A01D6D81100000ABE3 /* Gegner_Auge.cpp in Sources */,
+				C123F6111D6D81100000ABE3 /* Trigger_Floating.cpp in Sources */,
+				C123F5B51D6D81100000ABE3 /* Gegner_FireSpider.cpp in Sources */,
+				C123F5AB1D6D81100000ABE3 /* Gegner_EisStachel.cpp in Sources */,
+				C123F5BC1D6D81100000ABE3 /* Gegner_Jaeger.cpp in Sources */,
+				C123F6031D6D81100000ABE3 /* Projectiles.cpp in Sources */,
+				C123F58B1D6D81100000ABE3 /* Boss_SchmidtOrgie.cpp in Sources */,
+				C123F62D1D6D81100000ABE3 /* Trigger_TutorialText.cpp in Sources */,
+				C123F5C91D6D81100000ABE3 /* Gegner_Lavamann.cpp in Sources */,
+				C123F5F31D6D81100000ABE3 /* Gegner_WandKannone.cpp in Sources */,
+				C123F5B41D6D81100000ABE3 /* Gegner_FieserWalker.cpp in Sources */,
+				C123F5B91D6D81100000ABE3 /* Gegner_Geschuetz.cpp in Sources */,
+				C123F6061D6D81100000ABE3 /* Tileengine.cpp in Sources */,
+				C123F58C1D6D81100000ABE3 /* Boss_Schneekoenig.cpp in Sources */,
+				C123F62E1D6D81100000ABE3 /* Trigger_Warning.cpp in Sources */,
+				C123F6241D6D81100000ABE3 /* Trigger_ShootButton.cpp in Sources */,
+				C123F5F41D6D81100000ABE3 /* Gegner_WandKrabbe.cpp in Sources */,
+				C123F5A21D6D81100000ABE3 /* Gegner_BigRocket.cpp in Sources */,
+				C123F5961D6D81100000ABE3 /* CDragonHack.cpp in Sources */,
+				C123F5971D6D81100000ABE3 /* Console.cpp in Sources */,
+				C123F5BD1D6D81100000ABE3 /* Gegner_Kettenglied.cpp in Sources */,
+				C123F5991D6D81100000ABE3 /* DX8Font.cpp in Sources */,
+				C123F5F91D6D81100000ABE3 /* GUISystem.cpp in Sources */,
+				C123F62C1D6D81100000ABE3 /* Trigger_Tube.cpp in Sources */,
+				C123F5931D6D81100000ABE3 /* Boss_WuxeSpinnen.cpp in Sources */,
+				C123F5EE1D6D81100000ABE3 /* Gegner_StarBig.cpp in Sources */,
+				C123F5911D6D81100000ABE3 /* Boss_TheWall.cpp in Sources */,
+				C123F59E1D6D81100000ABE3 /* DX8Sprite.cpp in Sources */,
+				C123F5881D6D81100000ABE3 /* Boss_RiesenSpinne.cpp in Sources */,
+				C123F5D21D6D81100000ABE3 /* Gegner_PFlanze.cpp in Sources */,
+				C123F5D91D6D81100000ABE3 /* Gegner_ReitFlugsack.cpp in Sources */,
+				C123F6281D6D81100000ABE3 /* Trigger_Spikelift.cpp in Sources */,
+				C123F5C71D6D81100000ABE3 /* Gegner_LavaBallSpawner.cpp in Sources */,
+				C123F5901D6D81100000ABE3 /* Boss_Stahlfaust.cpp in Sources */,
+				C123F5BE1D6D81100000ABE3 /* Gegner_KrabblerLinks.cpp in Sources */,
+				C123F5AA1D6D81100000ABE3 /* Gegner_EierMann.cpp in Sources */,
+				C123F57E1D6D81100000ABE3 /* Boss_EisFaust.cpp in Sources */,
+				C123F5AF1D6D81100000ABE3 /* Gegner_FallingRock.cpp in Sources */,
+				C123F60F1D6D81100000ABE3 /* Trigger_Fass.cpp in Sources */,
+				C123F5D01D6D81100000ABE3 /* Gegner_NeuFisch.cpp in Sources */,
+				C123F6201D6D81100000ABE3 /* Trigger_Presswurst.cpp in Sources */,
+				C123F5DD1D6D81100000ABE3 /* Gegner_Schabe.cpp in Sources */,
+				C123F57D1D6D81100000ABE3 /* Boss_Drache.cpp in Sources */,
+				C123F6071D6D81100000ABE3 /* Timer.cpp in Sources */,
+				C123F6121D6D81100000ABE3 /* Trigger_Floating2.cpp in Sources */,
+				C123F5A91D6D81100000ABE3 /* Gegner_Drone.cpp in Sources */,
+				C123F5D31D6D81100000ABE3 /* Gegner_Piranha.cpp in Sources */,
+				C123F5921D6D81100000ABE3 /* Boss_Ufo.cpp in Sources */,
+				C123F5B01D6D81100000ABE3 /* Gegner_FetteRakete.cpp in Sources */,
+				C123F6151D6D81100000ABE3 /* Trigger_Glubschi2.cpp in Sources */,
+				C123F6271D6D81100000ABE3 /* Trigger_SoundTrigger.cpp in Sources */,
+				C123F5DA1D6D81100000ABE3 /* Gegner_RoboMan1.cpp in Sources */,
+				C123F59D1D6D81100000ABE3 /* DX8Sound.cpp in Sources */,
+				C123F5E11D6D81100000ABE3 /* Gegner_SchleimMaul.cpp in Sources */,
+				C123F6211D6D81100000ABE3 /* Trigger_SchleuseH.cpp in Sources */,
+				C123F5A51D6D81100000ABE3 /* Gegner_Climber.cpp in Sources */,
+				C123F5D81D6D81100000ABE3 /* Gegner_Raketenwerfer.cpp in Sources */,
+				C123F5951D6D81100000ABE3 /* CCutScene.cpp in Sources */,
+				C123F60E1D6D81100000ABE3 /* Trigger_FahrStuhl.cpp in Sources */,
+				C123F5811D6D81100000ABE3 /* Boss_FlugBoss.cpp in Sources */,
+				C123F5EF1D6D81100000ABE3 /* Gegner_StarSmall.cpp in Sources */,
+				C123F5CD1D6D81100000ABE3 /* Gegner_MittelSpinne.cpp in Sources */,
+				C123F5B31D6D81100000ABE3 /* Gegner_FieserFireWalker.cpp in Sources */,
+				C123F5B61D6D81100000ABE3 /* Gegner_Fledermaus.cpp in Sources */,
+				C123F5F11D6D81100000ABE3 /* Gegner_SwimWalker.cpp in Sources */,
+				C123F5A41D6D81100000ABE3 /* Gegner_BrockelRock.cpp in Sources */,
+				C123F61F1D6D81100000ABE3 /* Trigger_Presse.cpp in Sources */,
+				C123F6141D6D81100000ABE3 /* Trigger_Glubschi.cpp in Sources */,
+				C123F5F51D6D81100000ABE3 /* Gegner_WasserMine.cpp in Sources */,
+				C123F5ED1D6D81100000ABE3 /* Gegner_Stalagtit.cpp in Sources */,
+				C123F6021D6D81100000ABE3 /* Player.cpp in Sources */,
+				C123F5E31D6D81100000ABE3 /* Gegner_Schwabbel.cpp in Sources */,
+				C123F5C51D6D81100000ABE3 /* Gegner_LaFass.cpp in Sources */,
+				C123F5D61D6D81100000ABE3 /* Gegner_Punisher.cpp in Sources */,
+				C123F6161D6D81100000ABE3 /* Trigger_LaFassSpawner.cpp in Sources */,
+				C123F5EB1D6D81100000ABE3 /* Gegner_Stachelbeere.cpp in Sources */,
+				C123F6221D6D81100000ABE3 /* Trigger_SchleuseV.cpp in Sources */,
+				C123F6291D6D81100000ABE3 /* Trigger_Stampfstein.cpp in Sources */,
+				C123F5FC1D6D81100000ABE3 /* lightmap.cpp in Sources */,
+				C123F5831D6D81100000ABE3 /* Boss_MetalHead.cpp in Sources */,
+				C123F6191D6D81100000ABE3 /* Trigger_LuefterGross.cpp in Sources */,
+				C123F5DE1D6D81100000ABE3 /* Gegner_SchienenViech.cpp in Sources */,
+				C123F5EA1D6D81100000ABE3 /* Gegner_Spitterbombe.cpp in Sources */,
+				C123F5F21D6D81100000ABE3 /* Gegner_Walker.cpp in Sources */,
+				C123F58E1D6D81100000ABE3 /* Boss_Skull.cpp in Sources */,
+				C123F5F71D6D81100000ABE3 /* GegnerClass.cpp in Sources */,
+				C123F5E51D6D81100000ABE3 /* Gegner_SkiWalker.cpp in Sources */,
+				C123F5D11D6D81100000ABE3 /* Gegner_OneUp.cpp in Sources */,
+				C123F5871D6D81100000ABE3 /* Boss_RiesenRaupe.cpp in Sources */,
+				C123F5A31D6D81100000ABE3 /* Gegner_BlueBoulder.cpp in Sources */,
+				C123F5DC1D6D81100000ABE3 /* Gegner_Rotzpott.cpp in Sources */,
+				C123F5CC1D6D81100000ABE3 /* Gegner_MiniRocket.cpp in Sources */,
+				C123F5C01D6D81100000ABE3 /* Gegner_KrabblerRechts.cpp in Sources */,
+				C123F6001D6D81100000ABE3 /* Outtro.cpp in Sources */,
+				C123F5851D6D81100000ABE3 /* Boss_RiesenPiranha.cpp in Sources */,
+				C123F62A1D6D81100000ABE3 /* Trigger_SurfBrett.cpp in Sources */,
+				C123F5E21D6D81100000ABE3 /* Gegner_Schneekoppe.cpp in Sources */,
+				C123F5BA1D6D81100000ABE3 /* Gegner_GunTower.cpp in Sources */,
+				C123F5D51D6D81100000ABE3 /* Gegner_PowerBlock.cpp in Sources */,
+				C123F6181D6D81100000ABE3 /* Trigger_LightFlare.cpp in Sources */,
+				C123F57B1D6D81100000ABE3 /* Boss_BigFish.cpp in Sources */,
+				C123F5CE1D6D81100000ABE3 /* Gegner_Mutant.cpp in Sources */,
+				C123F5B71D6D81100000ABE3 /* Gegner_FlugKanone.cpp in Sources */,
+				C123F5DF1D6D81100000ABE3 /* Gegner_SchleimAlien.cpp in Sources */,
+				C123F6261D6D81100000ABE3 /* Trigger_Shrine.cpp in Sources */,
+				C123F5B21D6D81100000ABE3 /* Gegner_FieseDrone.cpp in Sources */,
+				C123F5BF1D6D81100000ABE3 /* Gegner_KrabblerOben.cpp in Sources */,
+				C123F5C11D6D81100000ABE3 /* Gegner_KugelGross.cpp in Sources */,
+				C123F6171D6D81100000ABE3 /* Trigger_Lift.cpp in Sources */,
+				C123F5A11D6D81100000ABE3 /* Gegner_BallerDrone.cpp in Sources */,
+				C123F5DB1D6D81100000ABE3 /* Gegner_RoboRaupe.cpp in Sources */,
+				C123F61C1D6D81100000ABE3 /* Trigger_Mushroom.cpp in Sources */,
+				C123F5891D6D81100000ABE3 /* Boss_RiesenWespe.cpp in Sources */,
+				C123F6041D6D81100000ABE3 /* stdafx.cpp in Sources */,
+				C123F5C61D6D81100000ABE3 /* Gegner_LavaBall.cpp in Sources */,
+				C123F6011D6D81100000ABE3 /* Partikelsystem.cpp in Sources */,
+				C123F57C1D6D81100000ABE3 /* Boss_Bratklops.cpp in Sources */,
+				C123F60A1D6D81100000ABE3 /* Trigger_Column.cpp in Sources */,
+				C123F5F81D6D81100000ABE3 /* GetKeyName.cpp in Sources */,
+				C123F5981D6D81100000ABE3 /* DX8Enum.cpp in Sources */,
+				C123F60C1D6D81100000ABE3 /* Trigger_EndLevel.cpp in Sources */,
+				C123F5FB1D6D81100000ABE3 /* Intro.cpp in Sources */,
+				C123F61E1D6D81100000ABE3 /* Trigger_Plattform.cpp in Sources */,
+				C123F5C41D6D81100000ABE3 /* Gegner_KugelRiesig.cpp in Sources */,
+				C123F5FA1D6D81100000ABE3 /* HUD.CPP in Sources */,
+				C123F6231D6D81100000ABE3 /* Trigger_Secret.cpp in Sources */,
+				C123F5861D6D81100000ABE3 /* Boss_RiesenQualle.cpp in Sources */,
+				C123F5CA1D6D81100000ABE3 /* Gegner_Made.cpp in Sources */,
+				C123F5CF1D6D81100000ABE3 /* Gegner_Nest.cpp in Sources */,
+				C123F5841D6D81100000ABE3 /* Boss_PharaoKopf.cpp in Sources */,
+				C123F5E81D6D81100000ABE3 /* Gegner_SpiderBomb.cpp in Sources */,
+				C123F5E71D6D81100000ABE3 /* Gegner_SnowBomb.cpp in Sources */,
+				C123F60B1D6D81100000ABE3 /* Trigger_Column2.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
 		C123F4B91D6D7F8E0000ABE3 /* Debug */ = {
@@ -49,6 +1218,85 @@
 			};
 			name = Release;
 		};
+		C123F4C51D6D80BA0000ABE3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		C123F4C61D6D80BA0000ABE3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -60,6 +1308,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		C123F4C41D6D80BA0000ABE3 /* Build configuration list for PBXNativeTarget "HurricanStub" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C123F4C51D6D80BA0000ABE3 /* Debug */,
+				C123F4C61D6D80BA0000ABE3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
