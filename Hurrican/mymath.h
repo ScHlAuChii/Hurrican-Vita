@@ -20,7 +20,6 @@
 // Schnelle Float to Int Konvertierung
 
 #define MYMATH_FTOL(fx,x)\
-		_asm fld fx\
-		_asm fistp x
+		(x) = (fx)
 
 #endif
