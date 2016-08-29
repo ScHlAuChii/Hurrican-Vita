@@ -40,7 +40,7 @@
 #define MAX_ARMOUR				200					// Maximalwert für das Rad
 #define DIAMONDS_FOR_EXTRALIFE	 50					// Diamanten die man für 200 Zeiteinheiten
 
-#define RARFILENAME "Hurrican.dat"
+#define RARFILENAME const_cast<char *>("Hurrican.dat")
 #define RARFILEPASSWORD "+/#(%,,/"
 
 // --------------------------------------------------------------------------------------
