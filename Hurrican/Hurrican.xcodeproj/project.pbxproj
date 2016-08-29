@@ -186,6 +186,12 @@
 		C123F62C1D6D81100000ABE3 /* Trigger_Tube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5781D6D81100000ABE3 /* Trigger_Tube.cpp */; settings = {ASSET_TAGS = (); }; };
 		C123F62D1D6D81100000ABE3 /* Trigger_TutorialText.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5791D6D81100000ABE3 /* Trigger_TutorialText.cpp */; settings = {ASSET_TAGS = (); }; };
 		C123F62E1D6D81100000ABE3 /* Trigger_Warning.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F57A1D6D81100000ABE3 /* Trigger_Warning.cpp */; settings = {ASSET_TAGS = (); }; };
+		C18CD1CC1D75601A00CB3725 /* d3d9.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C18CD1CB1D75601A00CB3725 /* d3d9.cpp */; settings = {ASSET_TAGS = (); }; };
+		C18CD1CE1D7560D800CB3725 /* d3dx9.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C18CD1CD1D7560D800CB3725 /* d3dx9.cpp */; settings = {ASSET_TAGS = (); }; };
+		C18CD1D01D75620A00CB3725 /* dinput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C18CD1CF1D75620A00CB3725 /* dinput.cpp */; settings = {ASSET_TAGS = (); }; };
+		C18CD1D21D7562C400CB3725 /* dxerr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C18CD1D11D7562C400CB3725 /* dxerr.cpp */; settings = {ASSET_TAGS = (); }; };
+		C18CD1D41D7562F300CB3725 /* safe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C18CD1D31D7562F300CB3725 /* safe.cpp */; settings = {ASSET_TAGS = (); }; };
+		C18CD1D61D7564E000CB3725 /* windows.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C18CD1D51D7564E000CB3725 /* windows.cpp */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -201,7 +207,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		C123F4BF1D6D80BA0000ABE3 /* HurricanStub */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = HurricanStub; path = /Users/pete/Documents/hurrican/Hurrican/build/Debug/HurricanStub; sourceTree = "<absolute>"; };
 		C123F4C71D6D810F0000ABE3 /* Boss_BigFish.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Boss_BigFish.cpp; sourceTree = "<group>"; };
 		C123F4C81D6D810F0000ABE3 /* Boss_Bratklops.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Boss_Bratklops.cpp; sourceTree = "<group>"; };
 		C123F4C91D6D810F0000ABE3 /* Boss_Drache.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Boss_Drache.cpp; sourceTree = "<group>"; };
@@ -573,6 +578,26 @@
 		C123F6EB1D6D81200000ABE3 /* Trigger_Warning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trigger_Warning.h; sourceTree = "<group>"; };
 		C123F6EC1D6D81200000ABE3 /* unrarlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = unrarlib.h; path = inc/unrarlib.h; sourceTree = "<group>"; };
 		C123F6ED1D6D81200000ABE3 /* wincompat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = wincompat.h; path = inc/wincompat.h; sourceTree = "<group>"; };
+		C18CD1B91D6DEEC200CB3725 /* HurricanStub */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HurricanStub; sourceTree = BUILT_PRODUCTS_DIR; };
+		C18CD1BB1D6DEF7800CB3725 /* dinput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dinput.h; sourceTree = "<group>"; };
+		C18CD1BC1D6DF0D800CB3725 /* d3d9.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = d3d9.h; sourceTree = "<group>"; };
+		C18CD1BD1D6DF0EE00CB3725 /* d3dx9.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = d3dx9.h; sourceTree = "<group>"; };
+		C18CD1BE1D6DF19200CB3725 /* windows.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = windows.h; sourceTree = "<group>"; };
+		C18CD1BF1D6DF37F00CB3725 /* dsound.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dsound.h; sourceTree = "<group>"; };
+		C18CD1C21D6DF7E000CB3725 /* safe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = safe.h; sourceTree = "<group>"; };
+		C18CD1C31D6F5A5200CB3725 /* com.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = com.h; sourceTree = "<group>"; };
+		C18CD1C51D701C2A00CB3725 /* fmod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fmod.h; sourceTree = "<group>"; };
+		C18CD1C61D701C2A00CB3725 /* fmod_errors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fmod_errors.h; sourceTree = "<group>"; };
+		C18CD1C71D701C2A00CB3725 /* fmoddyn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fmoddyn.h; sourceTree = "<group>"; };
+		C18CD1C81D701C2A00CB3725 /* unrarlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unrarlib.h; sourceTree = "<group>"; };
+		C18CD1C91D701C2A00CB3725 /* wincompat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wincompat.h; sourceTree = "<group>"; };
+		C18CD1CA1D701D1200CB3725 /* DxErr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DxErr.h; sourceTree = "<group>"; };
+		C18CD1CB1D75601A00CB3725 /* d3d9.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = d3d9.cpp; sourceTree = "<group>"; };
+		C18CD1CD1D7560D800CB3725 /* d3dx9.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = d3dx9.cpp; sourceTree = "<group>"; };
+		C18CD1CF1D75620A00CB3725 /* dinput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dinput.cpp; sourceTree = "<group>"; };
+		C18CD1D11D7562C400CB3725 /* dxerr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dxerr.cpp; sourceTree = "<group>"; };
+		C18CD1D31D7562F300CB3725 /* safe.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = safe.cpp; sourceTree = "<group>"; };
+		C18CD1D51D7564E000CB3725 /* windows.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = windows.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -589,6 +614,8 @@
 		C123F4B41D6D7F8E0000ABE3 = {
 			isa = PBXGroup;
 			children = (
+				C18CD1C41D701C2A00CB3725 /* inc */,
+				C18CD1BA1D6DEF5E00CB3725 /* Wrap */,
 				C123F4C71D6D810F0000ABE3 /* Boss_BigFish.cpp */,
 				C123F62F1D6D811F0000ABE3 /* Boss_BigFish.h */,
 				C123F4C81D6D810F0000ABE3 /* Boss_Bratklops.cpp */,
@@ -960,9 +987,43 @@
 				C123F6EB1D6D81200000ABE3 /* Trigger_Warning.h */,
 				C123F6EC1D6D81200000ABE3 /* unrarlib.h */,
 				C123F6ED1D6D81200000ABE3 /* wincompat.h */,
+				C18CD1B91D6DEEC200CB3725 /* HurricanStub */,
 			);
 			sourceTree = "<group>";
 			usesTabs = 1;
+		};
+		C18CD1BA1D6DEF5E00CB3725 /* Wrap */ = {
+			isa = PBXGroup;
+			children = (
+				C18CD1C31D6F5A5200CB3725 /* com.h */,
+				C18CD1CB1D75601A00CB3725 /* d3d9.cpp */,
+				C18CD1BC1D6DF0D800CB3725 /* d3d9.h */,
+				C18CD1CD1D7560D800CB3725 /* d3dx9.cpp */,
+				C18CD1BD1D6DF0EE00CB3725 /* d3dx9.h */,
+				C18CD1CF1D75620A00CB3725 /* dinput.cpp */,
+				C18CD1BB1D6DEF7800CB3725 /* dinput.h */,
+				C18CD1BF1D6DF37F00CB3725 /* dsound.h */,
+				C18CD1D11D7562C400CB3725 /* dxerr.cpp */,
+				C18CD1CA1D701D1200CB3725 /* DxErr.h */,
+				C18CD1D31D7562F300CB3725 /* safe.cpp */,
+				C18CD1C21D6DF7E000CB3725 /* safe.h */,
+				C18CD1D51D7564E000CB3725 /* windows.cpp */,
+				C18CD1BE1D6DF19200CB3725 /* windows.h */,
+			);
+			path = Wrap;
+			sourceTree = "<group>";
+		};
+		C18CD1C41D701C2A00CB3725 /* inc */ = {
+			isa = PBXGroup;
+			children = (
+				C18CD1C61D701C2A00CB3725 /* fmod_errors.h */,
+				C18CD1C51D701C2A00CB3725 /* fmod.h */,
+				C18CD1C71D701C2A00CB3725 /* fmoddyn.h */,
+				C18CD1C81D701C2A00CB3725 /* unrarlib.h */,
+				C18CD1C91D701C2A00CB3725 /* wincompat.h */,
+			);
+			path = inc;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -981,7 +1042,7 @@
 			);
 			name = HurricanStub;
 			productName = HurricanStub;
-			productReference = C123F4BF1D6D80BA0000ABE3 /* HurricanStub */;
+			productReference = C18CD1B91D6DEEC200CB3725 /* HurricanStub */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -1029,6 +1090,7 @@
 				C123F5D41D6D81100000ABE3 /* Gegner_PokeNuke.cpp in Sources */,
 				C123F5FE1D6D81100000ABE3 /* Main.cpp in Sources */,
 				C123F57F1D6D81100000ABE3 /* Boss_EvilHurri.cpp in Sources */,
+				C18CD1D61D7564E000CB3725 /* windows.cpp in Sources */,
 				C123F5FD1D6D81100000ABE3 /* Logdatei.cpp in Sources */,
 				C123F6081D6D81100000ABE3 /* tracealloc.cpp in Sources */,
 				C123F59B1D6D81100000ABE3 /* DX8Input.cpp in Sources */,
@@ -1041,6 +1103,8 @@
 				C123F5F01D6D81100000ABE3 /* Gegner_StelzSack.cpp in Sources */,
 				C123F5F61D6D81100000ABE3 /* Gegner_Zitrone.cpp in Sources */,
 				C123F5A81D6D81100000ABE3 /* Gegner_Diamant.cpp in Sources */,
+				C18CD1D21D7562C400CB3725 /* dxerr.cpp in Sources */,
+				C18CD1CE1D7560D800CB3725 /* d3dx9.cpp in Sources */,
 				C123F5C31D6D81100000ABE3 /* Gegner_KugelMedium.cpp in Sources */,
 				C123F59C1D6D81100000ABE3 /* DX8Joystick.cpp in Sources */,
 				C123F59A1D6D81100000ABE3 /* DX8Graphics.cpp in Sources */,
@@ -1089,6 +1153,7 @@
 				C123F5BD1D6D81100000ABE3 /* Gegner_Kettenglied.cpp in Sources */,
 				C123F5991D6D81100000ABE3 /* DX8Font.cpp in Sources */,
 				C123F5F91D6D81100000ABE3 /* GUISystem.cpp in Sources */,
+				C18CD1D41D7562F300CB3725 /* safe.cpp in Sources */,
 				C123F62C1D6D81100000ABE3 /* Trigger_Tube.cpp in Sources */,
 				C123F5931D6D81100000ABE3 /* Boss_WuxeSpinnen.cpp in Sources */,
 				C123F5EE1D6D81100000ABE3 /* Gegner_StarBig.cpp in Sources */,
@@ -1185,6 +1250,7 @@
 				C123F57C1D6D81100000ABE3 /* Boss_Bratklops.cpp in Sources */,
 				C123F60A1D6D81100000ABE3 /* Trigger_Column.cpp in Sources */,
 				C123F5F81D6D81100000ABE3 /* GetKeyName.cpp in Sources */,
+				C18CD1D01D75620A00CB3725 /* dinput.cpp in Sources */,
 				C123F60C1D6D81100000ABE3 /* Trigger_EndLevel.cpp in Sources */,
 				C123F5FB1D6D81100000ABE3 /* Intro.cpp in Sources */,
 				C123F61E1D6D81100000ABE3 /* Trigger_Plattform.cpp in Sources */,
@@ -1192,6 +1258,7 @@
 				C123F5FA1D6D81100000ABE3 /* HUD.CPP in Sources */,
 				C123F6231D6D81100000ABE3 /* Trigger_Secret.cpp in Sources */,
 				C123F5861D6D81100000ABE3 /* Boss_RiesenQualle.cpp in Sources */,
+				C18CD1CC1D75601A00CB3725 /* d3d9.cpp in Sources */,
 				C123F5CA1D6D81100000ABE3 /* Gegner_Made.cpp in Sources */,
 				C123F5CF1D6D81100000ABE3 /* Gegner_Nest.cpp in Sources */,
 				C123F5841D6D81100000ABE3 /* Boss_PharaoKopf.cpp in Sources */,
@@ -1207,12 +1274,24 @@
 		C123F4B91D6D7F8E0000ABE3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"${PROJECT_DIR}/Wrap",
+					"${inherited}",
+				);
+				USER_HEADER_SEARCH_PATHS = "${PROJECT_DIR}/inc ${inherited}";
+				USE_HEADERMAP = NO;
 			};
 			name = Debug;
 		};
 		C123F4BA1D6D7F8E0000ABE3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"${PROJECT_DIR}/Wrap",
+					"${inherited}",
+				);
+				USER_HEADER_SEARCH_PATHS = "${PROJECT_DIR}/inc ${inherited}";
+				USE_HEADERMAP = NO;
 			};
 			name = Release;
 		};
@@ -1314,6 +1393,7 @@
 				C123F4C61D6D80BA0000ABE3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
