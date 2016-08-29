@@ -36,7 +36,6 @@
 		C123F5951D6D81100000ABE3 /* CCutScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4E11D6D810F0000ABE3 /* CCutScene.cpp */; settings = {ASSET_TAGS = (); }; };
 		C123F5961D6D81100000ABE3 /* CDragonHack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4E21D6D810F0000ABE3 /* CDragonHack.cpp */; settings = {ASSET_TAGS = (); }; };
 		C123F5971D6D81100000ABE3 /* Console.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4E31D6D810F0000ABE3 /* Console.cpp */; settings = {ASSET_TAGS = (); }; };
-		C123F5981D6D81100000ABE3 /* DX8Enum.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4E41D6D810F0000ABE3 /* DX8Enum.cpp */; settings = {ASSET_TAGS = (); }; };
 		C123F5991D6D81100000ABE3 /* DX8Font.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4E51D6D810F0000ABE3 /* DX8Font.cpp */; settings = {ASSET_TAGS = (); }; };
 		C123F59A1D6D81100000ABE3 /* DX8Graphics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4E61D6D810F0000ABE3 /* DX8Graphics.cpp */; settings = {ASSET_TAGS = (); }; };
 		C123F59B1D6D81100000ABE3 /* DX8Input.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4E71D6D810F0000ABE3 /* DX8Input.cpp */; settings = {ASSET_TAGS = (); }; };
@@ -1186,7 +1185,6 @@
 				C123F57C1D6D81100000ABE3 /* Boss_Bratklops.cpp in Sources */,
 				C123F60A1D6D81100000ABE3 /* Trigger_Column.cpp in Sources */,
 				C123F5F81D6D81100000ABE3 /* GetKeyName.cpp in Sources */,
-				C123F5981D6D81100000ABE3 /* DX8Enum.cpp in Sources */,
 				C123F60C1D6D81100000ABE3 /* Trigger_EndLevel.cpp in Sources */,
 				C123F5FB1D6D81100000ABE3 /* Intro.cpp in Sources */,
 				C123F61E1D6D81100000ABE3 /* Trigger_Plattform.cpp in Sources */,
