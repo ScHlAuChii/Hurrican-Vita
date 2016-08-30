@@ -150,6 +150,7 @@ LPTSTR MAKEINTRESOURCE(WORD wInteger)
 
 int MessageBox(HWND hWnd, LPCTSTR lpText, LPCTSTR lpCaption, UINT uType)
 {
+	fputs(lpText, stderr);
 	return 0;
 }
 
