@@ -192,6 +192,8 @@
 		C18CD1D21D7562C400CB3725 /* dxerr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C18CD1D11D7562C400CB3725 /* dxerr.cpp */; settings = {ASSET_TAGS = (); }; };
 		C18CD1D41D7562F300CB3725 /* safe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C18CD1D31D7562F300CB3725 /* safe.cpp */; settings = {ASSET_TAGS = (); }; };
 		C18CD1D61D7564E000CB3725 /* windows.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C18CD1D51D7564E000CB3725 /* windows.cpp */; settings = {ASSET_TAGS = (); }; };
+		C18CD1D81D75684F00CB3725 /* fsound.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C18CD1D71D75684E00CB3725 /* fsound.cpp */; settings = {ASSET_TAGS = (); }; };
+		C18CD1DA1D75F19000CB3725 /* fmusic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C18CD1D91D75F19000CB3725 /* fmusic.cpp */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -598,6 +600,8 @@
 		C18CD1D11D7562C400CB3725 /* dxerr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dxerr.cpp; sourceTree = "<group>"; };
 		C18CD1D31D7562F300CB3725 /* safe.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = safe.cpp; sourceTree = "<group>"; };
 		C18CD1D51D7564E000CB3725 /* windows.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = windows.cpp; sourceTree = "<group>"; };
+		C18CD1D71D75684E00CB3725 /* fsound.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fsound.cpp; sourceTree = "<group>"; };
+		C18CD1D91D75F19000CB3725 /* fmusic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fmusic.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1005,6 +1009,8 @@
 				C18CD1BF1D6DF37F00CB3725 /* dsound.h */,
 				C18CD1D11D7562C400CB3725 /* dxerr.cpp */,
 				C18CD1CA1D701D1200CB3725 /* DxErr.h */,
+				C18CD1D91D75F19000CB3725 /* fmusic.cpp */,
+				C18CD1D71D75684E00CB3725 /* fsound.cpp */,
 				C18CD1D31D7562F300CB3725 /* safe.cpp */,
 				C18CD1C21D6DF7E000CB3725 /* safe.h */,
 				C18CD1D51D7564E000CB3725 /* windows.cpp */,
@@ -1097,6 +1103,7 @@
 				C123F5E41D6D81100000ABE3 /* Gegner_SideRocket.cpp in Sources */,
 				C123F5FF1D6D81100000ABE3 /* Menu.cpp in Sources */,
 				C123F58F1D6D81100000ABE3 /* Boss_Spinnenmaschine.cpp in Sources */,
+				C18CD1D81D75684F00CB3725 /* fsound.cpp in Sources */,
 				C123F5E61D6D81100000ABE3 /* Gegner_SmallWespe.cpp in Sources */,
 				C123F5C21D6D81100000ABE3 /* Gegner_KugelKlein.cpp in Sources */,
 				C123F6051D6D81100000ABE3 /* Texts.cpp in Sources */,
@@ -1208,6 +1215,7 @@
 				C123F6161D6D81100000ABE3 /* Trigger_LaFassSpawner.cpp in Sources */,
 				C123F5EB1D6D81100000ABE3 /* Gegner_Stachelbeere.cpp in Sources */,
 				C123F6221D6D81100000ABE3 /* Trigger_SchleuseV.cpp in Sources */,
+				C18CD1DA1D75F19000CB3725 /* fmusic.cpp in Sources */,
 				C123F6291D6D81100000ABE3 /* Trigger_Stampfstein.cpp in Sources */,
 				C123F5FC1D6D81100000ABE3 /* lightmap.cpp in Sources */,
 				C123F5831D6D81100000ABE3 /* Boss_MetalHead.cpp in Sources */,
