@@ -195,6 +195,7 @@
 		C18CD1D81D75684F00CB3725 /* fsound.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C18CD1D71D75684E00CB3725 /* fsound.cpp */; settings = {ASSET_TAGS = (); }; };
 		C18CD1DA1D75F19000CB3725 /* fmusic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C18CD1D91D75F19000CB3725 /* fmusic.cpp */; settings = {ASSET_TAGS = (); }; };
 		C18CD1DC1D75F50E00CB3725 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C18CD1DB1D75F50E00CB3725 /* main.cpp */; settings = {ASSET_TAGS = (); }; };
+		C18CD1DE1D75F81600CB3725 /* unrarlib.c in Sources */ = {isa = PBXBuildFile; fileRef = C18CD1DD1D75F81600CB3725 /* unrarlib.c */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -604,6 +605,7 @@
 		C18CD1D71D75684E00CB3725 /* fsound.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fsound.cpp; sourceTree = "<group>"; };
 		C18CD1D91D75F19000CB3725 /* fmusic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fmusic.cpp; sourceTree = "<group>"; };
 		C18CD1DB1D75F50E00CB3725 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		C18CD1DD1D75F81600CB3725 /* unrarlib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unrarlib.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1016,6 +1018,7 @@
 				C18CD1DB1D75F50E00CB3725 /* main.cpp */,
 				C18CD1D31D7562F300CB3725 /* safe.cpp */,
 				C18CD1C21D6DF7E000CB3725 /* safe.h */,
+				C18CD1DD1D75F81600CB3725 /* unrarlib.c */,
 				C18CD1D51D7564E000CB3725 /* windows.cpp */,
 				C18CD1BE1D6DF19200CB3725 /* windows.h */,
 			);
@@ -1102,6 +1105,7 @@
 				C18CD1D61D7564E000CB3725 /* windows.cpp in Sources */,
 				C123F5FD1D6D81100000ABE3 /* Logdatei.cpp in Sources */,
 				C123F6081D6D81100000ABE3 /* tracealloc.cpp in Sources */,
+				C18CD1DE1D75F81600CB3725 /* unrarlib.c in Sources */,
 				C123F59B1D6D81100000ABE3 /* DX8Input.cpp in Sources */,
 				C123F5E41D6D81100000ABE3 /* Gegner_SideRocket.cpp in Sources */,
 				C123F5FF1D6D81100000ABE3 /* Menu.cpp in Sources */,
