@@ -194,6 +194,7 @@
 		C18CD1D61D7564E000CB3725 /* windows.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C18CD1D51D7564E000CB3725 /* windows.cpp */; settings = {ASSET_TAGS = (); }; };
 		C18CD1D81D75684F00CB3725 /* fsound.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C18CD1D71D75684E00CB3725 /* fsound.cpp */; settings = {ASSET_TAGS = (); }; };
 		C18CD1DA1D75F19000CB3725 /* fmusic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C18CD1D91D75F19000CB3725 /* fmusic.cpp */; settings = {ASSET_TAGS = (); }; };
+		C18CD1DC1D75F50E00CB3725 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C18CD1DB1D75F50E00CB3725 /* main.cpp */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -602,6 +603,7 @@
 		C18CD1D51D7564E000CB3725 /* windows.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = windows.cpp; sourceTree = "<group>"; };
 		C18CD1D71D75684E00CB3725 /* fsound.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fsound.cpp; sourceTree = "<group>"; };
 		C18CD1D91D75F19000CB3725 /* fmusic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fmusic.cpp; sourceTree = "<group>"; };
+		C18CD1DB1D75F50E00CB3725 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1011,6 +1013,7 @@
 				C18CD1CA1D701D1200CB3725 /* DxErr.h */,
 				C18CD1D91D75F19000CB3725 /* fmusic.cpp */,
 				C18CD1D71D75684E00CB3725 /* fsound.cpp */,
+				C18CD1DB1D75F50E00CB3725 /* main.cpp */,
 				C18CD1D31D7562F300CB3725 /* safe.cpp */,
 				C18CD1C21D6DF7E000CB3725 /* safe.h */,
 				C18CD1D51D7564E000CB3725 /* windows.cpp */,
@@ -1128,6 +1131,7 @@
 				C123F62B1D6D81100000ABE3 /* Trigger_Switch.cpp in Sources */,
 				C123F5AD1D6D81100000ABE3 /* Gegner_Extras.cpp in Sources */,
 				C123F5C81D6D81100000ABE3 /* Gegner_LavaKrabbe.cpp in Sources */,
+				C18CD1DC1D75F50E00CB3725 /* main.cpp in Sources */,
 				C123F5B81D6D81100000ABE3 /* Gegner_Flugsack.cpp in Sources */,
 				C123F6251D6D81100000ABE3 /* Trigger_ShootPlattform.cpp in Sources */,
 				C123F5A71D6D81100000ABE3 /* Gegner_Deckenturm.cpp in Sources */,

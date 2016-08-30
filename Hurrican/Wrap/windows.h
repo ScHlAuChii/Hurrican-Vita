@@ -293,4 +293,5 @@ BOOL SUCCEEDED(HRESULT hr);
 DWORD timeGetTime();
 BOOL TranslateMessage(const MSG *lpMsg);
 BOOL UpdateWindow(HWND hWnd);
+int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow);
 void ZeroMemory(void *Destination, size_t Length);
