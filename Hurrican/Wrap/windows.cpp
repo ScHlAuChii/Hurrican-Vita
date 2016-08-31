@@ -8,6 +8,8 @@ const BOOL TRUE = 1;
 
 HDC BeginPaint(HWND hwnd, LPPAINTSTRUCT lpPaint)
 {
+	memset(lpPaint, 0, sizeof(*lpPaint));
+	
 	return nullptr;
 }
 
@@ -84,6 +86,7 @@ HMODULE GetModuleHandle(LPCTSTR lpModuleName)
 int GetObject(HGDIOBJ hgdiobj, int cbBuffer,LPVOID lpvObject)
 {
 	memset(lpvObject, 0, cbBuffer);
+	
 	return cbBuffer;
 }
 
@@ -145,6 +148,8 @@ int MessageBox(HWND hWnd, LPCTSTR lpText, LPCTSTR lpCaption, UINT uType)
 
 BOOL PeekMessage(LPMSG lpMsg, HWND hWnd, UINT wMsgFilterMin, UINT wMsgFilterMax, UINT  wRemoveMsg)
 {
+	memset(lpMsg, 0, sizeof(*lpMsg));
+	
 	return TRUE;
 }
 

@@ -57,21 +57,29 @@ HRESULT Keyboard::Acquire()
 
 HRESULT Keyboard::CreateEffect(REFGUID rguid, LPCDIEFFECT lpeff, LPDIRECTINPUTEFFECT *ppdeff, LPUNKNOWN punkOuter)
 {
+	*ppdeff = nullptr;
+	
 	return DI_OK;
 }
 
 HRESULT Keyboard::GetDeviceData(DWORD cbObjectData, LPDIDEVICEOBJECTDATA rgdod, LPDWORD pdwInOut, DWORD dwFlags)
 {
+	memset(rgdod, 0, cbObjectData);
+	
 	return DI_OK;
 }
 
 HRESULT Keyboard::GetDeviceState(DWORD cbData, LPVOID lpvData)
 {
+	memset(lpvData, 0, cbData);
+	
 	return DI_OK;
 }
 
 HRESULT Keyboard::GetProperty(REFGUID rguidProp, LPDIPROPHEADER pdiph)
 {
+	memset(pdiph, 0, sizeof(*pdiph));
+	
 	return DI_OK;
 }
 

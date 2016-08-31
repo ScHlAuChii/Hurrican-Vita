@@ -63,6 +63,8 @@ HRESULT Device::Clear(int a, const void *b, int buffers, D3DCOLOR color, float z
 
 HRESULT Device::CreateOffscreenPlainSurface(UINT Width, UINT Height, D3DFORMAT Format, D3DPOOL Pool, IDirect3DSurface9 **ppSurface, HANDLE *pSharedHandle)
 {
+	*ppSurface = nullptr;
+	
 	return D3D_OK;
 }
 
