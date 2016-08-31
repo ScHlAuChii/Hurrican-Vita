@@ -31,11 +31,6 @@ HWND CreateWindow(LPCTSTR lpClassName, LPCTSTR lpWindowName, DWORD dwStyle, int 
 	return nullptr;
 }
 
-HWND CreateWindowEx(DWORD dwExStyle, LPCTSTR lpClassName, LPCTSTR lpWindowName, DWORD dwStyle, int x, int y, int nWidth, int nHeight, HWND hWndParent, HMENU hMenu, HINSTANCE hInstance, LPVOID lpParam)
-{
-	return nullptr;
-}
-
 LRESULT DefWindowProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam)
 {
 	return 0;
@@ -105,12 +100,6 @@ BYTE GetRValue(DWORD rgb)
 DWORD GetTickCount()
 {
 	return clock() / (CLOCKS_PER_SEC / 1000);
-}
-
-BOOL GetWindowRect(HWND hWnd, LPRECT lpRect)
-{
-	memset(lpRect, 0, sizeof(*lpRect));
-	return TRUE;
 }
 
 BOOL InvalidateRect(HWND hWnd, const RECT *lpRect, BOOL bErase)
