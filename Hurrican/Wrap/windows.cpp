@@ -200,7 +200,7 @@ void Sleep(DWORD dwMilliseconds)
 
 BOOL SUCCEEDED(HRESULT hr)
 {
-	return hr != 0;
+	return hr == 0;
 }
 
 DWORD timeGetTime()
