@@ -1,4 +1,4 @@
-#include "d3d9.h"
+#include "d3d9_sdl.h"
 
 #include "SDL_video.h"
 
@@ -131,6 +131,34 @@ HRESULT Device::StretchRect(IDirect3DSurface9 *pSourceSurface, const RECT *pSour
 }
 
 HRESULT Device::TestCooperativeLevel()
+{
+	return D3D_OK;
+}
+
+HRESULT Texture::GetLevelDesc(UINT Level, D3DSURFACE_DESC *pDesc)
+{
+	assert(Level == 0);
+	
+	memset(pDesc, 0, sizeof(*pDesc));
+	pDesc->Width = width;
+	pDesc->Height = height;
+	
+	return D3D_OK;
+}
+
+HRESULT Texture::LockRect(UINT Level, D3DLOCKED_RECT *pLockedRect, const RECT *pRect, DWORD Flags)
+{
+	assert(Level == 0);
+	assert(pRect == nullptr);
+	
+	memset(pLockedRect, 0, sizeof(*pLockedRect));
+	pLockedRect->Pitch = width * 4;
+	pLockedRect->pBits = &pixels[0];
+	
+	return D3D_OK;
+}
+
+HRESULT Texture::UnlockRect(UINT Level)
 {
 	return D3D_OK;
 }

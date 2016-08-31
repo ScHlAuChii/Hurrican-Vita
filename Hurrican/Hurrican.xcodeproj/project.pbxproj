@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C118DF141D77711100EE0A4D /* d3dx9_sdl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C118DF131D77711100EE0A4D /* d3dx9_sdl.cpp */; settings = {ASSET_TAGS = (); }; };
 		C123F57B1D6D81100000ABE3 /* Boss_BigFish.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4C71D6D810F0000ABE3 /* Boss_BigFish.cpp */; settings = {ASSET_TAGS = (); }; };
 		C123F57C1D6D81100000ABE3 /* Boss_Bratklops.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4C81D6D810F0000ABE3 /* Boss_Bratklops.cpp */; settings = {ASSET_TAGS = (); }; };
 		C123F57D1D6D81100000ABE3 /* Boss_Drache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4C91D6D810F0000ABE3 /* Boss_Drache.cpp */; settings = {ASSET_TAGS = (); }; };
@@ -215,6 +216,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C118DF131D77711100EE0A4D /* d3dx9_sdl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = d3dx9_sdl.cpp; sourceTree = "<group>"; };
+		C118DF151D77843C00EE0A4D /* d3d9_sdl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = d3d9_sdl.h; sourceTree = "<group>"; };
 		C123F4C71D6D810F0000ABE3 /* Boss_BigFish.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Boss_BigFish.cpp; sourceTree = "<group>"; };
 		C123F4C81D6D810F0000ABE3 /* Boss_Bratklops.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Boss_Bratklops.cpp; sourceTree = "<group>"; };
 		C123F4C91D6D810F0000ABE3 /* Boss_Drache.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Boss_Drache.cpp; sourceTree = "<group>"; };
@@ -1014,8 +1017,10 @@
 				C17794401D76B7360046EE93 /* com.cpp */,
 				C18CD1C31D6F5A5200CB3725 /* com.h */,
 				C17794441D7743280046EE93 /* d3d9_sdl.cpp */,
+				C118DF151D77843C00EE0A4D /* d3d9_sdl.h */,
 				C18CD1CB1D75601A00CB3725 /* d3d9.cpp */,
 				C18CD1BC1D6DF0D800CB3725 /* d3d9.h */,
+				C118DF131D77711100EE0A4D /* d3dx9_sdl.cpp */,
 				C18CD1CD1D7560D800CB3725 /* d3dx9.cpp */,
 				C18CD1BD1D6DF0EE00CB3725 /* d3dx9.h */,
 				C177943E1D76B6460046EE93 /* dinput_sdl.cpp */,
@@ -1172,6 +1177,7 @@
 				C123F5B91D6D81100000ABE3 /* Gegner_Geschuetz.cpp in Sources */,
 				C123F6061D6D81100000ABE3 /* Tileengine.cpp in Sources */,
 				C123F58C1D6D81100000ABE3 /* Boss_Schneekoenig.cpp in Sources */,
+				C118DF141D77711100EE0A4D /* d3dx9_sdl.cpp in Sources */,
 				C123F62E1D6D81100000ABE3 /* Trigger_Warning.cpp in Sources */,
 				C123F6241D6D81100000ABE3 /* Trigger_ShootButton.cpp in Sources */,
 				C123F5F41D6D81100000ABE3 /* Gegner_WandKrabbe.cpp in Sources */,
