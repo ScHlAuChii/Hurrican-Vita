@@ -11,8 +11,3 @@ D3DCOLOR D3DCOLOR_XRGB(uint8_t r, uint8_t g, uint8_t b)
 {
 	return D3DCOLOR_RGBA(r, g, b, 255);
 }
-
-IDirect3D9 *Direct3DCreate9(UINT SDKVersion)
-{
-	return nullptr;
-}

@@ -189,6 +189,7 @@
 		C177943D1D76B3EF0046EE93 /* windows_sdl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C177943C1D76B3EF0046EE93 /* windows_sdl.cpp */; settings = {ASSET_TAGS = (); }; };
 		C177943F1D76B6460046EE93 /* dinput_sdl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C177943E1D76B6460046EE93 /* dinput_sdl.cpp */; settings = {ASSET_TAGS = (); }; };
 		C17794411D76B7360046EE93 /* com.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C17794401D76B7360046EE93 /* com.cpp */; settings = {ASSET_TAGS = (); }; };
+		C17794451D7743280046EE93 /* d3d9_sdl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C17794441D7743280046EE93 /* d3d9_sdl.cpp */; settings = {ASSET_TAGS = (); }; };
 		C18CD1CC1D75601A00CB3725 /* d3d9.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C18CD1CB1D75601A00CB3725 /* d3d9.cpp */; settings = {ASSET_TAGS = (); }; };
 		C18CD1CE1D7560D800CB3725 /* d3dx9.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C18CD1CD1D7560D800CB3725 /* d3dx9.cpp */; settings = {ASSET_TAGS = (); }; };
 		C18CD1D01D75620A00CB3725 /* dinput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C18CD1CF1D75620A00CB3725 /* dinput.cpp */; settings = {ASSET_TAGS = (); }; };
@@ -588,6 +589,7 @@
 		C177943C1D76B3EF0046EE93 /* windows_sdl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = windows_sdl.cpp; sourceTree = "<group>"; };
 		C177943E1D76B6460046EE93 /* dinput_sdl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dinput_sdl.cpp; sourceTree = "<group>"; };
 		C17794401D76B7360046EE93 /* com.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = com.cpp; sourceTree = "<group>"; };
+		C17794441D7743280046EE93 /* d3d9_sdl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = d3d9_sdl.cpp; sourceTree = "<group>"; };
 		C18CD1B91D6DEEC200CB3725 /* HurricanStub */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HurricanStub; sourceTree = BUILT_PRODUCTS_DIR; };
 		C18CD1BB1D6DEF7800CB3725 /* dinput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dinput.h; sourceTree = "<group>"; };
 		C18CD1BC1D6DF0D800CB3725 /* d3d9.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = d3d9.h; sourceTree = "<group>"; };
@@ -1011,6 +1013,7 @@
 			children = (
 				C17794401D76B7360046EE93 /* com.cpp */,
 				C18CD1C31D6F5A5200CB3725 /* com.h */,
+				C17794441D7743280046EE93 /* d3d9_sdl.cpp */,
 				C18CD1CB1D75601A00CB3725 /* d3d9.cpp */,
 				C18CD1BC1D6DF0D800CB3725 /* d3d9.h */,
 				C18CD1CD1D7560D800CB3725 /* d3dx9.cpp */,
@@ -1277,6 +1280,7 @@
 				C123F57C1D6D81100000ABE3 /* Boss_Bratklops.cpp in Sources */,
 				C123F60A1D6D81100000ABE3 /* Trigger_Column.cpp in Sources */,
 				C123F5F81D6D81100000ABE3 /* GetKeyName.cpp in Sources */,
+				C17794451D7743280046EE93 /* d3d9_sdl.cpp in Sources */,
 				C18CD1D01D75620A00CB3725 /* dinput.cpp in Sources */,
 				C123F60C1D6D81100000ABE3 /* Trigger_EndLevel.cpp in Sources */,
 				C123F5FB1D6D81100000ABE3 /* Intro.cpp in Sources */,
