@@ -328,7 +328,7 @@ public:
 	virtual HRESULT BeginScene() = 0;
 	virtual HRESULT Clear(int a, const void *b, int buffers, D3DCOLOR color, float z, int c) = 0;
 	virtual HRESULT CreateOffscreenPlainSurface(UINT Width, UINT Height, D3DFORMAT Format, D3DPOOL Pool, IDirect3DSurface9 **ppSurface, HANDLE *pSharedHandle) = 0;
-	virtual HRESULT DrawPrimitiveUP(D3DPRIMITIVETYPE PrimitiveType, UINT PrimitiveCount, const void             *pVertexStreamZeroData, UINT VertexStreamZeroStride) = 0;
+	virtual HRESULT DrawPrimitiveUP(D3DPRIMITIVETYPE PrimitiveType, UINT PrimitiveCount, const void *pVertexStreamZeroData, UINT VertexStreamZeroStride) = 0;
 	virtual HRESULT EndScene() = 0;
 	virtual HRESULT GetDeviceCaps(D3DCAPS9 *pCaps) = 0;
 	virtual HRESULT Present(const RECT *pSourceRect, const RECT *pDestRect, HWND hDestWindowOverride, const RGNDATA *pDirtyRegion) = 0;

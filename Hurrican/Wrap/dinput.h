@@ -373,7 +373,7 @@ public:
 	virtual HRESULT GetProperty(REFGUID rguidProp, LPDIPROPHEADER pdiph) = 0;
 	virtual HRESULT Poll() = 0;
 	virtual HRESULT SetCooperativeLevel(HWND hwnd, DWORD dwFlags) = 0;
-	virtual HRESULT SetProperty(REFGUID rguidProp,	 LPCDIPROPHEADER pdiph) = 0;
+	virtual HRESULT SetProperty(REFGUID rguidProp, LPCDIPROPHEADER pdiph) = 0;
 	virtual HRESULT SetDataFormat(LPCDIDATAFORMAT lpdf) = 0;
 	virtual HRESULT Unacquire() = 0;
 };

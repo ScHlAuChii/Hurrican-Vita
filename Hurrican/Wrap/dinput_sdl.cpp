@@ -19,7 +19,7 @@ public:
 	HRESULT GetProperty(REFGUID rguidProp, LPDIPROPHEADER pdiph) override;
 	HRESULT Poll() override;
 	HRESULT SetCooperativeLevel(HWND hwnd, DWORD dwFlags) override;
-	HRESULT SetProperty(REFGUID rguidProp,	 LPCDIPROPHEADER pdiph) override;
+	HRESULT SetProperty(REFGUID rguidProp, LPCDIPROPHEADER pdiph) override;
 	HRESULT SetDataFormat(LPCDIDATAFORMAT lpdf) override;
 	HRESULT Unacquire() override;
 };
@@ -85,7 +85,7 @@ HRESULT Keyboard::SetCooperativeLevel(HWND hwnd, DWORD dwFlags)
 	return DI_OK;
 }
 
-HRESULT Keyboard::SetProperty(REFGUID rguidProp,	 LPCDIPROPHEADER pdiph)
+HRESULT Keyboard::SetProperty(REFGUID rguidProp, LPCDIPROPHEADER pdiph)
 {
 	return DI_OK;
 }
