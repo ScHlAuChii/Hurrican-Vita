@@ -186,6 +186,7 @@
 		C123F62C1D6D81100000ABE3 /* Trigger_Tube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5781D6D81100000ABE3 /* Trigger_Tube.cpp */; settings = {ASSET_TAGS = (); }; };
 		C123F62D1D6D81100000ABE3 /* Trigger_TutorialText.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5791D6D81100000ABE3 /* Trigger_TutorialText.cpp */; settings = {ASSET_TAGS = (); }; };
 		C123F62E1D6D81100000ABE3 /* Trigger_Warning.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F57A1D6D81100000ABE3 /* Trigger_Warning.cpp */; settings = {ASSET_TAGS = (); }; };
+		C17794411D76B7360046EE93 /* com.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C17794401D76B7360046EE93 /* com.cpp */; settings = {ASSET_TAGS = (); }; };
 		C18CD1CC1D75601A00CB3725 /* d3d9.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C18CD1CB1D75601A00CB3725 /* d3d9.cpp */; settings = {ASSET_TAGS = (); }; };
 		C18CD1CE1D7560D800CB3725 /* d3dx9.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C18CD1CD1D7560D800CB3725 /* d3dx9.cpp */; settings = {ASSET_TAGS = (); }; };
 		C18CD1D01D75620A00CB3725 /* dinput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C18CD1CF1D75620A00CB3725 /* dinput.cpp */; settings = {ASSET_TAGS = (); }; };
@@ -582,6 +583,7 @@
 		C123F6EB1D6D81200000ABE3 /* Trigger_Warning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trigger_Warning.h; sourceTree = "<group>"; };
 		C123F6EC1D6D81200000ABE3 /* unrarlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = unrarlib.h; path = inc/unrarlib.h; sourceTree = "<group>"; };
 		C123F6ED1D6D81200000ABE3 /* wincompat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = wincompat.h; path = inc/wincompat.h; sourceTree = "<group>"; };
+		C17794401D76B7360046EE93 /* com.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = com.cpp; sourceTree = "<group>"; };
 		C18CD1B91D6DEEC200CB3725 /* HurricanStub */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HurricanStub; sourceTree = BUILT_PRODUCTS_DIR; };
 		C18CD1BB1D6DEF7800CB3725 /* dinput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dinput.h; sourceTree = "<group>"; };
 		C18CD1BC1D6DF0D800CB3725 /* d3d9.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = d3d9.h; sourceTree = "<group>"; };
@@ -1003,6 +1005,7 @@
 		C18CD1BA1D6DEF5E00CB3725 /* Wrap */ = {
 			isa = PBXGroup;
 			children = (
+				C17794401D76B7360046EE93 /* com.cpp */,
 				C18CD1C31D6F5A5200CB3725 /* com.h */,
 				C18CD1CB1D75601A00CB3725 /* d3d9.cpp */,
 				C18CD1BC1D6DF0D800CB3725 /* d3d9.h */,
@@ -1273,6 +1276,7 @@
 				C123F5C41D6D81100000ABE3 /* Gegner_KugelRiesig.cpp in Sources */,
 				C123F5FA1D6D81100000ABE3 /* HUD.CPP in Sources */,
 				C123F6231D6D81100000ABE3 /* Trigger_Secret.cpp in Sources */,
+				C17794411D76B7360046EE93 /* com.cpp in Sources */,
 				C123F5861D6D81100000ABE3 /* Boss_RiesenQualle.cpp in Sources */,
 				C18CD1CC1D75601A00CB3725 /* d3d9.cpp in Sources */,
 				C123F5CA1D6D81100000ABE3 /* Gegner_Made.cpp in Sources */,

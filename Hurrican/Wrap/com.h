@@ -12,7 +12,12 @@ class IUnknown
 {
 public:
 	
-	virtual HRESULT Release() = 0;
+	virtual ~IUnknown();
+	HRESULT Release();
+	
+private:
+	
+	int64_t reference_count = 1;
 };
 
 typedef IUnknown *LPUNKNOWN;
