@@ -4,7 +4,7 @@ const UINT D3D_SDK_VERSION = 0x0900;
 
 D3DCOLOR D3DCOLOR_RGBA(uint8_t r, uint8_t g, uint8_t b, uint8_t a)
 {
-	return 0;
+	return (a << 24) | (r << 16) | (g << 8) | b;
 }
 
 D3DCOLOR D3DCOLOR_XRGB(uint8_t r, uint8_t g, uint8_t b)
