@@ -12,6 +12,7 @@ enum
 enum DI : HRESULT
 {
 	DI_OK,
+	DIERR_DEVICENOTREG,
 	DIERR_INPUTLOST,
 };
 
