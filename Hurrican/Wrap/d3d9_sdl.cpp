@@ -78,6 +78,8 @@ HRESULT Device::EndScene()
 
 HRESULT Device::GetDeviceCaps(D3DCAPS9 *pCaps)
 {
+	memset(pCaps, 0, sizeof(*pCaps));
+	
 	return D3D_OK;
 }
 
