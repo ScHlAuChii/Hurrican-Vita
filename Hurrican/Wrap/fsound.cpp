@@ -21,7 +21,7 @@ int FSOUND_GetVolume(int channel)
 
 signed char FSOUND_Init(int mixrate, int maxsoftwarechannels, unsigned int flags)
 {
-	return FMOD_ERR_NONE;
+	return 1;
 }
 
 signed char FSOUND_IsPlaying(int channel)
@@ -31,7 +31,7 @@ signed char FSOUND_IsPlaying(int channel)
 
 int FSOUND_PlaySound(int channel, FSOUND_SAMPLE *sptr)
 {
-	return FMOD_ERR_NONE;
+	return channel;
 }
 
 void FSOUND_Sample_Free(FSOUND_SAMPLE *sptr)
@@ -45,35 +45,35 @@ FSOUND_SAMPLE *FSOUND_Sample_Load(int index, const char *name_or_data, unsigned 
 
 signed char FSOUND_SetDriver(int driver)
 {
-	return FMOD_ERR_NONE;
+	return 1;
 }
 
 signed char FSOUND_SetFrequency(int channel, int freq)
 {
-	return FMOD_ERR_NONE;
+	return 1;
 }
 
 signed char FSOUND_SetMixer(int mixer)
 {
-	return FMOD_ERR_NONE;
+	return 1;
 }
 
 signed char FSOUND_SetOutput(int outputtype)
 {
-	return FMOD_ERR_NONE;
+	return 1;
 }
 
 signed char FSOUND_SetPan(int channel, int pan)
 {
-	return FMOD_ERR_NONE;
+	return 1;
 }
 
 signed char FSOUND_SetVolume(int channel, int vol)
 {
-	return FMOD_ERR_NONE;
+	return 1;
 }
 
 signed char FSOUND_StopSound(int channel)
 {
-	return FMOD_ERR_NONE;
+	return 1;
 }

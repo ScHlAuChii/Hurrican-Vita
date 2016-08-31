@@ -2,7 +2,7 @@
 
 signed char FMUSIC_FreeSong(FMUSIC_MODULE *mod)
 {
-	return FMOD_ERR_NONE;
+	return 1;
 }
 
 signed char FMUSIC_GetPaused(FMUSIC_MODULE *mod)
@@ -32,17 +32,17 @@ FMUSIC_MODULE *FMUSIC_LoadSongEx(const char *name_or_data, int offset, int lengt
 
 signed char FMUSIC_PlaySong(FMUSIC_MODULE *mod)
 {
-	return FMOD_ERR_NONE;
+	return 1;
 }
 
 signed char FMUSIC_SetMasterVolume(FMUSIC_MODULE *mod, int volume)
 {
-	return FMOD_ERR_NONE;
+	return 1;
 }
 
 signed char FMUSIC_SetPaused(FMUSIC_MODULE *mod, signed char pause)
 {
-	return FMOD_ERR_NONE;
+	return 1;
 }
 
 void FMUSIC_StopAllSongs()
@@ -51,5 +51,5 @@ void FMUSIC_StopAllSongs()
 
 signed char FMUSIC_StopSong(FMUSIC_MODULE *mod)
 {
-	return FMOD_ERR_NONE;
+	return 1;
 }
