@@ -34,6 +34,11 @@ public:
 	HRESULT TestCooperativeLevel() override;
 };
 
+static void check()
+{
+	assert(glGetError() == GL_NO_ERROR);
+}
+
 IDirect3D9 *Direct3DCreate9(UINT SDKVersion)
 {
 	return new Direct3D;
@@ -48,6 +53,7 @@ HRESULT Direct3D::CreateDevice(UINT Adapter, D3DDEVTYPE DeviceType, HWND hFocusW
 	
 	const SDL_GLContext context = SDL_GL_CreateContext(window);
 	assert(context != nullptr);
+	check();
 	
 	*ppReturnedDeviceInterface = new Device;
 	
@@ -69,6 +75,7 @@ HRESULT Device::Clear(int a, const void *b, int buffers, D3DCOLOR color, float z
 	assert(c == 0);
 	
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	check();
 	
 	return D3D_OK;
 }
