@@ -123,11 +123,23 @@ enum MB
 	MB_ICONEXCLAMATION = 2,
 };
 
+struct POINT
+{
+	LONG x;
+	LONG y;
+};
+
+typedef uint32_t UINT;
 typedef uintptr_t WPARAM;
 
 struct MSG
 {
+	HWND hwnd;
+	UINT message;
 	WPARAM wParam;
+	LPARAM lParam;
+	DWORD time;
+	POINT pt;
 };
 
 typedef MSG *LPMSG;
@@ -149,12 +161,6 @@ struct PALETTEENTRY
 enum PM
 {
 	PM_REMOVE,
-};
-
-struct POINT
-{
-	LONG x;
-	LONG y;
 };
 
 struct RECT
@@ -182,7 +188,6 @@ enum SC
 	SC_TASKLIST,
 };
 
-typedef uint32_t UINT;
 typedef uintptr_t UINT_PTR;
 
 enum WA
@@ -194,6 +199,7 @@ typedef wchar_t WCHAR;
 
 enum WM
 {
+	WM_NULL,
 	WM_ACTIVATE,
 	WM_CREATE,
 	WM_DESTROY,

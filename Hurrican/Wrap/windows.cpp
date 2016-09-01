@@ -54,11 +54,6 @@ BOOL DeleteObject(HGDIOBJ hObject)
 	return TRUE;
 }
 
-LRESULT DispatchMessage(const MSG *lpmsg)
-{
-	return 0;
-}
-
 BOOL EndPaint(HWND hWnd, const PAINTSTRUCT *lpPaint)
 {
 	return TRUE;
@@ -161,11 +156,6 @@ BOOL QueryPerformanceFrequency(LARGE_INTEGER *lpFrequency)
 {
 	lpFrequency->QuadPart = CLOCKS_PER_SEC;
 	return TRUE;
-}
-
-ATOM RegisterClassEx(const WNDCLASSEX *lpwcx)
-{
-	return 1;
 }
 
 COLORREF RGB(BYTE byRed, BYTE byGreen, BYTE byBlue)
