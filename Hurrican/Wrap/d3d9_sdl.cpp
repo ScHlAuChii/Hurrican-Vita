@@ -55,6 +55,15 @@ HRESULT Direct3D::CreateDevice(UINT Adapter, D3DDEVTYPE DeviceType, HWND hFocusW
 	assert(context != nullptr);
 	check();
 	
+	glEnableClientState(GL_COLOR_ARRAY);
+	check();
+	
+	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+	check();
+	
+	glEnableClientState(GL_VERTEX_ARRAY);
+	check();
+	
 	*ppReturnedDeviceInterface = new Device;
 	
 	return D3D_OK;
@@ -89,6 +98,24 @@ HRESULT Device::CreateOffscreenPlainSurface(UINT Width, UINT Height, D3DFORMAT F
 
 HRESULT Device::DrawPrimitiveUP(D3DPRIMITIVETYPE PrimitiveType, UINT PrimitiveCount, const void *pVertexStreamZeroData, UINT VertexStreamZeroStride)
 {
+	assert(PrimitiveType == D3DPT_TRIANGLESTRIP);
+	assert(VertexStreamZeroStride > 0);
+	
+	const GLsizei vertex_count = PrimitiveType + 2;
+	const uint8_t *const data = static_cast<const uint8_t *>(pVertexStreamZeroData);
+	
+	glVertexPointer(3, GL_FLOAT, VertexStreamZeroStride, &data[0]);
+	check();
+	
+	glColorPointer(4, GL_UNSIGNED_BYTE, VertexStreamZeroStride, &data[12]);
+	check();
+	
+	glTexCoordPointer(2, GL_FLOAT, VertexStreamZeroStride, &data[16]);
+	check();
+	
+	glDrawArrays(GL_TRIANGLE_STRIP, 0, vertex_count);
+	check();
+	
 	return D3D_OK;
 }
 
