@@ -1,5 +1,6 @@
 #include "d3d9_sdl.h"
 
+#include "SDL_opengl.h"
 #include "SDL_video.h"
 
 #include <assert.h>
@@ -60,6 +61,15 @@ HRESULT Device::BeginScene()
 
 HRESULT Device::Clear(int a, const void *b, int buffers, D3DCOLOR color, float z, int c)
 {
+	assert(a == 0);
+	assert(b == nullptr);
+	assert(buffers == (D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER));
+	assert(color == D3DCOLOR_XRGB(0, 0, 0));
+	assert(z == 1);
+	assert(c == 0);
+	
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	
 	return D3D_OK;
 }
 
