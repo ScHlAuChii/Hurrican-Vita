@@ -89,6 +89,16 @@ HRESULT Device::GetDeviceCaps(D3DCAPS9 *pCaps)
 
 HRESULT Device::Present(const RECT *pSourceRect, const RECT *pDestRect, HWND hDestWindowOverride, const RGNDATA *pDirtyRegion)
 {
+	assert(pSourceRect == nullptr);
+	assert(pDestRect == nullptr);
+	assert(hDestWindowOverride == nullptr);
+	assert(pDirtyRegion == nullptr);
+	
+	SDL_Window *const window = SDL_GL_GetCurrentWindow();
+	assert(window != nullptr);
+	
+	SDL_GL_SwapWindow(window);
+	
 	return D3D_OK;
 }
 
