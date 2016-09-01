@@ -187,6 +187,7 @@
 		C123F62C1D6D81100000ABE3 /* Trigger_Tube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5781D6D81100000ABE3 /* Trigger_Tube.cpp */; settings = {ASSET_TAGS = (); }; };
 		C123F62D1D6D81100000ABE3 /* Trigger_TutorialText.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5791D6D81100000ABE3 /* Trigger_TutorialText.cpp */; settings = {ASSET_TAGS = (); }; };
 		C123F62E1D6D81100000ABE3 /* Trigger_Warning.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F57A1D6D81100000ABE3 /* Trigger_Warning.cpp */; settings = {ASSET_TAGS = (); }; };
+		C14AF7071D780F73009F1D2C /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C14AF7061D780F73009F1D2C /* OpenGL.framework */; };
 		C177943D1D76B3EF0046EE93 /* windows_sdl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C177943C1D76B3EF0046EE93 /* windows_sdl.cpp */; settings = {ASSET_TAGS = (); }; };
 		C177943F1D76B6460046EE93 /* dinput_sdl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C177943E1D76B6460046EE93 /* dinput_sdl.cpp */; settings = {ASSET_TAGS = (); }; };
 		C17794411D76B7360046EE93 /* com.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C17794401D76B7360046EE93 /* com.cpp */; settings = {ASSET_TAGS = (); }; };
@@ -589,6 +590,7 @@
 		C123F6EB1D6D81200000ABE3 /* Trigger_Warning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trigger_Warning.h; sourceTree = "<group>"; };
 		C123F6EC1D6D81200000ABE3 /* unrarlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = unrarlib.h; path = inc/unrarlib.h; sourceTree = "<group>"; };
 		C123F6ED1D6D81200000ABE3 /* wincompat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = wincompat.h; path = inc/wincompat.h; sourceTree = "<group>"; };
+		C14AF7061D780F73009F1D2C /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		C177943C1D76B3EF0046EE93 /* windows_sdl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = windows_sdl.cpp; sourceTree = "<group>"; };
 		C177943E1D76B6460046EE93 /* dinput_sdl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dinput_sdl.cpp; sourceTree = "<group>"; };
 		C17794401D76B7360046EE93 /* com.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = com.cpp; sourceTree = "<group>"; };
@@ -624,6 +626,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C14AF7071D780F73009F1D2C /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -633,6 +636,7 @@
 		C123F4B41D6D7F8E0000ABE3 = {
 			isa = PBXGroup;
 			children = (
+				C14AF7061D780F73009F1D2C /* OpenGL.framework */,
 				C18CD1C41D701C2A00CB3725 /* inc */,
 				C18CD1BA1D6DEF5E00CB3725 /* Wrap */,
 				C123F4C71D6D810F0000ABE3 /* Boss_BigFish.cpp */,
