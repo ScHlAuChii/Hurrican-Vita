@@ -31,6 +31,13 @@ D3DXMATRIX* D3DXMatrixMultiply(D3DXMATRIX *pOut, const D3DXMATRIX *pM1, const D3
 D3DXMATRIX *D3DXMatrixOrthoOffCenterLH(D3DXMATRIX *pOut, FLOAT l, FLOAT r, FLOAT b, FLOAT t, FLOAT zn, FLOAT zf)
 {
 	memset(pOut, 0, sizeof(*pOut));
+	pOut->_11 = 2 / (r - l);
+	pOut->_22 = 2 / (t - b);
+	pOut->_33 = 1 / (zf - zn);
+	pOut->_41 = (l + r) / (l - r);
+	pOut->_42 = (t + b) / (b - t);
+	pOut->_43 = zn / (zn - zf);
+	pOut->_44 = 1;
 	
 	return pOut;
 }
