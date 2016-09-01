@@ -1,5 +1,6 @@
 #include "windows.h"
 
+#include "SDL_events.h"
 #include "SDL_video.h"
 
 #include <assert.h>
@@ -20,6 +21,19 @@ BOOL GetWindowRect(HWND hWnd, LPRECT lpRect)
 	lpRect->top = bounds.y;
 	lpRect->right = bounds.x + bounds.w;
 	lpRect->bottom = bounds.y + bounds.h;
+	
+	return TRUE;
+}
+
+BOOL PeekMessage(LPMSG lpMsg, HWND hWnd, UINT wMsgFilterMin, UINT wMsgFilterMax, UINT  wRemoveMsg)
+{
+	memset(lpMsg, 0, sizeof(*lpMsg));
+	
+	SDL_Event e = {};
+	if (!SDL_PollEvent(&e))
+	{
+		return FALSE;
+	}
 	
 	return TRUE;
 }

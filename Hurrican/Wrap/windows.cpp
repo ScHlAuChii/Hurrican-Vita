@@ -2,6 +2,7 @@
 
 #include <time.h>
 
+const BOOL FALSE = 0;
 const LPCTSTR IDC_ARROW = MAKEINTRESOURCE(32512);
 const int INFINITE = -1;
 const BOOL TRUE = 1;
@@ -144,13 +145,6 @@ int MessageBox(HWND hWnd, LPCTSTR lpText, LPCTSTR lpCaption, UINT uType)
 {
 	fputs(lpText, stderr);
 	return 0;
-}
-
-BOOL PeekMessage(LPMSG lpMsg, HWND hWnd, UINT wMsgFilterMin, UINT wMsgFilterMax, UINT  wRemoveMsg)
-{
-	memset(lpMsg, 0, sizeof(*lpMsg));
-	
-	return TRUE;
 }
 
 void PostQuitMessage(int nExitCode)

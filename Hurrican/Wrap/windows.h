@@ -233,6 +233,7 @@ enum WS
 	WS_POPUPWINDOW,
 };
 
+extern const BOOL FALSE;
 extern const LPCTSTR IDC_ARROW;
 extern const int INFINITE;
 extern const BOOL TRUE;
