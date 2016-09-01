@@ -64,6 +64,11 @@ BOOL PeekMessage(LPMSG lpMsg, HWND hWnd, UINT wMsgFilterMin, UINT wMsgFilterMax,
 		case SDL_WINDOWEVENT:
 			translate_window_event(lpMsg, e.window);
 			break;
+			
+		case SDL_QUIT:
+			lpMsg->hwnd = SDL_GL_GetCurrentWindow();
+			lpMsg->message = WM_DESTROY;
+			break;
 	}
 	
 	return TRUE;
