@@ -151,6 +151,14 @@ HRESULT Device::SetTextureStageState(DWORD Stage, D3DTEXTURESTAGESTATETYPE Type,
 
 HRESULT Device::SetTransform(D3DTRANSFORMSTATETYPE State, const D3DMATRIX *pMatrix)
 {
+	assert(State == D3DTS_PROJECTION);
+	
+	glMatrixMode(GL_PROJECTION);
+	check();
+	
+	glLoadMatrixf(&pMatrix->_11);
+	check();
+	
 	return D3D_OK;
 }
 
