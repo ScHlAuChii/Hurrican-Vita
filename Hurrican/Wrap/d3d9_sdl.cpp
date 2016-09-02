@@ -17,6 +17,10 @@ class Device : public IDirect3DDevice9
 public:
 	
 	std::vector<uint32_t> colours;
+	D3DMATRIX view_matrix;
+	D3DMATRIX world_matrix;
+	
+	Device();
 	
 	HRESULT BeginScene() override;
 	HRESULT Clear(int a, const void *b, int buffers, D3DCOLOR color, float z, int c) override;
@@ -92,6 +96,17 @@ HRESULT Direct3D::CreateDevice(UINT Adapter, D3DDEVTYPE DeviceType, HWND hFocusW
 	*ppReturnedDeviceInterface = new Device;
 	
 	return D3D_OK;
+}
+
+Device::Device()
+{
+	memset(&view_matrix, 0, sizeof(view_matrix));
+	view_matrix._11 = 1;
+	view_matrix._22 = 1;
+	view_matrix._33 = 1;
+	view_matrix._44 = 1;
+	
+	world_matrix = view_matrix;
 }
 
 HRESULT Device::BeginScene()
@@ -222,12 +237,36 @@ HRESULT Device::SetTextureStageState(DWORD Stage, D3DTEXTURESTAGESTATETYPE Type,
 
 HRESULT Device::SetTransform(D3DTRANSFORMSTATETYPE State, const D3DMATRIX *pMatrix)
 {
-	assert(State == D3DTS_PROJECTION);
+	switch (State)
+	{
+		case D3DTS_PROJECTION:
+			glMatrixMode(GL_PROJECTION);
+			check();
+			
+			glLoadMatrixf(&pMatrix->_11);
+			check();
+			return D3D_OK;
+			
+		case D3DTS_VIEW:
+			view_matrix = *pMatrix;
+			break;
+			
+		case D3DTS_WORLD:
+			world_matrix = *pMatrix;
+			break;
+			
+		default:
+			assert(!"Unhandled D3DTRANSFORMSTATETYPE.");
+			break;
+	}
 	
-	glMatrixMode(GL_PROJECTION);
+	glMatrixMode(GL_MODELVIEW);
 	check();
 	
-	glLoadMatrixf(&pMatrix->_11);
+	glLoadMatrixf(&view_matrix._11);
+	check();
+	
+	glMultMatrixf(&world_matrix._11);
 	check();
 	
 	return D3D_OK;
