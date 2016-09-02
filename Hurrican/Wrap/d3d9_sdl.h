@@ -4,7 +4,7 @@
 
 #include <vector>
 
-typedef std::vector<uint32_t> Pixels;
+typedef std::shared_ptr<uint8_t> Pixels;
 
 class Texture : public IDirect3DTexture9
 {

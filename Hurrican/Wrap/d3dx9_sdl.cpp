@@ -2,13 +2,13 @@
 
 #include "d3d9_sdl.h"
 
-#include "SDL_surface.h"
+#define STB_IMAGE_IMPLEMENTATION
+#include "stb_image.h"
 
 #include <algorithm>
 #include <assert.h>
 #include <memory>
 
-typedef std::unique_ptr<SDL_Surface, void (*)(SDL_Surface *)> SurfacePtr;
 typedef std::unique_ptr<Texture> TexturePtr;
 
 HRESULT D3DXCreateTextureFromFileEx(LPDIRECT3DDEVICE9 pDevice, LPCTSTR pSrcFile, UINT Width, UINT Height, UINT MipLevels, DWORD Usage, D3DFORMAT          Format, D3DPOOL Pool, DWORD Filter, DWORD MipFilter, D3DCOLOR ColorKey, D3DXIMAGE_INFO *pSrcInfo, PALETTEENTRY       *pPalette, LPDIRECT3DTEXTURE9 *ppTexture)
@@ -29,20 +29,26 @@ HRESULT D3DXCreateTextureFromFileEx(LPDIRECT3DDEVICE9 pDevice, LPCTSTR pSrcFile,
 	
 	*ppTexture = nullptr;
 	
-	const SurfacePtr file_surface(SDL_LoadBMP(pSrcFile), &SDL_FreeSurface);
-	assert(file_surface);
+	int w = 0;
+	int h = 0;
+	const Pixels pixels(stbi_load(pSrcFile, &w, &h, nullptr, 4), &stbi_image_free);
+	assert(pixels);
 	
 	TexturePtr texture(new Texture);
-	texture->width = file_surface->w;
-	texture->height = file_surface->h;
-	texture->pixels.resize(file_surface->w * file_surface->h);
+	texture->width = w;
+	texture->height = h;
+	texture->pixels = pixels;
 	
-	const SurfacePtr texture_surface(SDL_CreateRGBSurfaceFrom(texture->pixels.data(), texture->width, texture->height, 32, texture->width * 4, 0x000000ff, 0x0000ff00, 0x00ff0000, 0xff000000), &SDL_FreeSurface);
-	assert(texture_surface);
-	
-	SDL_BlitSurface(file_surface.get(), nullptr, texture_surface.get(), nullptr);
-	
-	std::replace(texture->pixels.begin(), texture->pixels.end(), 0xffff00ff, uint32_t(0));
+	const uint8_t *const pixels_end = pixels.get() + (w * h * 4);
+	for (uint8_t *pixel = pixels.get(); pixel != pixels_end; pixel += 4)
+	{
+		if ((pixel[0] == 0xff) && (pixel[1] == 0x00) && (pixel[2] == 0xff) && (pixel[3] == 0xff))
+		{
+			pixel[0] = 0x00;
+			pixel[2] = 0x00;
+			pixel[3] = 0x00;
+		}
+	}
 	
 	glGenTextures(1, &texture->texture);
 	check();
@@ -50,7 +56,7 @@ HRESULT D3DXCreateTextureFromFileEx(LPDIRECT3DDEVICE9 pDevice, LPCTSTR pSrcFile,
 	glBindTexture(GL_TEXTURE_2D, texture->texture);
 	check();
 	
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, texture->width, texture->height, 0, GL_RGBA, GL_UNSIGNED_BYTE, texture->pixels.data());
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, texture->width, texture->height, 0, GL_RGBA, GL_UNSIGNED_BYTE, texture->pixels.get());
 	check();
 	
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);

@@ -270,7 +270,7 @@ HRESULT Texture::LockRect(UINT Level, D3DLOCKED_RECT *pLockedRect, const RECT *p
 	
 	memset(pLockedRect, 0, sizeof(*pLockedRect));
 	pLockedRect->Pitch = width * 4;
-	pLockedRect->pBits = &pixels[0];
+	pLockedRect->pBits = pixels.get();
 	
 	return D3D_OK;
 }
