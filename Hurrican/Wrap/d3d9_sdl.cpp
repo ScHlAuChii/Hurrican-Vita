@@ -16,6 +16,8 @@ class Device : public IDirect3DDevice9
 {
 public:
 	
+	std::vector<uint32_t> colours;
+	
 	HRESULT BeginScene() override;
 	HRESULT Clear(int a, const void *b, int buffers, D3DCOLOR color, float z, int c) override;
 	HRESULT CreateOffscreenPlainSurface(UINT Width, UINT Height, D3DFORMAT Format, D3DPOOL Pool, IDirect3DSurface9 **ppSurface, HANDLE *pSharedHandle) override;
@@ -33,6 +35,20 @@ public:
 	HRESULT StretchRect(IDirect3DSurface9 *pSourceSurface, const RECT *pSourceRect, IDirect3DSurface9 *pDestSurface, const RECT *pDestRect, D3DTEXTUREFILTERTYPE Filter) override;
 	HRESULT TestCooperativeLevel() override;
 };
+
+struct Vertex
+{
+	float position[3];
+	D3DCOLOR colour;
+	float uv[2];
+};
+
+static inline uint32_t bgra_to_rgba(const Vertex &src)
+{
+	const uint32_t r = (src.colour >> 16) & 0xff;
+	const uint32_t b = (src.colour & 0xff) << 16;
+	return (src.colour & 0xff00ff00) | b | r;
+}
 
 void check()
 {
@@ -111,15 +127,18 @@ HRESULT Device::DrawPrimitiveUP(D3DPRIMITIVETYPE PrimitiveType, UINT PrimitiveCo
 	assert(VertexStreamZeroStride > 0);
 	
 	const GLsizei vertex_count = PrimitiveType + 2;
-	const uint8_t *const data = static_cast<const uint8_t *>(pVertexStreamZeroData);
+	const Vertex *const vertices = static_cast<const Vertex *>(pVertexStreamZeroData);
 	
-	glVertexPointer(3, GL_FLOAT, VertexStreamZeroStride, &data[0]);
+	colours.resize(vertex_count);
+	std::transform(&vertices[0], &vertices[vertex_count], colours.data(), bgra_to_rgba);
+	
+	glVertexPointer(3, GL_FLOAT, VertexStreamZeroStride, &vertices[0].position);
 	check();
 	
-	glColorPointer(4, GL_UNSIGNED_BYTE, VertexStreamZeroStride, &data[12]);
+	glColorPointer(4, GL_UNSIGNED_BYTE, 0, colours.data());
 	check();
 	
-	glTexCoordPointer(2, GL_FLOAT, VertexStreamZeroStride, &data[16]);
+	glTexCoordPointer(2, GL_FLOAT, VertexStreamZeroStride, &vertices[0].uv);
 	check();
 	
 	glDrawArrays(GL_TRIANGLE_STRIP, 0, vertex_count);
