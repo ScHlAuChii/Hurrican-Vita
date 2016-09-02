@@ -34,7 +34,7 @@ public:
 	HRESULT TestCooperativeLevel() override;
 };
 
-static void check()
+void check()
 {
 	assert(glGetError() == GL_NO_ERROR);
 }
@@ -53,6 +53,15 @@ HRESULT Direct3D::CreateDevice(UINT Adapter, D3DDEVTYPE DeviceType, HWND hFocusW
 	
 	const SDL_GLContext context = SDL_GL_CreateContext(window);
 	assert(context != nullptr);
+	check();
+	
+	SDL_GL_SetSwapInterval(1);
+	check();
+	
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	check();
+	
+	glEnable(GL_BLEND);
 	check();
 	
 	glEnableClientState(GL_COLOR_ARRAY);
@@ -168,6 +177,22 @@ HRESULT Device::SetSamplerState(DWORD Sampler, D3DSAMPLERSTATETYPE Type, DWORD V
 
 HRESULT Device::SetTexture(DWORD Sampler, IDirect3DBaseTexture9 *pTexture)
 {
+	if (pTexture != nullptr)
+	{
+		const Texture *const texture = static_cast<const Texture *>(pTexture);
+		
+		glBindTexture(GL_TEXTURE_2D, texture->texture);
+		check();
+		
+		glEnable(GL_TEXTURE_2D);
+		check();
+	}
+	else
+	{
+		glDisable(GL_TEXTURE_2D);
+		check();
+	}
+	
 	return D3D_OK;
 }
 
@@ -197,6 +222,15 @@ HRESULT Device::StretchRect(IDirect3DSurface9 *pSourceSurface, const RECT *pSour
 HRESULT Device::TestCooperativeLevel()
 {
 	return D3D_OK;
+}
+
+Texture::~Texture()
+{
+	if (texture != 0)
+	{
+		glDeleteTextures(1, &texture);
+		texture = 0;
+	}
 }
 
 HRESULT Texture::GetLevelDesc(UINT Level, D3DSURFACE_DESC *pDesc)

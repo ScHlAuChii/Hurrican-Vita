@@ -4,6 +4,7 @@
 
 #include "SDL_surface.h"
 
+#include <algorithm>
 #include <assert.h>
 #include <memory>
 
@@ -28,15 +29,38 @@ HRESULT D3DXCreateTextureFromFileEx(LPDIRECT3DDEVICE9 pDevice, LPCTSTR pSrcFile,
 	
 	*ppTexture = nullptr;
 	
-	const SurfacePtr surface(SDL_LoadBMP(pSrcFile), &SDL_FreeSurface);
-	assert(surface);
+	const SurfacePtr file_surface(SDL_LoadBMP(pSrcFile), &SDL_FreeSurface);
+	assert(file_surface);
 	
 	TexturePtr texture(new Texture);
-	texture->width = surface->w;
-	texture->height = surface->h;
-	texture->pixels.resize(surface->w * surface->h);
+	texture->width = file_surface->w;
+	texture->height = file_surface->h;
+	texture->pixels.resize(file_surface->w * file_surface->h);
 	
-	SDL_ConvertPixels(surface->w, surface->h, surface->format->format, surface->pixels, surface->pitch, SDL_PIXELFORMAT_ARGB8888, &texture->pixels[0], surface->w * 4);
+	const SurfacePtr texture_surface(SDL_CreateRGBSurfaceFrom(texture->pixels.data(), texture->width, texture->height, 32, texture->width * 4, 0x000000ff, 0x0000ff00, 0x00ff0000, 0xff000000), &SDL_FreeSurface);
+	assert(texture_surface);
+	
+	SDL_BlitSurface(file_surface.get(), nullptr, texture_surface.get(), nullptr);
+	
+	std::replace(texture->pixels.begin(), texture->pixels.end(), 0xffff00ff, uint32_t(0));
+	
+	glGenTextures(1, &texture->texture);
+	check();
+	
+	glBindTexture(GL_TEXTURE_2D, texture->texture);
+	check();
+	
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, texture->width, texture->height, 0, GL_RGBA, GL_UNSIGNED_BYTE, texture->pixels.data());
+	check();
+	
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+	check();
+	
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAX_LEVEL, 0);
+	check();
+	
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	check();
 	
 	*ppTexture = texture.release();
 	
