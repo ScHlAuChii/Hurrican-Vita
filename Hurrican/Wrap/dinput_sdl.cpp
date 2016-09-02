@@ -1,5 +1,13 @@
 #include "dinput.h"
 
+#include "SDL_keyboard.h"
+
+struct KeyBinding
+{
+	Keyboard_Device dinput;
+	SDL_Scancode sdl;
+};
+
 class DirectInput : public IDirectInput8
 {
 public:
@@ -23,6 +31,13 @@ public:
 	HRESULT SetDataFormat(LPCDIDATAFORMAT lpdf) override;
 	HRESULT Unacquire() override;
 };
+
+static const KeyBinding key_bindings[] =
+{
+	{ DIK_SPACE, SDL_SCANCODE_SPACE }
+};
+
+static const size_t key_binding_count = sizeof(key_bindings) / sizeof(key_bindings[0]);
 
 HRESULT DirectInput8Create(HINSTANCE hinst, DWORD dwVersion, REFIID riidltf, LPVOID *ppvOut, LPUNKNOWN punkOuter)
 {
@@ -72,6 +87,18 @@ HRESULT Keyboard::GetDeviceData(DWORD cbObjectData, LPDIDEVICEOBJECTDATA rgdod, 
 HRESULT Keyboard::GetDeviceState(DWORD cbData, LPVOID lpvData)
 {
 	memset(lpvData, 0, cbData);
+	
+	const Uint8 *const src = SDL_GetKeyboardState(nullptr);
+	uint8_t *const dst = static_cast<uint8_t *>(lpvData);
+	
+	for (size_t i = 0; i < key_binding_count; ++i)
+	{
+		const KeyBinding &binding = key_bindings[i];
+		if (src[binding.sdl])
+		{
+			dst[binding.dinput] = 0x80;
+		}
+	}
 	
 	return DI_OK;
 }
