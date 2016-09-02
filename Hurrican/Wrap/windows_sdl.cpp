@@ -1,6 +1,7 @@
 #include "windows.h"
 
 #include "SDL_events.h"
+#include "SDL_timer.h"
 #include "SDL_video.h"
 
 #include <assert.h>
@@ -32,6 +33,11 @@ LRESULT DispatchMessage(const MSG *lpmsg)
 	}
 	
 	return wndclass.lpfnWndProc(lpmsg->hwnd, lpmsg->message, lpmsg->wParam, lpmsg->lParam);
+}
+
+DWORD GetTickCount()
+{
+	return SDL_GetTicks();
 }
 
 BOOL GetWindowRect(HWND hWnd, LPRECT lpRect)
@@ -70,6 +76,20 @@ BOOL PeekMessage(LPMSG lpMsg, HWND hWnd, UINT wMsgFilterMin, UINT wMsgFilterMax,
 			lpMsg->message = WM_DESTROY;
 			break;
 	}
+	
+	return TRUE;
+}
+
+BOOL QueryPerformanceCounter(LARGE_INTEGER *lpPerformanceCount)
+{
+	lpPerformanceCount->QuadPart = SDL_GetPerformanceCounter();
+	
+	return TRUE;
+}
+
+BOOL QueryPerformanceFrequency(LARGE_INTEGER *lpFrequency)
+{
+	lpFrequency->QuadPart = SDL_GetPerformanceFrequency();
 	
 	return TRUE;
 }

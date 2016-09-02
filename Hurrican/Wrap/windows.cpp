@@ -96,11 +96,6 @@ BYTE GetRValue(DWORD rgb)
 	return 0;
 }
 
-DWORD GetTickCount()
-{
-	return clock() / (CLOCKS_PER_SEC / 1000);
-}
-
 BOOL InvalidateRect(HWND hWnd, const RECT *lpRect, BOOL bErase)
 {
 	return TRUE;
@@ -144,18 +139,6 @@ int MessageBox(HWND hWnd, LPCTSTR lpText, LPCTSTR lpCaption, UINT uType)
 
 void PostQuitMessage(int nExitCode)
 {
-}
-
-BOOL QueryPerformanceCounter(LARGE_INTEGER *lpPerformanceCount)
-{
-	lpPerformanceCount->QuadPart = clock();
-	return TRUE;
-}
-
-BOOL QueryPerformanceFrequency(LARGE_INTEGER *lpFrequency)
-{
-	lpFrequency->QuadPart = CLOCKS_PER_SEC;
-	return TRUE;
 }
 
 COLORREF RGB(BYTE byRed, BYTE byGreen, BYTE byBlue)
