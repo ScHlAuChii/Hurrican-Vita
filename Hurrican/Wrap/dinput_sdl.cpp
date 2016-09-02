@@ -1,5 +1,6 @@
 #include "dinput.h"
 
+#include "SDL_events.h"
 #include "SDL_keyboard.h"
 
 struct KeyBinding
@@ -88,6 +89,7 @@ HRESULT Keyboard::GetDeviceState(DWORD cbData, LPVOID lpvData)
 {
 	memset(lpvData, 0, cbData);
 	
+	SDL_PumpEvents();
 	const Uint8 *const src = SDL_GetKeyboardState(nullptr);
 	uint8_t *const dst = static_cast<uint8_t *>(lpvData);
 	
