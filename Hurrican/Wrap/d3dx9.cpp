@@ -45,6 +45,12 @@ D3DXMATRIX *D3DXMatrixOrthoOffCenterLH(D3DXMATRIX *pOut, FLOAT l, FLOAT r, FLOAT
 D3DXMATRIX* D3DXMatrixRotationZ(D3DXMATRIX *pOut, FLOAT Angle)
 {
 	memset(pOut, 0, sizeof(*pOut));
+	pOut->_11 = cosf(Angle);
+	pOut->_12 = sinf(Angle);
+	pOut->_21 = -sinf(Angle);
+	pOut->_22 = cosf(Angle);
+	pOut->_33 = 1;
+	pOut->_44 = 1;
 	
 	return pOut;
 }
