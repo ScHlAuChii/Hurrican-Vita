@@ -17,6 +17,10 @@ HRESULT D3DXLoadSurfaceFromFile(LPDIRECT3DSURFACE9 pDestSurface, const PALETTEEN
 D3DXMATRIX *D3DXMatrixIdentity(D3DXMATRIX *pOut)
 {
 	memset(pOut, 0, sizeof(*pOut));
+	pOut->_11 = 1;
+	pOut->_22 = 1;
+	pOut->_33 = 1;
+	pOut->_44 = 1;
 	
 	return pOut;
 }
