@@ -52,6 +52,13 @@ D3DXMATRIX* D3DXMatrixRotationZ(D3DXMATRIX *pOut, FLOAT Angle)
 D3DXMATRIX* D3DXMatrixTranslation(D3DXMATRIX *pOut, FLOAT x, FLOAT y, FLOAT z)
 {
 	memset(pOut, 0, sizeof(*pOut));
+	pOut->_11 = 1;
+	pOut->_22 = 1;
+	pOut->_33 = 1;
+	pOut->_41 = x;
+	pOut->_42 = y;
+	pOut->_43 = z;
+	pOut->_44 = 1;
 	
 	return pOut;
 }
