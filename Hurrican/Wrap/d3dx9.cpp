@@ -27,7 +27,21 @@ D3DXMATRIX *D3DXMatrixIdentity(D3DXMATRIX *pOut)
 
 D3DXMATRIX* D3DXMatrixMultiply(D3DXMATRIX *pOut, const D3DXMATRIX *pM1, const D3DXMATRIX *pM2)
 {
-	memset(pOut, 0, sizeof(*pOut));
+	D3DXMATRIX result;
+	
+	for (int row = 0; row < 4; ++row)
+	{
+		for (int column = 0; column < 4; ++column)
+		{
+			result.m[row][column] =
+			pM1->m[row][0] * pM2->m[0][column] +
+			pM1->m[row][1] * pM2->m[1][column] +
+			pM1->m[row][2] * pM2->m[2][column] +
+			pM1->m[row][3] * pM2->m[3][column];
+		}
+	}
+	
+	*pOut = result;
 	
 	return pOut;
 }
