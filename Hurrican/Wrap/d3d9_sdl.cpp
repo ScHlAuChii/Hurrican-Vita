@@ -138,10 +138,29 @@ HRESULT Device::CreateOffscreenPlainSurface(UINT Width, UINT Height, D3DFORMAT F
 
 HRESULT Device::DrawPrimitiveUP(D3DPRIMITIVETYPE PrimitiveType, UINT PrimitiveCount, const void *pVertexStreamZeroData, UINT VertexStreamZeroStride)
 {
-	assert(PrimitiveType == D3DPT_TRIANGLESTRIP);
 	assert(VertexStreamZeroStride > 0);
 	
-	const GLsizei vertex_count = PrimitiveCount + 2;
+	GLenum mode = 0;
+	GLsizei vertex_count = 0;
+	switch (PrimitiveType)
+	{
+		case D3DPT_LINELIST:
+			mode = GL_LINES;
+			vertex_count = PrimitiveCount * 2;
+			break;
+		case D3DPT_TRIANGLELIST:
+			mode = GL_TRIANGLES;
+			vertex_count = PrimitiveCount * 3;
+			break;
+		case D3DPT_TRIANGLESTRIP:
+			mode = GL_TRIANGLE_STRIP;
+			vertex_count = PrimitiveCount + 2;
+			break;
+		default:
+			assert(!"Unhandled D3DPRIMITIVETYPE.");
+			break;
+	}
+	
 	const Vertex *const vertices = static_cast<const Vertex *>(pVertexStreamZeroData);
 	
 	colours.resize(vertex_count);
@@ -156,7 +175,7 @@ HRESULT Device::DrawPrimitiveUP(D3DPRIMITIVETYPE PrimitiveType, UINT PrimitiveCo
 	glTexCoordPointer(2, GL_FLOAT, VertexStreamZeroStride, &vertices[0].uv);
 	check();
 	
-	glDrawArrays(GL_TRIANGLE_STRIP, 0, vertex_count);
+	glDrawArrays(mode, 0, vertex_count);
 	check();
 	
 	return D3D_OK;
