@@ -141,7 +141,7 @@ HRESULT Device::DrawPrimitiveUP(D3DPRIMITIVETYPE PrimitiveType, UINT PrimitiveCo
 	assert(PrimitiveType == D3DPT_TRIANGLESTRIP);
 	assert(VertexStreamZeroStride > 0);
 	
-	const GLsizei vertex_count = PrimitiveType + 2;
+	const GLsizei vertex_count = PrimitiveCount + 2;
 	const Vertex *const vertices = static_cast<const Vertex *>(pVertexStreamZeroData);
 	
 	colours.resize(vertex_count);
