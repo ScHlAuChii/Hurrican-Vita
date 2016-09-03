@@ -19,6 +19,8 @@ public:
 	std::vector<uint32_t> colours;
 	D3DMATRIX view_matrix;
 	D3DMATRIX world_matrix;
+	GLenum src_blend_factor = GL_ONE;
+	GLenum dst_blend_factor = GL_ZERO;
 	
 	Device();
 	
@@ -52,6 +54,22 @@ static inline uint32_t bgra_to_rgba(const Vertex &src)
 	const uint32_t r = (src.colour >> 16) & 0xff;
 	const uint32_t b = (src.colour & 0xff) << 16;
 	return (src.colour & 0xff00ff00) | b | r;
+}
+
+static GLenum translate_blend_factor(D3DBLEND blend)
+{
+	switch (blend)
+	{
+		case D3DBLEND_DESTALPHA:
+			return GL_DST_ALPHA;
+		case D3DBLEND_SRCALPHA:
+			return GL_SRC_ALPHA;
+		case D3DBLEND_INVSRCALPHA:
+			return GL_ONE_MINUS_SRC_ALPHA;
+		default:
+			assert(!"Unhandled D3DBLEND.");
+			return GL_ONE;
+	}
 }
 
 void check()
@@ -220,6 +238,42 @@ HRESULT Device::SetFVF(DWORD FVF)
 
 HRESULT Device::SetRenderState(D3DRENDERSTATETYPE State, DWORD Value)
 {
+	switch (State)
+	{
+		case D3DRS_AMBIENT:
+			assert(Value == 0xffffffff);
+			break;
+			
+		case D3DRS_ALPHABLENDENABLE:
+			assert(Value == TRUE);
+			break;
+			
+		case D3DRS_CULLMODE:
+			assert(Value == D3DCULL_NONE);
+			break;
+			
+		case D3DRS_DESTBLEND:
+			dst_blend_factor = translate_blend_factor(static_cast<D3DBLEND>(Value));
+			glBlendFunc(src_blend_factor, dst_blend_factor);
+			check();
+			break;
+			
+		case D3DRS_LIGHTING:
+		case D3DRS_ZENABLE:
+			assert(Value == FALSE);
+			break;
+			
+		case D3DRS_SRCBLEND:
+			src_blend_factor = translate_blend_factor(static_cast<D3DBLEND>(Value));
+			glBlendFunc(src_blend_factor, dst_blend_factor);
+			check();
+			break;
+			
+		default:
+			assert(!"Unhandled D3DRENDERSTATETYPE.");
+			break;
+	}
+	
 	return D3D_OK;
 }
 
