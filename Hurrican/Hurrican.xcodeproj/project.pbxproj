@@ -134,7 +134,7 @@
 		C123F5F71D6D81100000ABE3 /* GegnerClass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5431D6D81100000ABE3 /* GegnerClass.cpp */; };
 		C123F5F81D6D81100000ABE3 /* GetKeyName.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5441D6D81100000ABE3 /* GetKeyName.cpp */; };
 		C123F5F91D6D81100000ABE3 /* GUISystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5451D6D81100000ABE3 /* GUISystem.cpp */; };
-		C123F5FA1D6D81100000ABE3 /* HUD.CPP in Sources */ = {isa = PBXBuildFile; fileRef = C123F5461D6D81100000ABE3 /* HUD.CPP */; };
+		C123F5FA1D6D81100000ABE3 /* HUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5461D6D81100000ABE3 /* HUD.cpp */; };
 		C123F5FB1D6D81100000ABE3 /* Intro.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5471D6D81100000ABE3 /* Intro.cpp */; };
 		C123F5FC1D6D81100000ABE3 /* lightmap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5481D6D81100000ABE3 /* lightmap.cpp */; };
 		C123F5FD1D6D81100000ABE3 /* Logdatei.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5491D6D81100000ABE3 /* Logdatei.cpp */; };
@@ -347,7 +347,7 @@
 		C123F5431D6D81100000ABE3 /* GegnerClass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GegnerClass.cpp; sourceTree = "<group>"; };
 		C123F5441D6D81100000ABE3 /* GetKeyName.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GetKeyName.cpp; sourceTree = "<group>"; };
 		C123F5451D6D81100000ABE3 /* GUISystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GUISystem.cpp; sourceTree = "<group>"; };
-		C123F5461D6D81100000ABE3 /* HUD.CPP */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HUD.CPP; sourceTree = "<group>"; };
+		C123F5461D6D81100000ABE3 /* HUD.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HUD.cpp; sourceTree = "<group>"; };
 		C123F5471D6D81100000ABE3 /* Intro.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Intro.cpp; sourceTree = "<group>"; };
 		C123F5481D6D81100000ABE3 /* lightmap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lightmap.cpp; sourceTree = "<group>"; };
 		C123F5491D6D81100000ABE3 /* Logdatei.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Logdatei.cpp; sourceTree = "<group>"; };
@@ -534,7 +534,7 @@
 		C123F6B21D6D811F0000ABE3 /* GetKeyName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetKeyName.h; sourceTree = "<group>"; };
 		C123F6B31D6D811F0000ABE3 /* Globals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Globals.h; sourceTree = "<group>"; };
 		C123F6B41D6D811F0000ABE3 /* GUISystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUISystem.h; sourceTree = "<group>"; };
-		C123F6B51D6D811F0000ABE3 /* HUD.H */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = HUD.H; sourceTree = "<group>"; };
+		C123F6B51D6D811F0000ABE3 /* HUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUD.h; sourceTree = "<group>"; };
 		C123F6B61D6D811F0000ABE3 /* Intro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Intro.h; sourceTree = "<group>"; };
 		C123F6B71D6D811F0000ABE3 /* lightmap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lightmap.h; sourceTree = "<group>"; };
 		C123F6B81D6D811F0000ABE3 /* Logdatei.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Logdatei.h; sourceTree = "<group>"; };
@@ -901,8 +901,8 @@
 				C123F6B31D6D811F0000ABE3 /* Globals.h */,
 				C123F5451D6D81100000ABE3 /* GUISystem.cpp */,
 				C123F6B41D6D811F0000ABE3 /* GUISystem.h */,
-				C123F5461D6D81100000ABE3 /* HUD.CPP */,
-				C123F6B51D6D811F0000ABE3 /* HUD.H */,
+				C123F5461D6D81100000ABE3 /* HUD.cpp */,
+				C123F6B51D6D811F0000ABE3 /* HUD.h */,
 				C123F5471D6D81100000ABE3 /* Intro.cpp */,
 				C123F6B61D6D811F0000ABE3 /* Intro.h */,
 				C123F5481D6D81100000ABE3 /* lightmap.cpp */,
@@ -1298,7 +1298,7 @@
 				C123F5FB1D6D81100000ABE3 /* Intro.cpp in Sources */,
 				C123F61E1D6D81100000ABE3 /* Trigger_Plattform.cpp in Sources */,
 				C123F5C41D6D81100000ABE3 /* Gegner_KugelRiesig.cpp in Sources */,
-				C123F5FA1D6D81100000ABE3 /* HUD.CPP in Sources */,
+				C123F5FA1D6D81100000ABE3 /* HUD.cpp in Sources */,
 				C123F6231D6D81100000ABE3 /* Trigger_Secret.cpp in Sources */,
 				C17794411D76B7360046EE93 /* com.cpp in Sources */,
 				C123F5861D6D81100000ABE3 /* Boss_RiesenQualle.cpp in Sources */,
