@@ -224,6 +224,7 @@
 		C108B8651D7D4DD700D47E84 /* dinput_sdl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dinput_sdl.cpp; sourceTree = "<group>"; };
 		C108B8661D7D4DD700D47E84 /* main_sdl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main_sdl.cpp; sourceTree = "<group>"; };
 		C108B8671D7D4DD700D47E84 /* windows_sdl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = windows_sdl.cpp; sourceTree = "<group>"; };
+		C108B8721D7D4EEF00D47E84 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		C123F4C71D6D810F0000ABE3 /* Boss_BigFish.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Boss_BigFish.cpp; sourceTree = "<group>"; };
 		C123F4C81D6D810F0000ABE3 /* Boss_Bratklops.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Boss_Bratklops.cpp; sourceTree = "<group>"; };
 		C123F4C91D6D810F0000ABE3 /* Boss_Drache.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Boss_Drache.cpp; sourceTree = "<group>"; };
@@ -647,12 +648,21 @@
 			path = SDL;
 			sourceTree = "<group>";
 		};
+		C108B8711D7D4ED700D47E84 /* Vita */ = {
+			isa = PBXGroup;
+			children = (
+				C108B8721D7D4EEF00D47E84 /* Makefile */,
+			);
+			path = Vita;
+			sourceTree = "<group>";
+		};
 		C123F4B41D6D7F8E0000ABE3 = {
 			isa = PBXGroup;
 			children = (
 				C14AF7061D780F73009F1D2C /* OpenGL.framework */,
 				C18CD1C41D701C2A00CB3725 /* inc */,
 				C108B8611D7D4D4300D47E84 /* SDL */,
+				C108B8711D7D4ED700D47E84 /* Vita */,
 				C18CD1BA1D6DEF5E00CB3725 /* Wrap */,
 				C123F4C71D6D810F0000ABE3 /* Boss_BigFish.cpp */,
 				C123F62F1D6D811F0000ABE3 /* Boss_BigFish.h */,
@@ -1070,6 +1080,23 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXLegacyTarget section */
+		C108B86D1D7D4E8800D47E84 /* HurricanVita */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = C108B86E1D7D4E8900D47E84 /* Build configuration list for PBXLegacyTarget "HurricanVita" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/make;
+			buildWorkingDirectory = "${PROJECT_DIR}/Vita";
+			dependencies = (
+			);
+			name = HurricanVita;
+			passBuildSettingsInEnvironment = 1;
+			productName = HurricanVita;
+		};
+/* End PBXLegacyTarget section */
+
 /* Begin PBXNativeTarget section */
 		C123F4BE1D6D80BA0000ABE3 /* HurricanStub */ = {
 			isa = PBXNativeTarget;
@@ -1096,6 +1123,9 @@
 			attributes = {
 				LastUpgradeCheck = 0700;
 				TargetAttributes = {
+					C108B86D1D7D4E8800D47E84 = {
+						CreatedOnToolsVersion = 7.0;
+					};
 					C123F4BE1D6D80BA0000ABE3 = {
 						CreatedOnToolsVersion = 7.0;
 					};
@@ -1114,6 +1144,7 @@
 			projectRoot = "";
 			targets = (
 				C123F4BE1D6D80BA0000ABE3 /* HurricanStub */,
+				C108B86D1D7D4E8800D47E84 /* HurricanVita */,
 			);
 		};
 /* End PBXProject section */
@@ -1323,6 +1354,91 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		C108B86F1D7D4E8900D47E84 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUGGING_SYMBOLS = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PATH = "${inherited}:${VITASDK}/bin";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VITASDK = "${HOME}/vitasdk";
+			};
+			name = Debug;
+		};
+		C108B8701D7D4E8900D47E84 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PATH = "${inherited}:${VITASDK}/bin";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VITASDK = "${HOME}/vitasdk";
+			};
+			name = Release;
+		};
 		C123F4B91D6D7F8E0000ABE3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1445,6 +1561,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C108B86E1D7D4E8900D47E84 /* Build configuration list for PBXLegacyTarget "HurricanVita" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C108B86F1D7D4E8900D47E84 /* Debug */,
+				C108B8701D7D4E8900D47E84 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		C123F4B81D6D7F8E0000ABE3 /* Build configuration list for PBXProject "Hurrican" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
