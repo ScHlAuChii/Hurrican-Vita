@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C118DF141D77711100EE0A4D /* d3dx9_sdl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C118DF131D77711100EE0A4D /* d3dx9_sdl.cpp */; };
+		C108B8681D7D4DD700D47E84 /* d3d9_sdl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C108B8621D7D4DD700D47E84 /* d3d9_sdl.cpp */; settings = {ASSET_TAGS = (); }; };
+		C108B8691D7D4DD700D47E84 /* d3dx9_sdl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C108B8641D7D4DD700D47E84 /* d3dx9_sdl.cpp */; settings = {ASSET_TAGS = (); }; };
+		C108B86A1D7D4DD700D47E84 /* dinput_sdl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C108B8651D7D4DD700D47E84 /* dinput_sdl.cpp */; settings = {ASSET_TAGS = (); }; };
+		C108B86B1D7D4DD700D47E84 /* main_sdl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C108B8661D7D4DD700D47E84 /* main_sdl.cpp */; settings = {ASSET_TAGS = (); }; };
+		C108B86C1D7D4DD700D47E84 /* windows_sdl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C108B8671D7D4DD700D47E84 /* windows_sdl.cpp */; settings = {ASSET_TAGS = (); }; };
 		C123F57B1D6D81100000ABE3 /* Boss_BigFish.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4C71D6D810F0000ABE3 /* Boss_BigFish.cpp */; };
 		C123F57C1D6D81100000ABE3 /* Boss_Bratklops.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4C81D6D810F0000ABE3 /* Boss_Bratklops.cpp */; };
 		C123F57D1D6D81100000ABE3 /* Boss_Drache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F4C91D6D810F0000ABE3 /* Boss_Drache.cpp */; };
@@ -188,10 +192,7 @@
 		C123F62D1D6D81100000ABE3 /* Trigger_TutorialText.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F5791D6D81100000ABE3 /* Trigger_TutorialText.cpp */; };
 		C123F62E1D6D81100000ABE3 /* Trigger_Warning.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C123F57A1D6D81100000ABE3 /* Trigger_Warning.cpp */; };
 		C14AF7071D780F73009F1D2C /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C14AF7061D780F73009F1D2C /* OpenGL.framework */; };
-		C177943D1D76B3EF0046EE93 /* windows_sdl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C177943C1D76B3EF0046EE93 /* windows_sdl.cpp */; };
-		C177943F1D76B6460046EE93 /* dinput_sdl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C177943E1D76B6460046EE93 /* dinput_sdl.cpp */; };
 		C17794411D76B7360046EE93 /* com.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C17794401D76B7360046EE93 /* com.cpp */; };
-		C17794451D7743280046EE93 /* d3d9_sdl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C17794441D7743280046EE93 /* d3d9_sdl.cpp */; };
 		C18CD1CC1D75601A00CB3725 /* d3d9.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C18CD1CB1D75601A00CB3725 /* d3d9.cpp */; };
 		C18CD1CE1D7560D800CB3725 /* d3dx9.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C18CD1CD1D7560D800CB3725 /* d3dx9.cpp */; };
 		C18CD1D01D75620A00CB3725 /* dinput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C18CD1CF1D75620A00CB3725 /* dinput.cpp */; };
@@ -200,7 +201,6 @@
 		C18CD1D61D7564E000CB3725 /* windows.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C18CD1D51D7564E000CB3725 /* windows.cpp */; };
 		C18CD1D81D75684F00CB3725 /* fsound.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C18CD1D71D75684E00CB3725 /* fsound.cpp */; };
 		C18CD1DA1D75F19000CB3725 /* fmusic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C18CD1D91D75F19000CB3725 /* fmusic.cpp */; };
-		C18CD1DC1D75F50E00CB3725 /* main_sdl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C18CD1DB1D75F50E00CB3725 /* main_sdl.cpp */; };
 		C18CD1DE1D75F81600CB3725 /* unrarlib.c in Sources */ = {isa = PBXBuildFile; fileRef = C18CD1DD1D75F81600CB3725 /* unrarlib.c */; };
 /* End PBXBuildFile section */
 
@@ -218,8 +218,12 @@
 
 /* Begin PBXFileReference section */
 		B289DA6E1D79A904001C5EAC /* stb_image.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
-		C118DF131D77711100EE0A4D /* d3dx9_sdl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = d3dx9_sdl.cpp; sourceTree = "<group>"; };
-		C118DF151D77843C00EE0A4D /* d3d9_sdl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = d3d9_sdl.h; sourceTree = "<group>"; };
+		C108B8621D7D4DD700D47E84 /* d3d9_sdl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = d3d9_sdl.cpp; sourceTree = "<group>"; };
+		C108B8631D7D4DD700D47E84 /* d3d9_sdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = d3d9_sdl.h; sourceTree = "<group>"; };
+		C108B8641D7D4DD700D47E84 /* d3dx9_sdl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = d3dx9_sdl.cpp; sourceTree = "<group>"; };
+		C108B8651D7D4DD700D47E84 /* dinput_sdl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dinput_sdl.cpp; sourceTree = "<group>"; };
+		C108B8661D7D4DD700D47E84 /* main_sdl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main_sdl.cpp; sourceTree = "<group>"; };
+		C108B8671D7D4DD700D47E84 /* windows_sdl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = windows_sdl.cpp; sourceTree = "<group>"; };
 		C123F4C71D6D810F0000ABE3 /* Boss_BigFish.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Boss_BigFish.cpp; sourceTree = "<group>"; };
 		C123F4C81D6D810F0000ABE3 /* Boss_Bratklops.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Boss_Bratklops.cpp; sourceTree = "<group>"; };
 		C123F4C91D6D810F0000ABE3 /* Boss_Drache.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Boss_Drache.cpp; sourceTree = "<group>"; };
@@ -592,10 +596,7 @@
 		C123F6EC1D6D81200000ABE3 /* unrarlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = unrarlib.h; path = inc/unrarlib.h; sourceTree = "<group>"; };
 		C123F6ED1D6D81200000ABE3 /* wincompat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = wincompat.h; path = inc/wincompat.h; sourceTree = "<group>"; };
 		C14AF7061D780F73009F1D2C /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
-		C177943C1D76B3EF0046EE93 /* windows_sdl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = windows_sdl.cpp; sourceTree = "<group>"; };
-		C177943E1D76B6460046EE93 /* dinput_sdl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dinput_sdl.cpp; sourceTree = "<group>"; };
 		C17794401D76B7360046EE93 /* com.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = com.cpp; sourceTree = "<group>"; };
-		C17794441D7743280046EE93 /* d3d9_sdl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = d3d9_sdl.cpp; sourceTree = "<group>"; };
 		C18CD1B91D6DEEC200CB3725 /* HurricanStub */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HurricanStub; sourceTree = BUILT_PRODUCTS_DIR; };
 		C18CD1BB1D6DEF7800CB3725 /* dinput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dinput.h; sourceTree = "<group>"; };
 		C18CD1BC1D6DF0D800CB3725 /* d3d9.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = d3d9.h; sourceTree = "<group>"; };
@@ -618,7 +619,6 @@
 		C18CD1D51D7564E000CB3725 /* windows.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = windows.cpp; sourceTree = "<group>"; };
 		C18CD1D71D75684E00CB3725 /* fsound.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fsound.cpp; sourceTree = "<group>"; };
 		C18CD1D91D75F19000CB3725 /* fmusic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fmusic.cpp; sourceTree = "<group>"; };
-		C18CD1DB1D75F50E00CB3725 /* main_sdl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main_sdl.cpp; sourceTree = "<group>"; };
 		C18CD1DD1D75F81600CB3725 /* unrarlib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unrarlib.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -634,11 +634,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C108B8611D7D4D4300D47E84 /* SDL */ = {
+			isa = PBXGroup;
+			children = (
+				C108B8621D7D4DD700D47E84 /* d3d9_sdl.cpp */,
+				C108B8631D7D4DD700D47E84 /* d3d9_sdl.h */,
+				C108B8641D7D4DD700D47E84 /* d3dx9_sdl.cpp */,
+				C108B8651D7D4DD700D47E84 /* dinput_sdl.cpp */,
+				C108B8661D7D4DD700D47E84 /* main_sdl.cpp */,
+				C108B8671D7D4DD700D47E84 /* windows_sdl.cpp */,
+			);
+			path = SDL;
+			sourceTree = "<group>";
+		};
 		C123F4B41D6D7F8E0000ABE3 = {
 			isa = PBXGroup;
 			children = (
 				C14AF7061D780F73009F1D2C /* OpenGL.framework */,
 				C18CD1C41D701C2A00CB3725 /* inc */,
+				C108B8611D7D4D4300D47E84 /* SDL */,
 				C18CD1BA1D6DEF5E00CB3725 /* Wrap */,
 				C123F4C71D6D810F0000ABE3 /* Boss_BigFish.cpp */,
 				C123F62F1D6D811F0000ABE3 /* Boss_BigFish.h */,
@@ -1021,14 +1035,10 @@
 			children = (
 				C17794401D76B7360046EE93 /* com.cpp */,
 				C18CD1C31D6F5A5200CB3725 /* com.h */,
-				C17794441D7743280046EE93 /* d3d9_sdl.cpp */,
-				C118DF151D77843C00EE0A4D /* d3d9_sdl.h */,
 				C18CD1CB1D75601A00CB3725 /* d3d9.cpp */,
 				C18CD1BC1D6DF0D800CB3725 /* d3d9.h */,
-				C118DF131D77711100EE0A4D /* d3dx9_sdl.cpp */,
 				C18CD1CD1D7560D800CB3725 /* d3dx9.cpp */,
 				C18CD1BD1D6DF0EE00CB3725 /* d3dx9.h */,
-				C177943E1D76B6460046EE93 /* dinput_sdl.cpp */,
 				C18CD1CF1D75620A00CB3725 /* dinput.cpp */,
 				C18CD1BB1D6DEF7800CB3725 /* dinput.h */,
 				C18CD1BF1D6DF37F00CB3725 /* dsound.h */,
@@ -1036,12 +1046,10 @@
 				C18CD1CA1D701D1200CB3725 /* DxErr.h */,
 				C18CD1D91D75F19000CB3725 /* fmusic.cpp */,
 				C18CD1D71D75684E00CB3725 /* fsound.cpp */,
-				C18CD1DB1D75F50E00CB3725 /* main_sdl.cpp */,
 				C18CD1D31D7562F300CB3725 /* safe.cpp */,
 				C18CD1C21D6DF7E000CB3725 /* safe.h */,
 				B289DA6E1D79A904001C5EAC /* stb_image.h */,
 				C18CD1DD1D75F81600CB3725 /* unrarlib.c */,
-				C177943C1D76B3EF0046EE93 /* windows_sdl.cpp */,
 				C18CD1D51D7564E000CB3725 /* windows.cpp */,
 				C18CD1BE1D6DF19200CB3725 /* windows.h */,
 			);
@@ -1140,9 +1148,12 @@
 				C123F5F01D6D81100000ABE3 /* Gegner_StelzSack.cpp in Sources */,
 				C123F5F61D6D81100000ABE3 /* Gegner_Zitrone.cpp in Sources */,
 				C123F5A81D6D81100000ABE3 /* Gegner_Diamant.cpp in Sources */,
+				C108B86C1D7D4DD700D47E84 /* windows_sdl.cpp in Sources */,
 				C18CD1D21D7562C400CB3725 /* dxerr.cpp in Sources */,
+				C108B8691D7D4DD700D47E84 /* d3dx9_sdl.cpp in Sources */,
 				C18CD1CE1D7560D800CB3725 /* d3dx9.cpp in Sources */,
 				C123F5C31D6D81100000ABE3 /* Gegner_KugelMedium.cpp in Sources */,
+				C108B86B1D7D4DD700D47E84 /* main_sdl.cpp in Sources */,
 				C123F59C1D6D81100000ABE3 /* DX8Joystick.cpp in Sources */,
 				C123F59A1D6D81100000ABE3 /* DX8Graphics.cpp in Sources */,
 				C123F5A61D6D81100000ABE3 /* Gegner_DeckenKrabbe.cpp in Sources */,
@@ -1158,7 +1169,6 @@
 				C123F62B1D6D81100000ABE3 /* Trigger_Switch.cpp in Sources */,
 				C123F5AD1D6D81100000ABE3 /* Gegner_Extras.cpp in Sources */,
 				C123F5C81D6D81100000ABE3 /* Gegner_LavaKrabbe.cpp in Sources */,
-				C18CD1DC1D75F50E00CB3725 /* main_sdl.cpp in Sources */,
 				C123F5B81D6D81100000ABE3 /* Gegner_Flugsack.cpp in Sources */,
 				C123F6251D6D81100000ABE3 /* Trigger_ShootPlattform.cpp in Sources */,
 				C123F5A71D6D81100000ABE3 /* Gegner_Deckenturm.cpp in Sources */,
@@ -1174,7 +1184,6 @@
 				C123F5AB1D6D81100000ABE3 /* Gegner_EisStachel.cpp in Sources */,
 				C123F5BC1D6D81100000ABE3 /* Gegner_Jaeger.cpp in Sources */,
 				C123F6031D6D81100000ABE3 /* Projectiles.cpp in Sources */,
-				C177943D1D76B3EF0046EE93 /* windows_sdl.cpp in Sources */,
 				C123F58B1D6D81100000ABE3 /* Boss_SchmidtOrgie.cpp in Sources */,
 				C123F62D1D6D81100000ABE3 /* Trigger_TutorialText.cpp in Sources */,
 				C123F5C91D6D81100000ABE3 /* Gegner_Lavamann.cpp in Sources */,
@@ -1183,7 +1192,6 @@
 				C123F5B91D6D81100000ABE3 /* Gegner_Geschuetz.cpp in Sources */,
 				C123F6061D6D81100000ABE3 /* Tileengine.cpp in Sources */,
 				C123F58C1D6D81100000ABE3 /* Boss_Schneekoenig.cpp in Sources */,
-				C118DF141D77711100EE0A4D /* d3dx9_sdl.cpp in Sources */,
 				C123F62E1D6D81100000ABE3 /* Trigger_Warning.cpp in Sources */,
 				C123F6241D6D81100000ABE3 /* Trigger_ShootButton.cpp in Sources */,
 				C123F5F41D6D81100000ABE3 /* Gegner_WandKrabbe.cpp in Sources */,
@@ -1277,7 +1285,7 @@
 				C123F5B71D6D81100000ABE3 /* Gegner_FlugKanone.cpp in Sources */,
 				C123F5DF1D6D81100000ABE3 /* Gegner_SchleimAlien.cpp in Sources */,
 				C123F6261D6D81100000ABE3 /* Trigger_Shrine.cpp in Sources */,
-				C177943F1D76B6460046EE93 /* dinput_sdl.cpp in Sources */,
+				C108B8681D7D4DD700D47E84 /* d3d9_sdl.cpp in Sources */,
 				C123F5B21D6D81100000ABE3 /* Gegner_FieseDrone.cpp in Sources */,
 				C123F5BF1D6D81100000ABE3 /* Gegner_KrabblerOben.cpp in Sources */,
 				C123F5C11D6D81100000ABE3 /* Gegner_KugelGross.cpp in Sources */,
@@ -1292,13 +1300,13 @@
 				C123F57C1D6D81100000ABE3 /* Boss_Bratklops.cpp in Sources */,
 				C123F60A1D6D81100000ABE3 /* Trigger_Column.cpp in Sources */,
 				C123F5F81D6D81100000ABE3 /* GetKeyName.cpp in Sources */,
-				C17794451D7743280046EE93 /* d3d9_sdl.cpp in Sources */,
 				C18CD1D01D75620A00CB3725 /* dinput.cpp in Sources */,
 				C123F60C1D6D81100000ABE3 /* Trigger_EndLevel.cpp in Sources */,
 				C123F5FB1D6D81100000ABE3 /* Intro.cpp in Sources */,
 				C123F61E1D6D81100000ABE3 /* Trigger_Plattform.cpp in Sources */,
 				C123F5C41D6D81100000ABE3 /* Gegner_KugelRiesig.cpp in Sources */,
 				C123F5FA1D6D81100000ABE3 /* HUD.cpp in Sources */,
+				C108B86A1D7D4DD700D47E84 /* dinput_sdl.cpp in Sources */,
 				C123F6231D6D81100000ABE3 /* Trigger_Secret.cpp in Sources */,
 				C17794411D76B7360046EE93 /* com.cpp in Sources */,
 				C123F5861D6D81100000ABE3 /* Boss_RiesenQualle.cpp in Sources */,
