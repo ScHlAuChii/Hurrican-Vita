@@ -7,7 +7,7 @@
 
 #include <algorithm>
 
-errno_t _itoa_s(int value, char *buffer, int radix)
+int _itoa_s(int value, char *buffer, int radix)
 {
 	assert(radix == 10);
 	sprintf(buffer, "%d", value);
@@ -22,7 +22,7 @@ char *_strrev(char *str)
 	return str;
 }
 
-errno_t fopen_s(FILE **streamptr, const char *filename, const char *mode)
+int fopen_s(FILE **streamptr, const char *filename, const char *mode)
 {
 	*streamptr = fopen(filename, mode);
 	return 0;
@@ -48,37 +48,37 @@ int sprintf_s(char *buffer, const char *format, ...)
 	return result;
 }
 
-errno_t strcat_s(char *dest, const char *src)
+int strcat_s(char *dest, const char *src)
 {
 	strcat(dest, src);
 	return 0;
 }
 
-errno_t strcat_s(char *dest, rsize_t destsz, const char *src)
+int strcat_s(char *dest, size_t destsz, const char *src)
 {
 	strcat(dest, src);
 	return 0;
 }
 
-errno_t strcpy_s(char *dest, const char *src)
+int strcpy_s(char *dest, const char *src)
 {
 	strcpy(dest, src);
 	return 0;
 }
 
-errno_t strcpy_s(char *dest, rsize_t destsz, const char *src)
+int strcpy_s(char *dest, size_t destsz, const char *src)
 {
 	strcpy(dest, src);
 	return 0;
 }
 
-errno_t strncat_s(char *dest, const char *src, rsize_t count)
+int strncat_s(char *dest, const char *src, size_t count)
 {
 	strncat(dest, src, count);
 	return 0;
 }
 
-errno_t strncpy_s(char *dest, const char *src, rsize_t count)
+int strncpy_s(char *dest, const char *src, size_t count)
 {
 	strncpy(dest, src, count);
 	return 0;
