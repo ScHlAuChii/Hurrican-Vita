@@ -87,7 +87,11 @@ HRESULT Direct3D::CreateDevice(UINT Adapter, D3DDEVTYPE DeviceType, HWND hFocusW
 	SDL_Window *const window = static_cast<SDL_Window *>(hFocusWindow);
 	assert(window != nullptr);
 	
-	SDL_SetWindowSize(window, pPresentationParameters->BackBufferWidth, pPresentationParameters->BackBufferHeight);
+	if (!pPresentationParameters->Windowed)
+	{
+		SDL_SetWindowSize(window, pPresentationParameters->BackBufferWidth, pPresentationParameters->BackBufferHeight);
+		SDL_SetWindowPosition(window, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED);
+	}
 	
 	const SDL_GLContext context = SDL_GL_CreateContext(window);
 	assert(context != nullptr);
