@@ -9,15 +9,19 @@ PROJECT_TITLE := Hurrican
 PROJECT_TITLEID := FFFF00002
 
 PROJECT := hurrican
-CXXFLAGS += -std=c++11
 
-SRC_C :=$(call rwildcard, src/, *.c)
-SRC_CPP :=$(call rwildcard, src/, *.cpp)
-SRC_GXP :=$(call rwildcard, src/, *.gxp)
+SRC_DIR := ..
+OBJ_DIR := obj
 
-OBJ_DIRS := $(addprefix out/, $(dir $(SRC_C:src/%.c=%.o))) $(addprefix out/, $(dir $(SRC_CPP:src/%.cpp=%.o)))
-OBJS := $(addprefix out/, $(SRC_C:src/%.c=%.o)) $(addprefix out/, $(SRC_CPP:src/%.cpp=%.o))
+SRC_C := $(SRC_DIR)/Wrap/unrarlib.c
+SRC_CPP := $(call wildcard, $(SRC_DIR)/*.cpp $(SRC_DIR)/Wrap/*.cpp $(SRC_DIR)/Vita/*.cpp)
+SRC_GXP := $(call wildcard, $(SRC_DIR)/Vita/*.gxp)
+
+OBJS := $(addprefix $(OBJ_DIR)/, $(SRC_C:$(SRC_DIR)/%.c=%.o)) $(addprefix $(OBJ_DIR)/, $(SRC_CPP:$(SRC_DIR)/%.cpp=%.o))
 GXP_HS := $(SRC_GXP:%.gxp=%.h)
+
+CFLAGS := -I$(SRC_DIR)/inc -I$(SRC_DIR)/Wrap
+CXXFLAGS := $(CFLAGS) -std=c++11
 
 .SECONDARY: $(GXP_HS)
 
@@ -46,19 +50,16 @@ $(PROJECT).velf: $(PROJECT).elf
 $(PROJECT).elf: $(OBJS)
 	$(CXX) -Wl,-q -o $@ $^ -lSceGxm_stub
 
-$(OBJ_DIRS):
-	mkdir -p $@
+$(OBJ_DIR)/%.o : $(SRC_DIR)/%.cpp $(GXP_HS)
+	mkdir -p $(dir $@)
+	$(CXX) -c $(CXXFLAGS) -o $@ $<
 
-out/%.o : src/%.cpp | $(OBJ_DIRS) $(GXP_HS)
-	echo $(SRC_GXP)
-	arm-vita-eabi-g++ -c $(CXXFLAGS) -o $@ $<
-
-out/%.o : src/%.c | $(OBJ_DIRS) $(GXP_HS)
-	arm-vita-eabi-g++ -c -o $@ $<
+$(OBJ_DIR)/%.o : $(SRC_DIR)/%.c $(GXP_HS)
+	mkdir -p $(dir $@)
+	$(CC) -c $(CFLAGS) -o $@ $<
 
 %.h : %.gxp
 	xxd -i <$< >$@
 
 clean:
 	rm -f $(PROJECT).velf $(PROJECT).elf $(PROJECT).vpk param.sfo eboot.bin $(OBJS) $(GXP_HS)
-	rm -r $(abspath $(OBJ_DIRS))

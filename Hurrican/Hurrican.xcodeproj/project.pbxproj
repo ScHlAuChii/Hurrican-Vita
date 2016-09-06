@@ -225,6 +225,12 @@
 		C108B8661D7D4DD700D47E84 /* main_sdl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main_sdl.cpp; sourceTree = "<group>"; };
 		C108B8671D7D4DD700D47E84 /* windows_sdl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = windows_sdl.cpp; sourceTree = "<group>"; };
 		C108B8721D7D4EEF00D47E84 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		C108B8731D7DE07C00D47E84 /* d3d9_vita.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = d3d9_vita.cpp; sourceTree = "<group>"; };
+		C108B8741D7DE07C00D47E84 /* d3dx9_vita.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = d3dx9_vita.cpp; sourceTree = "<group>"; };
+		C108B8751D7DE07C00D47E84 /* dinput_vita.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dinput_vita.cpp; sourceTree = "<group>"; };
+		C108B8761D7DE07C00D47E84 /* main_vita.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main_vita.cpp; sourceTree = "<group>"; };
+		C108B8771D7DE07C00D47E84 /* windows_vita.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = windows_vita.cpp; sourceTree = "<group>"; };
+		C108B87F1D7DE19A00D47E84 /* d3d9_vita.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = d3d9_vita.h; sourceTree = "<group>"; };
 		C123F4C71D6D810F0000ABE3 /* Boss_BigFish.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Boss_BigFish.cpp; sourceTree = "<group>"; };
 		C123F4C81D6D810F0000ABE3 /* Boss_Bratklops.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Boss_Bratklops.cpp; sourceTree = "<group>"; };
 		C123F4C91D6D810F0000ABE3 /* Boss_Drache.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Boss_Drache.cpp; sourceTree = "<group>"; };
@@ -651,7 +657,13 @@
 		C108B8711D7D4ED700D47E84 /* Vita */ = {
 			isa = PBXGroup;
 			children = (
+				C108B8731D7DE07C00D47E84 /* d3d9_vita.cpp */,
+				C108B87F1D7DE19A00D47E84 /* d3d9_vita.h */,
+				C108B8741D7DE07C00D47E84 /* d3dx9_vita.cpp */,
+				C108B8751D7DE07C00D47E84 /* dinput_vita.cpp */,
+				C108B8761D7DE07C00D47E84 /* main_vita.cpp */,
 				C108B8721D7D4EEF00D47E84 /* Makefile */,
+				C108B8771D7DE07C00D47E84 /* windows_vita.cpp */,
 			);
 			path = Vita;
 			sourceTree = "<group>";
@@ -1568,6 +1580,7 @@
 				C108B8701D7D4E8900D47E84 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C123F4B81D6D7F8E0000ABE3 /* Build configuration list for PBXProject "Hurrican" */ = {
 			isa = XCConfigurationList;
