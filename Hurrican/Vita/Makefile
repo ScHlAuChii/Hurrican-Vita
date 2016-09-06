@@ -25,7 +25,10 @@ CXXFLAGS := $(CFLAGS) -std=c++11
 
 .SECONDARY: $(GXP_HS)
 
-all: package
+all: install
+
+install: package
+	ftp -u ftp://192.168.43.176:1337/ux0:/Homebrew/$(PROJECT).vpk $(PROJECT).vpk
 
 package: $(PROJECT).vpk
 
