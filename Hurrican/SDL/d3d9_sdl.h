@@ -2,7 +2,7 @@
 
 #include "SDL_opengl.h"
 
-#include <vector>
+#include <memory>
 
 typedef std::shared_ptr<uint8_t> Pixels;
 

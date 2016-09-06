@@ -7,7 +7,6 @@
 
 #include <algorithm>
 #include <assert.h>
-#include <memory>
 
 typedef std::unique_ptr<Texture> TexturePtr;
 
