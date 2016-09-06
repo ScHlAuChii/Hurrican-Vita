@@ -338,8 +338,8 @@ int WINAPI WinMain(HINSTANCE hinstance, HINSTANCE hprevinstace,
 
 	if (CommandLineParams.RunWindowMode)
 	{
-		WINDOWWIDTH	 = 1024;
-		WINDOWHEIGHT = 768;	
+		WINDOWWIDTH	 = SCREENWIDTH;
+		WINDOWHEIGHT = SCREENHEIGHT;	
 	}
 	else
 	{
