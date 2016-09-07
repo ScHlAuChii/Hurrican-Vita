@@ -276,9 +276,9 @@ void CCracktro::Main(void)
 	// --------------------------------------------------------------------------------------
 
 	for(i = 0; i < 7; i++)
-		Bars[1].RenderSpriteScaled(0, 95 - (float)(sin(SinPos + i / 5.0f) * 90.0f), 640, 6 + i * 3, 0, 0xFFFFFFFF);
+		Bars[1].RenderSpriteScaled(0, 95 - (float)(sin(SinPos + i / 5.0f) * 90.0f), SCREENWIDTH, 6 + i * 3, 0, 0xFFFFFFFF);
 
-	Bars[2].RenderSpriteScaled(0, 255, 640, 100, 0, 0xFFFFFFFF);
+	Bars[2].RenderSpriteScaled(0, 255, SCREENWIDTH, 100, 0, 0xFFFFFFFF);
 
 	// --------------------------------------------------------------------------------------
 	// Scroller 2
