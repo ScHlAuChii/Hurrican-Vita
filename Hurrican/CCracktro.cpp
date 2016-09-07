@@ -28,13 +28,13 @@ char CrackText	[] = {	""
 						"and now have fun with this game!"
 						""};
 
-char StaticText	[] = {	"                                   "
+char StaticText	[] = {	""
 						"poke53280 proudly presents -hurrican- cracked on 05-31-2007 by eiswuxe and turri. "
 						"greetings fly to all turrican fans worldwide. "
 						"visit www.hurrican-game.de for more infos, updates, downloads. check out the "
 						"create section to learn how to make your own hurrican levels and add-ons! "
 						"we hope you like this game!"
-						"                                     "};
+						""};
 
 char BlinkText	[][30] = {"poke53280",
 						  "brings you",
@@ -290,16 +290,21 @@ void CCracktro::Main(void)
 	// --------------------------------------------------------------------------------------
 	// Scroller 2
 	// --------------------------------------------------------------------------------------
-	xchar = 0;
+	xchar = SCREENWIDTH - ScrollOffset2;
 	
-	for(i = 0; i < 50; i++)
+	for(i = ScrollPos2; xchar >= -pFont->mXCharSize;)
 	{				
-		pFont->DrawDemoChar(xchar - ScrollOffset2, 295, StaticText[i + ScrollPos2], 0xFF000000);
+		pFont->DrawDemoChar(xchar, 295, StaticText[i], 0xFF000000);
 
-		if (StaticText[i + ScrollPos2] != 32)
-			xchar += pFont->mCharLength[StaticText[i + ScrollPos2] - 33] + 2;
+		if (i == 0)
+			break;
+		
+		--i;
+		
+		if (StaticText[i] != 32)
+			xchar -= pFont->mCharLength[StaticText[i] - 33] + 2;
 		else
-			xchar += pFont->mXCharSize;
+			xchar -= pFont->mXCharSize;
 	}	
 
 	if (StaticText[ScrollPos2] == 32)
@@ -307,6 +312,9 @@ void CCracktro::Main(void)
 	else
 		l = pFont->mCharLength[StaticText[ScrollPos2] - 33] + 2;
 
+	if (ScrollPos2 == strlen(StaticText) - 1)
+		l += SCREENWIDTH;
+	
 	ScrollOffset2 += 10.0f SYNC;
 
 	if (ScrollOffset2 > l)
@@ -314,7 +322,7 @@ void CCracktro::Main(void)
 		ScrollOffset2 -= l;
 		ScrollPos2++;
 
-		if ((unsigned int)ScrollPos2 > strlen(StaticText) - 50)
+		if (ScrollPos2 == strlen(StaticText))
 			ScrollPos2 = 0;
 	}
 
