@@ -17,7 +17,7 @@
 #include "DX8Input.h"
 #include "DX8Sound.h"
 
-char CrackText	[] = {	"                                              "
+char CrackText	[] = {	""
 						"yeehaaw! poke is back with another fine release of a "
 						"retro-remake! this time, its -hurrican-, a remake of the great "
 						"classic turrican made by manfred trenz, chris huelsbeck, andreas escher,"
@@ -26,7 +26,6 @@ char CrackText	[] = {	"                                              "
 						"this damn game, but at least it's here. hope you like it... "						
 						"for updates and more visit www.hurrican-game.de or www.poke53280.de "
 						"and now have fun with this game!"
-						"                                               "
 						""};
 
 char StaticText	[] = {	"                                   "
@@ -195,7 +194,7 @@ void CCracktro::Main(void)
 	// --------------------------------------------------------------------------------------
 	// Sinus Scroller
 	// --------------------------------------------------------------------------------------
-	float xchar = 0;
+	float xchar = SCREENWIDTH - ScrollOffset;
 	float s;	
 	static float colpos = 0.0f;
 	static float LogoPos = 0.0f;
@@ -206,14 +205,19 @@ void CCracktro::Main(void)
 
 	colpos += 6.0f SYNC;
 	
-	for(i = 0; i < 43; i++)
+	for(i = ScrollPos; xchar >= -pFont->mXCharSize;)
 	{				
-		pFont->DrawDemoChar(xchar - ScrollOffset, (float)(450 - s), CrackText[i + ScrollPos], ScrollCol[(int)(colpos + i) % (sizeof(ScrollCol) / sizeof(D3DCOLOR))]);
+		pFont->DrawDemoChar(xchar, (float)(450 - s), CrackText[i], ScrollCol[(int)(colpos + i) % (sizeof(ScrollCol) / sizeof(D3DCOLOR))]);
 
-		if (CrackText[i + ScrollPos] != 32)
-			xchar += pFont->mCharLength[CrackText[i + ScrollPos] - 33] + 2;
+		if (i == 0)
+			break;
+		
+		--i;
+		
+		if (CrackText[i] != 32)
+			xchar -= pFont->mCharLength[CrackText[i] - 33] + 2;
 		else
-			xchar += pFont->mXCharSize;
+			xchar -= pFont->mXCharSize;
 	}	
 
 	ScrollOffset += 12.0f SYNC;
@@ -224,12 +228,15 @@ void CCracktro::Main(void)
 	else
 		l = pFont->mCharLength[CrackText[ScrollPos] - 33] + 2;
 
+	if (ScrollPos == strlen(CrackText) - 1)
+		l += SCREENWIDTH;
+	
 	if (ScrollOffset > l)
 	{
 		ScrollOffset -= l;
 		ScrollPos++;
 
-		if ((unsigned int)ScrollPos > strlen(CrackText) - 50)
+		if (ScrollPos == strlen(CrackText))
 			ScrollPos = 0;
 	}
 
