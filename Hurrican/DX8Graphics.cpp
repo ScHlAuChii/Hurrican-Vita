@@ -250,7 +250,7 @@ bool DirectGraphicsClass::SetDeviceInfo(void)
 
    	// Projektionsmatrix einstellen
    //
-	D3DXMatrixOrthoOffCenterLH(&matProj, 0, 640, 480, 0, 0.0f, 1.0f);
+	D3DXMatrixOrthoOffCenterLH(&matProj, 0, SCREENWIDTH, SCREENHEIGHT, 0, 0.0f, 1.0f);
 
 	hr = lpD3DDevice->SetTransform(D3DTS_PROJECTION, &matProj); 
 	
