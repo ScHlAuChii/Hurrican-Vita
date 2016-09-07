@@ -113,6 +113,7 @@ D3DCOLOR BlinkCol[] = {	0xFF664400,
 						0xFF000000,
 						0xFF000000};
 
+static const int CENTER_Y = (SCREENHEIGHT - 480) / 2;
 
 // --------------------------------------------------------------------------------------
 // Konstruktor
@@ -143,7 +144,7 @@ CCracktro::CCracktro()
 	for (int i = 0; i < 150; i++)
 	{
 		Stars[i].Count   = (float)(rand()%SCREENWIDTH);
-		Stars[i].Abstand = (float)(rand()%140 + 340);
+		Stars[i].Abstand = (float)(CENTER_Y + 340 + rand()%(SCREENHEIGHT - CENTER_Y - 340));
 		Stars[i].Ebene   = rand()%200 + 55;
 	}
 
@@ -207,7 +208,7 @@ void CCracktro::Main(void)
 	
 	for(i = ScrollPos; xchar >= -pFont->mXCharSize;)
 	{				
-		pFont->DrawDemoChar(xchar, (float)(450 - s), CrackText[i], ScrollCol[(int)(colpos + i) % (sizeof(ScrollCol) / sizeof(D3DCOLOR))]);
+		pFont->DrawDemoChar(xchar, (float)(CENTER_Y + 450 - s), CrackText[i], ScrollCol[(int)(colpos + i) % (sizeof(ScrollCol) / sizeof(D3DCOLOR))]);
 
 		if (i == 0)
 			break;
@@ -257,7 +258,7 @@ void CCracktro::Main(void)
 	if (SinPos > 0.7f && SinPos < PI + 1.0f)
 	{
 		DirectGraphics.SetColorKeyMode();
-		Logo[0].RenderSprite((SCREENWIDTH - 341) / 2 + (float)(sin(LogoPos) * 100.0f), 50, 0, 0xFFFFFFFF);
+		Logo[0].RenderSprite((SCREENWIDTH - 341) / 2 + (float)(sin(LogoPos) * 100.0f), CENTER_Y + 50, 0, 0xFFFFFFFF);
 	
 		numsin += 0.4f SYNC;
 
@@ -274,7 +275,7 @@ void CCracktro::Main(void)
 			off2 = (float)(sin(numsin + i / 3.0f + PI / 2) * 20.0f);
 
 			Zahlen.RenderSprite(75 + i * 40 - off + (SCREENWIDTH - 341) / 2 + (float)(sin(LogoPos) * 100.0f), 
-								110 - off2, i, 0xFFFFFFFF);
+								CENTER_Y + 110 - off2, i, 0xFFFFFFFF);
 		}
 	}
 
@@ -283,9 +284,9 @@ void CCracktro::Main(void)
 	// --------------------------------------------------------------------------------------
 
 	for(i = 0; i < 7; i++)
-		Bars[1].RenderSpriteScaled(0, 95 - (float)(sin(SinPos + i / 5.0f) * 90.0f), SCREENWIDTH, 6 + i * 3, 0, 0xFFFFFFFF);
+		Bars[1].RenderSpriteScaled(0, CENTER_Y + 95 - (float)(sin(SinPos + i / 5.0f) * 90.0f), SCREENWIDTH, 6 + i * 3, 0, 0xFFFFFFFF);
 
-	Bars[2].RenderSpriteScaled(0, 255, SCREENWIDTH, 100, 0, 0xFFFFFFFF);
+	Bars[2].RenderSpriteScaled(0, CENTER_Y + 255, SCREENWIDTH, 100, 0, 0xFFFFFFFF);
 
 	// --------------------------------------------------------------------------------------
 	// Scroller 2
@@ -294,7 +295,7 @@ void CCracktro::Main(void)
 	
 	for(i = ScrollPos2; xchar >= -pFont->mXCharSize;)
 	{				
-		pFont->DrawDemoChar(xchar, 295, StaticText[i], 0xFF000000);
+		pFont->DrawDemoChar(xchar, CENTER_Y + 295, StaticText[i], 0xFF000000);
 
 		if (i == 0)
 			break;
@@ -333,7 +334,7 @@ void CCracktro::Main(void)
 	if (!(SinPos > 0.7f && SinPos < PI + 1.0f))
 	{
 		DirectGraphics.SetColorKeyMode();
-		Logo[0].RenderSprite((SCREENWIDTH - 341) / 2 + (float)(sin(LogoPos) * 100.0f), 50, 0, 0xFFFFFFFF);
+		Logo[0].RenderSprite((SCREENWIDTH - 341) / 2 + (float)(sin(LogoPos) * 100.0f), CENTER_Y + 50, 0, 0xFFFFFFFF);
 
 		numsin += 0.4f SYNC;
 
@@ -350,7 +351,7 @@ void CCracktro::Main(void)
 			off2 = (float)(sin(numsin + i / 3.0f + PI / 2) * 20.0f);
 
 			Zahlen.RenderSprite(75 + i * 40 - off + (SCREENWIDTH - 341) / 2 + (float)(sin(LogoPos) * 100.0f), 
-								110 - off2, i, 0xFFFFFFFF);
+								CENTER_Y + 110 - off2, i, 0xFFFFFFFF);
 		}
 	}
 	
@@ -371,7 +372,7 @@ void CCracktro::Main(void)
 		fontoff = 0;
 	}
 
-	float    yo = 220 - (float)(cos(LogoPos) * 10.0f);
+	float    yo = CENTER_Y + 220 - (float)(cos(LogoPos) * 10.0f);
 	D3DCOLOR col = BlinkCol[(int)(blinkpos) % (sizeof(BlinkCol) / sizeof(D3DCOLOR))];
 
 	RenderRect(0, yo, SCREENWIDTH, 2, col);
