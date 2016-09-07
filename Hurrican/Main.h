@@ -38,6 +38,9 @@ struct sCommandLineParams
 #define SCREENWIDTH		960							// D3D Screen Breite
 #define	SCREENHEIGHT	544							// D3D Screen Höhe
 #define	SCREENBPP		16							// Bits per Pixel
+#define SCREENW2		(SCREENWIDTH / 2)
+#define SCREENH2		(SCREENHEIGHT / 2)
+#define SCREENCY		((SCREENHEIGHT - 480) / 2)
 #define PARAM_NONE  0
 #define PARAM_LEVEL 1
 #define PARAM_LIST  2
