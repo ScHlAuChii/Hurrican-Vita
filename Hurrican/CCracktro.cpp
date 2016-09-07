@@ -250,7 +250,7 @@ void CCracktro::Main(void)
 	if (SinPos > 0.7f && SinPos < PI + 1.0f)
 	{
 		DirectGraphics.SetColorKeyMode();
-		Logo[0].RenderSprite((640 - 341) / 2 + (float)(sin(LogoPos) * 100.0f), 50, 0, 0xFFFFFFFF);
+		Logo[0].RenderSprite((SCREENWIDTH - 341) / 2 + (float)(sin(LogoPos) * 100.0f), 50, 0, 0xFFFFFFFF);
 	
 		numsin += 0.4f SYNC;
 
@@ -266,7 +266,7 @@ void CCracktro::Main(void)
 			off  = (float)(sin(numsin + i / 3.0f) * 10.0f);
 			off2 = (float)(sin(numsin + i / 3.0f + PI / 2) * 20.0f);
 
-			Zahlen.RenderSprite(75 + i * 40 - off + (640 - 341) / 2 + (float)(sin(LogoPos) * 100.0f), 
+			Zahlen.RenderSprite(75 + i * 40 - off + (SCREENWIDTH - 341) / 2 + (float)(sin(LogoPos) * 100.0f), 
 								110 - off2, i, 0xFFFFFFFF);
 		}
 	}
@@ -318,7 +318,7 @@ void CCracktro::Main(void)
 	if (!(SinPos > 0.7f && SinPos < PI + 1.0f))
 	{
 		DirectGraphics.SetColorKeyMode();
-		Logo[0].RenderSprite((640 - 341) / 2 + (float)(sin(LogoPos) * 100.0f), 50, 0, 0xFFFFFFFF);
+		Logo[0].RenderSprite((SCREENWIDTH - 341) / 2 + (float)(sin(LogoPos) * 100.0f), 50, 0, 0xFFFFFFFF);
 
 		numsin += 0.4f SYNC;
 
@@ -334,7 +334,7 @@ void CCracktro::Main(void)
 			off  = (float)(sin(numsin + i / 3.0f) * 10.0f);
 			off2 = (float)(sin(numsin + i / 3.0f + PI / 2) * 20.0f);
 
-			Zahlen.RenderSprite(75 + i * 40 - off + (640 - 341) / 2 + (float)(sin(LogoPos) * 100.0f), 
+			Zahlen.RenderSprite(75 + i * 40 - off + (SCREENWIDTH - 341) / 2 + (float)(sin(LogoPos) * 100.0f), 
 								110 - off2, i, 0xFFFFFFFF);
 		}
 	}
