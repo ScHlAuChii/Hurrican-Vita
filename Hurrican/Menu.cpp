@@ -533,7 +533,8 @@ MenuClass::~MenuClass(void)
 
 void MenuClass::ShowMenuBack(void)
 {
-	MenuNebel.RenderSpriteScaledRotated(-80, -140, 800, 800, ScrollPos, 0xFFFFFFFF);
+	float w = 800 * SCREENWIDTH / 640;
+	MenuNebel.RenderSpriteScaledRotated((SCREENWIDTH - w) / 2, (SCREENHEIGHT - w) / 2 - 20, w, w, ScrollPos, 0xFFFFFFFF);
 
 	DirectGraphics.SetAdditiveMode();
 	DirectGraphics.SetFilterMode(true);
@@ -542,8 +543,8 @@ void MenuClass::ShowMenuBack(void)
 
 	// Sterne anzeigen
 	for (int i=0; i<MAX_STARS; i++)
-		MenuStar.RenderSpriteRotated(320 - float(sin(Stars[i].Count) * Stars[i].Abstand),
-									 240 + float(cos(Stars[i].Count) * Stars[i].Abstand), 
+		MenuStar.RenderSpriteRotated(SCREENW2 - float(sin(Stars[i].Count) * Stars[i].Abstand),
+									 SCREENH2 + float(cos(Stars[i].Count) * Stars[i].Abstand), 
 									 Stars[i].Count, D3DCOLOR_RGBA(255, 255, 255, Stars[i].Ebene));
 
 	DirectGraphics.SetColorKeyMode();

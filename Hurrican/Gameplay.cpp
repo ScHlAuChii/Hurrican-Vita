@@ -789,8 +789,8 @@ bool DisplayLoadInfo(char Text[100])
 
 	DirectGraphics.SetAdditiveMode();
 	
-	pMenuFont->DrawTextCenterAlign(320, 
-								   200,
+	pMenuFont->DrawTextCenterAlign(SCREENW2, 
+								   SCREENH2 - 40,
 								   TextArray[TEXT_MENUE_LOADING], 0xFFFFFFFF);
 
 	// Anzahl anzeigen
@@ -805,12 +805,12 @@ bool DisplayLoadInfo(char Text[100])
 
 	// Hint anzeigen
 	if (DisplayHintNr > -1)
-		pDefaultFont->DrawTextCenterAlign(320.0f, 270.0f,TextArray[TEXT_HINT1 + DisplayHintNr], 0xFFFFFFFF, 0);
+		pDefaultFont->DrawTextCenterAlign(SCREENW2, SCREENH2 + 30.0f,TextArray[TEXT_HINT1 + DisplayHintNr], 0xFFFFFFFF, 0);
 
-	LoadingScreen.RenderSprite((640 - 360) / 2, (480 - 60) / 2 + 5, 0x88FFFFFF);
+	LoadingScreen.RenderSprite((SCREENWIDTH - 360) / 2, (SCREENHEIGHT - 60) / 2 + 5, 0x88FFFFFF);
 
 	LoadingBar.SetRect (0, 0, int (LoadingProgress), 19);
-	LoadingBar.RenderSprite((640 - 318) / 2, (480 - 19) / 2 + 5, 0x88FFFFFF);
+	LoadingBar.RenderSprite((SCREENWIDTH - 318) / 2, (SCREENHEIGHT - 19) / 2 + 5, 0x88FFFFFF);
 
 	/*for (i=0; i<24; i++)
 		pDefaultFont->DrawText(10, float(230+i*10), LoadInfoText[i], D3DCOLOR_RGBA(0, 255, 0, i*10));*/
