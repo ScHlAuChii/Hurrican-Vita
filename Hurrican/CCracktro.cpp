@@ -359,11 +359,11 @@ void CCracktro::Main(void)
 	float    yo = 220 - (float)(cos(LogoPos) * 10.0f);
 	D3DCOLOR col = BlinkCol[(int)(blinkpos) % (sizeof(BlinkCol) / sizeof(D3DCOLOR))];
 
-	RenderRect(0, yo, 640, 2, col);
-	RenderRect(0, yo + 20.0f, 640, 2, col);
+	RenderRect(0, yo, SCREENWIDTH, 2, col);
+	RenderRect(0, yo + 20.0f, SCREENWIDTH, 2, col);
 
 	pFont->DrawDemoText((float)(-sin(LogoPos) * 140.0f) +
-						(float)(626 - pFont->DemoStringLength(BlinkText[fontoff])) / 2.0f, yo + 2.0f, 
+						(float)(SCREENWIDTH - 14 - pFont->DemoStringLength(BlinkText[fontoff])) / 2.0f, yo + 2.0f, 
 						BlinkText[fontoff],
 						col);	
 
@@ -374,7 +374,7 @@ void CCracktro::Main(void)
 	for (int i = 0; i < 16; i++)
 	{
 		RenderRect((float)(-sin(LogoPos) * 140.0f) +
-				   320 +	 (float)(sin(SinPos + i * (2 * PI / 16)) * 140 ), 
+				   (SCREENWIDTH / 2) + (float)(sin(SinPos + i * (2 * PI / 16)) * 140 ), 
 				   yo + 10 + (float)(cos(SinPos + i * (2 * PI / 16)) * 20), 4, 2, 0xFFFFFFFF);
 	}
 
