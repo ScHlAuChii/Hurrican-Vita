@@ -143,7 +143,7 @@ CCracktro::CCracktro()
 
 	for (int i = 0; i < 150; i++)
 	{
-		Stars[i].Count   = (float)(rand()%640);
+		Stars[i].Count   = (float)(rand()%SCREENWIDTH);
 		Stars[i].Abstand = (float)(rand()%140 + 340);
 		Stars[i].Ebene   = rand()%200 + 55;
 	}
@@ -187,7 +187,7 @@ void CCracktro::Main(void)
 		Stars[i].Count -= Stars[i].Ebene * 0.1f SYNC;
 
 		if (Stars[i].Count < 0.0f)
-			Stars[i].Count += 640;
+			Stars[i].Count += SCREENWIDTH;
 
 		RenderRect(Stars[i].Count, Stars[i].Abstand, 4, 2, D3DCOLOR_RGBA(255, 255, 255, Stars[i].Ebene));
 	}
