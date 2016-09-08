@@ -349,8 +349,8 @@ MenuClass::MenuClass(void)
 	// Menu Werte initialisieren
 	ScrollPos = 0.0f;
 
-	xpos = (640-373) / 2;
-	ypos = 80;
+	xpos = (SCREENWIDTH-373) / 2;
+	ypos = SCREENCY + 80;
 
 	Rotation    = 0.0f;
 	RotationDir = 1;
@@ -615,9 +615,9 @@ void MenuClass::ShowMenu(void)
 	if (AktuellerZustand != MENUPUNKT_CREDITS &&
 		AktuellerZustand != MENUZUSTAND_ENTERNAME)
 
-	pDefaultFont->DrawTextCenterAlign(320.0f, 462, TextArray [TEXT_MENUE_ANLEITUNG], menucolor, 0);
-	pDefaultFont->DrawText(10.0f, 462, "www.poke53280.de", menucolor, 0);
-	pDefaultFont->DrawTextRightAlign(620.0f, 462, "www.hurrican-game.de", menucolor, 0);
+	pDefaultFont->DrawTextCenterAlign(SCREENW2, SCREENHEIGHT - 18, TextArray [TEXT_MENUE_ANLEITUNG], menucolor, 0);
+	pDefaultFont->DrawText(10.0f, SCREENHEIGHT - 18, "www.poke53280.de", menucolor, 0);
+	pDefaultFont->DrawTextRightAlign(SCREENWIDTH - 20, SCREENHEIGHT - 18, "www.hurrican-game.de", menucolor, 0);
 
 	// graue Linien
 	//
@@ -629,9 +629,9 @@ void MenuClass::ShowMenu(void)
 	RenderRect(493, 63, 150, 1, menucolor2);
 */
 
-	RenderRect(0, 455, 640, 1, menucolor2);
+	RenderRect(0, SCREENHEIGHT - 25, SCREENWIDTH, 1, menucolor2);
 
-	MenuTitel.RenderSprite((640 - 400) / 2 + 15, 0, menucolor);
+	MenuTitel.RenderSprite((SCREENWIDTH - 400) / 2 + 15, SCREENCY, menucolor);
 	DirectGraphics.SetAdditiveMode();	
 	
 
@@ -653,15 +653,15 @@ void MenuClass::ShowMenu(void)
 					if (i == 1)
 					{
 						if (Stage == -1)
-							pMenuFont->DrawTextCenterAlign(320, ypos + OFFSET + i*35, TextArray [TEXT_MENUE_SPIEL_STARTEN+i], menucolor3, 2);
+							pMenuFont->DrawTextCenterAlign(SCREENW2, ypos + OFFSET + i*35, TextArray [TEXT_MENUE_SPIEL_STARTEN+i], menucolor3, 2);
 						else
-							pMenuFont->DrawTextCenterAlign(320, ypos + OFFSET + i*35, TextArray [TEXT_MENUE_SPIEL_STARTEN+i], menucolor2, 2);
+							pMenuFont->DrawTextCenterAlign(SCREENW2, ypos + OFFSET + i*35, TextArray [TEXT_MENUE_SPIEL_STARTEN+i], menucolor2, 2);
 					}
 					else
-						pMenuFont->DrawTextCenterAlign(320, ypos + OFFSET + i*35, TextArray [TEXT_MENUE_SPIEL_STARTEN+i], menucolor2, 2);
+						pMenuFont->DrawTextCenterAlign(SCREENW2, ypos + OFFSET + i*35, TextArray [TEXT_MENUE_SPIEL_STARTEN+i], menucolor2, 2);
 				}
 				
-			pMenuFont->DrawTextCenterAlign(320, ypos + OFFSET + AktuellerPunkt*35, TextArray [TEXT_MENUE_SPIEL_STARTEN+AktuellerPunkt], menucolor, 2);
+			pMenuFont->DrawTextCenterAlign(SCREENW2, ypos + OFFSET + AktuellerPunkt*35, TextArray [TEXT_MENUE_SPIEL_STARTEN+AktuellerPunkt], menucolor, 2);
 
 		} break;
 
@@ -674,7 +674,7 @@ void MenuClass::ShowMenu(void)
 			const int OFFSET2 = 20;
 
 			float d = (float)(pMenuFont->StringLength(TextArray [TEXT_MENUE_EINSTELLUNGEN], 2));
-			pMenuFont->DrawText(320 - d/2.0f, ypos + OFFSET - OFFSET2, TextArray [TEXT_MENUE_EINSTELLUNGEN], menucolor, 2);			
+			pMenuFont->DrawText(SCREENW2 - d/2.0f, ypos + OFFSET - OFFSET2, TextArray [TEXT_MENUE_EINSTELLUNGEN], menucolor, 2);			
 
 			// Sound / Musik Lautstärke
 			for (int i=0; i<2; i++)
@@ -689,14 +689,14 @@ void MenuClass::ShowMenu(void)
 				if (i == AktuellerPunkt)
 				{					
 					pMenuFont->DrawText (xpos + OFFSET - 20 - d, ypos + OFFSET - OFFSET2 + (i+2) * 35, TextArray[TEXT_SOUND + i], menucolor, 2);
-					LoadingScreen.RenderSprite (220, ypos + OFFSET - OFFSET2 + (i+2) * 35 - 18, menucolor);
-					LoadingBar.RenderSprite    (241, ypos + OFFSET - OFFSET2 + (i+2) * 35 +2, menucolor);
+					LoadingScreen.RenderSprite (SCREENW2 - 100, ypos + OFFSET - OFFSET2 + (i+2) * 35 - 18, menucolor);
+					LoadingBar.RenderSprite    (SCREENW2 - 79, ypos + OFFSET - OFFSET2 + (i+2) * 35 +2, menucolor);
 				}
 				else
 				{
 					pMenuFont->DrawText (xpos + OFFSET - 20 - d, ypos + OFFSET - OFFSET2 + (i+2) * 35, TextArray[TEXT_SOUND + i], menucolor2, 2);
-					LoadingScreen.RenderSprite (220, ypos + OFFSET - OFFSET2 + (i+2) * 35 - 18, menucolor2);
-					LoadingBar.RenderSprite    (241, ypos + OFFSET - OFFSET2 + (i+2) * 35 +2, menucolor2);
+					LoadingScreen.RenderSprite (SCREENW2 - 100, ypos + OFFSET - OFFSET2 + (i+2) * 35 - 18, menucolor2);
+					LoadingBar.RenderSprite    (SCREENW2 - 79, ypos + OFFSET - OFFSET2 + (i+2) * 35 +2, menucolor2);
 				}			
 			}
 
@@ -710,18 +710,18 @@ void MenuClass::ShowMenu(void)
 				// Schrift anzeigen
 				//
 				if (i == AktuellerPunkt)
-					pMenuFont->DrawText (320.0f - d / 2.0f, ypos + OFFSET - OFFSET2 + (i+2) * 35, TextArray[TEXT_SOUND + i], menucolor, 2);
+					pMenuFont->DrawText (SCREENW2 - d / 2.0f, ypos + OFFSET - OFFSET2 + (i+2) * 35, TextArray[TEXT_SOUND + i], menucolor, 2);
 				else
-					pMenuFont->DrawText (320.0f - d / 2.0f, ypos + OFFSET - OFFSET2 + (i+2) * 35, TextArray[TEXT_SOUND + i], menucolor2, 2);
+					pMenuFont->DrawText (SCREENW2 - d / 2.0f, ypos + OFFSET - OFFSET2 + (i+2) * 35, TextArray[TEXT_SOUND + i], menucolor2, 2);
 
 			}
 
 			// Detailstufe
 			d = (float)(pMenuFont->StringLength(TextArray [TEXT_DETAIL_LOW + options_Detail], 2));				
 			if (4 == AktuellerPunkt)
-				pMenuFont->DrawText (320.0f - d / 2.0f, ypos + OFFSET - OFFSET2 + (4+2) * 35, TextArray[TEXT_DETAIL_LOW + options_Detail], menucolor, 2);
+				pMenuFont->DrawText (SCREENW2 - d / 2.0f, ypos + OFFSET - OFFSET2 + (4+2) * 35, TextArray[TEXT_DETAIL_LOW + options_Detail], menucolor, 2);
 			else
-				pMenuFont->DrawText (320.0f - d / 2.0f, ypos + OFFSET - OFFSET2 + (4+2) * 35, TextArray[TEXT_DETAIL_LOW + options_Detail], menucolor2, 2);
+				pMenuFont->DrawText (SCREENW2 - d / 2.0f, ypos + OFFSET - OFFSET2 + (4+2) * 35, TextArray[TEXT_DETAIL_LOW + options_Detail], menucolor2, 2);
 
 
 		} break; // MENUZUSTAND_VOLUMES
@@ -729,18 +729,18 @@ void MenuClass::ShowMenu(void)
 		case MENUZUSTAND_LANGUAGE :
 		{
 			float d = (float)(pMenuFont->StringLength(TextArray [TEXT_SPRACHE], 2));
-			pMenuFont->DrawText(320 - d/2.0f, ypos + OFFSET, TextArray [TEXT_SPRACHE], menucolor, 2);
+			pMenuFont->DrawText(SCREENW2 - d/2.0f, ypos + OFFSET, TextArray [TEXT_SPRACHE], menucolor, 2);
 
 			for (int i = 0; i < LanguageFileCount; i++)
 			{
-				pDefaultFont->DrawText (320 - pDefaultFont->StringLength (LanguageFiles[i]) / 2.0f, ypos + 120 + i * 16, LanguageFiles[i], 0x88FFFFFF);
+				pDefaultFont->DrawText (SCREENW2 - pDefaultFont->StringLength (LanguageFiles[i]) / 2.0f, ypos + 120 + i * 16, LanguageFiles[i], 0x88FFFFFF);
 				if (AktuellerPunkt == i)
-					pDefaultFont->DrawText (320 - pDefaultFont->StringLength (LanguageFiles[i]) / 2.0f, ypos + 120 + i * 16, LanguageFiles[i], 0x88FFFFFF);
+					pDefaultFont->DrawText (SCREENW2 - pDefaultFont->StringLength (LanguageFiles[i]) / 2.0f, ypos + 120 + i * 16, LanguageFiles[i], 0x88FFFFFF);
 			}
 
-			pDefaultFont->DrawText (320 - pDefaultFont->StringLength (TextArray[TEXT_ZURUECK]) / 2.0f, ypos + 136 + 16 * LanguageFileCount, (TextArray[TEXT_ZURUECK]), 0x88FFFFFF);
+			pDefaultFont->DrawText (SCREENW2 - pDefaultFont->StringLength (TextArray[TEXT_ZURUECK]) / 2.0f, ypos + 136 + 16 * LanguageFileCount, (TextArray[TEXT_ZURUECK]), 0x88FFFFFF);
 			if (AktuellerPunkt == LanguageFileCount)
-				pDefaultFont->DrawText (320 - pDefaultFont->StringLength (TextArray[TEXT_ZURUECK]) / 2.0f, ypos + 136 + 16 * LanguageFileCount, (TextArray[TEXT_ZURUECK]), 0x88FFFFFF);
+				pDefaultFont->DrawText (SCREENW2 - pDefaultFont->StringLength (TextArray[TEXT_ZURUECK]) / 2.0f, ypos + 136 + 16 * LanguageFileCount, (TextArray[TEXT_ZURUECK]), 0x88FFFFFF);
 
 			
 		} break; // MENUZUSTAND_LANGUAGE
@@ -754,7 +754,7 @@ void MenuClass::ShowMenu(void)
 			FillPossibleKeys();			
 
 			float d = (float)(pMenuFont->StringLength(TextArray [TEXT_STEUERUNG], 2));
-			pMenuFont->DrawText(320 - d/2.0f, ypos + OFFSET - 60, TextArray[TEXT_STEUERUNG], menucolor, 2);
+			pMenuFont->DrawText(SCREENW2 - d/2.0f, ypos + OFFSET - 60, TextArray[TEXT_STEUERUNG], menucolor, 2);
 
 			// Überschrift "Spieler1" "Spieler2"
 			if (CurrentPlayer == 0)
@@ -806,7 +806,7 @@ void MenuClass::ShowMenu(void)
 			else
 				yoff = ypos + 95 + AktuellerPunkt * 18.0f;
 
-			RenderRect(20, yoff, 600, 16, 0x24FFFFFF);
+			RenderRect(20, yoff, SCREENWIDTH - 40, 16, 0x24FFFFFF);
 
 
 			// Für beide Spieler den ganzen Klumbatsch anzeigen
@@ -958,16 +958,16 @@ void MenuClass::ShowMenu(void)
 					if (UseForceFeedback == false)
 					{
 						if (i == AktuellerPunkt)
-							MenuKasten[0].RenderSprite(320.0f + d / 2.0f, ypos + OFFSET - OFFSET2 + (i+2) * 35 - 12, menucolor);
+							MenuKasten[0].RenderSprite(SCREENW2 + d / 2.0f, ypos + OFFSET - OFFSET2 + (i+2) * 35 - 12, menucolor);
 						else
-							MenuKasten[0].RenderSprite(320.0f + d / 2.0f, ypos + OFFSET - OFFSET2 + (i+2) * 35 - 12, menucolor2);
+							MenuKasten[0].RenderSprite(SCREENW2 + d / 2.0f, ypos + OFFSET - OFFSET2 + (i+2) * 35 - 12, menucolor2);
 					}
 					else
 					{
 						if (i == AktuellerPunkt)
-							MenuKasten[1].RenderSprite(320.0f + d / 2.0f, ypos + OFFSET - OFFSET2 + (i+2) * 35 - 12, menucolor);
+							MenuKasten[1].RenderSprite(SCREENW2 + d / 2.0f, ypos + OFFSET - OFFSET2 + (i+2) * 35 - 12, menucolor);
 						else
-							MenuKasten[1].RenderSprite(320.0f + d / 2.0f, ypos + OFFSET - OFFSET2 + (i+2) * 35 - 12, menucolor2);
+							MenuKasten[1].RenderSprite(SCREENW2 + d / 2.0f, ypos + OFFSET - OFFSET2 + (i+2) * 35 - 12, menucolor2);
 					}
 				}
 
@@ -983,13 +983,13 @@ void MenuClass::ShowMenu(void)
 
 					if (i == AktuellerPunkt)
 					{					
-						LoadingScreen.RenderSprite (260, ypos + OFFSET - OFFSET2 + (i+2) * 35 - 18, menucolor);
-						LoadingBar.RenderSprite    (281, ypos + OFFSET - OFFSET2 + (i+2) * 35 +2, menucolor);
+						LoadingScreen.RenderSprite (SCREENW2 - 60, ypos + OFFSET - OFFSET2 + (i+2) * 35 - 18, menucolor);
+						LoadingBar.RenderSprite    (SCREENW2 - 39, ypos + OFFSET - OFFSET2 + (i+2) * 35 +2, menucolor);
 					}
 					else
 					{
-						LoadingScreen.RenderSprite (260, ypos + OFFSET - OFFSET2 + (i+2) * 35 - 18, menucolor2);
-						LoadingBar.RenderSprite    (281, ypos + OFFSET - OFFSET2 + (i+2) * 35 +2, menucolor2);
+						LoadingScreen.RenderSprite (SCREENW2 - 60, ypos + OFFSET - OFFSET2 + (i+2) * 35 - 18, menucolor2);
+						LoadingBar.RenderSprite    (SCREENW2 - 39, ypos + OFFSET - OFFSET2 + (i+2) * 35 +2, menucolor2);
 					}			
 				}
 
@@ -1009,9 +1009,9 @@ void MenuClass::ShowMenu(void)
 				}
 
 				if (i == AktuellerPunkt)
-					pMenuFont->DrawText(320 - d/2.0f, ypos + OFFSET - OFFSET2 + (i+2) * 35, buf, menucolor, 2);
+					pMenuFont->DrawText(SCREENW2 - d/2.0f, ypos + OFFSET - OFFSET2 + (i+2) * 35, buf, menucolor, 2);
 				else
-					pMenuFont->DrawText(320 - d/2.0f, ypos + OFFSET - OFFSET2 + (i+2) * 35, buf, menucolor2, 2);
+					pMenuFont->DrawText(SCREENW2 - d/2.0f, ypos + OFFSET - OFFSET2 + (i+2) * 35, buf, menucolor2, 2);
 
 			}			
 
@@ -1056,7 +1056,7 @@ void MenuClass::ShowMenu(void)
 			char Buffer[100];		// Für itoa
 
 			float d = (float)(pMenuFont->StringLength(TextArray [TEXT_MENUE_HIGHSCORES], 2));
-			pMenuFont->DrawText(320 - d/2.0f, ypos, TextArray [TEXT_MENUE_HIGHSCORES], menucolor, 2);
+			pMenuFont->DrawText(SCREENW2 - d/2.0f, ypos, TextArray [TEXT_MENUE_HIGHSCORES], menucolor, 2);
 
 			//pMenuFont->DrawText(xpos-120,  ypos+55, TextArray [TEXT_HIGHSCORE_PLATZ],  0xFFFFFFFF, 2);
 			pMenuFont->DrawText(xpos-120,  ypos+55, TextArray [TEXT_HIGHSCORE_NAME],   0xFFFFFFFF, 2);
@@ -1100,14 +1100,14 @@ void MenuClass::ShowMenu(void)
 		{
 			char Buffer[100];		// Für itoa
 
-			pMenuFont->DrawTextCenterAlign(320, ypos + 90, TextArray[TEXT_WAHNSINN], D3DCOLOR_RGBA(255, 255, 255, 255), 2);			
+			pMenuFont->DrawTextCenterAlign(SCREENW2, ypos + 90, TextArray[TEXT_WAHNSINN], D3DCOLOR_RGBA(255, 255, 255, 255), 2);			
 
 			strcpy_s(Buffer, strlen(TextArray[TEXT_NEUE_HIGHSCORE]) + 1, TextArray[TEXT_NEUE_HIGHSCORE]);
-			pMenuFont->DrawTextCenterAlign(320, ypos + 180, TextArray[TEXT_NAMEN_EINGEBEN], D3DCOLOR_RGBA(255, 255, 255, 255), 2);
+			pMenuFont->DrawTextCenterAlign(SCREENW2, ypos + 180, TextArray[TEXT_NAMEN_EINGEBEN], D3DCOLOR_RGBA(255, 255, 255, 255), 2);
 
 			sprintf_s(Buffer, "%s %d", Buffer, NewRank+1);
 
-			pMenuFont->DrawTextCenterAlign(320, ypos + 150, Buffer, D3DCOLOR_RGBA(255, 255, 255, 255), 2);
+			pMenuFont->DrawTextCenterAlign(SCREENW2, ypos + 150, Buffer, D3DCOLOR_RGBA(255, 255, 255, 255), 2);
 		} break; // ENTERNAME
 
 		case MENUPUNKT_CREDITS :
@@ -1142,7 +1142,7 @@ void MenuClass::ShowMenu(void)
 
 				Color = D3DCOLOR_RGBA(255, 255, 255, alpha);
 
-				pDefaultFont->DrawTextCenterAlign(320.0f,
+				pDefaultFont->DrawTextCenterAlign(SCREENW2,
 												  float(int(i*12-CreditsPosition)), 
 												  Credits[CreditsOffset+i], Color, 0);
 			}
@@ -1183,49 +1183,49 @@ void MenuClass::ShowMenu(void)
 
 		case MENUZUSTAND_NEWGAME :
 		{
-			pMenuFont->DrawTextCenterAlign(320, ypos + OFFSET, TextArray [TEXT_MENUE_SPIEL_STARTEN], menucolor, 2);
+			pMenuFont->DrawTextCenterAlign(SCREENW2, ypos + OFFSET, TextArray [TEXT_MENUE_SPIEL_STARTEN], menucolor, 2);
 
 			for (int i=0; i<3; i++)
 			if (AktuellerPunkt != i)
-				pMenuFont->DrawTextCenterAlign(320, ypos + OFFSET + (i+2)*35, TextArray [TEXT_MENUE_TUTORIAL_SPIELEN+i], menucolor2, 2);
+				pMenuFont->DrawTextCenterAlign(SCREENW2, ypos + OFFSET + (i+2)*35, TextArray [TEXT_MENUE_TUTORIAL_SPIELEN+i], menucolor2, 2);
 
-			pMenuFont->DrawTextCenterAlign(320, ypos + OFFSET + (AktuellerPunkt+2)*35, TextArray [TEXT_MENUE_TUTORIAL_SPIELEN+AktuellerPunkt], menucolor, 2);
+			pMenuFont->DrawTextCenterAlign(SCREENW2, ypos + OFFSET + (AktuellerPunkt+2)*35, TextArray [TEXT_MENUE_TUTORIAL_SPIELEN+AktuellerPunkt], menucolor, 2);
 			
 		} break;
 
 		case MENUZUSTAND_PLAYERCOUNT :
 		{	
-			pMenuFont->DrawTextCenterAlign(320, ypos + OFFSET, TextArray [TEXT_MENUE_SPIEL_STARTEN], menucolor, 2);
+			pMenuFont->DrawTextCenterAlign(SCREENW2, ypos + OFFSET, TextArray [TEXT_MENUE_SPIEL_STARTEN], menucolor, 2);
 
 			for (int i=0; i<2; i++)
 			if (AktuellerPunkt != i)
-				pMenuFont->DrawTextCenterAlign(320, ypos + OFFSET + (i+2)*35, TextArray [TEXT_ONE_PLAYER+i], menucolor2, 2);
+				pMenuFont->DrawTextCenterAlign(SCREENW2, ypos + OFFSET + (i+2)*35, TextArray [TEXT_ONE_PLAYER+i], menucolor2, 2);
 			
-			pMenuFont->DrawTextCenterAlign(320, ypos + OFFSET + (AktuellerPunkt+2)*35, TextArray [TEXT_ONE_PLAYER+AktuellerPunkt], menucolor, 2);
+			pMenuFont->DrawTextCenterAlign(SCREENW2, ypos + OFFSET + (AktuellerPunkt+2)*35, TextArray [TEXT_ONE_PLAYER+AktuellerPunkt], menucolor, 2);
 			
 		} break;
 
 		case MENUZUSTAND_SELECTSKILL :
 		{
 
-			pMenuFont->DrawTextCenterAlign(320, ypos + OFFSET, TextArray [TEXT_MENUE_SPIEL_STARTEN], menucolor, 2);
+			pMenuFont->DrawTextCenterAlign(SCREENW2, ypos + OFFSET, TextArray [TEXT_MENUE_SPIEL_STARTEN], menucolor, 2);
 
 			for (int i=0; i<4; i++)
 			if (AktuellerPunkt != i)
-				pMenuFont->DrawText(310, ypos + OFFSET + (i+2)*35, TextArray [TEXT_MENUE_LEICHT+i], menucolor2, 2);
+				pMenuFont->DrawText(SCREENW2 - 10, ypos + OFFSET + (i+2)*35, TextArray [TEXT_MENUE_LEICHT+i], menucolor2, 2);
 
-			pMenuFont->DrawText(310, ypos + OFFSET + (AktuellerPunkt+2)*35, TextArray [TEXT_MENUE_LEICHT+AktuellerPunkt], menucolor, 2);
+			pMenuFont->DrawText(SCREENW2 - 10, ypos + OFFSET + (AktuellerPunkt+2)*35, TextArray [TEXT_MENUE_LEICHT+AktuellerPunkt], menucolor, 2);
 
 			// Skill anzeigen
 			DirectGraphics.SetColorKeyMode();
-			Skills.RenderSprite(190, ypos + 165, AktuellerPunkt, 0xFFFFFFFF);
+			Skills.RenderSprite(SCREENW2 - 130, ypos + 165, AktuellerPunkt, 0xFFFFFFFF);
 			DirectGraphics.SetAdditiveMode();
 
 		} break;
 
 		case MENUZUSTAND_LOADGAME :
 		{
-			pMenuFont->DrawTextCenterAlign(320, ypos + OFFSET, TextArray [TEXT_MENUE_ALTES_SPIEL_FORTSETZEN], menucolor, 2);
+			pMenuFont->DrawTextCenterAlign(SCREENW2, ypos + OFFSET, TextArray [TEXT_MENUE_ALTES_SPIEL_FORTSETZEN], menucolor, 2);
 
 			ShowSavegames(AktuellerPunkt);			
 		} break; // Load Game
@@ -1234,13 +1234,13 @@ void MenuClass::ShowMenu(void)
 		{
 			ShowSavegames(AktuellerPunkt);
 
-			pMenuFont->DrawTextCenterAlign(320.0f, ypos + OFFSET, TextArray[TEXT_MENUE_SPIEL_SPEICHERN], 0xFFFFFFFF, 2);
-			pMenuFont->DrawTextCenterAlign(320, ypos + 150 + (MAX_SAVEGAMES+1)*15, TextArray[TEXT_WEITER], 0x80FFFFFF, 2);
+			pMenuFont->DrawTextCenterAlign(SCREENW2, ypos + OFFSET, TextArray[TEXT_MENUE_SPIEL_SPEICHERN], 0xFFFFFFFF, 2);
+			pMenuFont->DrawTextCenterAlign(SCREENW2, ypos + 150 + (MAX_SAVEGAMES+1)*15, TextArray[TEXT_WEITER], 0x80FFFFFF, 2);
 
 			// Aktuelle gewähltes Savegame heller anzeigen
 			//
 			if (AktuellerPunkt == MAX_SAVEGAMES)
-				pMenuFont->DrawTextCenterAlign(320, ypos + 150 + (MAX_SAVEGAMES+1)*15, TextArray[TEXT_WEITER], 0xFFFFFFFF, 2);
+				pMenuFont->DrawTextCenterAlign(SCREENW2, ypos + 150 + (MAX_SAVEGAMES+1)*15, TextArray[TEXT_WEITER], 0xFFFFFFFF, 2);
 			
 		} break; // Save Game
 
@@ -1978,7 +1978,7 @@ void MenuClass::DoMenu(void)
 						pPlayer[0]->AktionJoystick[AktuellerPunkt+2] = i;
 
 				float d = (float)(pMenuFont->StringLength(TextArray[TEXT_TASTEN_NEU_B], 2));
-				pMenuFont->DrawText (320 - d / 2.0f, ypos + 310.0f, TextArray[TEXT_TASTEN_NEU_B], 0xFFFFFFFF, 2);
+				pMenuFont->DrawText (SCREENW2 - d / 2.0f, ypos + 310.0f, TextArray[TEXT_TASTEN_NEU_B], 0xFFFFFFFF, 2);
 			}
 
 			// Empfindlichkeit geändert
@@ -2181,11 +2181,11 @@ void MenuClass::DoMenu(void)
 			char Buffer[20];
 
 			sprintf_s(Buffer, "%s_", NewName);
-			pMenuFont->DrawTextCenterAlign(319, ypos + 230, Buffer, D3DCOLOR_RGBA(0, 0, 255, 255), 2);
-			pMenuFont->DrawTextCenterAlign(321, ypos + 230, Buffer, D3DCOLOR_RGBA(0, 0, 255, 255), 2);
-			pMenuFont->DrawTextCenterAlign(320, ypos + 229, Buffer, D3DCOLOR_RGBA(0, 0, 255, 255), 2);
-			pMenuFont->DrawTextCenterAlign(320, ypos + 231, Buffer, D3DCOLOR_RGBA(0, 0, 255, 255), 2);
-			pMenuFont->DrawTextCenterAlign(320, ypos + 230, Buffer, D3DCOLOR_RGBA(255, 255, 255, 255), 2);
+			pMenuFont->DrawTextCenterAlign(SCREENW2 - 1, ypos + 230, Buffer, D3DCOLOR_RGBA(0, 0, 255, 255), 2);
+			pMenuFont->DrawTextCenterAlign(SCREENW2 + 1, ypos + 230, Buffer, D3DCOLOR_RGBA(0, 0, 255, 255), 2);
+			pMenuFont->DrawTextCenterAlign(SCREENW2, ypos + 229, Buffer, D3DCOLOR_RGBA(0, 0, 255, 255), 2);
+			pMenuFont->DrawTextCenterAlign(SCREENW2, ypos + 231, Buffer, D3DCOLOR_RGBA(0, 0, 255, 255), 2);
+			pMenuFont->DrawTextCenterAlign(SCREENW2, ypos + 230, Buffer, D3DCOLOR_RGBA(255, 255, 255, 255), 2);
 
 		} break; // Namen eingeben
 
@@ -2640,7 +2640,7 @@ void MenuClass::ShowSavegames(int Highlight)
 		// oder ist dort noch ein leerer Slot ?
 		else
 		{
-			pDefaultFont->DrawTextCenterAlign(320, ypos + 150 + i*14, TextArray[TEXT_SAVE_LEER], col, 0);
+			pDefaultFont->DrawTextCenterAlign(SCREENW2, ypos + 150 + i*14, TextArray[TEXT_SAVE_LEER], col, 0);
 		}
 	}
 }
@@ -2806,22 +2806,22 @@ void MenuClass::ShowLanguageInfo (void)
 
 	a2 = int (a1 / 2);
 
-	RenderRect (320 - 152, 240 - 82, 304, 164, D3DCOLOR_RGBA(64, 128, 255, a2));
-	RenderRect (320 - 151, 240 - 81, 302, 162, D3DCOLOR_RGBA(0,   0,   64,   a2));
-	RenderRect (320 - 150, 240 - 80, 300, 160, D3DCOLOR_RGBA(0,   0,   64,   a2));
+	RenderRect (SCREENW2 - 152, SCREENH2 - 82, 304, 164, D3DCOLOR_RGBA(64, 128, 255, a2));
+	RenderRect (SCREENW2 - 151, SCREENH2 - 81, 302, 162, D3DCOLOR_RGBA(0,   0,   64,   a2));
+	RenderRect (SCREENW2 - 150, SCREENH2 - 80, 300, 160, D3DCOLOR_RGBA(0,   0,   64,   a2));
 
-	pDefaultFont->DrawText (float (320 - pDefaultFont->StringLength (TextArray[TEXT_BENUTZTES_FILE]) / 2), float (240 - 64), TextArray[TEXT_BENUTZTES_FILE], D3DCOLOR_RGBA(255, 255, 255, a1));
+	pDefaultFont->DrawText (float (SCREENW2 - pDefaultFont->StringLength (TextArray[TEXT_BENUTZTES_FILE]) / 2), float (SCREENH2 - 64), TextArray[TEXT_BENUTZTES_FILE], D3DCOLOR_RGBA(255, 255, 255, a1));
 
 	for (int i = 0; i < 9; i++)
 	{
-		int  xoff = 320 - strlen (TextArray[i])*4; 
+		int  xoff = SCREENW2 - strlen (TextArray[i])*4; 
 		for (unsigned int j = 0; j < strlen (TextArray[i]); j++)
 		{
 			char c[2];
 
 			c[0] = TextArray[i][j];
 			c[1] = '\0';
-			pDefaultFont->DrawText (float (xoff), float (240 - 40 + i * 12), c, D3DCOLOR_RGBA(255, 255, 255, a1));
+			pDefaultFont->DrawText (float (xoff), float (SCREENH2 - 40 + i * 12), c, D3DCOLOR_RGBA(255, 255, 255, a1));
 			xoff += 8;
 		}
 	}
