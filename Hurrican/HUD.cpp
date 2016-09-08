@@ -50,7 +50,7 @@ HUDClass::HUDClass(void)
 	red				= 0;
 	green			= 255;
 	blue			= 0;
-	xpos			= (640-548) / 2;
+	xpos			= (SCREENWIDTH-548) / 2;
 	ypos			= 2;
 	BossHUDActive	= 0.0f;
 }
@@ -476,8 +476,8 @@ void HUDClass::ShowHUD(void)
 			if ((int)(pTileEngine->Timelimit) == 1)
 				xoff = -size / 2.4f;
 
-			HUDFontBig.RenderSpriteScaled(320 - size / 2.0f + xoff, 
-										  240 - size / 2.0f, 
+			HUDFontBig.RenderSpriteScaled(SCREENW2 - size / 2.0f + xoff, 
+										  SCREENH2 - size / 2.0f, 
 										  12 + (int)size, 
 										  24 + (int)size, D3DCOLOR_RGBA(255, 0, 0, 255 - (int)(size)));
 
@@ -500,8 +500,8 @@ void HUDClass::RenderBossHUD (void)
 
 		BossHUDActive -= 20.0f SYNC;			// Ausfaden lassen
 
-		BossHUD.RenderSprite((640 - 130) / 2,	  ypos + 434,      Color);
-		BossBar.RenderSprite((640 - 130) / 2 + 9, ypos + 434 + 13, Color);
+		BossHUD.RenderSprite((SCREENWIDTH - 130) / 2,	  ypos + SCREENHEIGHT - 46,      Color);
+		BossBar.RenderSprite((SCREENWIDTH - 130) / 2 + 9, ypos + SCREENHEIGHT - 46 + 13, Color);
 	}
 	else
 		BossHUDActive = 0.0f;
