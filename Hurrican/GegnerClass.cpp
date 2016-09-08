@@ -270,9 +270,9 @@ bool GegnerClass::Run(void)
 	// Taucht der Gegner im Screen auf und wird dadurch aktiviert ?
 	// Dann auch in Richtung Spieler blicken lassen
 	//
-	if (yPos-pTileEngine->YOffset < 480 &&
+	if (yPos-pTileEngine->YOffset < SCREENHEIGHT &&
 		yPos-pTileEngine->YOffset > 0 - GegnerRect[GegnerArt].bottom   &&
-		xPos-pTileEngine->XOffset < 640 &&
+		xPos-pTileEngine->XOffset < SCREENWIDTH &&
 		xPos-pTileEngine->XOffset > 0 - GegnerRect[GegnerArt].right)
 	{
 		Active = true;
@@ -595,9 +595,9 @@ bool GegnerClass::IsOnScreen(void)
 
 		
 	if (xPos + xsize < pTileEngine->XOffset ||
-		xPos + off > pTileEngine->XOffset + 640.0f ||
+		xPos + off > pTileEngine->XOffset + SCREENWIDTH ||
 		yPos + ysize < pTileEngine->YOffset ||
-		yPos > pTileEngine->YOffset + 480.0f)
+		yPos > pTileEngine->YOffset + SCREENHEIGHT)
 		return false;
 
 	return true;

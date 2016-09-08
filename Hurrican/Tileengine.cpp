@@ -1969,11 +1969,11 @@ void TileEngineClass::CheckBounds(void)
 	if (YOffset < TILESIZE_Y)
 		YOffset = TILESIZE_Y;
 
-	if (XOffset > LEVELPIXELSIZE_X - 640.0f - TILESIZE_X)
-		XOffset = LEVELPIXELSIZE_X - 640.0f - TILESIZE_X;
+	if (XOffset > LEVELPIXELSIZE_X - SCREENWIDTH - TILESIZE_X)
+		XOffset = LEVELPIXELSIZE_X - SCREENWIDTH - TILESIZE_X;
 
-	if (YOffset > LEVELPIXELSIZE_Y - 480.0f - TILESIZE_Y)
-		YOffset = LEVELPIXELSIZE_Y - 480.0f - TILESIZE_Y;
+	if (YOffset > LEVELPIXELSIZE_Y - SCREENHEIGHT - TILESIZE_Y)
+		YOffset = LEVELPIXELSIZE_Y - SCREENHEIGHT - TILESIZE_Y;
 }
 
 // --------------------------------------------------------------------------------------
@@ -2141,8 +2141,8 @@ void TileEngineClass::UpdateLevel(void)
 				float xdist = (float)(pPlayer[1]->xpos - pPlayer[0]->xpos);
 				float ydist = (float)(pPlayer[1]->ypos - pPlayer[0]->ypos);
 
-				ScrolltoX = (pPlayer[0]->xpos + 35) + xdist / 2.0f - 320.0f;			
-				ScrolltoY = (pPlayer[0]->ypos + 40) + ydist / 2.0f - 240.0f;		
+				ScrolltoX = (pPlayer[0]->xpos + 35) + xdist / 2.0f - SCREENW2;			
+				ScrolltoY = (pPlayer[0]->ypos + 40) + ydist / 2.0f - SCREENH2;		
 			}			
 		}
 
@@ -2223,10 +2223,10 @@ void TileEngineClass::UpdateLevel(void)
 		{
 			bool CenterDone = true;
 
-			if (newx < pTileEngine->XOffset + 320.0f - SCROLL_BORDER_HORIZ)	 {CenterDone = false; angleichx = newx - 320.0f + SCROLL_BORDER_HORIZ;}
-			if (newx > pTileEngine->XOffset + 320.0f + SCROLL_BORDER_HORIZ)	 {CenterDone = false; angleichx = newx - 320.0f + SCROLL_BORDER_HORIZ;}
-			if (newy < pTileEngine->YOffset + 240.0f - SCROLL_BORDER_TOP)	 {CenterDone = false; angleichy = newy - 240.0f + SCROLL_BORDER_TOP;}
-			if (newy > pTileEngine->YOffset + 240.0f + SCROLL_BORDER_BOTTOM) {CenterDone = false; angleichy = newy - 240.0f - SCROLL_BORDER_BOTTOM;}
+			if (newx < pTileEngine->XOffset + SCREENW2 - SCROLL_BORDER_HORIZ)	 {CenterDone = false; angleichx = newx - SCREENW2 + SCROLL_BORDER_HORIZ;}
+			if (newx > pTileEngine->XOffset + SCREENW2 + SCROLL_BORDER_HORIZ)	 {CenterDone = false; angleichx = newx - SCREENW2 + SCROLL_BORDER_HORIZ;}
+			if (newy < pTileEngine->YOffset + SCREENH2 - SCROLL_BORDER_TOP)	 {CenterDone = false; angleichy = newy - SCREENH2 + SCROLL_BORDER_TOP;}
+			if (newy > pTileEngine->YOffset + SCREENH2 + SCROLL_BORDER_BOTTOM) {CenterDone = false; angleichy = newy - SCREENH2 - SCROLL_BORDER_BOTTOM;}
 
 			WertAngleichen(XOffset, YOffset, angleichx, angleichy);
 
@@ -3102,8 +3102,8 @@ void TileEngineClass::DrawShadow (void)
 	}
 	else
 	{
-		x = (float)(int)(pTileEngine->XOffset + 320.0f);
-		y = (float)(int)(pTileEngine->YOffset + 240.0f);
+		x = (float)(int)(pTileEngine->XOffset + SCREENW2);
+		y = (float)(int)(pTileEngine->YOffset + SCREENH2);
 	}
 
 	D3DCOLOR col;

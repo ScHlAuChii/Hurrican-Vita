@@ -4088,8 +4088,8 @@ void PlayerClass::DamagePlayer (float Ammount,
 
 void PlayerClass::CenterLevel(void)
 {
-	pTileEngine->XOffset = xpos - 300;
-	pTileEngine->YOffset = ypos - 280;
+	pTileEngine->XOffset = xpos - SCREENW2 + 20;
+	pTileEngine->YOffset = ypos - SCREENH2 - 40;
 }
 
 // --------------------------------------------------------------------------------------

@@ -64,8 +64,8 @@
 #define TILESETSIZE_X		256.0f					// Grösse eines
 #define TILESETSIZE_Y		256.0f					// Tilesets
 
-#define SCREENSIZE_X		32						// Leveltiles pro Screen 
-#define SCREENSIZE_Y		24
+#define SCREENSIZE_X		(SCREENWIDTH / TILESIZE_X)		// Leveltiles pro Screen 
+#define SCREENSIZE_Y		(SCREENHEIGHT / TILESIZE_Y)
 
 #define MAX_LEVELSIZE_X		1024					// Gesamtgrösse des Level
 #define MAX_LEVELSIZE_Y		1600
@@ -77,8 +77,8 @@
 
 #define	SCROLL_BORDER_EXTREME_LEFT		0
 #define	SCROLL_BORDER_EXTREME_TOP		0
-#define	SCROLL_BORDER_EXTREME_RIGHT		570
-#define	SCROLL_BORDER_EXTREME_BOTTOM	400
+#define	SCROLL_BORDER_EXTREME_RIGHT		(SCREENWIDTH - 70)
+#define	SCROLL_BORDER_EXTREME_BOTTOM	(SCREENHEIGHT - 80)
 
 #define	SCROLL_BORDER_HORIZ		0
 #define	SCROLL_BORDER_TOP		50
@@ -86,7 +86,7 @@
 
 
 #define	LOOK_BORDER_TOP			60
-#define	LOOK_BORDER_BOTTOM		400
+#define	LOOK_BORDER_BOTTOM		(SCREENHEIGHT - 80)
 
 //--- Zustände der Tileengine
 
