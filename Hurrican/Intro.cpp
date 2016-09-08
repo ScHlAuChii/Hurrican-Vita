@@ -75,26 +75,27 @@ void IntroClass::EndIntro(void)
 void IntroClass::DoIntro(void)
 {
 	// Hintergrund rendern
+	lpD3DDevice->Clear(0, NULL, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, D3DCOLOR_XRGB(0, 0, 0), 1, 0);
 	DirectGraphics.SetColorKeyMode();
 
 	int a = (TextOff - 1) / 4;
 	if (a < 0) a = 0;
 	if (a > 5) a = 5;
 
-	Background[a].RenderSprite(0, 0, 0, 0xFFFFFFFF);
+	Background[a].RenderSpriteScaled(SCREENFITX, SCREENFITY, SCREENFITW, SCREENFITH, 0, 0xFFFFFFFF);
 
 	// nächstes Bild überblenden?
 	if ((TextOff - 1) % 4 == 3 &&
 		a < 5)
 	{
 		D3DCOLOR fadecol = D3DCOLOR_RGBA(255, 255, 255, (int)(Counter / 1300.0f * 255.0f));
-		Background[a+1].RenderSprite(0, 0, 0, fadecol);
+		Background[a+1].RenderSpriteScaled(SCREENFITX, SCREENFITY, SCREENFITW, SCREENFITH, 0, fadecol);
 	}
 
 	// Balken unten
-	RenderRect4(0, 360, 640, 60, 0x00000000, 0x00000000, 
+	RenderRect4(0, SCREENHEIGHT - 120, SCREENWIDTH, 60, 0x00000000, 0x00000000, 
 								 0xFF000000, 0xFF000000);
-	RenderRect(0, 420, 640, 60, 0xFF000000);
+	RenderRect(0, SCREENHEIGHT - 60, SCREENWIDTH, 60, 0xFF000000);
 
 	// Intro laufen lassen
 	switch(Zustand)
@@ -117,7 +118,7 @@ void IntroClass::DoIntro(void)
 			else
 			{
 				D3DCOLOR col = D3DCOLOR_RGBA(0, 0, 0, 255-int(Counter));
-				RenderRect(0, 0, 640, 480, col);			
+				RenderRect(0, 0, SCREENWIDTH, SCREENHEIGHT, col);			
 			}
 		} break;
 
@@ -133,7 +134,7 @@ void IntroClass::DoIntro(void)
 			}
 
 			D3DCOLOR col = D3DCOLOR_RGBA(0, 0, 0, 255-int(Counter));
-			RenderRect(0, 0, 640, 480, col);			
+			RenderRect(0, 0, SCREENWIDTH, SCREENHEIGHT, col);			
 			
 		} break;
 
@@ -156,8 +157,8 @@ void IntroClass::DoIntro(void)
 			
 			// Text rendern	
 			float xr = Counter;
-			if (xr > 700.0f)
-				xr = 700.0f;
+			if (xr > SCREENWIDTH)
+				xr = SCREENWIDTH;
 
 			DirectGraphics.SetAdditiveMode();
 
@@ -179,13 +180,13 @@ void IntroClass::DoIntro(void)
 					if (off >= TEXT_INTRO1 + 23)
 						off++;
 
-					pDefaultFont->DrawText(10, (float)(465 + t * 12) - TextOff * 12, TextArray[off], col);
+					pDefaultFont->DrawText(10, (float)(SCREENHEIGHT - 15 + t * 12) - TextOff * 12, TextArray[off], col);
 
 					// Teil des Textes verdecken
 					if (t == TextOff)
 					{
 						DirectGraphics.SetColorKeyMode();
-						RenderRect(xr, 464, 640.0f, 17, 0xFF000000);
+						RenderRect(xr, SCREENHEIGHT - 16, SCREENWIDTH, 17, 0xFF000000);
 					}
 				}
 			}	
@@ -211,7 +212,7 @@ void IntroClass::DoIntro(void)
 								case 4: col = D3DCOLOR_RGBA(0, 50, 0, 255); break;
 							}
 
-							RenderRect(xr - i * 12 - 12, 464, 12, 12, col);
+							RenderRect(xr - i * 12 - 12, SCREENHEIGHT - 16, 12, 12, col);
 						}
 					}
 					else
@@ -220,7 +221,7 @@ void IntroClass::DoIntro(void)
 
 						// blinken lassen
 						if ((int)(Counter / 100.0f) % 2 == 0)
-							RenderRect(xr - 12, 464, 12, 12, 0xFFFFFFFF);
+							RenderRect(xr - 12, SCREENHEIGHT - 16, 12, 12, 0xFFFFFFFF);
 					}
 				}
 			}
