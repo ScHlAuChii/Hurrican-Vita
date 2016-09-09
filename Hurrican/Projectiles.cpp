@@ -2336,9 +2336,9 @@ void ProjectileClass::Run(void)
 		ShotArt != EVILBLITZ2   &&
 		ShotArt != SNOWBOMB     &&
 		ShotArt != EIERBOMBE    &&
-		(yPos-pTileEngine->YOffset						    > 480 + 100 ||
+		(yPos-pTileEngine->YOffset						    > SCREENHEIGHT + 100 ||
 		 yPos-pTileEngine->YOffset+ShotRect[ShotArt].bottom < 0   - 100 ||
-		 xPos-pTileEngine->XOffset						    > 640 + 100 ||
+		 xPos-pTileEngine->XOffset						    > SCREENWIDTH + 100 ||
 		 xPos-pTileEngine->XOffset+ShotRect[ShotArt].right  < 0   - 100))
 		Damage = 0;
 
