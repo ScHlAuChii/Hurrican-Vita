@@ -61,7 +61,7 @@ static GLenum translate_blend_factor(D3DBLEND blend)
 	switch (blend)
 	{
 		case D3DBLEND_DESTALPHA:
-			return GL_DST_ALPHA;
+			return GL_ONE;
 		case D3DBLEND_SRCALPHA:
 			return GL_SRC_ALPHA;
 		case D3DBLEND_INVSRCALPHA:
