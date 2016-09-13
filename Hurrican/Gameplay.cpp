@@ -880,7 +880,7 @@ void SummaryScreen(void)
 	ShowSummary = true;
 
 	// Summary Box erzeugen
-	pGUI->ShowBox((640-250)/2, 110, 220, 100);
+	pGUI->ShowBox((SCREENWIDTH-250)/2, 110, 220, 100);
 
 	while (leave == false)
 	{
@@ -915,8 +915,8 @@ void SummaryScreen(void)
 		// Summary Screen rendern
 		pGUI->Run();
 		D3DCOLOR color = D3DCOLOR_RGBA(0, 255, 0, (int)(pGUI->m_FadingAlpha));
-		pDefaultFont->DrawText((float)(640 - pDefaultFont->StringLength(TextArray[TEXT_SUMMARY_TITLE]))     / 2, 120, TextArray[TEXT_SUMMARY_TITLE], color);		
-		pDefaultFont->DrawText((float)(640 - pDefaultFont->StringLength(TextArray[TEXT_SUMMARY_PRESSFIRE])) / 2, 225, TextArray[TEXT_SUMMARY_PRESSFIRE], color);
+		pDefaultFont->DrawText((float)(SCREENWIDTH - pDefaultFont->StringLength(TextArray[TEXT_SUMMARY_TITLE]))     / 2, 120, TextArray[TEXT_SUMMARY_TITLE], color);		
+		pDefaultFont->DrawText((float)(SCREENWIDTH - pDefaultFont->StringLength(TextArray[TEXT_SUMMARY_PRESSFIRE])) / 2, 225, TextArray[TEXT_SUMMARY_PRESSFIRE], color);
 
 		pGegnerGrafix[POWERBLOCK]->RenderSpriteScaled(226, 155, 32, 32, 1, color);
 		pGegnerGrafix[DIAMANT]->RenderSprite(282, 155, 0, color, false);
