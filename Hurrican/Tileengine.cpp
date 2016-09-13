@@ -1016,7 +1016,6 @@ void TileEngineClass::DrawSpecialLayer(void)
 void TileEngineClass::DrawBackLevel(void)
 {
 	RECT			Rect;						// Texturausschnitt im Tileset
-	int				NumToRender;				// Wieviele Vertices zu rendern ?
 	int				ActualTexture;				// Aktuelle Textur
 	float			l,  r,  o,  u;				// Vertice Koordinaten
 	float			tl, tr, to, tu;				// Textur Koordinaten
@@ -1032,7 +1031,7 @@ void TileEngineClass::DrawBackLevel(void)
 	DirectGraphics.SetColorKeyMode();
 
 	// Noch keine Tiles zum rendern
-	NumToRender = 0;
+	TilesToRender.clear();
 
 	int off  = 0;
 
@@ -1054,14 +1053,14 @@ void TileEngineClass::DrawBackLevel(void)
 					ActualTexture = Tiles[xLevel+i][yLevel+j].TileSetBack;
 
 					// Tiles zeichnen
-					if (NumToRender > 0)
-						DirectGraphics.RendertoBuffer (D3DPT_TRIANGLELIST, NumToRender*2, &TilesToRender[0]);
+					if (!TilesToRender.empty())
+						DirectGraphics.RendertoBuffer (D3DPT_TRIANGLELIST, TilesToRender.size()/3, TilesToRender.data());
 
 					// Neue aktuelle Textur setzen
 					lpD3DDevice->SetTexture (0, TileGfx[ActualTexture].itsTexture);
 
 					// Und beim rendern wieder von vorne anfangen
-					NumToRender = 0;
+					TilesToRender.clear();
 				}
 
 				Type = Tiles[xLevel+i][yLevel+j].BackArt - INCLUDE_ZEROTILE;
@@ -1131,22 +1130,20 @@ void TileEngineClass::DrawBackLevel(void)
 				if (Tiles[xLevel+i][yLevel+j].move_v4 == true) v4.x += SinList2[off + 2];
 
 				// Zu rendernde Vertices ins Array schreiben
-				TilesToRender[NumToRender*6]   = v1;	// Jeweils 2 Dreicke als
-				TilesToRender[NumToRender*6+1] = v2;	// als ein viereckiges
-				TilesToRender[NumToRender*6+2] = v3;	// Tile ins Array kopieren
-				TilesToRender[NumToRender*6+3] = v3;	
-				TilesToRender[NumToRender*6+4] = v2;	
-				TilesToRender[NumToRender*6+5] = v4;	
-
-				NumToRender++;				// Weiter im Vertex Array
+				TilesToRender.push_back(v1);	// Jeweils 2 Dreicke als
+				TilesToRender.push_back(v2);	// als ein viereckiges
+				TilesToRender.push_back(v3);	// Tile ins Array kopieren
+				TilesToRender.push_back(v3);
+				TilesToRender.push_back(v2);
+				TilesToRender.push_back(v4);
 			}
 			xScreen += TILESIZE_X;		// Am Screen weiter
 		}
 		yScreen += TILESIZE_Y;			// Am Screen weiter
 	}
 
-	if (NumToRender > 0)
-		DirectGraphics.RendertoBuffer (D3DPT_TRIANGLELIST, NumToRender*2, &TilesToRender[0]);
+	if (!TilesToRender.empty())
+		DirectGraphics.RendertoBuffer (D3DPT_TRIANGLELIST, TilesToRender.size()/3, TilesToRender.data());
 }
 
 // --------------------------------------------------------------------------------------
@@ -1156,7 +1153,6 @@ void TileEngineClass::DrawBackLevel(void)
 void TileEngineClass::DrawFrontLevel(void)
 {
 	RECT			Rect;						// Texturausschnitt im Tileset
-	int				NumToRender;				// Wieviele Vertices zu rendern ?
 	int				ActualTexture;				// Aktuelle Textur
 	float			l,  r,  o,  u;				// Vertice Koordinaten
 	float			tl, tr, to, tu;				// Textur Koordinaten
@@ -1172,7 +1168,7 @@ void TileEngineClass::DrawFrontLevel(void)
 	DirectGraphics.SetColorKeyMode();
 
 	// Noch keine Tiles zum rendern
-	NumToRender = 0;
+	TilesToRender.clear();
 
 	int off = 0;
 
@@ -1193,15 +1189,15 @@ void TileEngineClass::DrawFrontLevel(void)
 					ActualTexture = Tiles[xLevel+i][yLevel+j].TileSetFront;
 
 					// Tiles zeichnen
-					if (NumToRender > 0)
-						DirectGraphics.RendertoBuffer (D3DPT_TRIANGLELIST, NumToRender*2,
-													   &TilesToRender[0]);
+					if (!TilesToRender.empty())
+						DirectGraphics.RendertoBuffer (D3DPT_TRIANGLELIST, TilesToRender.size()/3,
+													   TilesToRender.data());
 
 					// Neue aktuelle Textur setzen
 					lpD3DDevice->SetTexture (0, TileGfx[ActualTexture].itsTexture);
 
 					// Und beim rendern wieder von vorne anfangen
-					NumToRender = 0;
+					TilesToRender.clear();
 				}
 
 				Type = Tiles[xLevel+i][yLevel+j].FrontArt - INCLUDE_ZEROTILE;
@@ -1284,14 +1280,12 @@ void TileEngineClass::DrawFrontLevel(void)
 				if (Tiles[xLevel+i][yLevel+j].move_v4 == true) v4.x += SinList2[off + 2];
 
 				// Zu rendernde Vertices ins Array schreiben
-				TilesToRender[NumToRender*6]   = v1;	// Jeweils 2 Dreicke als
-				TilesToRender[NumToRender*6+1] = v2;	// als ein viereckiges
-				TilesToRender[NumToRender*6+2] = v3;	// Tile ins Array kopieren
-				TilesToRender[NumToRender*6+3] = v3;	
-				TilesToRender[NumToRender*6+4] = v2;	
-				TilesToRender[NumToRender*6+5] = v4;	
-
-				NumToRender++;				// Weiter im Vertex Array
+				TilesToRender.push_back(v1);	// Jeweils 2 Dreicke als
+				TilesToRender.push_back(v2);	// als ein viereckiges
+				TilesToRender.push_back(v3);	// Tile ins Array kopieren
+				TilesToRender.push_back(v3);
+				TilesToRender.push_back(v2);
+				TilesToRender.push_back(v4);
 
 			}
 			xScreen += TILESIZE_X;		// Am Screen weiter
@@ -1299,9 +1293,9 @@ void TileEngineClass::DrawFrontLevel(void)
 		yScreen += TILESIZE_Y;			// Am Screen weiter
 	}
 
-	if (NumToRender > 0)
+	if (!TilesToRender.empty())
 
-	DirectGraphics.RendertoBuffer (D3DPT_TRIANGLELIST, NumToRender*2,&TilesToRender[0]);
+	DirectGraphics.RendertoBuffer (D3DPT_TRIANGLELIST, TilesToRender.size()/3,TilesToRender.data());
 }
 
 // --------------------------------------------------------------------------------------
@@ -1326,7 +1320,6 @@ void TileEngineClass::ScrollLevel(float x, float y, int neu, float sx, float sy)
 void TileEngineClass::DrawBackLevelOverlay (void)
 {
 	RECT			Rect;						// Texturausschnitt im Tileset
-	int				NumToRender;				// Wieviele Vertices zu rendern ?
 	int				ActualTexture;				// Aktuelle Textur
 	float			l,  r,  o,  u;				// Vertice Koordinaten
 	float			tl, tr, to, tu;				// Textur Koordinaten
@@ -1342,7 +1335,7 @@ void TileEngineClass::DrawBackLevelOverlay (void)
 	DirectGraphics.SetColorKeyMode();
 
 	// Noch keine Tiles zum rendern
-	NumToRender = 0;
+	TilesToRender.clear();
 	int al;
 	int off = 0;
 
@@ -1366,14 +1359,14 @@ void TileEngineClass::DrawBackLevelOverlay (void)
 					ActualTexture = Tiles[xLevel+i][yLevel+j].TileSetBack;
 
 					// Tiles zeichnen
-					if (NumToRender > 0)
-						DirectGraphics.RendertoBuffer (D3DPT_TRIANGLELIST, NumToRender*2, &TilesToRender[0]);
+					if (!TilesToRender.empty())
+						DirectGraphics.RendertoBuffer (D3DPT_TRIANGLELIST, TilesToRender.size()/3, TilesToRender.data());
 
 					// Neue aktuelle Textur setzen
 					lpD3DDevice->SetTexture (0, TileGfx[ActualTexture].itsTexture);
 
 					// Und beim rendern wieder von vorne anfangen
-					NumToRender = 0;
+					TilesToRender.clear();
 				}
 
 				Type = Tiles[xLevel+i][yLevel+j].BackArt - INCLUDE_ZEROTILE;
@@ -1434,22 +1427,20 @@ void TileEngineClass::DrawBackLevelOverlay (void)
 				v4.tv		= tu;
 
 				// Zu rendernde Vertices ins Array schreiben
-				TilesToRender[NumToRender*6]   = v1;	// Jeweils 2 Dreicke als
-				TilesToRender[NumToRender*6+1] = v2;	// als ein viereckiges
-				TilesToRender[NumToRender*6+2] = v3;	// Tile ins Array kopieren
-				TilesToRender[NumToRender*6+3] = v3;	
-				TilesToRender[NumToRender*6+4] = v2;	
-				TilesToRender[NumToRender*6+5] = v4;	
-
-				NumToRender++;				// Weiter im Vertex Array
+				TilesToRender.push_back(v1);	// Jeweils 2 Dreicke als
+				TilesToRender.push_back(v2);	// als ein viereckiges
+				TilesToRender.push_back(v3);	// Tile ins Array kopieren
+				TilesToRender.push_back(v3);
+				TilesToRender.push_back(v2);
+				TilesToRender.push_back(v4);
 			}
 			xScreen += TILESIZE_X;		// Am Screen weiter
 		}
 		yScreen += TILESIZE_Y;			// Am Screen weiter
 	}
 
-	if (NumToRender > 0)
-		DirectGraphics.RendertoBuffer (D3DPT_TRIANGLELIST, NumToRender*2, &TilesToRender[0]);
+	if (!TilesToRender.empty())
+		DirectGraphics.RendertoBuffer (D3DPT_TRIANGLELIST, TilesToRender.size()/3, TilesToRender.data());
 }
 
 // --------------------------------------------------------------------------------------
@@ -1459,7 +1450,6 @@ void TileEngineClass::DrawBackLevelOverlay (void)
 void TileEngineClass::DrawOverlayLevel(void)
 {
 	RECT			Rect;						// Texturausschnitt im Tileset
-	int				NumToRender;				// Wieviele Vertices zu rendern ?
 	int				ActualTexture;				// Aktuelle Textur
 	float			l,  r,  o,  u;				// Vertice Koordinaten
 	float			tl, tr, to, tu;				// Textur Koordinaten
@@ -1475,7 +1465,7 @@ void TileEngineClass::DrawOverlayLevel(void)
 	DirectGraphics.SetColorKeyMode();
 
 	// Noch keine Tiles zum rendern
-	NumToRender = 0;
+	TilesToRender.clear();
 	int al;	
 	int off = 0;	
 
@@ -1510,10 +1500,10 @@ void TileEngineClass::DrawOverlayLevel(void)
 				if (Tiles[xLevel+i][yLevel+j].Block & BLOCKWERT_WASSERFALL)
 				{
 					// Tiles zeichnen
-					if (NumToRender > 0)
+					if (!TilesToRender.empty())
 					{
-						DirectGraphics.RendertoBuffer (D3DPT_TRIANGLELIST, NumToRender*2, &TilesToRender[0]);						
-						NumToRender   = 0;
+						DirectGraphics.RendertoBuffer (D3DPT_TRIANGLELIST, TilesToRender.size()/3, TilesToRender.data());						
+						TilesToRender.clear();
 					}
 
 					ActualTexture = -1;
@@ -1563,14 +1553,14 @@ void TileEngineClass::DrawOverlayLevel(void)
 						ActualTexture = Tiles[xLevel+i][yLevel+j].TileSetFront;
 
 						// Tiles zeichnen
-						if (NumToRender > 0)
-							DirectGraphics.RendertoBuffer (D3DPT_TRIANGLELIST, NumToRender*2, &TilesToRender[0]);
+						if (!TilesToRender.empty())
+							DirectGraphics.RendertoBuffer (D3DPT_TRIANGLELIST, TilesToRender.size()/3, TilesToRender.data());
 
 						// Neue aktuelle Textur setzen
 						lpD3DDevice->SetTexture (0, TileGfx[ActualTexture].itsTexture);
 
 						// Und beim rendern wieder von vorne anfangen
-						NumToRender = 0;
+						TilesToRender.clear();
 					}
 
 					// "normales" Overlay Tile setzen				
@@ -1650,14 +1640,12 @@ void TileEngineClass::DrawOverlayLevel(void)
 					v4.tv		= tu;											
 
 					// Zu rendernde Vertices ins Array schreiben
-					TilesToRender[NumToRender*6]   = v1;	// Jeweils 2 Dreicke als
-					TilesToRender[NumToRender*6+1] = v2;	// als ein viereckiges
-					TilesToRender[NumToRender*6+2] = v3;	// Tile ins Array kopieren
-					TilesToRender[NumToRender*6+3] = v3;	
-					TilesToRender[NumToRender*6+4] = v2;	
-					TilesToRender[NumToRender*6+5] = v4;	
-
-					NumToRender++;				// Weiter im Vertex Array
+					TilesToRender.push_back(v1);	// Jeweils 2 Dreicke als
+					TilesToRender.push_back(v2);	// als ein viereckiges
+					TilesToRender.push_back(v3);	// Tile ins Array kopieren
+					TilesToRender.push_back(v3);
+					TilesToRender.push_back(v2);
+					TilesToRender.push_back(v4);
 				}
 			}
 
@@ -1667,8 +1655,8 @@ void TileEngineClass::DrawOverlayLevel(void)
 		yScreen += TILESIZE_Y;			// Am Screen weiter
 	}
 
-	if (NumToRender > 0)
-		DirectGraphics.RendertoBuffer (D3DPT_TRIANGLELIST, NumToRender*2, &TilesToRender[0]);
+	if (!TilesToRender.empty())
+		DirectGraphics.RendertoBuffer (D3DPT_TRIANGLELIST, TilesToRender.size()/3, TilesToRender.data());
 }
 
 // --------------------------------------------------------------------------------------
@@ -1677,7 +1665,6 @@ void TileEngineClass::DrawOverlayLevel(void)
 
 void TileEngineClass::DrawWater(void)
 {
-	int				NumToRender;				// Wieviele Vertices zu rendern ?
 	float			l,  r,  o,  u;				// Vertice Koordinaten
 	int				xo, yo;
 
@@ -1686,7 +1673,7 @@ void TileEngineClass::DrawWater(void)
 	yScreen = (float)(-yTileOffs) + RenderPosY * TILESIZE_Y;
 
 	// Noch keine Tiles zum rendern
-	NumToRender = 0;
+	TilesToRender.clear();
 
 	int off = (int)((WaterPos) + xLevel % 32 + (yLevel * 10) % 40) % 1024;
 
@@ -1746,14 +1733,12 @@ void TileEngineClass::DrawWater(void)
 					v1.color = v2.color = v3.color = v4.color = Col1;
 
 					// Zu rendernde Vertices ins Array schreiben
-					TilesToRender[NumToRender*6]   = v1;	// Jeweils 2 Dreicke als
-					TilesToRender[NumToRender*6+1] = v2;	// als ein viereckiges
-					TilesToRender[NumToRender*6+2] = v3;	// Tile ins Array kopieren
-					TilesToRender[NumToRender*6+3] = v3;	
-					TilesToRender[NumToRender*6+4] = v2;	
-					TilesToRender[NumToRender*6+5] = v4;	
-
-					NumToRender++;				// Weiter im Vertex Array
+					TilesToRender.push_back(v1);	// Jeweils 2 Dreicke als
+					TilesToRender.push_back(v2);	// als ein viereckiges
+					TilesToRender.push_back(v3);	// Tile ins Array kopieren
+					TilesToRender.push_back(v3);
+					TilesToRender.push_back(v2);
+					TilesToRender.push_back(v4);
 				}
 
 				xScreen += TILESIZE_X;		// Am Screen weiter
@@ -1762,8 +1747,8 @@ void TileEngineClass::DrawWater(void)
 			yScreen += TILESIZE_Y;			// Am Screen weiter
 		}
 
-		if (NumToRender > 0)
-			DirectGraphics.RendertoBuffer (D3DPT_TRIANGLELIST, NumToRender*2, &TilesToRender[0]);
+		if (!TilesToRender.empty())
+			DirectGraphics.RendertoBuffer (D3DPT_TRIANGLELIST, TilesToRender.size()/3, TilesToRender.data());
 	}
 
 	// oder geiles, animiertes Wasser?
@@ -1868,14 +1853,12 @@ void TileEngineClass::DrawWater(void)
 							v4.y += WaterList[off + j*10 + i * 2 + 10];
 								
 						// Zu rendernde Vertices ins Array schreiben
-						TilesToRender[NumToRender*6]   = v1;	// Jeweils 2 Dreicke als
-						TilesToRender[NumToRender*6+1] = v2;	// als ein viereckiges
-						TilesToRender[NumToRender*6+2] = v3;	// Tile ins Array kopieren
-						TilesToRender[NumToRender*6+3] = v3;	
-						TilesToRender[NumToRender*6+4] = v2;	
-						TilesToRender[NumToRender*6+5] = v4;
-
-						NumToRender++;				// Weiter im Vertex Array
+						TilesToRender.push_back(v1);	// Jeweils 2 Dreicke als
+						TilesToRender.push_back(v2);	// als ein viereckiges
+						TilesToRender.push_back(v3);	// Tile ins Array kopieren
+						TilesToRender.push_back(v3);
+						TilesToRender.push_back(v2);
+						TilesToRender.push_back(v4);
 					}
 
 					xScreen += TILESIZE_X;		// Am Screen weiter
@@ -1884,7 +1867,7 @@ void TileEngineClass::DrawWater(void)
 				yScreen += TILESIZE_Y;			// Am Screen weiter
 			}
 
-			if (NumToRender > 0)
+			if (!TilesToRender.empty())
 			{
 				if (schicht > 0)
 				{
@@ -1894,10 +1877,10 @@ void TileEngineClass::DrawWater(void)
 				else
 					lpD3DDevice->SetTexture (0, LiquidGfx[0].itsTexture);
 	
-				DirectGraphics.RendertoBuffer (D3DPT_TRIANGLELIST, NumToRender*2, &TilesToRender[0]);
+				DirectGraphics.RendertoBuffer (D3DPT_TRIANGLELIST, TilesToRender.size()/3, TilesToRender.data());
 			}
 
-			NumToRender = 0;
+			TilesToRender.clear();
 		}
 	}
 

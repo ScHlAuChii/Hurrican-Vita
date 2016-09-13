@@ -21,6 +21,7 @@
 #include "DX8Sprite.h"
 #include "lightmap.h"
 #include "CDragonHack.h"
+#include <vector>
 
 // --------------------------------------------------------------------------------------
 // Defines
@@ -242,7 +243,7 @@ class TileEngineClass
 		float			CloudMovement;
 		int				TileAnimPhase;							// Phase der Tile Animation
 		float			ScrollSpeedX, ScrollSpeedY;				// Scrollspeed
-		VERTEX2D		TilesToRender[40*30*6];				// Alle zu rendernden Leveltiles
+		std::vector<VERTEX2D>	TilesToRender;					// Alle zu rendernden Leveltiles
 		VERTEX2D		v1, v2, v3, v4;							// Vertices zum Sprite rendern
 		unsigned char	LoadedTilesets;							// Anzahl geladener Sets				
 		float			WaterPos;								// Position in der WaterListe für die Wasseroberfläche		
