@@ -964,7 +964,7 @@ void GegnerDrache::DoKI(void)
 
 							if (xPos > (float)pTileEngine->XOffset)
 								pPartikelSystem->PushPartikel((float) pTileEngine->XOffset + 10.0f,
-															  (float)(pTileEngine->YOffset + rand()%480),
+															  (float)(pTileEngine->YOffset + rand()%SCREENHEIGHT),
 															  BLATT2);
 
 							for (int p = 0; p < NUMPLAYERS; p++)
@@ -975,8 +975,8 @@ void GegnerDrache::DoKI(void)
 							WinkelUebergabe = 0.0f;
 
 							if (xPos < (float)pTileEngine->XOffset + 550.0f)
-								pPartikelSystem->PushPartikel((float)(pTileEngine->XOffset + 640.0f),
-															  (float)(pTileEngine->YOffset + rand()%480),
+								pPartikelSystem->PushPartikel((float)(pTileEngine->XOffset + SCREENWIDTH),
+															  (float)(pTileEngine->YOffset + rand()%SCREENHEIGHT),
 															  BLATT2);
 
 							for (int p = 0; p < NUMPLAYERS; p++)
