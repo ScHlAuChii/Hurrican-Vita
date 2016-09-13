@@ -199,7 +199,7 @@ void ShowGameOver(void)
 	if (col > 255)							// Obergrenze checken
 		col = 255;
 
-	pTileEngine->GameOver.RenderSprite((640 - 400) * 0.5f, (480 - 90) * 0.5f, D3DCOLOR_RGBA(255, 255, 255, col));
+	pTileEngine->GameOver.RenderSprite((SCREENWIDTH - 400) * 0.5f, (SCREENHEIGHT - 90) * 0.5f, D3DCOLOR_RGBA(255, 255, 255, col));
 
 	pPlayer[0]->GameOverTimer -= 0.75f SYNC;
 
