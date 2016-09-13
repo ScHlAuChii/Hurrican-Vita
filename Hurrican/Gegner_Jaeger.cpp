@@ -88,7 +88,7 @@ void GegnerJaeger::DoKI(void)
 		{
 			// Gegner unten aus dem Screen raus? Dann explodieren lassen
 			//
-			if (yPos - pTileEngine->YOffset > 480)
+			if (yPos - pTileEngine->YOffset > SCREENHEIGHT)
 			{
 				Energy			= 0.0f;
 			}

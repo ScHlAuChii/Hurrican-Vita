@@ -34,9 +34,9 @@ void GegnerEndLevel::DoKI(void)
 		(NewStage != Value1 ||
 		RunningTutorial) &&
 		xPos + 120 > pTileEngine->XOffset	    &&
-		xPos	   < pTileEngine->XOffset + 640 &&
+		xPos	   < pTileEngine->XOffset + SCREENWIDTH &&
 		yPos + 120 > pTileEngine->YOffset	    &&
-		yPos	   < pTileEngine->YOffset + 480)
+		yPos	   < pTileEngine->YOffset + SCREENHEIGHT)
 	{
 		// Ausgang berührt ? Dann Nächsten Level laden
 		for (int p = 0; p < NUMPLAYERS; p++)

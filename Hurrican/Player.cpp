@@ -4384,9 +4384,9 @@ bool PlayerClass::CheckLevelExit(void)
 {
 	// Spieler aus Level draussen?
 	if (xpos + pPlayer[0]->CollideRect.right  < pTileEngine->XOffset	    ||
-		xpos + pPlayer[0]->CollideRect.left   > pTileEngine->XOffset + 640 ||
+		xpos + pPlayer[0]->CollideRect.left   > pTileEngine->XOffset + SCREENWIDTH ||
 		ypos + pPlayer[0]->CollideRect.bottom < pTileEngine->YOffset	    ||
-		ypos + pPlayer[0]->CollideRect.top    > pTileEngine->YOffset + 480)
+		ypos + pPlayer[0]->CollideRect.top    > pTileEngine->YOffset + SCREENHEIGHT)
 		return true;
 
 	return false;

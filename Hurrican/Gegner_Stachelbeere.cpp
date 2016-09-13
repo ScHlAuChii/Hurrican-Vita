@@ -258,7 +258,7 @@ void GegnerStachelbeere::DoKI(void)
 
 				(pTileEngine->Zustand == ZUSTAND_LOCKED &&
 				 BlickRichtung == RECHTS &&
-				 xPos > pTileEngine->XOffset + 640 - 50) ||
+				 xPos > pTileEngine->XOffset + SCREENWIDTH - 50) ||
 
 				(BlickRichtung == LINKS &&
 				 (blockl & BLOCKWERT_WAND ||

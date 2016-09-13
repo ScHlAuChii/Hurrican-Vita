@@ -2244,9 +2244,9 @@ void GegnerListClass::DamageEnemiesonScreen(float x, float y, int MaxDamage)
 			pTemp->Handlung    == GEGNER_STEHEN &&
 			dx < 300						  &&
 			pTemp->xPos + GegnerRect[pTemp->GegnerArt].right  > pTileEngine->XOffset		  &&
-			pTemp->xPos + GegnerRect[pTemp->GegnerArt].left   < pTileEngine->XOffset + 640	  &&
+			pTemp->xPos + GegnerRect[pTemp->GegnerArt].left   < pTileEngine->XOffset + SCREENWIDTH	  &&
 			pTemp->yPos + GegnerRect[pTemp->GegnerArt].bottom > pTileEngine->YOffset		  &&
-			pTemp->yPos + GegnerRect[pTemp->GegnerArt].top    < pTileEngine->YOffset + 480)
+			pTemp->yPos + GegnerRect[pTemp->GegnerArt].top    < pTileEngine->YOffset + SCREENHEIGHT)
 		{
 			pTemp->Handlung = GEGNER_FALLEN;
 			pTemp->ySpeed   = 20.0f;
@@ -2263,9 +2263,9 @@ void GegnerListClass::DamageEnemiesonScreen(float x, float y, int MaxDamage)
 			pTemp->GegnerArt   != POWERBLOCK	&&
 			pTemp->GegnerArt < RIESENPIRANHA    &&
 			pTemp->xPos + GegnerRect[pTemp->GegnerArt].right  > pTileEngine->XOffset		  &&
-			pTemp->xPos + GegnerRect[pTemp->GegnerArt].left   < pTileEngine->XOffset + 640	  &&
+			pTemp->xPos + GegnerRect[pTemp->GegnerArt].left   < pTileEngine->XOffset + SCREENWIDTH	  &&
 			pTemp->yPos + GegnerRect[pTemp->GegnerArt].bottom > pTileEngine->YOffset		  &&
-			pTemp->yPos + GegnerRect[pTemp->GegnerArt].top    < pTileEngine->YOffset + 480)
+			pTemp->yPos + GegnerRect[pTemp->GegnerArt].top    < pTileEngine->YOffset + SCREENHEIGHT)
 		{
 			int amount = (int)(MaxDamage - dx);
 

@@ -34,9 +34,9 @@ void GegnerBruecke::DoKI(void)
 	// Brücke nicht im Bild ?
 	//
 	if (xPos + 10 < pTileEngine->XOffset		||
-		xPos	  > pTileEngine->XOffset + 640	||
+		xPos	  > pTileEngine->XOffset + SCREENWIDTH	||
 		yPos + 10 < pTileEngine->YOffset		||
-		yPos	  > pTileEngine->YOffset + 480)
+		yPos	  > pTileEngine->YOffset + SCREENHEIGHT)
 	{
 		return;
 	}
