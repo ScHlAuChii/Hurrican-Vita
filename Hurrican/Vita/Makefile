@@ -28,7 +28,7 @@ CXXFLAGS := $(CFLAGS) -std=c++11
 all: install
 
 install: package
-	ftp -u ftp://192.168.43.176:1337/ux0:/Homebrew/$(PROJECT).vpk $(PROJECT).vpk
+	ftp -v -u ftp://192.168.0.108:1337/ux0:/Homebrew/$(PROJECT).vpk $(PROJECT).vpk
 
 package: $(PROJECT).vpk
 
