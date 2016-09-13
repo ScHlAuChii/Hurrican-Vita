@@ -465,7 +465,7 @@ void GegnerEvilHurri::DoKI(void)
 			{
 				int w = 128 - int (ActionDelay - 25.0f) * 12;
 
-				RenderRect(0, 0, 640, 480, D3DCOLOR_RGBA(255, 255, 128, w));
+				RenderRect(0, 0, SCREENWIDTH, SCREENHEIGHT, D3DCOLOR_RGBA(255, 255, 128, w));
 			}
 
 			if (ActionDelay > 70.0f)
