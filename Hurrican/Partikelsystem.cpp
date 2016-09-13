@@ -1880,9 +1880,9 @@ void PartikelClass::Run(void)
 	//
 	if (RemoveWhenOffScreen == true)
 	{
-		if (yPos-pTileEngine->YOffset > 480 + 20 ||
+		if (yPos-pTileEngine->YOffset > SCREENHEIGHT + 20 ||
 			yPos-pTileEngine->YOffset+PartikelRect[PartikelArt].bottom < 20 ||
-			xPos-pTileEngine->XOffset > 640 + 20 ||
+			xPos-pTileEngine->XOffset > SCREENWIDTH + 20 ||
 			xPos-pTileEngine->XOffset+PartikelRect[PartikelArt].right < 20)
 			Lebensdauer = 0.0f;
 	}
@@ -4175,7 +4175,7 @@ void PartikelsystemClass::DoThunder (void)
 	if (ThunderAlpha > 0.0f)
 	{
 		D3DCOLOR col = D3DCOLOR_RGBA (ThunderColor[0], ThunderColor[1], ThunderColor[2], int (ThunderAlpha));
-		RenderRect (0, 0, 640, 480, col);
+		RenderRect (0, 0, SCREENWIDTH, SCREENHEIGHT, col);
 		ThunderAlpha -= 40.0f SYNC;
 	}
 }

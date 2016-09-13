@@ -106,11 +106,11 @@ void GegnerPartikelSpawner::DoKI(void)
 					// Wäre der Partikel überhaupt im Screen?
 					float sx, sy;
 
-					sx = xPos-320 + rand()%640;
+					sx = xPos-SCREENW2 + rand()%SCREENWIDTH;
 					sy = (float)(pTileEngine->YOffset) - 16 - rand ()%64;
 
 					if (sx + 20 < pTileEngine->XOffset ||
-						sx - 180 > pTileEngine->XOffset + 640.0f)
+						sx - 180 > pTileEngine->XOffset + SCREENWIDTH)
 						break;
 
 					pPartikelSystem->PushPartikel(sx , sy, REGENTROPFEN);
@@ -122,7 +122,7 @@ void GegnerPartikelSpawner::DoKI(void)
 				// Schneeflocke
 				case 1 :
 				{
-					pPartikelSystem->PushPartikel(xPos-320 + rand()%640 , (float)(pTileEngine->YOffset) - 16 - rand ()%64, SCHNEEFLOCKE);
+					pPartikelSystem->PushPartikel(xPos-SCREENW2 + rand()%SCREENWIDTH , (float)(pTileEngine->YOffset) - 16 - rand ()%64, SCHNEEFLOCKE);
 					AnimCount = 0.5f;
 				} break;
 
@@ -163,9 +163,9 @@ void GegnerPartikelSpawner::DoKI(void)
 					float xdrop = xPos + rand()%40;
 
 					if (xdrop < pTileEngine->XOffset ||
-						xdrop > pTileEngine->XOffset + 640.0f ||
-						yPos  < pTileEngine->YOffset - 240.0f ||
-						yPos  > pTileEngine->YOffset + 480.0f)
+						xdrop > pTileEngine->XOffset + SCREENWIDTH ||
+						yPos  < pTileEngine->YOffset - SCREENH2 ||
+						yPos  > pTileEngine->YOffset + SCREENHEIGHT)
 					{
 					}
 					else
@@ -219,14 +219,14 @@ void GegnerPartikelSpawner::DoKI(void)
 
 					if (Value2 == 0)
 					{
-						pPartikelSystem->PushPartikel((float)(pTileEngine->XOffset + 640.0f), 
-													  (float)(yPos - 240.0f + rand()%480), BLATT2);
+						pPartikelSystem->PushPartikel((float)(pTileEngine->XOffset + SCREENWIDTH), 
+													  (float)(yPos - SCREENH2 + rand()%SCREENHEIGHT), BLATT2);
 						AnimCount = (rand()%5 + 1) / 5.0f;
 					}
 					else
 					{
-						pPartikelSystem->PushPartikel((float)(pTileEngine->XOffset + 640.0f), 
-													  (float)(yPos - 240.0f + rand()%480), DUST);
+						pPartikelSystem->PushPartikel((float)(pTileEngine->XOffset + SCREENWIDTH), 
+													  (float)(yPos - SCREENH2 + rand()%SCREENHEIGHT), DUST);
 						AnimCount = (rand()%5 + 1) / 2.0f;
 					}
 					
@@ -264,9 +264,9 @@ void GegnerPartikelSpawner::DoKI(void)
 		// Partikel, die nur gespwant werden, wenn der Trigger im Bild ist
 		// Ist der Trigger im Bild ?
 		if (xPos + 40 > pTileEngine->XOffset	   &&
-			xPos	  < pTileEngine->XOffset + 640 &&
+			xPos	  < pTileEngine->XOffset + SCREENWIDTH &&
 			yPos + 40 > pTileEngine->YOffset	   &&
-			yPos	  < pTileEngine->YOffset + 480)
+			yPos	  < pTileEngine->YOffset + SCREENHEIGHT)
 		{
 			// Richtigen Partikel Spawnen
 			switch (Value1)
