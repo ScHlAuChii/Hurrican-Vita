@@ -894,17 +894,14 @@ void TileEngineClass::DrawBackground(void)
 
 //----- Hintergrund-Bild
 
-	xoff = (int)(XOffset / 5) % 640;
+	xoff = (int)(XOffset / 5) % SCREENFITW;
 
 	if (bScrollBackground == true)				// Hintergrundbild mitscrollen
 	{
-		// Linke Hälfte
-		Background.SetRect(0, 0, xoff, 480);
-		Background.RenderSprite(640-(float)(xoff), 0, 0xFFFFFFFF);
-
-		// Rechte Hälfte
-		Background.SetRect(xoff, 0, 640, 480);
-		Background.RenderSprite(0, 0, 0xFFFFFFFF);
+		for (int x = -xoff; x < SCREENWIDTH; x += SCREENFITW)
+		{
+			Background.RenderSpriteScaled(x, 0, SCREENFITW, SCREENHEIGHT, 0xFFFFFFFF);
+		}
 	}
 	else										// oder statisch ?
 	{
