@@ -36,7 +36,7 @@ install: package
 	curl -v -T $(PROJECT).vpk ftp://$(VITA_IP_ADDRESS):1337/ux0:/
 
 update: eboot.bin
-	curl -v -T eboot.bin ftp://$(VITA_IP_ADDRESS):1337/app/$(PROJECT_TITLEID)/
+	curl -v -T eboot.bin ftp://$(VITA_IP_ADDRESS):1337/ux0:/app/$(PROJECT_TITLEID)/
 
 package: $(PROJECT).vpk
 
