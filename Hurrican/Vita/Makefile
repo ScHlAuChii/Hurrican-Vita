@@ -13,6 +13,9 @@ PROJECT := hurrican
 SRC_DIR := ..
 OBJ_DIR := obj
 
+DATA_DIR := ../data
+DATA_FILES := $(wildcard $(DATA_DIR)/*.bmp $(DATA_DIR)/*.png $(DATA_DIR)/*.wav $(DATA_DIR)/boss_*.it)
+
 SRC_C := $(SRC_DIR)/Wrap/unrarlib.c
 SRC_CPP := $(call wildcard, $(SRC_DIR)/*.cpp $(SRC_DIR)/Wrap/*.cpp $(SRC_DIR)/Vita/*.cpp)
 SRC_GXP := $(call wildcard, $(SRC_DIR)/Vita/*.gxp)
@@ -32,12 +35,33 @@ install: package
 
 package: $(PROJECT).vpk
 
-$(PROJECT).vpk: eboot.bin param.sfo
+$(PROJECT).vpk: eboot.bin param.sfo $(DATA_FILES)
 	vita-pack-vpk -s param.sfo -b eboot.bin \
 	--add sce_sys/icon0.png=sce_sys/icon0.png \
 	--add sce_sys/livearea/contents/bg.png=sce_sys/livearea/contents/bg.png \
 	--add sce_sys/livearea/contents/startup.png=sce_sys/livearea/contents/startup.png \
 	--add sce_sys/livearea/contents/template.xml=sce_sys/livearea/contents/template.xml \
+	--add $(DATA_DIR)/Aztech.it=data/Aztech.it \
+	--add $(DATA_DIR)/Blue.it=data/Blue.it \
+	--add $(DATA_DIR)/Cracktro.it=data/Cracktro.it \
+	--add $(DATA_DIR)/JungleBeats.it=data/JungleBeats.it \
+	--add "$(DATA_DIR)/Machine Monotony.it"="data/Machine Monotony.it" \
+	--add $(DATA_DIR)/Punisher.it=data/Punisher.it \
+	--add $(DATA_DIR)/Tower.it=data/Tower.it \
+	--add $(DATA_DIR)/cave.it=data/cave.it \
+	--add $(DATA_DIR)/credits.it=data/credits.it \
+	--add $(DATA_DIR)/eis.it=data/eis.it \
+	--add $(DATA_DIR)/elevator.it=data/elevator.it \
+	--add $(DATA_DIR)/factory.it=data/factory.it \
+	--add $(DATA_DIR)/flugsack.it=data/flugsack.it \
+	--add $(DATA_DIR)/gameover.it=data/gameover.it \
+	--add $(DATA_DIR)/highscore.it=data/highscore.it \
+	--add $(DATA_DIR)/intro.it=data/intro.it \
+	--add $(DATA_DIR)/loststation.it=data/loststation.it \
+	--add $(DATA_DIR)/menu.it=data/menu.it \
+	--add $(DATA_DIR)/outtro.it=data/outtro.it \
+	--add $(DATA_DIR)/stageclear.it=data/stageclear.it \
+	$(foreach file,$(DATA_FILES),--add $(file)=$(subst $(DATA_DIR),data,$(file))) \
 	$(PROJECT).vpk
 
 eboot.bin: $(PROJECT).velf
