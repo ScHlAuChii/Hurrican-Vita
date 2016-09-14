@@ -640,6 +640,9 @@ void CSoundManager::SetSongVolume(int Nr, float Volume)
 
 void CSoundManager::SetAbsoluteSongVolume(int Nr, float Volume)
 {	
+	if (its_Songs[Nr] == NULL)
+		return;
+	
 	its_Songs[Nr]->Volume = Volume;
 	FMUSIC_SetMasterVolume(its_Songs[Nr]->SongData, (int)(Volume));
 } // SetSongVolume
