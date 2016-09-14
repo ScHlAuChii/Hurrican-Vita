@@ -28,7 +28,7 @@ CXXFLAGS := $(CFLAGS) -std=c++11
 
 .SECONDARY: $(GXP_HS)
 
-all: install
+all: update
 
 VITA_IP_ADDRESS := 192.168.43.176
 
