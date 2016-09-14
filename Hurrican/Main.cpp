@@ -75,6 +75,12 @@ extern DirectGraphicsSprite		*PartikelGrafix[MAX_PARTIKELGFX];	// Grafiken der P
 // globale Variablen
 // --------------------------------------------------------------------------------------
 
+#ifdef __vita__
+#	define LOGNAME "ux0:data/hurri.log"
+#else
+#	define LOGNAME "Game_Log.txt"
+#endif
+
 D3DFORMAT				D3DFormat;						// Format der Primary Surface
 D3DCAPS9				d3dcaps;						// Möglichkeiten der Hardware
 LPDIRECT3D9				lpD3D			= NULL;			// Direct3D Hauptobjekt
@@ -95,7 +101,7 @@ float					SpeedFaktor = 1.0f;				// Faktor, mit dem alle Bewegungen verrechnet w
 DirectGraphicsClass		DirectGraphics;					// Grafik-Objekt
 DirectInputClass		DirectInput;					// Input-Objekt
 TimerClass				*pTimer;						// Timer Klasse für die Framerate
-Logdatei				Protokoll("Game_Log.txt");		// Protokoll Datei
+Logdatei				Protokoll(LOGNAME);				// Protokoll Datei
 CSoundManager			*pSoundManager =  NULL;			// Sound Manager
 DirectGraphicsFont		*pDefaultFont = new(DirectGraphicsFont);
 DirectGraphicsFont		*pMenuFont	  = new(DirectGraphicsFont);
@@ -523,7 +529,7 @@ int WINAPI WinMain(HINSTANCE hinstance, HINSTANCE hprevinstace,
 
 	// Kein Fehler im Game? Dann Logfile löschen
 	if (Protokoll.delLogFile == true)
-		DeleteFile("Game_Log.txt");
+		DeleteFile(LOGNAME);
 
 	return(message.wParam);										// Rückkehr zu Windows
 }
