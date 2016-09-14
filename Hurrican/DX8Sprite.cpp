@@ -251,7 +251,7 @@ bool DirectGraphicsSprite::LoadImage(char *Filename, int xs, int ys, int xfs, in
 	}
 
 	// Dann checken, ob sich das File im Standard Ordner befindet
-	sprintf_s(Temp, "data/%s", Filename);
+	sprintf_s(Temp, "%s/data/%s", DATADIR, Filename);
 	if (FileExists(Temp))
 		goto loadfile;
 

@@ -132,7 +132,7 @@ loadfile:
 		fromrar = false;
 
 		// Checken, ob sich das File im Standard Ordner befindet
-		sprintf_s(Temp, "%s", "data/levellist.dat");
+		sprintf_s(Temp, "%s/%s", DATADIR, "/data/levellist.dat");
 		if (FileExists(Temp))
 			goto loadfilelevel;
 
