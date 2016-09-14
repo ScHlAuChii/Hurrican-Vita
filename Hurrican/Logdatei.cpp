@@ -63,23 +63,29 @@ Logdatei::~Logdatei()
 void Logdatei::WriteText(char Text[180], bool Abbruch)
 {
 	fopen_s(&Logfile, itsFilename, "a");					// Datei zum anfügen öffnen
-	fprintf_s(Logfile, Text);								// und Text schreiben
-	fclose(Logfile);									// Datei wieder schliessen
-
-	if(Abbruch == true)									// Abbruch nach Log-Eintrag ?
+	if (Logfile != nullptr)
 	{
-		fopen_s(&Logfile, itsFilename, "a");					// Datei zum anfügen öffnen
-		fprintf(Logfile, "\n    ^\n");
-		fprintf(Logfile, "   /|\\\n");
-		fprintf(Logfile, "    |\n");
-		fprintf(Logfile, "    |\n");
-		fprintf(Logfile, "    |\n");
-		fprintf(Logfile, "  Error\n\n");
+		fprintf_s(Logfile, Text);								// und Text schreiben
 		fclose(Logfile);									// Datei wieder schliessen
 
-		MessageBox (g_hwnd, Text, "Ein Fehler ist aufgetreten !", MB_OK | MB_ICONEXCLAMATION);
-		delLogFile  = false;
-		GameRunning = false;
+		if(Abbruch == true)									// Abbruch nach Log-Eintrag ?
+		{
+			fopen_s(&Logfile, itsFilename, "a");					// Datei zum anfügen öffnen
+			if (Logfile != nullptr)
+			{
+				fprintf(Logfile, "\n    ^\n");
+				fprintf(Logfile, "   /|\\\n");
+				fprintf(Logfile, "    |\n");
+				fprintf(Logfile, "    |\n");
+				fprintf(Logfile, "    |\n");
+				fprintf(Logfile, "  Error\n\n");
+				fclose(Logfile);									// Datei wieder schliessen
+			}
+
+			MessageBox (g_hwnd, Text, "Ein Fehler ist aufgetreten !", MB_OK | MB_ICONEXCLAMATION);
+			delLogFile  = false;
+			GameRunning = false;
+		}
 	}
 }
 
@@ -91,6 +97,9 @@ void Logdatei::WriteText(char Text[180], bool Abbruch)
 void Logdatei::WriteValue(int Value)
 {
 	fopen_s(&Logfile, itsFilename, "a");					// Datei zum anfügen öffnen
-	fprintf(Logfile, "%i\n", Value);					// und Wert schreiben
-	fclose(Logfile);									// Datei wieder schliessen
+	if (Logfile != nullptr)
+	{
+		fprintf(Logfile, "%i\n", Value);					// und Wert schreiben
+		fclose(Logfile);									// Datei wieder schliessen
+	}
 }
