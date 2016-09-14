@@ -30,8 +30,13 @@ CXXFLAGS := $(CFLAGS) -std=c++11
 
 all: install
 
+VITA_IP_ADDRESS := 192.168.0.108
+
 install: package
-	ftp -v -u ftp://192.168.0.108:1337/ux0:/Homebrew/$(PROJECT).vpk $(PROJECT).vpk
+	curl -v -T $(PROJECT).vpk ftp://$(VITA_IP_ADDRESS):1337/ux0:/
+
+update: eboot.bin
+	curl -v -T eboot.bin ftp://$(VITA_IP_ADDRESS):1337/app/$(PROJECT_TITLEID)/
 
 package: $(PROJECT).vpk
 
