@@ -4,6 +4,7 @@
 #include "SDL_video.h"
 
 #include <assert.h>
+#include <vector>
 
 class Direct3D : public IDirect3D9
 {
