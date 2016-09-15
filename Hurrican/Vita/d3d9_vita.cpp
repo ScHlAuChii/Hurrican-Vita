@@ -48,6 +48,7 @@ class Device : public IDirect3DDevice9
 public:
 	
 	SceUID fb[2] = { -1, -1 };
+	int next_buffer = 0;
 	
 	HRESULT BeginScene() override;
 	HRESULT Clear(int a, const void *b, int buffers, D3DCOLOR color, float z, int c) override;
@@ -88,17 +89,6 @@ HRESULT Direct3D::CreateDevice(UINT Adapter, D3DDEVTYPE DeviceType, HWND hFocusW
 	{
 		gpu_alloc(SCE_KERNEL_MEMBLOCK_TYPE_USER_CDRAM_RW, SCREEN_W * SCREEN_H * 4, SCE_GXM_MEMORY_ATTRIB_RW, &device->fb[i]);
 	}
-	
-	SceDisplayFrameBuf fb;
-	fb.size = sizeof(fb);
-	fb.pitch = SCREEN_W;
-	fb.pixelformat = SCE_DISPLAY_PIXELFORMAT_A8B8G8R8;
-	fb.width = SCREEN_W;
-	fb.height = SCREEN_H;
-	sceKernelGetMemBlockBase(device->fb[0], &fb.base);
-	memset(fb.base, 0xff, SCREEN_W * (SCREEN_H / 2) * 4);
-	
-	sceDisplaySetFrameBuf(&fb, SCE_DISPLAY_SETBUF_NEXTFRAME);
 	
 	*ppReturnedDeviceInterface = device.release();
 	
@@ -141,6 +131,19 @@ HRESULT Device::GetDeviceCaps(D3DCAPS9 *pCaps)
 
 HRESULT Device::Present(const RECT *pSourceRect, const RECT *pDestRect, HWND hDestWindowOverride, const RGNDATA *pDirtyRegion)
 {
+	SceDisplayFrameBuf fb;
+	fb.size = sizeof(fb);
+	fb.pitch = SCREEN_W;
+	fb.pixelformat = SCE_DISPLAY_PIXELFORMAT_A8B8G8R8;
+	fb.width = SCREEN_W;
+	fb.height = SCREEN_H;
+	sceKernelGetMemBlockBase(this->fb[next_buffer], &fb.base);
+	
+	sceDisplayWaitVblankStart();
+	sceDisplaySetFrameBuf(&fb, SCE_DISPLAY_SETBUF_NEXTFRAME);
+	
+	next_buffer = 1 - next_buffer;
+	
 	return D3D_OK;
 }
 
