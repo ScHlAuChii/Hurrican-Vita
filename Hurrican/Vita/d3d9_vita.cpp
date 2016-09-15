@@ -1,6 +1,40 @@
 #include "d3d9_vita.h"
 
-#include <assert.h>
+#include <psp2/display.h>
+#include <psp2/gxm.h>
+#include <psp2/kernel/sysmem.h>
+
+static const unsigned int SCREEN_W = 960;
+static const unsigned int SCREEN_H = 544;
+
+static size_t align_mem(size_t size, size_t alignment)
+{
+	return ((size + (alignment - 1)) / alignment) * alignment;
+}
+
+static void *gpu_alloc(SceKernelMemBlockType type, unsigned int size, SceGxmMemoryAttribFlags attribs, SceUID *uid)
+{
+	void *mem = nullptr;
+	
+	if (type == SCE_KERNEL_MEMBLOCK_TYPE_USER_CDRAM_RW)
+	{
+		size = align_mem(size, 256*1024);
+	}
+	else
+	{
+		size = align_mem(size, 4*1024);
+	}
+	
+	*uid = sceKernelAllocMemBlock("gpu_mem", type, size, NULL);
+	
+	if (sceKernelGetMemBlockBase(*uid, &mem) < 0)
+		return NULL;
+	
+	if (sceGxmMapMemory(mem, size, attribs) < 0)
+		return NULL;
+	
+	return mem;
+}
 
 class Direct3D : public IDirect3D9
 {
@@ -12,6 +46,8 @@ public:
 class Device : public IDirect3DDevice9
 {
 public:
+	
+	SceUID fb[2] = { -1, -1 };
 	
 	HRESULT BeginScene() override;
 	HRESULT Clear(int a, const void *b, int buffers, D3DCOLOR color, float z, int c) override;
@@ -38,7 +74,33 @@ IDirect3D9 *Direct3DCreate9(UINT SDKVersion)
 
 HRESULT Direct3D::CreateDevice(UINT Adapter, D3DDEVTYPE DeviceType, HWND hFocusWindow, DWORD BehaviorFlags, D3DPRESENT_PARAMETERS *pPresentationParameters, IDirect3DDevice9 **ppReturnedDeviceInterface)
 {
-	*ppReturnedDeviceInterface = new Device;
+	SceGxmInitializeParams params;
+	params.flags = 0x0;
+	params.displayQueueMaxPendingCount = 0x2; //Double buffering
+	params.displayQueueCallback = 0x0;
+	params.displayQueueCallbackDataSize = 0x0;
+	params.parameterBufferSize = (16 * 1024 * 1024);
+	
+	sceGxmInitialize(&params);
+	std::unique_ptr<Device> device(new Device);
+	
+	for (int i = 0; i < 2; ++i)
+	{
+		gpu_alloc(SCE_KERNEL_MEMBLOCK_TYPE_USER_CDRAM_RW, SCREEN_W * SCREEN_H * 4, SCE_GXM_MEMORY_ATTRIB_RW, &device->fb[i]);
+	}
+	
+	SceDisplayFrameBuf fb;
+	fb.size = sizeof(fb);
+	fb.pitch = SCREEN_W;
+	fb.pixelformat = SCE_DISPLAY_PIXELFORMAT_A8B8G8R8;
+	fb.width = SCREEN_W;
+	fb.height = SCREEN_H;
+	sceKernelGetMemBlockBase(device->fb[0], &fb.base);
+	memset(fb.base, 0xff, SCREEN_W * (SCREEN_H / 2) * 4);
+	
+	sceDisplaySetFrameBuf(&fb, SCE_DISPLAY_SETBUF_NEXTFRAME);
+	
+	*ppReturnedDeviceInterface = device.release();
 	
 	return D3D_OK;
 }
@@ -50,13 +112,6 @@ HRESULT Device::BeginScene()
 
 HRESULT Device::Clear(int a, const void *b, int buffers, D3DCOLOR color, float z, int c)
 {
-	assert(a == 0);
-	assert(b == nullptr);
-	assert(buffers == (D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER));
-	assert(color == D3DCOLOR_XRGB(0, 0, 0));
-	assert(z == 1);
-	assert(c == 0);
-	
 	return D3D_OK;
 }
 
@@ -69,8 +124,6 @@ HRESULT Device::CreateOffscreenPlainSurface(UINT Width, UINT Height, D3DFORMAT F
 
 HRESULT Device::DrawPrimitiveUP(D3DPRIMITIVETYPE PrimitiveType, UINT PrimitiveCount, const void *pVertexStreamZeroData, UINT VertexStreamZeroStride)
 {
-	assert(VertexStreamZeroStride > 0);
-	
 	return D3D_OK;
 }
 
@@ -88,11 +141,6 @@ HRESULT Device::GetDeviceCaps(D3DCAPS9 *pCaps)
 
 HRESULT Device::Present(const RECT *pSourceRect, const RECT *pDestRect, HWND hDestWindowOverride, const RGNDATA *pDirtyRegion)
 {
-	assert(pSourceRect == nullptr);
-	assert(pDestRect == nullptr);
-	assert(hDestWindowOverride == nullptr);
-	assert(pDirtyRegion == nullptr);
-	
 	return D3D_OK;
 }
 
@@ -147,8 +195,6 @@ Texture::~Texture()
 
 HRESULT Texture::GetLevelDesc(UINT Level, D3DSURFACE_DESC *pDesc)
 {
-	assert(Level == 0);
-	
 	memset(pDesc, 0, sizeof(*pDesc));
 	pDesc->Width = width;
 	pDesc->Height = height;
@@ -158,9 +204,6 @@ HRESULT Texture::GetLevelDesc(UINT Level, D3DSURFACE_DESC *pDesc)
 
 HRESULT Texture::LockRect(UINT Level, D3DLOCKED_RECT *pLockedRect, const RECT *pRect, DWORD Flags)
 {
-	assert(Level == 0);
-	assert(pRect == nullptr);
-	
 	memset(pLockedRect, 0, sizeof(*pLockedRect));
 	pLockedRect->Pitch = width * 4;
 	pLockedRect->pBits = pixels.get();

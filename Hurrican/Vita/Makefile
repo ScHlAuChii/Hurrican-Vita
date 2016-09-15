@@ -80,7 +80,7 @@ $(PROJECT).velf: $(PROJECT).elf
 	vita-elf-create $< $@
 
 $(PROJECT).elf: $(OBJS)
-	$(CXX) -Wl,-q -o $@ $^ -lSceGxm_stub
+	$(CXX) -Wl,-q -o $@ $^ -lSceGxm_stub -lSceDisplay_stub
 
 $(OBJ_DIR)/%.o : $(SRC_DIR)/%.cpp $(GXP_HS)
 	mkdir -p $(dir $@)
