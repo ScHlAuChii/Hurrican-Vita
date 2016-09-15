@@ -36,6 +36,46 @@ static void *gpu_alloc(SceKernelMemBlockType type, unsigned int size, SceGxmMemo
 	return mem;
 }
 
+void *vertex_usse_alloc(unsigned int size, SceUID *uid, unsigned int *usse_offset)
+{
+	void *mem = NULL;
+	
+	size = align_mem(size, 4096);
+	*uid = sceKernelAllocMemBlock("vertex_usse", SCE_KERNEL_MEMBLOCK_TYPE_USER_RW_UNCACHE, size, NULL);
+	
+	if (sceKernelGetMemBlockBase(*uid, &mem) < 0)
+		return NULL;
+	if (sceGxmMapVertexUsseMemory(mem, size, usse_offset) < 0)
+		return NULL;
+	
+	return mem;
+}
+
+void *fragment_usse_alloc(unsigned int size, SceUID *uid, unsigned int *usse_offset)
+{
+	void *mem = NULL;
+	
+	size = align_mem(size, 4096);
+	*uid = sceKernelAllocMemBlock("fragment_usse", SCE_KERNEL_MEMBLOCK_TYPE_USER_RW_UNCACHE, size, NULL);
+	
+	if (sceKernelGetMemBlockBase(*uid, &mem) < 0)
+		return NULL;
+	if (sceGxmMapFragmentUsseMemory(mem, size, usse_offset) < 0)
+		return NULL;
+	
+	return mem;
+}
+
+static void *patcher_host_alloc(void *user_data, unsigned int size)
+{
+	return malloc(size);
+}
+
+static void patcher_host_free(void *user_data, void *mem)
+{
+	free(mem);
+}
+
 class Direct3D : public IDirect3D9
 {
 public:
@@ -47,8 +87,13 @@ class Device : public IDirect3DDevice9
 {
 public:
 	
+	SceGxmContext *context = nullptr;
+	SceGxmRenderTarget *renderTarget = nullptr;
 	SceUID fb[2] = { -1, -1 };
 	int next_buffer = 0;
+	SceGxmColorSurface color_surfaces[2] = {};
+	SceGxmSyncObject *sync[2] = { nullptr, nullptr };
+	SceGxmDepthStencilSurface depth_stencil_surface = {};
 	
 	HRESULT BeginScene() override;
 	HRESULT Clear(int a, const void *b, int buffers, D3DCOLOR color, float z, int c) override;
@@ -85,10 +130,148 @@ HRESULT Direct3D::CreateDevice(UINT Adapter, D3DDEVTYPE DeviceType, HWND hFocusW
 	sceGxmInitialize(&params);
 	std::unique_ptr<Device> device(new Device);
 	
+	SceUID vdmRingBufferUid = -1;
+	void *vdmRingBuffer = gpu_alloc(
+									SCE_KERNEL_MEMBLOCK_TYPE_USER_RW_UNCACHE,
+									SCE_GXM_DEFAULT_VDM_RING_BUFFER_SIZE,
+									SCE_GXM_MEMORY_ATTRIB_READ,
+									&vdmRingBufferUid);
+	
+	SceUID vertexRingBufferUid = -1;
+	void *vertexRingBuffer = gpu_alloc(
+									   SCE_KERNEL_MEMBLOCK_TYPE_USER_RW_UNCACHE,
+									   SCE_GXM_DEFAULT_VERTEX_RING_BUFFER_SIZE,
+									   SCE_GXM_MEMORY_ATTRIB_READ,
+									   &vertexRingBufferUid);
+	
+	SceUID fragmentRingBufferUid = -1;
+	void *fragmentRingBuffer = gpu_alloc(
+										 SCE_KERNEL_MEMBLOCK_TYPE_USER_RW_UNCACHE,
+										 SCE_GXM_DEFAULT_FRAGMENT_RING_BUFFER_SIZE,
+										 SCE_GXM_MEMORY_ATTRIB_READ,
+										 &fragmentRingBufferUid);
+	
+	SceUID fragmentUsseRingBufferUid = -1;
+	unsigned int fragmentUsseRingBufferOffset;
+	void *fragmentUsseRingBuffer = fragment_usse_alloc(
+													   SCE_GXM_DEFAULT_FRAGMENT_USSE_RING_BUFFER_SIZE,
+													   &fragmentUsseRingBufferUid,
+													   &fragmentUsseRingBufferOffset);
+	
+	SceGxmContextParams contextParams = {};
+	contextParams.hostMem				= malloc(SCE_GXM_MINIMUM_CONTEXT_HOST_MEM_SIZE);
+	contextParams.hostMemSize			= SCE_GXM_MINIMUM_CONTEXT_HOST_MEM_SIZE;
+	contextParams.vdmRingBufferMem			= vdmRingBuffer;
+	contextParams.vdmRingBufferMemSize		= SCE_GXM_DEFAULT_VDM_RING_BUFFER_SIZE;
+	contextParams.vertexRingBufferMem		= vertexRingBuffer;
+	contextParams.vertexRingBufferMemSize		= SCE_GXM_DEFAULT_VERTEX_RING_BUFFER_SIZE;
+	contextParams.fragmentRingBufferMem		= fragmentRingBuffer;
+	contextParams.fragmentRingBufferMemSize		= SCE_GXM_DEFAULT_FRAGMENT_RING_BUFFER_SIZE;
+	contextParams.fragmentUsseRingBufferMem		= fragmentUsseRingBuffer;
+	contextParams.fragmentUsseRingBufferMemSize	= SCE_GXM_DEFAULT_FRAGMENT_USSE_RING_BUFFER_SIZE;
+	contextParams.fragmentUsseRingBufferOffset	= fragmentUsseRingBufferOffset;
+	
+	int err = sceGxmCreateContext(&contextParams, &device->context);
+	
+	// set up parameters
+	SceGxmRenderTargetParams renderTargetParams;
+	memset(&renderTargetParams, 0, sizeof(SceGxmRenderTargetParams));
+	renderTargetParams.flags			= 0;
+	renderTargetParams.width			= SCREEN_W;
+	renderTargetParams.height			= SCREEN_H;
+	renderTargetParams.scenesPerFrame		= 1;
+	renderTargetParams.multisampleMode		= SCE_GXM_MULTISAMPLE_NONE;
+	renderTargetParams.multisampleLocations		= 0;
+	renderTargetParams.driverMemBlock		= -1; // Invalid UID
+	
+	// create the render target
+	err = sceGxmCreateRenderTarget(&renderTargetParams, &device->renderTarget);
+	
 	for (int i = 0; i < 2; ++i)
 	{
-		gpu_alloc(SCE_KERNEL_MEMBLOCK_TYPE_USER_CDRAM_RW, SCREEN_W * SCREEN_H * 4, SCE_GXM_MEMORY_ATTRIB_RW, &device->fb[i]);
+		void *const fb_data = gpu_alloc(SCE_KERNEL_MEMBLOCK_TYPE_USER_CDRAM_RW, SCREEN_W * SCREEN_H * 4, SCE_GXM_MEMORY_ATTRIB_RW, &device->fb[i]);
+		
+		err = sceGxmColorSurfaceInit(
+									 &device->color_surfaces[i],
+									 SCE_GXM_COLOR_FORMAT_A8B8G8R8,
+									 SCE_GXM_COLOR_SURFACE_LINEAR,
+									 SCE_GXM_COLOR_SURFACE_SCALE_NONE,
+									 SCE_GXM_OUTPUT_REGISTER_SIZE_32BIT,
+									 SCREEN_W,
+									 SCREEN_H,
+									 SCREEN_W,
+									 fb_data);
+		
+		err = sceGxmSyncObjectCreate(&device->sync[i]);
 	}
+	
+	const unsigned int alignedWidth = align_mem(SCREEN_W, SCE_GXM_TILE_SIZEX);
+	const unsigned int alignedHeight = align_mem(SCREEN_H, SCE_GXM_TILE_SIZEY);
+	const unsigned int sampleCount = alignedWidth * alignedHeight;
+	const unsigned int depthStrideInSamples = alignedWidth;
+	SceUID depthBufferUid = -1;
+	void *const depthBufferData = gpu_alloc(
+								SCE_KERNEL_MEMBLOCK_TYPE_USER_RW_UNCACHE,
+								SCE_GXM_DEPTHSTENCIL_SURFACE_ALIGNMENT,
+								SCE_GXM_MEMORY_ATTRIB_RW,
+								&depthBufferUid);
+	
+	err = sceGxmDepthStencilSurfaceInit(&device->depth_stencil_surface,
+										SCE_GXM_DEPTH_STENCIL_FORMAT_S8D24,
+										SCE_GXM_DEPTH_STENCIL_SURFACE_TILED,
+										depthStrideInSamples,
+										depthBufferData,
+										nullptr);
+	
+	const unsigned int patcherBufferSize		= 64*1024;
+	const unsigned int patcherVertexUsseSize	= 64*1024;
+	const unsigned int patcherFragmentUsseSize	= 64*1024;
+	
+	// allocate memory for buffers and USSE code
+	SceUID patcherBufferUid = -1;
+	void *patcherBuffer = gpu_alloc(
+									SCE_KERNEL_MEMBLOCK_TYPE_USER_RW_UNCACHE,
+									patcherBufferSize,
+									SCE_GXM_MEMORY_ATTRIB_RW,
+									&patcherBufferUid);
+	
+	SceUID patcherVertexUsseUid = -1;
+	unsigned int patcherVertexUsseOffset;
+	void *patcherVertexUsse = vertex_usse_alloc(
+												patcherVertexUsseSize,
+												&patcherVertexUsseUid,
+												&patcherVertexUsseOffset);
+	
+	SceUID patcherFragmentUsseUid = -1;
+	unsigned int patcherFragmentUsseOffset;
+	void *patcherFragmentUsse = fragment_usse_alloc(
+													patcherFragmentUsseSize,
+													&patcherFragmentUsseUid,
+													&patcherFragmentUsseOffset);
+	
+	// create a shader patcher
+	SceGxmShaderPatcherParams patcherParams;
+	memset(&patcherParams, 0, sizeof(SceGxmShaderPatcherParams));
+	patcherParams.userData			= NULL;
+	patcherParams.hostAllocCallback		= &patcher_host_alloc;
+	patcherParams.hostFreeCallback		= &patcher_host_free;
+	patcherParams.bufferAllocCallback	= NULL;
+	patcherParams.bufferFreeCallback	= NULL;
+	patcherParams.bufferMem			= patcherBuffer;
+	patcherParams.bufferMemSize		= patcherBufferSize;
+	patcherParams.vertexUsseAllocCallback	= NULL;
+	patcherParams.vertexUsseFreeCallback	= NULL;
+	patcherParams.vertexUsseMem		= patcherVertexUsse;
+	patcherParams.vertexUsseMemSize		= patcherVertexUsseSize;
+	patcherParams.vertexUsseOffset		= patcherVertexUsseOffset;
+	patcherParams.fragmentUsseAllocCallback	= NULL;
+	patcherParams.fragmentUsseFreeCallback	= NULL;
+	patcherParams.fragmentUsseMem		= patcherFragmentUsse;
+	patcherParams.fragmentUsseMemSize	= patcherFragmentUsseSize;
+	patcherParams.fragmentUsseOffset	= patcherFragmentUsseOffset;
+	
+	SceGxmShaderPatcher *shaderPatcher = nullptr;
+	err = sceGxmShaderPatcherCreate(&patcherParams, &shaderPatcher);
 	
 	*ppReturnedDeviceInterface = device.release();
 	
