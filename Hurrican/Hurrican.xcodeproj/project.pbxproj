@@ -627,6 +627,13 @@
 		C18CD1D71D75684E00CB3725 /* fsound.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fsound.cpp; sourceTree = "<group>"; };
 		C18CD1D91D75F19000CB3725 /* fmusic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fmusic.cpp; sourceTree = "<group>"; };
 		C18CD1DD1D75F81600CB3725 /* unrarlib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unrarlib.c; sourceTree = "<group>"; };
+		C19203D01D8B13190006C0AA /* color_f.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = color_f.h; sourceTree = "<group>"; };
+		C19203D11D8B13190006C0AA /* color_v.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = color_v.h; sourceTree = "<group>"; };
+		C19203D21D8B136D0006C0AA /* clear_f.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = clear_f.h; sourceTree = "<group>"; };
+		C19203D31D8B136D0006C0AA /* clear_v.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = clear_v.h; sourceTree = "<group>"; };
+		C19203D41D8B136D0006C0AA /* texture_tint_f.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = texture_tint_f.h; sourceTree = "<group>"; };
+		C19203D51D8B136D0006C0AA /* texture_v.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = texture_v.h; sourceTree = "<group>"; };
+		C19203D61D8B13A40006C0AA /* shaders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = shaders.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -657,12 +664,14 @@
 		C108B8711D7D4ED700D47E84 /* Vita */ = {
 			isa = PBXGroup;
 			children = (
+				C19203CF1D8B13190006C0AA /* shaders */,
 				C108B8731D7DE07C00D47E84 /* d3d9_vita.cpp */,
 				C108B87F1D7DE19A00D47E84 /* d3d9_vita.h */,
 				C108B8741D7DE07C00D47E84 /* d3dx9_vita.cpp */,
 				C108B8751D7DE07C00D47E84 /* dinput_vita.cpp */,
 				C108B8761D7DE07C00D47E84 /* main_vita.cpp */,
 				C108B8721D7D4EEF00D47E84 /* Makefile */,
+				C19203D61D8B13A40006C0AA /* shaders.h */,
 				C108B8771D7DE07C00D47E84 /* windows_vita.cpp */,
 			);
 			path = Vita;
@@ -1088,6 +1097,19 @@
 				C18CD1C91D701C2A00CB3725 /* wincompat.h */,
 			);
 			path = inc;
+			sourceTree = "<group>";
+		};
+		C19203CF1D8B13190006C0AA /* shaders */ = {
+			isa = PBXGroup;
+			children = (
+				C19203D21D8B136D0006C0AA /* clear_f.h */,
+				C19203D31D8B136D0006C0AA /* clear_v.h */,
+				C19203D01D8B13190006C0AA /* color_f.h */,
+				C19203D11D8B13190006C0AA /* color_v.h */,
+				C19203D41D8B136D0006C0AA /* texture_tint_f.h */,
+				C19203D51D8B136D0006C0AA /* texture_v.h */,
+			);
+			path = shaders;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
