@@ -30,7 +30,9 @@ CXXFLAGS := $(CFLAGS) -std=c++11
 
 all: update
 
-VITA_IP_ADDRESS := 192.168.43.176
+VITA_IP_ADDRESS := 192.168.0.108
+#VITA_IP_ADDRESS := 192.168.43.176
+#VITA_IP_ADDRESS := 10.101.1.27
 
 install: package
 	curl -v -T $(PROJECT).vpk ftp://$(VITA_IP_ADDRESS):1337/ux0:/
