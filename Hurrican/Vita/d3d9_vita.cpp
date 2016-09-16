@@ -25,6 +25,18 @@ static size_t align_mem(size_t size, size_t alignment)
 	return ((size + (alignment - 1)) / alignment) * alignment;
 }
 
+static void check(const char *name, int err)
+{
+	if (err != 0)
+	{
+		Protokoll.WriteText(name, false);
+		Protokoll.WriteText(" failed. error code ", false);
+		Protokoll.WriteValue(err);
+		Protokoll.WriteText(".", true);
+		exit(1);
+	}
+}
+
 static void *gpu_alloc(SceKernelMemBlockType type, unsigned int size, SceGxmMemoryAttribFlags attribs, SceUID *uid)
 {
 	void *mem = nullptr;
