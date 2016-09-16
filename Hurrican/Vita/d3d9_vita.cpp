@@ -1,11 +1,24 @@
 #include "d3d9_vita.h"
 
+#include "../DX8Graphics.h"
+#include "../Logdatei.h"
+
 #include <psp2/display.h>
 #include <psp2/gxm.h>
 #include <psp2/kernel/sysmem.h>
 
 static const unsigned int SCREEN_W = 960;
 static const unsigned int SCREEN_H = 544;
+
+static const uint8_t clear_f[] =
+{
+#include "shaders/clear_v.h"
+};
+
+static const uint8_t clear_v[] =
+{
+#include "shaders/clear_v.h"
+};
 
 static size_t align_mem(size_t size, size_t alignment)
 {
@@ -94,6 +107,18 @@ public:
 	SceGxmColorSurface color_surfaces[2] = {};
 	SceGxmSyncObject *sync[2] = { nullptr, nullptr };
 	SceGxmDepthStencilSurface depth_stencil_surface = {};
+	VERTEX2D *clearVertices = nullptr;
+	uint16_t *clearIndices = nullptr;
+	
+#define SHADER(name) SceGxmVertexProgram *name = nullptr;
+#	include "shaders_v.h"
+#undef SHADER
+	
+#define SHADER(name) SceGxmFragmentProgram *name = nullptr;
+#	include "shaders_f.h"
+#undef SHADER
+	
+	const SceGxmProgramParameter *clear_color_param = nullptr;
 	
 	HRESULT BeginScene() override;
 	HRESULT Clear(int a, const void *b, int buffers, D3DCOLOR color, float z, int c) override;
@@ -113,6 +138,18 @@ public:
 	HRESULT TestCooperativeLevel() override;
 };
 
+static void display_callback(const void *callback_data)
+{
+	SceDisplayFrameBuf framebuf = {};
+	framebuf.size        = sizeof(SceDisplayFrameBuf);
+	framebuf.base        = *static_cast<void *const *>(callback_data);
+	framebuf.pitch       = SCREEN_W;
+	framebuf.pixelformat = SCE_DISPLAY_PIXELFORMAT_A8B8G8R8;
+	framebuf.width       = SCREEN_W;
+	framebuf.height      = SCREEN_H;
+	sceDisplaySetFrameBuf(&framebuf, SCE_DISPLAY_SETBUF_NEXTFRAME);
+}
+
 IDirect3D9 *Direct3DCreate9(UINT SDKVersion)
 {
 	return new Direct3D;
@@ -120,11 +157,13 @@ IDirect3D9 *Direct3DCreate9(UINT SDKVersion)
 
 HRESULT Direct3D::CreateDevice(UINT Adapter, D3DDEVTYPE DeviceType, HWND hFocusWindow, DWORD BehaviorFlags, D3DPRESENT_PARAMETERS *pPresentationParameters, IDirect3DDevice9 **ppReturnedDeviceInterface)
 {
+	Protokoll.WriteText("Initialising GXM\n", false);
+	
 	SceGxmInitializeParams params;
-	params.flags = 0x0;
-	params.displayQueueMaxPendingCount = 0x2; //Double buffering
-	params.displayQueueCallback = 0x0;
-	params.displayQueueCallbackDataSize = 0x0;
+	params.flags = 0;
+	params.displayQueueMaxPendingCount = 2;
+	params.displayQueueCallback = &display_callback;
+	params.displayQueueCallbackDataSize = sizeof(const void *);
 	params.parameterBufferSize = (16 * 1024 * 1024);
 	
 	sceGxmInitialize(&params);
@@ -249,6 +288,8 @@ HRESULT Direct3D::CreateDevice(UINT Adapter, D3DDEVTYPE DeviceType, HWND hFocusW
 													&patcherFragmentUsseUid,
 													&patcherFragmentUsseOffset);
 	
+	Protokoll.WriteText("Creating shader patcher\n", false);
+	
 	// create a shader patcher
 	SceGxmShaderPatcherParams patcherParams;
 	memset(&patcherParams, 0, sizeof(SceGxmShaderPatcherParams));
@@ -273,6 +314,96 @@ HRESULT Direct3D::CreateDevice(UINT Adapter, D3DDEVTYPE DeviceType, HWND hFocusW
 	SceGxmShaderPatcher *shaderPatcher = nullptr;
 	err = sceGxmShaderPatcherCreate(&patcherParams, &shaderPatcher);
 	
+#define SHADER(name) \
+const SceGxmProgram *const name##_gxp = reinterpret_cast<const SceGxmProgram *>(name); \
+SceGxmShaderPatcherId name##_id = nullptr; \
+sceGxmShaderPatcherRegisterProgram(shaderPatcher, name##_gxp, &name##_id);
+#	include "shaders.h"
+#undef SHADER
+	
+	SceGxmBlendInfo blend_info = {};
+	blend_info.colorFunc = SCE_GXM_BLEND_FUNC_ADD;
+	blend_info.alphaFunc = SCE_GXM_BLEND_FUNC_ADD;
+	blend_info.colorSrc  = SCE_GXM_BLEND_FACTOR_SRC_ALPHA;
+	blend_info.colorDst  = SCE_GXM_BLEND_FACTOR_ONE_MINUS_SRC_ALPHA;
+	blend_info.alphaSrc  = SCE_GXM_BLEND_FACTOR_ONE;
+	blend_info.alphaDst  = SCE_GXM_BLEND_FACTOR_ZERO;
+	blend_info.colorMask = SCE_GXM_COLOR_MASK_ALL;
+	
+	Protokoll.WriteText("Finding parameters.\n", false);
+
+	const SceGxmProgramParameter *const clear_pos_param = sceGxmProgramFindParameterByName(clear_v_gxp, "aPosition");
+	const unsigned int clear_pos_index = sceGxmProgramParameterGetResourceIndex(clear_pos_param);
+	
+	Protokoll.WriteText("Setting up attributes and streams.\n", false);
+	
+	SceGxmVertexAttribute vertex_attrs[3] = {};
+	vertex_attrs[0].streamIndex	= 0;
+	vertex_attrs[0].offset		= offsetof(VERTEX2D, x);
+	vertex_attrs[0].format		= SCE_GXM_ATTRIBUTE_FORMAT_F32;
+	vertex_attrs[0].componentCount	= 2;
+	vertex_attrs[0].regIndex = clear_pos_index;
+	
+	SceGxmVertexStream vertex_stream = {};
+	vertex_stream.stride = sizeof(VERTEX2D);
+	vertex_stream.indexSource = SCE_GXM_INDEX_SOURCE_INDEX_16BIT;
+	
+	Protokoll.WriteText("Creating vertex programs.\n", false);
+	
+	err = sceGxmShaderPatcherCreateVertexProgram(
+												 shaderPatcher,
+												 clear_v_id,
+												 vertex_attrs,
+												 1,
+												 &vertex_stream,
+												 1,
+												 &device->clear_v);
+	
+	Protokoll.WriteText("Creating fragment programs.\n", false);
+	
+	err = sceGxmShaderPatcherCreateFragmentProgram(
+												   shaderPatcher,
+												   clear_f_id,
+												   SCE_GXM_OUTPUT_REGISTER_FORMAT_UCHAR4,
+												   SCE_GXM_MULTISAMPLE_NONE,
+												   NULL,
+												   clear_v_gxp,
+												   &device->clear_f);
+	
+	Protokoll.WriteText("Creating vertices.\n", false);
+	
+	// create the clear triangle vertex/index data
+	SceUID clearVerticesUid = -1;
+	device->clearVertices = (VERTEX2D *)gpu_alloc(
+													 SCE_KERNEL_MEMBLOCK_TYPE_USER_RW_UNCACHE,
+													 3*sizeof(VERTEX2D),
+													 SCE_GXM_MEMORY_ATTRIB_READ,
+													 &clearVerticesUid);
+	
+	SceUID clearIndicesUid = -1;
+	device->clearIndices = (uint16_t *)gpu_alloc(
+										 SCE_KERNEL_MEMBLOCK_TYPE_USER_RW_UNCACHE,
+										 3*sizeof(uint16_t),
+										 SCE_GXM_MEMORY_ATTRIB_READ,
+										 &clearIndicesUid);
+	
+	device->clearVertices[0].x = -1.0f;
+	device->clearVertices[0].y = -1.0f;
+	device->clearVertices[1].x =  3.0f;
+	device->clearVertices[1].y = -1.0f;
+	device->clearVertices[2].x = -1.0f;
+	device->clearVertices[2].y =  3.0f;
+	
+	device->clearIndices[0] = 0;
+	device->clearIndices[1] = 1;
+	device->clearIndices[2] = 2;
+	
+	Protokoll.WriteText("Finding uniforms.\n", false);
+	
+	device->clear_color_param = sceGxmProgramFindParameterByName(clear_f_gxp, "uClearColor");
+	
+	Protokoll.WriteText("Device created!\n\n", false);
+	
 	*ppReturnedDeviceInterface = device.release();
 	
 	return D3D_OK;
@@ -280,11 +411,52 @@ HRESULT Direct3D::CreateDevice(UINT Adapter, D3DDEVTYPE DeviceType, HWND hFocusW
 
 HRESULT Device::BeginScene()
 {
+	Protokoll.WriteText("BeginScene\n", false);
+	
+	sceGxmBeginScene(
+				  context,
+				  0,
+				  renderTarget,
+				  NULL,
+				  NULL,
+				  sync[1 - next_buffer],
+				  &color_surfaces[next_buffer],
+				  &depth_stencil_surface);
+	
 	return D3D_OK;
 }
 
 HRESULT Device::Clear(int a, const void *b, int buffers, D3DCOLOR color, float z, int c)
 {
+	Protokoll.WriteText("Clear\n", false);
+	
+	const float clear_color[4] = { 0.25f, 0.5f, 1, 1 };
+	
+	sceGxmSetVertexProgram(context, clear_v);
+	
+	Protokoll.WriteText("1\n", false);
+	sceGxmSetFragmentProgram(context, clear_f);
+	
+	Protokoll.WriteText("2\n", false);
+	
+	void *color_buffer = nullptr;
+	sceGxmReserveFragmentDefaultUniformBuffer(context, &color_buffer);
+	
+	Protokoll.WriteText("3\n", false);
+	Protokoll.WriteValue((int)color_buffer);
+	Protokoll.WriteValue((int)clear_color_param);
+	
+	sceGxmSetUniformDataF(color_buffer, clear_color_param, 0, 4, clear_color);
+	
+	Protokoll.WriteText("4\n", false);
+	
+	sceGxmSetVertexStream(context, 0, clearVertices);
+	Protokoll.WriteText("5\n", false);
+	
+	sceGxmDraw(context, SCE_GXM_PRIMITIVE_TRIANGLES, SCE_GXM_INDEX_FORMAT_U16, clearIndices, 3);
+	
+	Protokoll.WriteText("Clear OK\n", false);
+	
 	return D3D_OK;
 }
 
@@ -302,6 +474,10 @@ HRESULT Device::DrawPrimitiveUP(D3DPRIMITIVETYPE PrimitiveType, UINT PrimitiveCo
 
 HRESULT Device::EndScene()
 {
+	Protokoll.WriteText("EndScene\n", false);
+	
+	sceGxmEndScene(context, NULL, NULL);
+	
 	return D3D_OK;
 }
 
@@ -314,16 +490,15 @@ HRESULT Device::GetDeviceCaps(D3DCAPS9 *pCaps)
 
 HRESULT Device::Present(const RECT *pSourceRect, const RECT *pDestRect, HWND hDestWindowOverride, const RGNDATA *pDirtyRegion)
 {
-	SceDisplayFrameBuf fb;
-	fb.size = sizeof(fb);
-	fb.pitch = SCREEN_W;
-	fb.pixelformat = SCE_DISPLAY_PIXELFORMAT_A8B8G8R8;
-	fb.width = SCREEN_W;
-	fb.height = SCREEN_H;
-	sceKernelGetMemBlockBase(this->fb[next_buffer], &fb.base);
+	Protokoll.WriteText("Present\n", false);
 	
-	sceDisplayWaitVblankStart();
-	sceDisplaySetFrameBuf(&fb, SCE_DISPLAY_SETBUF_NEXTFRAME);
+	void *base = nullptr;
+	sceKernelGetMemBlockBase(fb[next_buffer], &base);
+	sceGxmPadHeartbeat(&color_surfaces[next_buffer], sync[next_buffer]);
+	sceGxmDisplayQueueAddEntry(
+							   sync[1 - next_buffer],	// OLD fb
+							   sync[next_buffer],	// NEW fb
+							   &base);
 	
 	next_buffer = 1 - next_buffer;
 	
