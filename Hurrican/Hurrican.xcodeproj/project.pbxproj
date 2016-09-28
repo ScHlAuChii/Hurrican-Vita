@@ -602,6 +602,8 @@
 		C123F6EB1D6D81200000ABE3 /* Trigger_Warning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trigger_Warning.h; sourceTree = "<group>"; };
 		C123F6EC1D6D81200000ABE3 /* unrarlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = unrarlib.h; path = inc/unrarlib.h; sourceTree = "<group>"; };
 		C123F6ED1D6D81200000ABE3 /* wincompat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = wincompat.h; path = inc/wincompat.h; sourceTree = "<group>"; };
+		C14AF1381D9B9F99001AB062 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		C14AF1391D9B9F99001AB062 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C14AF7061D780F73009F1D2C /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		C17794401D76B7360046EE93 /* com.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = com.cpp; sourceTree = "<group>"; };
 		C18CD1B91D6DEEC200CB3725 /* HurricanStub */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HurricanStub; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -657,6 +659,7 @@
 		C108B8711D7D4ED700D47E84 /* Vita */ = {
 			isa = PBXGroup;
 			children = (
+				C14AF1371D9B9F99001AB062 /* portlibs */,
 				C108B8731D7DE07C00D47E84 /* d3d9_vita.cpp */,
 				C108B87F1D7DE19A00D47E84 /* d3d9_vita.h */,
 				C108B8741D7DE07C00D47E84 /* d3dx9_vita.cpp */,
@@ -1051,6 +1054,15 @@
 			);
 			sourceTree = "<group>";
 			usesTabs = 1;
+		};
+		C14AF1371D9B9F99001AB062 /* portlibs */ = {
+			isa = PBXGroup;
+			children = (
+				C14AF1381D9B9F99001AB062 /* Makefile */,
+				C14AF1391D9B9F99001AB062 /* README.md */,
+			);
+			path = portlibs;
+			sourceTree = "<group>";
 		};
 		C18CD1BA1D6DEF5E00CB3725 /* Wrap */ = {
 			isa = PBXGroup;
