@@ -1,3 +1,6 @@
 [submodule "Hurrican/Vita/portlibs"]
 	path = Hurrican/Vita/portlibs
 	url = https://github.com/xerpi/vita_portlibs.git
+[submodule "Hurrican/Vita/vita2d"]
+	path = Hurrican/Vita/vita2d
+	url = https://github.com/xerpi/libvita2d.git
