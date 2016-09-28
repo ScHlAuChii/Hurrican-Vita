@@ -26,6 +26,9 @@ GXP_HS := $(SRC_GXP:%.gxp=%.h)
 CFLAGS := -I$(SRC_DIR)/inc -I$(SRC_DIR)/Wrap
 CXXFLAGS := $(CFLAGS) -std=c++11
 
+VITA2D_DIR := vita2d/libvita2d
+VITA2D_LIB := $(VITA2D_DIR)/libvita2d.a
+
 .SECONDARY: $(GXP_HS)
 
 all: update
@@ -79,23 +82,27 @@ $(PROJECT).velf: $(PROJECT).elf
 	$(STRIP) -g $<
 	vita-elf-create $< $@
 
-$(PROJECT).elf: $(OBJS) installportlibs
+$(PROJECT).elf: $(OBJS) $(VITA2D_LIB)
 	$(CXX) -Wl,-q -o $@ $(OBJS) -lSceGxm_stub
 
-$(OBJ_DIR)/%.o : $(SRC_DIR)/%.cpp $(GXP_HS) installportlibs
+$(OBJ_DIR)/%.o : $(SRC_DIR)/%.cpp $(GXP_HS) $(VITA2D_LIB)
 	mkdir -p $(dir $@)
 	$(CXX) -c $(CXXFLAGS) -o $@ $<
 
-$(OBJ_DIR)/%.o : $(SRC_DIR)/%.c $(GXP_HS) installportlibs
+$(OBJ_DIR)/%.o : $(SRC_DIR)/%.c $(GXP_HS) $(VITA2D_LIB)
 	mkdir -p $(dir $@)
 	$(CC) -c $(CFLAGS) -o $@ $<
 
 %.h : %.gxp
 	xxd -i <$< >$@
 
+$(VITA2D_LIB): installportlibs
+	cd $(VITA2D_DIR) && make
+
 installportlibs:
 	cd portlibs && make
 
 clean:
 	rm -f $(PROJECT).velf $(PROJECT).elf $(PROJECT).vpk param.sfo eboot.bin $(OBJS) $(GXP_HS)
+	cd vita2d/libvita2d && make clean
 	cd portlibs && make clean
