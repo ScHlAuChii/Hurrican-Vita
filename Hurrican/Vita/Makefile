@@ -17,7 +17,7 @@ DATA_DIR := ../data
 DATA_FILES := $(wildcard $(DATA_DIR)/*.bmp $(DATA_DIR)/*.png $(DATA_DIR)/*.wav $(DATA_DIR)/boss_*.it)
 
 SRC_C := $(SRC_DIR)/Wrap/unrarlib.c
-SRC_CPP := $(call wildcard, $(SRC_DIR)/*.cpp $(SRC_DIR)/Wrap/*.cpp $(SRC_DIR)/Vita/*.cpp)
+SRC_CPP := $(call wildcard, $(SRC_DIR)/Vita/*.cpp $(SRC_DIR)/Wrap/*.cpp $(SRC_DIR)/*.cpp)
 SRC_GXP := $(call wildcard, $(SRC_DIR)/Vita/*.gxp)
 
 OBJS := $(addprefix $(OBJ_DIR)/, $(SRC_C:$(SRC_DIR)/%.c=%.o)) $(addprefix $(OBJ_DIR)/, $(SRC_CPP:$(SRC_DIR)/%.cpp=%.o))
