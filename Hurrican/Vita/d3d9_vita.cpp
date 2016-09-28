@@ -7,6 +7,8 @@
 #include <psp2/gxm.h>
 #include <psp2/kernel/sysmem.h>
 
+#include <stdarg.h>
+
 static const unsigned int SCREEN_W = 960;
 static const unsigned int SCREEN_H = 544;
 
@@ -20,6 +22,17 @@ static const uint8_t clear_v[] =
 #include "shaders/clear_v.h"
 };
 
+static void logf(const char *format, ...)
+{
+	char buf[1024] = {};
+	va_list args;
+	va_start(args, format);
+	vsprintf(buf, format, args);
+	va_end(args);
+	
+	Protokoll.WriteText(buf, false);
+}
+
 static size_t align_mem(size_t size, size_t alignment)
 {
 	return ((size + (alignment - 1)) / alignment) * alignment;
@@ -29,16 +42,20 @@ static void check(const char *name, int err)
 {
 	if (err != 0)
 	{
-		Protokoll.WriteText(name, false);
-		Protokoll.WriteText(" failed. error code ", false);
-		Protokoll.WriteValue(err);
-		Protokoll.WriteText(".", true);
+		logf("%s failed. Error code 0x%08x (%d).\n", name, err, err);
+		
+		Protokoll.WriteText(const_cast<char *>(""), true);
 		exit(1);
+	}
+	else
+	{
+		logf("%s OK.\n", name);
 	}
 }
 
 static void *gpu_alloc(SceKernelMemBlockType type, unsigned int size, SceGxmMemoryAttribFlags attribs, SceUID *uid)
 {
+	logf("%s\n", __FUNCTION__);
 	void *mem = nullptr;
 	
 	if (type == SCE_KERNEL_MEMBLOCK_TYPE_USER_CDRAM_RW)
@@ -52,52 +69,85 @@ static void *gpu_alloc(SceKernelMemBlockType type, unsigned int size, SceGxmMemo
 	
 	*uid = sceKernelAllocMemBlock("gpu_mem", type, size, NULL);
 	
-	if (sceKernelGetMemBlockBase(*uid, &mem) < 0)
+	int err = sceKernelGetMemBlockBase(*uid, &mem);
+	check("sceKernelGetMemBlockBase", err);
+	if (err < 0)
+	{
 		return NULL;
+	}
 	
-	if (sceGxmMapMemory(mem, size, attribs) < 0)
+	err = sceGxmMapMemory(mem, size, attribs);
+	check("sceGxmMapMemory", err);
+	if (err < 0)
+	{
 		return NULL;
+	}
 	
 	return mem;
 }
 
 void *vertex_usse_alloc(unsigned int size, SceUID *uid, unsigned int *usse_offset)
 {
+	logf("%s\n", __FUNCTION__);
+	
 	void *mem = NULL;
 	
 	size = align_mem(size, 4096);
 	*uid = sceKernelAllocMemBlock("vertex_usse", SCE_KERNEL_MEMBLOCK_TYPE_USER_RW_UNCACHE, size, NULL);
 	
-	if (sceKernelGetMemBlockBase(*uid, &mem) < 0)
+	int err = sceKernelGetMemBlockBase(*uid, &mem);
+	check("sceKernelGetMemBlockBase", err);
+	if (err < 0)
+	{
 		return NULL;
-	if (sceGxmMapVertexUsseMemory(mem, size, usse_offset) < 0)
+	}
+	
+	err = sceGxmMapVertexUsseMemory(mem, size, usse_offset);
+	check("sceGxmMapVertexUSseMemory", err);
+	if (err < 0)
+	{
 		return NULL;
+	}
 	
 	return mem;
 }
 
 void *fragment_usse_alloc(unsigned int size, SceUID *uid, unsigned int *usse_offset)
 {
+	logf("%s\n", __FUNCTION__);
 	void *mem = NULL;
 	
 	size = align_mem(size, 4096);
 	*uid = sceKernelAllocMemBlock("fragment_usse", SCE_KERNEL_MEMBLOCK_TYPE_USER_RW_UNCACHE, size, NULL);
 	
-	if (sceKernelGetMemBlockBase(*uid, &mem) < 0)
+	int err = sceKernelGetMemBlockBase(*uid, &mem);
+	check("sceKernelGetMemBlockBase", err);
+	if (err < 0)
+	{
 		return NULL;
-	if (sceGxmMapFragmentUsseMemory(mem, size, usse_offset) < 0)
+	}
+	
+	err = sceGxmMapFragmentUsseMemory(mem, size, usse_offset);
+	check("sceGxmMapFragmentUsseMemory", err);
+	if (err < 0)
+	{
 		return NULL;
+	}
 	
 	return mem;
 }
 
 static void *patcher_host_alloc(void *user_data, unsigned int size)
 {
-	return malloc(size);
+	void *const mem = malloc(size);
+	
+	logf("%s returning 0x%p (size %u)\n", __FUNCTION__, mem, size);
+	return mem;
 }
 
 static void patcher_host_free(void *user_data, void *mem)
 {
+	logf("%s\n", __FUNCTION__);
 	free(mem);
 }
 
@@ -169,8 +219,6 @@ IDirect3D9 *Direct3DCreate9(UINT SDKVersion)
 
 HRESULT Direct3D::CreateDevice(UINT Adapter, D3DDEVTYPE DeviceType, HWND hFocusWindow, DWORD BehaviorFlags, D3DPRESENT_PARAMETERS *pPresentationParameters, IDirect3DDevice9 **ppReturnedDeviceInterface)
 {
-	Protokoll.WriteText("Initialising GXM\n", false);
-	
 	SceGxmInitializeParams params;
 	params.flags = 0;
 	params.displayQueueMaxPendingCount = 2;
@@ -178,7 +226,9 @@ HRESULT Direct3D::CreateDevice(UINT Adapter, D3DDEVTYPE DeviceType, HWND hFocusW
 	params.displayQueueCallbackDataSize = sizeof(const void *);
 	params.parameterBufferSize = (16 * 1024 * 1024);
 	
-	sceGxmInitialize(&params);
+	int err = sceGxmInitialize(&params);
+	check("sceGxmInitialize", err);
+	
 	std::unique_ptr<Device> device(new Device);
 	
 	SceUID vdmRingBufferUid = -1;
@@ -222,11 +272,11 @@ HRESULT Direct3D::CreateDevice(UINT Adapter, D3DDEVTYPE DeviceType, HWND hFocusW
 	contextParams.fragmentUsseRingBufferMemSize	= SCE_GXM_DEFAULT_FRAGMENT_USSE_RING_BUFFER_SIZE;
 	contextParams.fragmentUsseRingBufferOffset	= fragmentUsseRingBufferOffset;
 	
-	int err = sceGxmCreateContext(&contextParams, &device->context);
+	err = sceGxmCreateContext(&contextParams, &device->context);
+	check("sceGxmCreateContext", err);
 	
 	// set up parameters
-	SceGxmRenderTargetParams renderTargetParams;
-	memset(&renderTargetParams, 0, sizeof(SceGxmRenderTargetParams));
+	SceGxmRenderTargetParams renderTargetParams = {};
 	renderTargetParams.flags			= 0;
 	renderTargetParams.width			= SCREEN_W;
 	renderTargetParams.height			= SCREEN_H;
@@ -237,6 +287,7 @@ HRESULT Direct3D::CreateDevice(UINT Adapter, D3DDEVTYPE DeviceType, HWND hFocusW
 	
 	// create the render target
 	err = sceGxmCreateRenderTarget(&renderTargetParams, &device->renderTarget);
+	check("sceGxmCreateRenderTarget", err);
 	
 	for (int i = 0; i < 2; ++i)
 	{
@@ -252,8 +303,10 @@ HRESULT Direct3D::CreateDevice(UINT Adapter, D3DDEVTYPE DeviceType, HWND hFocusW
 									 SCREEN_H,
 									 SCREEN_W,
 									 fb_data);
+		check("sceGxmColorSurfaceInit", err);
 		
 		err = sceGxmSyncObjectCreate(&device->sync[i]);
+		check("sceGxmSyncObjectCreate", err);
 	}
 	
 	const unsigned int alignedWidth = align_mem(SCREEN_W, SCE_GXM_TILE_SIZEX);
@@ -262,10 +315,10 @@ HRESULT Direct3D::CreateDevice(UINT Adapter, D3DDEVTYPE DeviceType, HWND hFocusW
 	const unsigned int depthStrideInSamples = alignedWidth;
 	SceUID depthBufferUid = -1;
 	void *const depthBufferData = gpu_alloc(
-								SCE_KERNEL_MEMBLOCK_TYPE_USER_RW_UNCACHE,
-								SCE_GXM_DEPTHSTENCIL_SURFACE_ALIGNMENT,
-								SCE_GXM_MEMORY_ATTRIB_RW,
-								&depthBufferUid);
+											SCE_KERNEL_MEMBLOCK_TYPE_USER_RW_UNCACHE,
+											SCE_GXM_DEPTHSTENCIL_SURFACE_ALIGNMENT,
+											SCE_GXM_MEMORY_ATTRIB_RW,
+											&depthBufferUid);
 	
 	err = sceGxmDepthStencilSurfaceInit(&device->depth_stencil_surface,
 										SCE_GXM_DEPTH_STENCIL_FORMAT_S8D24,
@@ -273,6 +326,7 @@ HRESULT Direct3D::CreateDevice(UINT Adapter, D3DDEVTYPE DeviceType, HWND hFocusW
 										depthStrideInSamples,
 										depthBufferData,
 										nullptr);
+	check("sceGxmDepthStencilSurfaceInit", err);
 	
 	const unsigned int patcherBufferSize		= 64*1024;
 	const unsigned int patcherVertexUsseSize	= 64*1024;
@@ -300,8 +354,6 @@ HRESULT Direct3D::CreateDevice(UINT Adapter, D3DDEVTYPE DeviceType, HWND hFocusW
 													&patcherFragmentUsseUid,
 													&patcherFragmentUsseOffset);
 	
-	Protokoll.WriteText("Creating shader patcher\n", false);
-	
 	// create a shader patcher
 	SceGxmShaderPatcherParams patcherParams;
 	memset(&patcherParams, 0, sizeof(SceGxmShaderPatcherParams));
@@ -325,11 +377,15 @@ HRESULT Direct3D::CreateDevice(UINT Adapter, D3DDEVTYPE DeviceType, HWND hFocusW
 	
 	SceGxmShaderPatcher *shaderPatcher = nullptr;
 	err = sceGxmShaderPatcherCreate(&patcherParams, &shaderPatcher);
+	check("sceGxmShaderPatcherCreate", err);
 	
 #define SHADER(name) \
 const SceGxmProgram *const name##_gxp = reinterpret_cast<const SceGxmProgram *>(name); \
+err = sceGxmProgramCheck(name##_gxp); \
+check("sceGxmProgramCheck", err); \
 SceGxmShaderPatcherId name##_id = nullptr; \
-sceGxmShaderPatcherRegisterProgram(shaderPatcher, name##_gxp, &name##_id);
+err = sceGxmShaderPatcherRegisterProgram(shaderPatcher, name##_gxp, &name##_id); \
+check("sceGxmShaderPatcherRegisterProgram", err);
 #	include "shaders.h"
 #undef SHADER
 	
@@ -342,12 +398,11 @@ sceGxmShaderPatcherRegisterProgram(shaderPatcher, name##_gxp, &name##_id);
 	blend_info.alphaDst  = SCE_GXM_BLEND_FACTOR_ZERO;
 	blend_info.colorMask = SCE_GXM_COLOR_MASK_ALL;
 	
-	Protokoll.WriteText("Finding parameters.\n", false);
-
 	const SceGxmProgramParameter *const clear_pos_param = sceGxmProgramFindParameterByName(clear_v_gxp, "aPosition");
 	const unsigned int clear_pos_index = sceGxmProgramParameterGetResourceIndex(clear_pos_param);
 	
-	Protokoll.WriteText("Setting up attributes and streams.\n", false);
+	logf("clear_pos_param = 0x%p\n", clear_pos_param);
+	logf("clear_pos_index = %u\n", clear_pos_index);
 	
 	SceGxmVertexAttribute vertex_attrs[3] = {};
 	vertex_attrs[0].streamIndex	= 0;
@@ -360,8 +415,6 @@ sceGxmShaderPatcherRegisterProgram(shaderPatcher, name##_gxp, &name##_id);
 	vertex_stream.stride = sizeof(VERTEX2D);
 	vertex_stream.indexSource = SCE_GXM_INDEX_SOURCE_INDEX_16BIT;
 	
-	Protokoll.WriteText("Creating vertex programs.\n", false);
-	
 	err = sceGxmShaderPatcherCreateVertexProgram(
 												 shaderPatcher,
 												 clear_v_id,
@@ -370,21 +423,22 @@ sceGxmShaderPatcherRegisterProgram(shaderPatcher, name##_gxp, &name##_id);
 												 &vertex_stream,
 												 1,
 												 &device->clear_v);
+	check("sceGxmShaderPatcherCreateVertexProgram", err);
 	
-	Protokoll.WriteText("Creating fragment programs.\n", false);
+	logf("shaderPatcher = 0x%p\n", shaderPatcher);
+	logf("clear_f_id = 0x%p\n", clear_f_id);
+	logf("clear_v_gxp = 0x%p\n", clear_v_gxp);
 	
 	err = sceGxmShaderPatcherCreateFragmentProgram(
 												   shaderPatcher,
 												   clear_f_id,
 												   SCE_GXM_OUTPUT_REGISTER_FORMAT_UCHAR4,
 												   SCE_GXM_MULTISAMPLE_NONE,
-												   NULL,
+												   nullptr,
 												   clear_v_gxp,
 												   &device->clear_f);
+	check("sceGxmShaderPatcherCreateFragmentProgram", err);
 	
-	Protokoll.WriteText("Creating vertices.\n", false);
-	
-	// create the clear triangle vertex/index data
 	SceUID clearVerticesUid = -1;
 	device->clearVertices = (VERTEX2D *)gpu_alloc(
 													 SCE_KERNEL_MEMBLOCK_TYPE_USER_RW_UNCACHE,
@@ -394,10 +448,10 @@ sceGxmShaderPatcherRegisterProgram(shaderPatcher, name##_gxp, &name##_id);
 	
 	SceUID clearIndicesUid = -1;
 	device->clearIndices = (uint16_t *)gpu_alloc(
-										 SCE_KERNEL_MEMBLOCK_TYPE_USER_RW_UNCACHE,
-										 3*sizeof(uint16_t),
-										 SCE_GXM_MEMORY_ATTRIB_READ,
-										 &clearIndicesUid);
+												 SCE_KERNEL_MEMBLOCK_TYPE_USER_RW_UNCACHE,
+												 3*sizeof(uint16_t),
+												 SCE_GXM_MEMORY_ATTRIB_READ,
+												 &clearIndicesUid);
 	
 	device->clearVertices[0].x = -1.0f;
 	device->clearVertices[0].y = -1.0f;
@@ -410,11 +464,7 @@ sceGxmShaderPatcherRegisterProgram(shaderPatcher, name##_gxp, &name##_id);
 	device->clearIndices[1] = 1;
 	device->clearIndices[2] = 2;
 	
-	Protokoll.WriteText("Finding uniforms.\n", false);
-	
 	device->clear_color_param = sceGxmProgramFindParameterByName(clear_f_gxp, "uClearColor");
-	
-	Protokoll.WriteText("Device created!\n\n", false);
 	
 	*ppReturnedDeviceInterface = device.release();
 	
@@ -423,51 +473,32 @@ sceGxmShaderPatcherRegisterProgram(shaderPatcher, name##_gxp, &name##_id);
 
 HRESULT Device::BeginScene()
 {
-	Protokoll.WriteText("BeginScene\n", false);
-	
-	sceGxmBeginScene(
-				  context,
-				  0,
-				  renderTarget,
-				  NULL,
-				  NULL,
-				  sync[1 - next_buffer],
-				  &color_surfaces[next_buffer],
-				  &depth_stencil_surface);
+	const int err = sceGxmBeginScene(
+									 context,
+									 0,
+									 renderTarget,
+									 NULL,
+									 NULL,
+									 sync[1 - next_buffer],
+									 &color_surfaces[next_buffer],
+									 &depth_stencil_surface);
+	check("sceGxmBeginScene", err);
 	
 	return D3D_OK;
 }
 
 HRESULT Device::Clear(int a, const void *b, int buffers, D3DCOLOR color, float z, int c)
 {
-	Protokoll.WriteText("Clear\n", false);
-	
 	const float clear_color[4] = { 0.25f, 0.5f, 1, 1 };
 	
 	sceGxmSetVertexProgram(context, clear_v);
-	
-	Protokoll.WriteText("1\n", false);
 	sceGxmSetFragmentProgram(context, clear_f);
-	
-	Protokoll.WriteText("2\n", false);
 	
 	void *color_buffer = nullptr;
 	sceGxmReserveFragmentDefaultUniformBuffer(context, &color_buffer);
-	
-	Protokoll.WriteText("3\n", false);
-	Protokoll.WriteValue((int)color_buffer);
-	Protokoll.WriteValue((int)clear_color_param);
-	
 	sceGxmSetUniformDataF(color_buffer, clear_color_param, 0, 4, clear_color);
-	
-	Protokoll.WriteText("4\n", false);
-	
 	sceGxmSetVertexStream(context, 0, clearVertices);
-	Protokoll.WriteText("5\n", false);
-	
 	sceGxmDraw(context, SCE_GXM_PRIMITIVE_TRIANGLES, SCE_GXM_INDEX_FORMAT_U16, clearIndices, 3);
-	
-	Protokoll.WriteText("Clear OK\n", false);
 	
 	return D3D_OK;
 }
@@ -486,8 +517,6 @@ HRESULT Device::DrawPrimitiveUP(D3DPRIMITIVETYPE PrimitiveType, UINT PrimitiveCo
 
 HRESULT Device::EndScene()
 {
-	Protokoll.WriteText("EndScene\n", false);
-	
 	sceGxmEndScene(context, NULL, NULL);
 	
 	return D3D_OK;
@@ -502,8 +531,6 @@ HRESULT Device::GetDeviceCaps(D3DCAPS9 *pCaps)
 
 HRESULT Device::Present(const RECT *pSourceRect, const RECT *pDestRect, HWND hDestWindowOverride, const RGNDATA *pDirtyRegion)
 {
-	Protokoll.WriteText("Present\n", false);
-	
 	void *base = nullptr;
 	sceKernelGetMemBlockBase(fb[next_buffer], &base);
 	sceGxmPadHeartbeat(&color_surfaces[next_buffer], sync[next_buffer]);
