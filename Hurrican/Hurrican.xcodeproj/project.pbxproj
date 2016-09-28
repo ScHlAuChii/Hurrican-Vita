@@ -604,6 +604,34 @@
 		C123F6ED1D6D81200000ABE3 /* wincompat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = wincompat.h; path = inc/wincompat.h; sourceTree = "<group>"; };
 		C14AF1381D9B9F99001AB062 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		C14AF1391D9B9F99001AB062 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C14AF1401D9BA3C4001AB062 /* bin_packing_2d.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bin_packing_2d.h; sourceTree = "<group>"; };
+		C14AF1411D9BA3C4001AB062 /* int_htab.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = int_htab.h; sourceTree = "<group>"; };
+		C14AF1421D9BA3C4001AB062 /* shared.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = shared.h; sourceTree = "<group>"; };
+		C14AF1431D9BA3C4001AB062 /* texture_atlas.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = texture_atlas.h; sourceTree = "<group>"; };
+		C14AF1441D9BA3C4001AB062 /* utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = utils.h; sourceTree = "<group>"; };
+		C14AF1451D9BA3C4001AB062 /* vita2d.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = vita2d.h; sourceTree = "<group>"; };
+		C14AF1461D9BA3C4001AB062 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		C14AF1481D9BA3C4001AB062 /* clear_f.cg */ = {isa = PBXFileReference; lastKnownFileType = text; path = clear_f.cg; sourceTree = "<group>"; };
+		C14AF1491D9BA3C4001AB062 /* clear_v.cg */ = {isa = PBXFileReference; lastKnownFileType = text; path = clear_v.cg; sourceTree = "<group>"; };
+		C14AF14A1D9BA3C4001AB062 /* color_f.cg */ = {isa = PBXFileReference; lastKnownFileType = text; path = color_f.cg; sourceTree = "<group>"; };
+		C14AF14B1D9BA3C4001AB062 /* color_v.cg */ = {isa = PBXFileReference; lastKnownFileType = text; path = color_v.cg; sourceTree = "<group>"; };
+		C14AF1541D9BA3C4001AB062 /* texture_f.cg */ = {isa = PBXFileReference; lastKnownFileType = text; path = texture_f.cg; sourceTree = "<group>"; };
+		C14AF1551D9BA3C4001AB062 /* texture_tint_f.cg */ = {isa = PBXFileReference; lastKnownFileType = text; path = texture_tint_f.cg; sourceTree = "<group>"; };
+		C14AF1561D9BA3C4001AB062 /* texture_v.cg */ = {isa = PBXFileReference; lastKnownFileType = text; path = texture_v.cg; sourceTree = "<group>"; };
+		C14AF1581D9BA3C4001AB062 /* bin_packing_2d.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = bin_packing_2d.c; sourceTree = "<group>"; };
+		C14AF1591D9BA3C4001AB062 /* int_htab.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = int_htab.c; sourceTree = "<group>"; };
+		C14AF15A1D9BA3C4001AB062 /* texture_atlas.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = texture_atlas.c; sourceTree = "<group>"; };
+		C14AF15B1D9BA3C4001AB062 /* utils.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = utils.c; sourceTree = "<group>"; };
+		C14AF15C1D9BA3C4001AB062 /* vita2d.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = vita2d.c; sourceTree = "<group>"; };
+		C14AF15D1D9BA3C4001AB062 /* vita2d_draw.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = vita2d_draw.c; sourceTree = "<group>"; };
+		C14AF15E1D9BA3C4001AB062 /* vita2d_font.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = vita2d_font.c; sourceTree = "<group>"; };
+		C14AF15F1D9BA3C4001AB062 /* vita2d_image_bmp.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = vita2d_image_bmp.c; sourceTree = "<group>"; };
+		C14AF1601D9BA3C4001AB062 /* vita2d_image_jpeg.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = vita2d_image_jpeg.c; sourceTree = "<group>"; };
+		C14AF1611D9BA3C4001AB062 /* vita2d_image_png.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = vita2d_image_png.c; sourceTree = "<group>"; };
+		C14AF1621D9BA3C4001AB062 /* vita2d_pgf.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = vita2d_pgf.c; sourceTree = "<group>"; };
+		C14AF1631D9BA3C4001AB062 /* vita2d_texture.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = vita2d_texture.c; sourceTree = "<group>"; };
+		C14AF1681D9BA3C4001AB062 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		C14AF1691D9BA3C4001AB062 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		C14AF7061D780F73009F1D2C /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		C17794401D76B7360046EE93 /* com.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = com.cpp; sourceTree = "<group>"; };
 		C18CD1B91D6DEEC200CB3725 /* HurricanStub */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HurricanStub; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -660,6 +688,7 @@
 			isa = PBXGroup;
 			children = (
 				C14AF1371D9B9F99001AB062 /* portlibs */,
+				C14AF13C1D9BA3C4001AB062 /* vita2d */,
 				C108B8731D7DE07C00D47E84 /* d3d9_vita.cpp */,
 				C108B87F1D7DE19A00D47E84 /* d3d9_vita.h */,
 				C108B8741D7DE07C00D47E84 /* d3dx9_vita.cpp */,
@@ -1062,6 +1091,81 @@
 				C14AF1391D9B9F99001AB062 /* README.md */,
 			);
 			path = portlibs;
+			sourceTree = "<group>";
+		};
+		C14AF13C1D9BA3C4001AB062 /* vita2d */ = {
+			isa = PBXGroup;
+			children = (
+				C14AF13E1D9BA3C4001AB062 /* libvita2d */,
+				C14AF1661D9BA3C4001AB062 /* sample */,
+			);
+			path = vita2d;
+			sourceTree = "<group>";
+		};
+		C14AF13E1D9BA3C4001AB062 /* libvita2d */ = {
+			isa = PBXGroup;
+			children = (
+				C14AF13F1D9BA3C4001AB062 /* include */,
+				C14AF1471D9BA3C4001AB062 /* shader */,
+				C14AF1571D9BA3C4001AB062 /* source */,
+				C14AF1461D9BA3C4001AB062 /* Makefile */,
+			);
+			path = libvita2d;
+			sourceTree = "<group>";
+		};
+		C14AF13F1D9BA3C4001AB062 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				C14AF1401D9BA3C4001AB062 /* bin_packing_2d.h */,
+				C14AF1411D9BA3C4001AB062 /* int_htab.h */,
+				C14AF1421D9BA3C4001AB062 /* shared.h */,
+				C14AF1431D9BA3C4001AB062 /* texture_atlas.h */,
+				C14AF1441D9BA3C4001AB062 /* utils.h */,
+				C14AF1451D9BA3C4001AB062 /* vita2d.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		C14AF1471D9BA3C4001AB062 /* shader */ = {
+			isa = PBXGroup;
+			children = (
+				C14AF1481D9BA3C4001AB062 /* clear_f.cg */,
+				C14AF1491D9BA3C4001AB062 /* clear_v.cg */,
+				C14AF14A1D9BA3C4001AB062 /* color_f.cg */,
+				C14AF14B1D9BA3C4001AB062 /* color_v.cg */,
+				C14AF1541D9BA3C4001AB062 /* texture_f.cg */,
+				C14AF1551D9BA3C4001AB062 /* texture_tint_f.cg */,
+				C14AF1561D9BA3C4001AB062 /* texture_v.cg */,
+			);
+			path = shader;
+			sourceTree = "<group>";
+		};
+		C14AF1571D9BA3C4001AB062 /* source */ = {
+			isa = PBXGroup;
+			children = (
+				C14AF1581D9BA3C4001AB062 /* bin_packing_2d.c */,
+				C14AF1591D9BA3C4001AB062 /* int_htab.c */,
+				C14AF15A1D9BA3C4001AB062 /* texture_atlas.c */,
+				C14AF15B1D9BA3C4001AB062 /* utils.c */,
+				C14AF15C1D9BA3C4001AB062 /* vita2d.c */,
+				C14AF15D1D9BA3C4001AB062 /* vita2d_draw.c */,
+				C14AF15E1D9BA3C4001AB062 /* vita2d_font.c */,
+				C14AF15F1D9BA3C4001AB062 /* vita2d_image_bmp.c */,
+				C14AF1601D9BA3C4001AB062 /* vita2d_image_jpeg.c */,
+				C14AF1611D9BA3C4001AB062 /* vita2d_image_png.c */,
+				C14AF1621D9BA3C4001AB062 /* vita2d_pgf.c */,
+				C14AF1631D9BA3C4001AB062 /* vita2d_texture.c */,
+			);
+			path = source;
+			sourceTree = "<group>";
+		};
+		C14AF1661D9BA3C4001AB062 /* sample */ = {
+			isa = PBXGroup;
+			children = (
+				C14AF1681D9BA3C4001AB062 /* main.c */,
+				C14AF1691D9BA3C4001AB062 /* Makefile */,
+			);
+			path = sample;
 			sourceTree = "<group>";
 		};
 		C18CD1BA1D6DEF5E00CB3725 /* Wrap */ = {
