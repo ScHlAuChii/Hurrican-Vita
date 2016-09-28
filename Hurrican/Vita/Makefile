@@ -83,7 +83,7 @@ $(PROJECT).velf: $(PROJECT).elf
 	vita-elf-create $< $@
 
 $(PROJECT).elf: $(OBJS) $(VITA2D_LIB)
-	$(CXX) -Wl,-q -o $@ $(OBJS) -lSceGxm_stub
+	$(CXX) -Wl,-q -o $@ $(OBJS) -L$(VITA2D_DIR) -lSceGxm_stub -lSceDisplay_stub -lSceSysmodule_stub -lvita2d
 
 $(OBJ_DIR)/%.o : $(SRC_DIR)/%.cpp $(GXP_HS) $(VITA2D_LIB)
 	mkdir -p $(dir $@)
