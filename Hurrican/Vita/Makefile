@@ -79,19 +79,23 @@ $(PROJECT).velf: $(PROJECT).elf
 	$(STRIP) -g $<
 	vita-elf-create $< $@
 
-$(PROJECT).elf: $(OBJS)
-	$(CXX) -Wl,-q -o $@ $^ -lSceGxm_stub
+$(PROJECT).elf: $(OBJS) installportlibs
+	$(CXX) -Wl,-q -o $@ $(OBJS) -lSceGxm_stub
 
-$(OBJ_DIR)/%.o : $(SRC_DIR)/%.cpp $(GXP_HS)
+$(OBJ_DIR)/%.o : $(SRC_DIR)/%.cpp $(GXP_HS) installportlibs
 	mkdir -p $(dir $@)
 	$(CXX) -c $(CXXFLAGS) -o $@ $<
 
-$(OBJ_DIR)/%.o : $(SRC_DIR)/%.c $(GXP_HS)
+$(OBJ_DIR)/%.o : $(SRC_DIR)/%.c $(GXP_HS) installportlibs
 	mkdir -p $(dir $@)
 	$(CC) -c $(CFLAGS) -o $@ $<
 
 %.h : %.gxp
 	xxd -i <$< >$@
 
+installportlibs:
+	cd portlibs && make
+
 clean:
 	rm -f $(PROJECT).velf $(PROJECT).elf $(PROJECT).vpk param.sfo eboot.bin $(OBJS) $(GXP_HS)
+	cd portlibs && make clean
