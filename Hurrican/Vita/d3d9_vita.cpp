@@ -1,5 +1,7 @@
 #include "d3d9_vita.h"
 
+#include "vita2d/libvita2d/include/vita2d.h"
+
 #include <assert.h>
 
 class Direct3D : public IDirect3D9
@@ -33,6 +35,9 @@ public:
 
 IDirect3D9 *Direct3DCreate9(UINT SDKVersion)
 {
+	vita2d_init();
+	vita2d_set_clear_color(RGBA8(0x10, 0x20, 0x40, 0xFF));
+	
 	return new Direct3D;
 }
 
@@ -45,6 +50,11 @@ HRESULT Direct3D::CreateDevice(UINT Adapter, D3DDEVTYPE DeviceType, HWND hFocusW
 
 HRESULT Device::BeginScene()
 {
+	vita2d_start_drawing();
+	vita2d_clear_screen();
+	
+	vita2d_draw_rectangle(20, 20, 400, 250, RGBA8(0, 255, 0, 255));
+	
 	return D3D_OK;
 }
 
@@ -76,6 +86,8 @@ HRESULT Device::DrawPrimitiveUP(D3DPRIMITIVETYPE PrimitiveType, UINT PrimitiveCo
 
 HRESULT Device::EndScene()
 {
+	vita2d_end_drawing();
+	
 	return D3D_OK;
 }
 
@@ -92,6 +104,8 @@ HRESULT Device::Present(const RECT *pSourceRect, const RECT *pDestRect, HWND hDe
 	assert(pDestRect == nullptr);
 	assert(hDestWindowOverride == nullptr);
 	assert(pDirtyRegion == nullptr);
+	
+	vita2d_swap_buffers();
 	
 	return D3D_OK;
 }
