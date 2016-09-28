@@ -1,0 +1,3 @@
+[submodule "Hurrican/Vita/portlibs"]
+	path = Hurrican/Vita/portlibs
+	url = https://github.com/xerpi/vita_portlibs.git
