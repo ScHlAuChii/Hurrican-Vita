@@ -104,5 +104,3 @@ installportlibs:
 
 clean:
 	rm -f $(PROJECT).velf $(PROJECT).elf $(PROJECT).vpk param.sfo eboot.bin $(OBJS) $(GXP_HS)
-	cd vita2d/libvita2d && make clean
-	cd portlibs && make clean
