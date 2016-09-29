@@ -34,6 +34,8 @@ VITA2D_LIB := $(VITA2D_DIR)/libvita2d.a
 all: update
 
 VITA_IP_ADDRESS := 192.168.43.176
+VITA_IP_ADDRESS := 192.168.0.108
+VITA_IP_ADDRESS := 10.101.1.25
 
 install: package
 	curl -v -T $(PROJECT).vpk ftp://$(VITA_IP_ADDRESS):1337/ux0:/
