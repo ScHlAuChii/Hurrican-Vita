@@ -1,5 +1,7 @@
 #include "windows.h"
 
+#include <psp2/rtc.h>
+
 #include <assert.h>
 
 static WNDCLASSEX wndclass;
@@ -40,14 +42,17 @@ BOOL PeekMessage(LPMSG lpMsg, HWND hWnd, UINT wMsgFilterMin, UINT wMsgFilterMax,
 
 BOOL QueryPerformanceCounter(LARGE_INTEGER *lpPerformanceCount)
 {
-	lpPerformanceCount->QuadPart = 0;
+	SceRtcTick tick = {};
+	sceRtcGetCurrentTick(&tick);
+	
+	lpPerformanceCount->QuadPart = tick.tick;
 	
 	return TRUE;
 }
 
 BOOL QueryPerformanceFrequency(LARGE_INTEGER *lpFrequency)
 {
-	lpFrequency->QuadPart = 0;
+	lpFrequency->QuadPart = sceRtcGetTickResolution();
 	
 	return TRUE;
 }
