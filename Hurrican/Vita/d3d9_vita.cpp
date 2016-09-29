@@ -1,7 +1,9 @@
 #include "d3d9_vita.h"
 
 #include "vita2d/libvita2d/include/vita2d.h"
+#include "vita2d/libvita2d/include/shared.h"
 
+#include <algorithm>
 #include <assert.h>
 
 class Direct3D : public IDirect3D9
@@ -33,10 +35,27 @@ public:
 	HRESULT TestCooperativeLevel() override;
 };
 
+struct Vertex
+{
+	float position[3];
+	D3DCOLOR colour;
+	float uv[2];
+};
+
+static inline vita2d_color_vertex transform_vertex(const Vertex &src)
+{
+	vita2d_color_vertex dst;
+	dst.x = src.position[0];
+	dst.y = src.position[1];
+	dst.z = src.position[2];
+	dst.color = (src.colour & 0xff00ff00) | ((src.colour & 0xff) << 16) | ((src.colour >> 16) & 0xff);
+	
+	return dst;
+}
+
 IDirect3D9 *Direct3DCreate9(UINT SDKVersion)
 {
 	vita2d_init();
-	vita2d_set_clear_color(RGBA8(0x10, 0x20, 0x40, 0xFF));
 	
 	return new Direct3D;
 }
@@ -51,9 +70,6 @@ HRESULT Direct3D::CreateDevice(UINT Adapter, D3DDEVTYPE DeviceType, HWND hFocusW
 HRESULT Device::BeginScene()
 {
 	vita2d_start_drawing();
-	vita2d_clear_screen();
-	
-	vita2d_draw_rectangle(20, 20, 400, 250, RGBA8(255, 0, 255, 255));
 	
 	return D3D_OK;
 }
@@ -66,6 +82,8 @@ HRESULT Device::Clear(int a, const void *b, int buffers, D3DCOLOR color, float z
 	assert(color == D3DCOLOR_XRGB(0, 0, 0));
 	assert(z == 1);
 	assert(c == 0);
+	
+	vita2d_clear_screen();
 	
 	return D3D_OK;
 }
@@ -80,6 +98,49 @@ HRESULT Device::CreateOffscreenPlainSurface(UINT Width, UINT Height, D3DFORMAT F
 HRESULT Device::DrawPrimitiveUP(D3DPRIMITIVETYPE PrimitiveType, UINT PrimitiveCount, const void *pVertexStreamZeroData, UINT VertexStreamZeroStride)
 {
 	assert(VertexStreamZeroStride > 0);
+	
+	SceGxmPrimitiveType mode = SCE_GXM_PRIMITIVE_TRIANGLES;
+	unsigned int vertex_count = 0;
+	switch (PrimitiveType)
+	{
+		case D3DPT_LINELIST:
+			mode = SCE_GXM_PRIMITIVE_LINES;
+			vertex_count = PrimitiveCount * 2;
+			break;
+		case D3DPT_TRIANGLELIST:
+			mode = SCE_GXM_PRIMITIVE_TRIANGLES;
+			vertex_count = PrimitiveCount * 3;
+			break;
+		case D3DPT_TRIANGLESTRIP:
+			mode = SCE_GXM_PRIMITIVE_TRIANGLE_STRIP;
+			vertex_count = PrimitiveCount + 2;
+			break;
+		default:
+			assert(!"Unhandled D3DPRIMITIVETYPE.");
+			break;
+	}
+	
+	const Vertex *const src_vertices = static_cast<const Vertex *>(pVertexStreamZeroData);
+	
+	vita2d_color_vertex *const dst_vertices = static_cast<vita2d_color_vertex *>(vita2d_pool_memalign(vertex_count * sizeof(vita2d_color_vertex), sizeof(vita2d_color_vertex)));
+	uint16_t *const indices = static_cast<uint16_t *>(vita2d_pool_memalign(vertex_count * sizeof(uint16_t), sizeof(uint16_t)));
+	
+	std::transform(&src_vertices[0], &src_vertices[vertex_count], &dst_vertices[0], transform_vertex);
+	
+	for (unsigned int i = 0; i < vertex_count; ++i)
+	{
+		indices[i] = i;
+	}
+	
+	sceGxmSetVertexProgram(_vita2d_context, _vita2d_colorVertexProgram);
+	sceGxmSetFragmentProgram(_vita2d_context, _vita2d_colorFragmentProgram);
+	
+	void *vertexDefaultBuffer;
+	sceGxmReserveVertexDefaultUniformBuffer(_vita2d_context, &vertexDefaultBuffer);
+	sceGxmSetUniformDataF(vertexDefaultBuffer, _vita2d_colorWvpParam, 0, 16, _vita2d_ortho_matrix);
+	
+	sceGxmSetVertexStream(_vita2d_context, 0, dst_vertices);
+	sceGxmDraw(_vita2d_context, SCE_GXM_PRIMITIVE_TRIANGLE_STRIP, SCE_GXM_INDEX_FORMAT_U16, indices, vertex_count);
 	
 	return D3D_OK;
 }
