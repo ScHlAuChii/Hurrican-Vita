@@ -53,7 +53,7 @@ HRESULT Device::BeginScene()
 	vita2d_start_drawing();
 	vita2d_clear_screen();
 	
-	vita2d_draw_rectangle(20, 20, 400, 250, RGBA8(0, 255, 0, 255));
+	vita2d_draw_rectangle(20, 20, 400, 250, RGBA8(255, 0, 255, 255));
 	
 	return D3D_OK;
 }

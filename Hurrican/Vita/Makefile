@@ -16,18 +16,18 @@ OBJ_DIR := obj
 DATA_DIR := ../data
 DATA_FILES := $(wildcard $(DATA_DIR)/*.bmp $(DATA_DIR)/*.png $(DATA_DIR)/*.wav $(DATA_DIR)/boss_*.it)
 
-SRC_C := $(SRC_DIR)/Wrap/unrarlib.c
+VITA2D_DIR := $(SRC_DIR)/Vita/vita2d/libvita2d
+VITA2D_SHADER_OBJS := $(wildcard $(VITA2D_DIR)/shader/compiled/*.o)
+
+SRC_C := $(SRC_DIR)/Wrap/unrarlib.c $(call wildcard, $(VITA2D_DIR)/source/*.c)
 SRC_CPP := $(call wildcard, $(SRC_DIR)/Vita/*.cpp $(SRC_DIR)/Wrap/*.cpp $(SRC_DIR)/*.cpp)
 SRC_GXP := $(call wildcard, $(SRC_DIR)/Vita/*.gxp)
 
 OBJS := $(addprefix $(OBJ_DIR)/, $(SRC_C:$(SRC_DIR)/%.c=%.o)) $(addprefix $(OBJ_DIR)/, $(SRC_CPP:$(SRC_DIR)/%.cpp=%.o))
 GXP_HS := $(SRC_GXP:%.gxp=%.h)
 
-CFLAGS := -I$(SRC_DIR)/inc -I$(SRC_DIR)/Wrap
+CFLAGS := -O2 -I$(SRC_DIR)/inc -I$(SRC_DIR)/Wrap -I$(VITA2D_DIR)/include -I$(VITASDK)/arm-vita-eabi/include/freetype2
 CXXFLAGS := $(CFLAGS) -std=c++11
-
-VITA2D_DIR := vita2d/libvita2d
-VITA2D_LIB := $(VITA2D_DIR)/libvita2d.a
 
 .SECONDARY: $(GXP_HS)
 
@@ -84,25 +84,19 @@ $(PROJECT).velf: $(PROJECT).elf
 	$(STRIP) -g $<
 	vita-elf-create $< $@
 
-$(PROJECT).elf: $(OBJS) $(VITA2D_LIB)
-	$(CXX) -Wl,-q -o $@ $(OBJS) -L$(VITA2D_DIR) -lSceGxm_stub -lSceDisplay_stub -lSceSysmodule_stub -lvita2d
+$(PROJECT).elf: $(OBJS) $(VITA2D_SHADER_OBJS)
+	$(CXX) -Wl,-q -o $@ $(OBJS) $(VITA2D_SHADER_OBJS) -lSceGxm_stub -lSceDisplay_stub -lSceSysmodule_stub -lpng -lz -ljpeg -lfreetype -lSceCommonDialog_stub -lScePgf_stub
 
-$(OBJ_DIR)/%.o : $(SRC_DIR)/%.cpp $(GXP_HS) $(VITA2D_LIB)
+$(OBJ_DIR)/%.o : $(SRC_DIR)/%.cpp $(GXP_HS)
 	mkdir -p $(dir $@)
 	$(CXX) -c $(CXXFLAGS) -o $@ $<
 
-$(OBJ_DIR)/%.o : $(SRC_DIR)/%.c $(GXP_HS) $(VITA2D_LIB)
+$(OBJ_DIR)/%.o : $(SRC_DIR)/%.c $(GXP_HS)
 	mkdir -p $(dir $@)
 	$(CC) -c $(CFLAGS) -o $@ $<
 
 %.h : %.gxp
 	xxd -i <$< >$@
-
-$(VITA2D_LIB): installportlibs
-	cd $(VITA2D_DIR) && make
-
-installportlibs:
-	cd portlibs && make
 
 clean:
 	rm -f $(PROJECT).velf $(PROJECT).elf $(PROJECT).vpk param.sfo eboot.bin $(OBJS) $(GXP_HS)
