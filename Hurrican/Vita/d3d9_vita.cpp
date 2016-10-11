@@ -17,6 +17,8 @@ class Device : public IDirect3DDevice9
 {
 public:
 	
+	VitaTexturePtr texture;
+	
 	HRESULT BeginScene() override;
 	HRESULT Clear(int a, const void *b, int buffers, D3DCOLOR color, float z, int c) override;
 	HRESULT CreateOffscreenPlainSurface(UINT Width, UINT Height, D3DFORMAT Format, D3DPOOL Pool, IDirect3DSurface9 **ppSurface, HANDLE *pSharedHandle) override;
@@ -42,13 +44,25 @@ struct Vertex
 	float uv[2];
 };
 
-static inline vita2d_color_vertex transform_vertex(const Vertex &src)
+static inline vita2d_color_vertex transform_color_vertex(const Vertex &src)
 {
 	vita2d_color_vertex dst;
 	dst.x = src.position[0];
 	dst.y = src.position[1];
 	dst.z = src.position[2];
 	dst.color = (src.colour & 0xff00ff00) | ((src.colour & 0xff) << 16) | ((src.colour >> 16) & 0xff);
+	
+	return dst;
+}
+
+static inline vita2d_texture_vertex transform_texture_vertex(const Vertex &src)
+{
+	vita2d_texture_vertex dst;
+	dst.x = src.position[0];
+	dst.y = src.position[1];
+	dst.z = src.position[2];
+	dst.u = src.uv[0];
+	dst.v = src.uv[1];
 	
 	return dst;
 }
@@ -122,25 +136,47 @@ HRESULT Device::DrawPrimitiveUP(D3DPRIMITIVETYPE PrimitiveType, UINT PrimitiveCo
 	
 	const Vertex *const src_vertices = static_cast<const Vertex *>(pVertexStreamZeroData);
 	
-	vita2d_color_vertex *const dst_vertices = static_cast<vita2d_color_vertex *>(vita2d_pool_memalign(vertex_count * sizeof(vita2d_color_vertex), sizeof(vita2d_color_vertex)));
+	if (texture)
+	{
+		sceGxmSetVertexProgram(_vita2d_context, _vita2d_textureVertexProgram);
+		sceGxmSetFragmentProgram(_vita2d_context, _vita2d_textureFragmentProgram);
+	}
+	else
+	{
+		sceGxmSetVertexProgram(_vita2d_context, _vita2d_colorVertexProgram);
+		sceGxmSetFragmentProgram(_vita2d_context, _vita2d_colorFragmentProgram);
+	}
+	
+	void *vertexDefaultBuffer = nullptr;
+	sceGxmReserveVertexDefaultUniformBuffer(_vita2d_context, &vertexDefaultBuffer);
+	
+	if (texture)
+	{
+		vita2d_texture_vertex *const dst_vertices = static_cast<vita2d_texture_vertex *>(vita2d_pool_memalign(vertex_count * sizeof(vita2d_texture_vertex), sizeof(vita2d_texture_vertex)));
+		
+		std::transform(&src_vertices[0], &src_vertices[vertex_count], &dst_vertices[0], transform_texture_vertex);
+		
+		sceGxmSetFragmentTexture(_vita2d_context, 0, &texture->gxm_tex);
+		sceGxmSetUniformDataF(vertexDefaultBuffer, _vita2d_textureWvpParam, 0, 16, _vita2d_ortho_matrix);
+		sceGxmSetVertexStream(_vita2d_context, 0, dst_vertices);
+	}
+	else
+	{
+		vita2d_color_vertex *const dst_vertices = static_cast<vita2d_color_vertex *>(vita2d_pool_memalign(vertex_count * sizeof(vita2d_color_vertex), sizeof(vita2d_color_vertex)));
+		
+		std::transform(&src_vertices[0], &src_vertices[vertex_count], &dst_vertices[0], transform_color_vertex);
+		
+		sceGxmSetUniformDataF(vertexDefaultBuffer, _vita2d_colorWvpParam, 0, 16, _vita2d_ortho_matrix);
+		sceGxmSetVertexStream(_vita2d_context, 0, dst_vertices);
+	}
+	
 	uint16_t *const indices = static_cast<uint16_t *>(vita2d_pool_memalign(vertex_count * sizeof(uint16_t), sizeof(uint16_t)));
-	
-	std::transform(&src_vertices[0], &src_vertices[vertex_count], &dst_vertices[0], transform_vertex);
-	
 	for (unsigned int i = 0; i < vertex_count; ++i)
 	{
 		indices[i] = i;
 	}
 	
-	sceGxmSetVertexProgram(_vita2d_context, _vita2d_colorVertexProgram);
-	sceGxmSetFragmentProgram(_vita2d_context, _vita2d_colorFragmentProgram);
-	
-	void *vertexDefaultBuffer;
-	sceGxmReserveVertexDefaultUniformBuffer(_vita2d_context, &vertexDefaultBuffer);
-	sceGxmSetUniformDataF(vertexDefaultBuffer, _vita2d_colorWvpParam, 0, 16, _vita2d_ortho_matrix);
-	
-	sceGxmSetVertexStream(_vita2d_context, 0, dst_vertices);
-	sceGxmDraw(_vita2d_context, SCE_GXM_PRIMITIVE_TRIANGLE_STRIP, SCE_GXM_INDEX_FORMAT_U16, indices, vertex_count);
+	sceGxmDraw(_vita2d_context, mode, SCE_GXM_INDEX_FORMAT_U16, indices, vertex_count);
 	
 	return D3D_OK;
 }
@@ -193,6 +229,16 @@ HRESULT Device::SetSamplerState(DWORD Sampler, D3DSAMPLERSTATETYPE Type, DWORD V
 
 HRESULT Device::SetTexture(DWORD Sampler, IDirect3DBaseTexture9 *pTexture)
 {
+	const Texture *const t = static_cast<const Texture *>(pTexture);
+	if (t != nullptr)
+	{
+		texture = t->texture;
+	}
+	else
+	{
+		texture.reset();
+	}
+	
 	return D3D_OK;
 }
 
