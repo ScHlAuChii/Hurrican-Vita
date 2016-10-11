@@ -225,8 +225,8 @@ HRESULT Texture::GetLevelDesc(UINT Level, D3DSURFACE_DESC *pDesc)
 	assert(Level == 0);
 	
 	memset(pDesc, 0, sizeof(*pDesc));
-	pDesc->Width = width;
-	pDesc->Height = height;
+	pDesc->Width = vita2d_texture_get_width(texture.get());
+	pDesc->Height = vita2d_texture_get_height(texture.get());
 	
 	return D3D_OK;
 }
@@ -237,8 +237,8 @@ HRESULT Texture::LockRect(UINT Level, D3DLOCKED_RECT *pLockedRect, const RECT *p
 	assert(pRect == nullptr);
 	
 	memset(pLockedRect, 0, sizeof(*pLockedRect));
-	pLockedRect->Pitch = width * 4;
-	pLockedRect->pBits = pixels.get();
+	pLockedRect->Pitch = vita2d_texture_get_stride(texture.get());
+	pLockedRect->pBits = vita2d_texture_get_datap(texture.get());
 	
 	return D3D_OK;
 }

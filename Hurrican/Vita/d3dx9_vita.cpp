@@ -2,8 +2,7 @@
 
 #include "d3d9_vita.h"
 
-#define STB_IMAGE_IMPLEMENTATION
-#include "stb_image.h"
+#include "vita2d/libvita2d/include/vita2d.h"
 
 #include <assert.h>
 
@@ -27,18 +26,22 @@ HRESULT D3DXCreateTextureFromFileEx(LPDIRECT3DDEVICE9 pDevice, LPCTSTR pSrcFile,
 	
 	*ppTexture = nullptr;
 	
-	int w = 0;
-	int h = 0;
-	const Pixels pixels(stbi_load(pSrcFile, &w, &h, nullptr, 4), &stbi_image_free);
-	assert(pixels);
+	VitaTexturePtr vt(vita2d_load_BMP_file(pSrcFile), &vita2d_free_texture);
+	if (!vt)
+	{
+		vt = VitaTexturePtr(vita2d_load_PNG_file(pSrcFile), &vita2d_free_texture);
+		if (!vt)
+		{
+			return D3DERR_DEVICENOTRESET;
+		}
+	}
 	
 	TexturePtr texture(new Texture);
-	texture->width = w;
-	texture->height = h;
-	texture->pixels = pixels;
+	texture->texture = vt;
 	
-	const uint8_t *const pixels_end = pixels.get() + (w * h * 4);
-	for (uint8_t *pixel = pixels.get(); pixel != pixels_end; pixel += 4)
+	uint8_t *const pixels_start = static_cast<uint8_t *>(vita2d_texture_get_datap(vt.get()));
+	const uint8_t *const pixels_end = pixels_start + (vita2d_texture_get_height(vt.get()) * vita2d_texture_get_stride(vt.get()));
+	for (uint8_t *pixel = pixels_start; pixel < pixels_end; pixel += 4)
 	{
 		if ((pixel[0] == 0xff) && (pixel[1] == 0x00) && (pixel[2] == 0xff) && (pixel[3] == 0xff))
 		{

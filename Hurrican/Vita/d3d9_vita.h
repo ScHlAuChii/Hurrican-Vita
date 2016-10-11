@@ -2,15 +2,15 @@
 
 #include <memory>
 
-typedef std::shared_ptr<uint8_t> Pixels;
+struct vita2d_texture;
+
+typedef std::shared_ptr<vita2d_texture> VitaTexturePtr;
 
 class Texture : public IDirect3DTexture9
 {
 public:
-	
-	int width = 0;
-	int height = 0;
-	Pixels pixels;
+
+	VitaTexturePtr texture;
 	
 	virtual ~Texture();
 	
@@ -18,5 +18,3 @@ public:
 	HRESULT LockRect(UINT Level, D3DLOCKED_RECT *pLockedRect, const RECT *pRect, DWORD Flags) override;
 	HRESULT UnlockRect(UINT Level) override;
 };
-
-void check();
