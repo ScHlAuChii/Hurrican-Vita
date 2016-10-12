@@ -3,4 +3,4 @@
 	url = https://github.com/xerpi/vita_portlibs.git
 [submodule "Hurrican/Vita/vita2d"]
 	path = Hurrican/Vita/vita2d
-	url = https://github.com/xerpi/libvita2d.git
+	url = https://github.com/petmac/libvita2d.git
