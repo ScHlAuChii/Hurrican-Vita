@@ -66,7 +66,7 @@ bool LoadLanguage (char *filename)
 			goto loadfile;
 	}
 
-	sprintf_s(temp, "%s", filename);
+	sprintf_s(temp, "%s/%s", DATADIR, filename);
 
 loadfile:
 
