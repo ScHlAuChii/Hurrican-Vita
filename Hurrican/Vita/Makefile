@@ -16,6 +16,9 @@ OBJ_DIR := obj
 DATA_DIR := ../data
 DATA_FILES := $(wildcard $(DATA_DIR)/*.bmp $(DATA_DIR)/*.png $(DATA_DIR)/*.wav $(DATA_DIR)/boss_*.it)
 
+LNG_DIR := $(SRC_DIR)
+LNG_FILES := $(wildcard $(LNG_DIR)/*.lng)
+
 VITA2D_DIR := $(SRC_DIR)/Vita/vita2d/libvita2d
 VITA2D_SHADER_OBJS := $(wildcard $(VITA2D_DIR)/shader/compiled/*.o)
 
@@ -45,7 +48,7 @@ update: eboot.bin
 
 package: $(PROJECT).vpk
 
-$(PROJECT).vpk: eboot.bin param.sfo $(DATA_FILES)
+$(PROJECT).vpk: eboot.bin param.sfo $(DATA_FILES) $(LNG_FILES)
 	vita-pack-vpk -s param.sfo -b eboot.bin \
 	--add sce_sys/icon0.png=sce_sys/icon0.png \
 	--add sce_sys/livearea/contents/bg.png=sce_sys/livearea/contents/bg.png \
@@ -72,6 +75,7 @@ $(PROJECT).vpk: eboot.bin param.sfo $(DATA_FILES)
 	--add $(DATA_DIR)/outtro.it=data/outtro.it \
 	--add $(DATA_DIR)/stageclear.it=data/stageclear.it \
 	$(foreach file,$(DATA_FILES),--add $(file)=$(subst $(DATA_DIR),data,$(file))) \
+	$(foreach file,$(LNG_FILES),--add $(file)=$(subst $(LNG_DIR)/,,$(file))) \
 	$(PROJECT).vpk
 
 eboot.bin: $(PROJECT).velf
