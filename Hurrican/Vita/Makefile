@@ -41,7 +41,7 @@ VITA_IP_ADDRESS := 192.168.0.108
 VITA_IP_ADDRESS := 10.101.1.25
 
 install: package
-	curl -v --disable-epsv -T $(PROJECT).vpk ftp://$(VITA_IP_ADDRESS):1337/ux0:/
+	curl -v --disable-epsv -T $(PROJECT).vpk ftp://$(VITA_IP_ADDRESS):1337/ux0:/data/
 
 update: eboot.bin
 	curl -v --disable-epsv -T eboot.bin ftp://$(VITA_IP_ADDRESS):1337/ux0:/app/$(PROJECT_TITLEID)/
