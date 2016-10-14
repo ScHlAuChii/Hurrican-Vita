@@ -85,7 +85,7 @@ $(PROJECT).velf: $(PROJECT).elf
 	vita-elf-create $< $@
 
 $(PROJECT).elf: $(OBJS) $(VITA2D_SHADER_OBJS)
-	$(CXX) -Wl,-q -o $@ $(OBJS) $(VITA2D_SHADER_OBJS) -lSceGxm_stub -lSceDisplay_stub -lSceSysmodule_stub -lpng -lz -ljpeg -lfreetype -lSceCommonDialog_stub -lScePgf_stub
+	$(CXX) -Wl,-q -o $@ $(OBJS) $(VITA2D_SHADER_OBJS) -lSceGxm_stub -lSceDisplay_stub -lSceSysmodule_stub -lpng -lz -ljpeg -lfreetype -lSceCommonDialog_stub -lScePgf_stub -lSceCtrl_stub
 
 $(OBJ_DIR)/%.o : $(SRC_DIR)/%.cpp $(GXP_HS)
 	mkdir -p $(dir $@)
