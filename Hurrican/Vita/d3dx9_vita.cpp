@@ -4,6 +4,9 @@
 
 #include "vita2d/libvita2d/include/vita2d.h"
 
+#define STB_IMAGE_IMPLEMENTATION
+#include "stb_image.h"
+
 #include <assert.h>
 
 typedef std::unique_ptr<Texture> TexturePtr;
@@ -26,30 +29,46 @@ HRESULT D3DXCreateTextureFromFileEx(LPDIRECT3DDEVICE9 pDevice, LPCTSTR pSrcFile,
 	
 	*ppTexture = nullptr;
 	
-	VitaTexturePtr vt(vita2d_load_BMP_file(pSrcFile), &vita2d_free_texture);
-	if (!vt)
+	int w = 0;
+	int h = 0;
+	typedef std::unique_ptr<uint8_t, void (*)(void *)> Pixels;
+	const Pixels pixels(stbi_load(pSrcFile, &w, &h, nullptr, 4), &stbi_image_free);
+	
+	const VitaTexturePtr vt(vita2d_create_empty_texture(w, h), &vita2d_free_texture);
+	const int stride = vita2d_texture_get_stride(vt.get());
+	
+	const uint8_t *src = pixels.get();
+	uint8_t *const dst_start = static_cast<uint8_t *>(vita2d_texture_get_datap(vt.get()));
+	for (int y = 0; y < h; ++y)
 	{
-		vt = VitaTexturePtr(vita2d_load_PNG_file(pSrcFile), &vita2d_free_texture);
-		if (!vt)
+		uint8_t *const dst_row_begin = dst_start + (y * stride);
+		const uint8_t *const dst_row_end = dst_row_begin + (w * 4);
+		for (uint8_t *dst = dst_row_begin; dst < dst_row_end; dst += 4)
 		{
-			return D3DERR_DEVICENOTRESET;
+			const uint8_t r = *src++;
+			const uint8_t g = *src++;
+			const uint8_t b = *src++;
+			const uint8_t a = *src++;
+			
+			if ((r == 0xff) && (g == 0x00) && (b == 0xff) && (a == 0xff))
+			{
+				dst[0] = 0;
+				dst[1] = 0;
+				dst[2] = 0;
+				dst[3] = 0;
+			}
+			else
+			{
+				dst[0] = r;
+				dst[1] = g;
+				dst[2] = b;
+				dst[3] = a;
+			}
 		}
 	}
 	
 	TexturePtr texture(new Texture);
 	texture->texture = vt;
-	
-	uint8_t *const pixels_start = static_cast<uint8_t *>(vita2d_texture_get_datap(vt.get()));
-	const uint8_t *const pixels_end = pixels_start + (vita2d_texture_get_height(vt.get()) * vita2d_texture_get_stride(vt.get()));
-	for (uint8_t *pixel = pixels_start; pixel < pixels_end; pixel += 4)
-	{
-		if ((pixel[0] == 0xff) && (pixel[1] == 0x00) && (pixel[2] == 0xff) && (pixel[3] == 0xff))
-		{
-			pixel[0] = 0x00;
-			pixel[2] = 0x00;
-			pixel[3] = 0x00;
-		}
-	}
 	
 	*ppTexture = texture.release();
 	
