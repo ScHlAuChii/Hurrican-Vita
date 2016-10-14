@@ -14,7 +14,7 @@ SRC_DIR := ..
 OBJ_DIR := obj
 
 DATA_DIR := ../data
-DATA_FILES := $(wildcard $(DATA_DIR)/*.bmp $(DATA_DIR)/*.png $(DATA_DIR)/*.wav $(DATA_DIR)/boss_*.it)
+DATA_FILES := $(wildcard $(DATA_DIR)/*.bmp $(DATA_DIR)/*.png $(DATA_DIR)/*.wav $(DATA_DIR)/boss_*.it $(DATA_DIR)/*.dat $(DATA_DIR)/*.map)
 
 LNG_DIR := $(SRC_DIR)
 LNG_FILES := $(wildcard $(LNG_DIR)/*.lng)
