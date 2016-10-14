@@ -37,8 +37,9 @@ CXXFLAGS := $(CFLAGS) -std=c++11
 all: update
 
 VITA_IP_ADDRESS := 192.168.43.176
-VITA_IP_ADDRESS := 192.168.0.108
-VITA_IP_ADDRESS := 10.101.1.25
+#VITA_IP_ADDRESS := 192.168.0.108
+#VITA_IP_ADDRESS := 10.101.1.25
+#VITA_IP_ADDRESS := 192.168.101.221
 
 install: package
 	curl -v --disable-epsv -T $(PROJECT).vpk ftp://$(VITA_IP_ADDRESS):1337/ux0:/data/
