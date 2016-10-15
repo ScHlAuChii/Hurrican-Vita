@@ -29,7 +29,7 @@ SRC_GXP := $(call wildcard, $(SRC_DIR)/Vita/*.gxp)
 OBJS := $(addprefix $(OBJ_DIR)/, $(SRC_C:$(SRC_DIR)/%.c=%.o)) $(addprefix $(OBJ_DIR)/, $(SRC_CPP:$(SRC_DIR)/%.cpp=%.o))
 GXP_HS := $(SRC_GXP:%.gxp=%.h)
 
-CFLAGS := -O2 -I$(SRC_DIR)/inc -I$(SRC_DIR)/Wrap -I$(VITA2D_DIR)/include -I$(VITASDK)/arm-vita-eabi/include/freetype2
+CFLAGS := -g -O2 -I$(SRC_DIR)/inc -I$(SRC_DIR)/Wrap -I$(VITA2D_DIR)/include -I$(VITASDK)/arm-vita-eabi/include/freetype2
 CXXFLAGS := $(CFLAGS) -std=c++11
 
 .SECONDARY: $(GXP_HS)
@@ -85,12 +85,14 @@ eboot.bin: $(PROJECT).velf
 param.sfo:
 	vita-mksfoex -s TITLE_ID="$(PROJECT_TITLEID)" "$(PROJECT_TITLE)" param.sfo
 
-$(PROJECT).velf: $(PROJECT).elf
-	$(STRIP) -g $<
+$(PROJECT).velf: $(PROJECT)-stripped.elf
 	vita-elf-create $< $@
 
+$(PROJECT)-stripped.elf: $(PROJECT).elf
+	$(STRIP) -g -o $@ $<
+
 $(PROJECT).elf: $(OBJS) $(VITA2D_SHADER_OBJS)
-	$(CXX) -Wl,-q -o $@ $(OBJS) $(VITA2D_SHADER_OBJS) -lSceGxm_stub -lSceDisplay_stub -lSceSysmodule_stub -lpng -lz -ljpeg -lfreetype -lSceCommonDialog_stub -lScePgf_stub -lSceCtrl_stub
+	$(CXX) -g -Wl,-q -o $@ $(OBJS) $(VITA2D_SHADER_OBJS) -lSceGxm_stub -lSceDisplay_stub -lSceSysmodule_stub -lpng -lz -ljpeg -lfreetype -lSceCommonDialog_stub -lScePgf_stub -lSceCtrl_stub
 
 $(OBJ_DIR)/%.o : $(SRC_DIR)/%.cpp $(GXP_HS)
 	mkdir -p $(dir $@)
