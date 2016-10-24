@@ -2488,14 +2488,17 @@ void MenuClass::DoMenu(void)
 					// Fehler beim Öffnen ? Dann leeren Slot erzeugen
 					if (Datei == NULL)
 					{
+						Protokoll.WriteText("Failed to open Savegame", true);
 					}
 
 					// Ansonsten Slot speichern
 					else
+					{
 						fwrite(&Savegames[AktuellerPunkt], sizeof(Savegames[AktuellerPunkt]), 1, Datei);
 
-					// Und Datei wieder schliessen
-					fclose(Datei);
+						// Und Datei wieder schliessen
+						fclose(Datei);
+					}
 				} // Select Slot Auswahl
 
 				// oder Weiter/Continue  ?
@@ -2740,11 +2743,11 @@ void MenuClass::SaveHighscore(void)
 			//
 			fwrite(&Highscores[i], sizeof(Highscores[i]), 1, Datei);
 		}
+		
+		// Und Datei wieder schliessen
+		//
+		fclose(Datei);
 	}
-			
-	// Und Datei wieder schliessen
-	//
-	fclose(Datei);
 }
 
 // --------------------------------------------------------------------------------------

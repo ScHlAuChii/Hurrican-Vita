@@ -724,6 +724,11 @@ void SaveConfig(void)
 	FILE *Datei = NULL;
 
 	fopen_s(&Datei, CONFIGFILE, "wb");
+	if (Datei == nullptr)
+	{
+		Protokoll.WriteText("Couldn't open CONFIGFILE", true);
+		return;
+	}
 
 	// Spracheinstellung speichern
 	fwrite(&ActualLanguage, sizeof(ActualLanguage), 1, Datei);
