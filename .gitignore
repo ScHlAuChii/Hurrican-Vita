@@ -9,6 +9,7 @@
 /Hurrican/Game_Log.txt
 /Hurrican/Hurrican.opensdf
 /Hurrican/Vita/obj/
+/Hurrican/Vita/*.psp2dmp
 /Hurrican/Vita/eboot.bin
 /Hurrican/Vita/hurrican.elf
 /Hurrican/Vita/hurrican-stripped.elf
